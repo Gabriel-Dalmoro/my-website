@@ -17,15 +17,14 @@ export default function Home() {
         </section>
 
         <section>
-          <h1 className="text-4xl">Projects</h1>
+          <h1 className="mb-2 text-4xl">Projects</h1>
           {content.english.projects.map((project) => (
-            <div key={project.id} className="mb-4">
-              <p>
-                <strong>Project Name:</strong> {project.title}
-              </p>
-              <p>
-                <strong>Project Description:</strong> {project.description}
-              </p>
+            <div
+              key={project.id}
+              className="mb-4 rounded-md border-2 border-slate-500 p-4"
+            >
+              <h3 className="mb-1 text-2xl font-medium">{project.title}</h3>
+              <p className="mb-3">{project.description}</p>
               <p>
                 <strong>Technologies Used:</strong> {project.technologies}
               </p>
@@ -35,6 +34,7 @@ export default function Home() {
 
         <section>
           <h1 className="text-4xl">Testimonials</h1>
+          <p>{content.english.testimonials}</p>
         </section>
       </main>
 
