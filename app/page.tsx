@@ -1,11 +1,12 @@
+import ContactForm from "@/components/ContactForm";
 import { textContent } from "@/lib/content";
 
 export default function Home() {
   const content = textContent;
 
   return (
-    <div className="grid min-h-screen items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="row-start-1 flex flex-col items-center gap-8 sm:items-start">
+    <div className="grid min-h-screen items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
+      <main className="row-start-1 flex flex-col gap-8">
         <section className="">
           <h1 className="text-6xl sm:text-7xl">Gabriel H. Dalmoro</h1>
           <p className="sm:items-start">{content.english.bio} </p>
@@ -36,9 +37,31 @@ export default function Home() {
           <h1 className="text-4xl">Testimonials</h1>
           <p>{content.english.testimonials}</p>
         </section>
+
+        <section>
+          <h1 className="text-4xl">Contact</h1>
+          <ContactForm />
+        </section>
       </main>
 
-      <footer></footer>
+      <footer className="mt-10">
+        <div className="flex justify-around">
+          <div className="m-2 rounded border border-slate-500 p-2">
+            <a href="https://facebook.com">facebook</a>
+          </div>
+          <div className="m-2 rounded border border-slate-500 p-2">
+            <a href="https://instagram.com">instagram</a>
+          </div>
+
+          <div className="m-2 rounded border border-slate-500 p-2">
+            <a href="https://github.com">github</a>
+          </div>
+
+          <div className="m-2 rounded border border-slate-500 p-2">
+            <a href="https://linkedin.com">linkedin</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
