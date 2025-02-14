@@ -24,10 +24,10 @@ export default function Home() {
   const content = textContent;
 
   return (
-    <div className="grid min-h-screen items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="row-start-1 flex flex-col gap-8">
+    <div className="grid min-h-screen max-w-full items-center gap-12 pb-4">
+      <main className="container mx-auto flex flex-col gap-8 p-8 sm:p-16">
         <section className="">
-          <h1 className="text-6xl sm:text-7xl">Gabriel H. Dalmoro</h1>
+          <h1 className="text-6xl sm:text-7xl">Gabriel Dalmoro</h1>
           <p className="sm:items-start">{content.english.bio} </p>
         </section>
 
@@ -60,20 +60,24 @@ export default function Home() {
 
         <section>
           <h1 className="mb-2 text-4xl">{content.english.projectsTitle}</h1>
-          {content.english.projects.map((project) => (
-            <Card className="mb-4" key={project.id}>
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.technologies}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>{project.summary}</p>
-              </CardContent>
-              <CardFooter className="justify-end">
-                <Button>More Info</Button>
-              </CardFooter>
-            </Card>
-          ))}
+          <div className="relative w-full max-w-[95vw] overflow-hidden">
+            <div className="flex max-w-full gap-4 overflow-x-auto scroll-smooth px-4">
+              {content.english.projects.map((project) => (
+                <Card className="mb-4 w-[300px] flex-shrink-0" key={project.id}>
+                  <CardHeader>
+                    <CardTitle>{project.title}</CardTitle>
+                    <CardDescription>{project.technologies}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{project.summary}</p>
+                  </CardContent>
+                  <CardFooter className="justify-end">
+                    <Button>More Info</Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section>
@@ -113,6 +117,7 @@ export default function Home() {
       <footer className="mt-10">
         <div className="flex justify-around">
           <Link
+            target="_blank"
             href="https://www.instagram.com/gabriel.dalmoro/"
             className={buttonVariants({
               variant: "secondary",
@@ -122,6 +127,7 @@ export default function Home() {
             Instagram
           </Link>
           <Link
+            target="_blank"
             href="https://github.com/Gabriel-Dalmoro"
             className={buttonVariants({
               variant: "secondary",
@@ -131,6 +137,7 @@ export default function Home() {
             GitHub
           </Link>
           <Link
+            target="_blank"
             href="https://www.linkedin.com/in/gabrieldalmoro/"
             className={buttonVariants({
               variant: "secondary",
@@ -140,9 +147,9 @@ export default function Home() {
             LinkedIn
           </Link>
         </div>
-        <div className="mt-12 flex justify-center">
+        <div className="mt-12 flex items-center justify-center">
           <Copyright className="h-3 text-gray-500" />
-          <p className="text-gray-500">Gabriel H. Dalmoro 2025</p>
+          <p className="text-gray-500">Gabriel Dalmoro 2025</p>
         </div>
       </footer>
     </div>
