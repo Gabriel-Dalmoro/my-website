@@ -7,6 +7,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+import { Copyright } from "lucide-react";
 
 export default function Home() {
   const content = textContent;
@@ -20,12 +32,12 @@ export default function Home() {
         </section>
 
         <section>
-          <h1 className="text-4xl">About Me</h1>
+          <h1 className="text-4xl">{content.english.aboutTitle}</h1>
           <p>{content.english.about}</p>
         </section>
 
         <section>
-          <h1 className="text-4xl">Resume</h1>
+          <h1 className="text-4xl">{content.english.resumeTitle}</h1>
           <p>{content.english.resume}</p>
 
           <Select>
@@ -45,49 +57,92 @@ export default function Home() {
             </SelectContent>
           </Select>
         </section>
+
         <section>
-          <h1 className="mb-2 text-4xl">Projects</h1>
+          <h1 className="mb-2 text-4xl">{content.english.projectsTitle}</h1>
           {content.english.projects.map((project) => (
-            <div
-              key={project.id}
-              className="mb-4 rounded-md border-2 border-slate-500 p-4"
-            >
-              <h3 className="mb-1 text-2xl font-medium">{project.title}</h3>
-              <p className="mb-3">{project.description}</p>
-              <p>
-                <strong>Technologies Used:</strong> {project.technologies}
-              </p>
-            </div>
+            <Card className="mb-4" key={project.id}>
+              <CardHeader>
+                <CardTitle>{project.title}</CardTitle>
+                <CardDescription>{project.technologies}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>{project.summary}</p>
+              </CardContent>
+              <CardFooter className="justify-end">
+                <Button>More Info</Button>
+              </CardFooter>
+            </Card>
           ))}
         </section>
 
         <section>
-          <h1 className="text-4xl">Testimonials</h1>
+          <h1 className="text-4xl">{content.english.testimonialsTitle}</h1>
           <p>{content.english.testimonials}</p>
         </section>
 
-        <section>
-          <h1 className="text-4xl">Contact</h1>
-          <ContactForm />
+        <section className="mt-12">
+          <h1 className="mb-3 text-center text-4xl">
+            {content.english.contactTitle}
+          </h1>
+          <p className="mb-6 text-center">{content.english.contactText}</p>
+          <div className="flex justify-around">
+            <Link
+              href="mailto:ghdalmoro@gmail.com"
+              className={buttonVariants({
+                variant: "outline",
+                className: "w-40",
+              })}
+            >
+              Email
+            </Link>
+            <Link
+              target="_blank"
+              href="https://wa.me/14039732848"
+              className={buttonVariants({
+                variant: "outline",
+                className: "w-40",
+              })}
+            >
+              WhatsApp
+            </Link>
+          </div>
         </section>
       </main>
 
       <footer className="mt-10">
         <div className="flex justify-around">
-          <div className="m-2 rounded border border-slate-500 p-2">
-            <a href="https://facebook.com">facebook</a>
-          </div>
-          <div className="m-2 rounded border border-slate-500 p-2">
-            <a href="https://instagram.com">instagram</a>
-          </div>
-
-          <div className="m-2 rounded border border-slate-500 p-2">
-            <a href="https://github.com">github</a>
-          </div>
-
-          <div className="m-2 rounded border border-slate-500 p-2">
-            <a href="https://linkedin.com">linkedin</a>
-          </div>
+          <Link
+            href="https://www.instagram.com/gabriel.dalmoro/"
+            className={buttonVariants({
+              variant: "secondary",
+              className: "",
+            })}
+          >
+            Instagram
+          </Link>
+          <Link
+            href="https://github.com/Gabriel-Dalmoro"
+            className={buttonVariants({
+              variant: "secondary",
+              className: "",
+            })}
+          >
+            GitHub
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/gabrieldalmoro/"
+            className={buttonVariants({
+              variant: "secondary",
+              className: "",
+            })}
+          >
+            LinkedIn
+          </Link>
+        </div>
+        <div className="mt-12 flex justify-center">
+          <Copyright className="h-3 text-gray-500" />
+          <p className="text-gray-500">Gabriel H. Dalmoro 2025</p>
         </div>
       </footer>
     </div>
