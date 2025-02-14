@@ -8,6 +8,11 @@ export const textContent = {
     resumeTitle: "Resume",
     resume:
       "Click below to download my resume in either English, Portuguese or Spanish:",
+    resumeFiles: {
+      english: "/GabrielDalmoro-resume-english.pdf",
+      portuguese: "/GabrielDalmoro-resume-english.pdf",
+      spanish: "/GabrielDalmoro-resume-english.pdf",
+    },
     projectsTitle: "Projects",
     projects: [
       {
@@ -51,8 +56,7 @@ export const textContent = {
         id: 3,
       },
       {
-        title:
-          "Harpia – Hockey Athlete Development Mobile App (Capstone Project)",
+        title: "Mobile App for Athlete Development - Project Lead",
         summary:
           "Mobile app for hockey athlete training, built with a startup.",
         description:

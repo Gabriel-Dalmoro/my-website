@@ -1,12 +1,14 @@
-import ContactForm from "@/components/ContactForm";
 import { textContent } from "@/lib/content";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Card,
   CardContent,
@@ -19,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { Copyright } from "lucide-react";
+import ResumeDropdown from "@/components/ResumeDropdown";
 
 export default function Home() {
   const content = textContent;
@@ -40,22 +43,7 @@ export default function Home() {
           <h1 className="text-4xl">{content.english.resumeTitle}</h1>
           <p>{content.english.resume}</p>
 
-          <Select>
-            <SelectTrigger className="mt-2 h-12 w-[180px]">
-              <SelectValue placeholder="Resume Language" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="english">
-                {content.english.languages[0]}
-              </SelectItem>
-              <SelectItem value="portuguese">
-                {content.english.languages[1]}
-              </SelectItem>
-              <SelectItem value="spanish">
-                {content.english.languages[2]}
-              </SelectItem>
-            </SelectContent>
-          </Select>
+          <ResumeDropdown />
         </section>
 
         <section>
@@ -72,7 +60,29 @@ export default function Home() {
                     <p>{project.summary}</p>
                   </CardContent>
                   <CardFooter className="justify-end">
-                    <Button>More Info</Button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="outline">More Info</Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-md">
+                        <DialogHeader>
+                          <DialogTitle className="text-3xl">
+                            {project.title}
+                          </DialogTitle>
+                          <DialogDescription>
+                            {project.technologies}
+                          </DialogDescription>
+                        </DialogHeader>
+                        <p className="mt-2">{project.description}</p>
+                        <DialogFooter className="sm:justify-start">
+                          <DialogClose asChild>
+                            <Button type="button" variant="secondary">
+                              Close
+                            </Button>
+                          </DialogClose>
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
                   </CardFooter>
                 </Card>
               ))}
