@@ -1,8 +1,11 @@
 export const textContent = {
   english: {
+    languages: ["English", "Portuguese", "Spanish"],
     bio: "An innovative and adaptable developer, I blend a passion for tech advancement with a creative vision for design and collaborative excellence.",
     about:
       "I am a dedicated developer with a passion for continuous learning and a creative eye for design, driving innovation in technology. My adaptability and commitment to meaningful collaboration contribute to my pursuit of crafting impactful solutions and forming strong professional relationships.",
+    resume:
+      "Click below to download my resume in either English, Portuguese or Spanish:",
     projects: [
       {
         title: "Ski Boot App",

@@ -1,5 +1,12 @@
 import ContactForm from "@/components/ContactForm";
 import { textContent } from "@/lib/content";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Home() {
   const content = textContent;
@@ -17,6 +24,27 @@ export default function Home() {
           <p>{content.english.about}</p>
         </section>
 
+        <section>
+          <h1 className="text-4xl">Resume</h1>
+          <p>{content.english.resume}</p>
+
+          <Select>
+            <SelectTrigger className="mt-2 h-12 w-[180px]">
+              <SelectValue placeholder="Resume Language" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="english">
+                {content.english.languages[0]}
+              </SelectItem>
+              <SelectItem value="portuguese">
+                {content.english.languages[1]}
+              </SelectItem>
+              <SelectItem value="spanish">
+                {content.english.languages[2]}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        </section>
         <section>
           <h1 className="mb-2 text-4xl">Projects</h1>
           {content.english.projects.map((project) => (
