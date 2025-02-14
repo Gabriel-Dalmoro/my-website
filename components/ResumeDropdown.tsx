@@ -10,7 +10,7 @@ import {
 import { textContent } from "@/lib/content";
 
 export default function ResumeDropdown() {
-  const handleDownload = (value: string) => {
+  const handleDownload = (value: "english" | "portuguese" | "spanish") => {
     const fileUrl = textContent.english.resumeFiles[value];
     if (fileUrl) {
       window.open(fileUrl, "_blank");
