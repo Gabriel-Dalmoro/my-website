@@ -20,7 +20,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import { Copyright } from "lucide-react";
+import {
+  Copyright,
+  GithubIcon,
+  Instagram,
+  InstagramIcon,
+  Linkedin,
+  LinkedinIcon,
+  Mail,
+  MessageCircle,
+} from "lucide-react";
 import ResumeDropdown from "@/components/ResumeDropdown";
 
 export default function Home() {
@@ -108,6 +117,7 @@ export default function Home() {
                 className: "w-40",
               })}
             >
+              <Mail />
               Email
             </Link>
             <Link
@@ -118,6 +128,7 @@ export default function Home() {
                 className: "w-40",
               })}
             >
+              <MessageCircle />
               WhatsApp
             </Link>
           </div>
@@ -134,6 +145,7 @@ export default function Home() {
               className: "",
             })}
           >
+            <Instagram />
             Instagram
           </Link>
           <Link
@@ -144,6 +156,7 @@ export default function Home() {
               className: "",
             })}
           >
+            <GithubIcon />
             GitHub
           </Link>
           <Link
@@ -154,6 +167,7 @@ export default function Home() {
               className: "",
             })}
           >
+            <LinkedinIcon />
             LinkedIn
           </Link>
         </div>
