@@ -29,13 +29,14 @@ import {
   MessageCircle,
 } from "lucide-react";
 import ResumeDropdown from "@/components/ResumeDropdown";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function Home() {
   const content = textContent;
 
   return (
     <div className="min-h-screen">
-      <main className="mx-auto flex max-w-screen-lg flex-col gap-8 px-6 py-5 sm:px-12 sm:py-10">
+      <main className="mx-auto flex max-w-screen-lg flex-col gap-8 px-6 sm:px-12">
         <section className="">
           <h1 className="text-6xl sm:text-7xl">Gabriel Dalmoro</h1>
           <p className="sm:items-start">{content.english.bio} </p>
@@ -55,8 +56,8 @@ export default function Home() {
 
         <section>
           <h1 className="mb-2 text-4xl">{content.english.projectsTitle}</h1>
-          <div className="relative w-full max-w-[95vw] overflow-hidden">
-            <div className="flex max-w-full gap-4 overflow-x-auto scroll-smooth px-4">
+          <ScrollArea className="w-full">
+            <div className="flex w-max gap-4 p-4">
               {content.english.projects.map((project) => (
                 <Card className="mb-4 w-[300px] flex-shrink-0" key={project.id}>
                   <CardHeader>
@@ -94,7 +95,8 @@ export default function Home() {
                 </Card>
               ))}
             </div>
-          </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
         </section>
 
         <section>
