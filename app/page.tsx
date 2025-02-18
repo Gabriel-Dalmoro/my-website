@@ -35,7 +35,7 @@ export default function Home() {
   const content = textContent;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen py-3">
       <main className="mx-auto flex max-w-screen-lg flex-col gap-8 px-6 sm:px-12">
         <section className="">
           <h1 className="text-6xl sm:text-7xl">Gabriel Dalmoro</h1>
@@ -48,10 +48,14 @@ export default function Home() {
         </section>
 
         <section>
-          <h1 className="text-4xl">{content.english.resumeTitle}</h1>
-          <p>{content.english.resume}</p>
+          <h1 className="text-center text-4xl">
+            {content.english.resumeTitle}
+          </h1>
+          <p className="text-center">{content.english.resume}</p>
 
-          <ResumeDropdown />
+          <div className="my-6 flex justify-center">
+            <ResumeDropdown />
+          </div>
         </section>
 
         <section>
@@ -114,7 +118,7 @@ export default function Home() {
               href="mailto:ghdalmoro@gmail.com"
               className={buttonVariants({
                 variant: "outline",
-                className: "w-40",
+                className: "h-20 w-52",
               })}
             >
               <Mail />
@@ -125,7 +129,7 @@ export default function Home() {
               href="https://wa.me/14039732848"
               className={buttonVariants({
                 variant: "outline",
-                className: "w-40",
+                className: "h-20 w-52",
               })}
             >
               <MessageCircle />
@@ -136,7 +140,7 @@ export default function Home() {
       </main>
 
       <footer className="mt-2">
-        <div className="flex justify-around">
+        <div className="mt-8 flex justify-center gap-2 sm:gap-10">
           <Link
             target="_blank"
             href="https://www.instagram.com/gabriel.dalmoro/"

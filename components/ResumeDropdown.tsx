@@ -1,4 +1,4 @@
-"use client"; // Ensures this component is interactive
+"use client";
 
 import {
   Select,
@@ -19,8 +19,8 @@ export default function ResumeDropdown() {
 
   return (
     <Select onValueChange={handleDownload}>
-      <SelectTrigger className="mt-2 h-12 w-[180px]">
-        <SelectValue placeholder="Resume Language" />
+      <SelectTrigger className="mt-2 h-20 w-64 justify-center gap-6 text-lg">
+        <SelectValue className="" placeholder="Resume Language" />
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="english">
