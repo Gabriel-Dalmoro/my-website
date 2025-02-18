@@ -15,12 +15,29 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Gabriel Dalmoro",
-  description: "Work and Life of Gabriel Dalmoro",
-  icons: {
-    //favicon logo uses font Archivo Black
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+  description:
+    "Work and Life of Gabriel Dalmoro - Follow along my adventures in the tech world, and in the real world. 🌎 👨🏼‍💻",
+  openGraph: {
+    type: "website",
+    url: "https://www.gabrieldalmoro.com/",
+    title: "Gabriel Dalmoro",
+    description:
+      "Work and Life of Gabriel Dalmoro - Follow along my adventures in the tech world, and in the real world. 🌎 👨🏼‍💻",
+    images: [
+      {
+        url: "/meta-image.png", // ✅ Uses the image in /public
+        width: 1200,
+        height: 630,
+        alt: "Gabriel Dalmoro - Portfolio Cover",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gabriel Dalmoro",
+    description:
+      "Work and Life of Gabriel Dalmoro - Follow along my adventures in the tech world, and in the real world. 🌎 👨🏼‍💻",
+    images: ["/meta-image.png"], // ✅ Twitter preview uses the same image
   },
 };
 
