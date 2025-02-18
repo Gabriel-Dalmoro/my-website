@@ -36,8 +36,8 @@ export default function Home() {
   const content = textContent;
 
   return (
-    <div className="grid min-h-screen max-w-full items-center gap-12 pb-4">
-      <main className="container mx-auto flex flex-col gap-8 p-8 sm:p-16">
+    <div className="min-h-screen">
+      <main className="mx-auto flex max-w-screen-lg flex-col gap-8 px-6 py-5 sm:px-12 sm:py-10">
         <section className="">
           <h1 className="text-6xl sm:text-7xl">Gabriel Dalmoro</h1>
           <p className="sm:items-start">{content.english.bio} </p>
@@ -109,7 +109,7 @@ export default function Home() {
             {content.english.contactTitle}
           </h1>
           <p className="mb-6 text-center">{content.english.contactText}</p>
-          <div className="flex justify-around">
+          <div className="flex justify-center gap-4">
             <Link
               href="mailto:ghdalmoro@gmail.com"
               className={buttonVariants({
@@ -135,7 +135,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="mt-10">
+      <footer className="mt-2">
         <div className="flex justify-around">
           <Link
             target="_blank"

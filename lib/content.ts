@@ -9,9 +9,9 @@ export const textContent = {
     resume:
       "Click below to download my resume in either English, Portuguese or Spanish:",
     resumeFiles: {
-      english: "/GabrielDalmoro-resume-english.pdf",
-      portuguese: "/GabrielDalmoro-resume-english.pdf",
-      spanish: "/GabrielDalmoro-resume-english.pdf",
+      english: "/GabrielDalmoro_GeneralResume_English_Feb2025.pdf",
+      spanish: "/GabrielDalmoro_GeneralResume_Español_Feb2025.pdf",
+      portuguese: "/GabrielDalmoro_GeneralResume_Português_Feb2025.pdf",
     },
     projectsTitle: "Projects",
     projects: [
