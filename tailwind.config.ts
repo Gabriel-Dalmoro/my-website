@@ -72,6 +72,9 @@ export default {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        container: "1350px", // Limits max width on large screens
+      },
       // 🔹 Colors still use CSS variables (ShadCN uses these)
       colors: {
         background: "hsl(var(--background))",

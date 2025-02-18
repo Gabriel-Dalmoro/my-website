@@ -222,7 +222,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* 🏗 Updated layout to use `container` for auto width handling */}
-      <main className="gap-lg p-lg sm:p-xl container mx-auto flex flex-col">
+      <main className="max-w-container gap-lg p-lg sm:p-xl container mx-auto flex flex-col">
         {/* ✅ Applied system typography */}
         <section>
           <h1 className="text-5xl font-bold md:text-8xl">Gabriel Dalmoro</h1>
