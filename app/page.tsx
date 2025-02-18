@@ -24,8 +24,6 @@ import {
   Copyright,
   GithubIcon,
   Instagram,
-  InstagramIcon,
-  Linkedin,
   LinkedinIcon,
   Mail,
   MessageCircle,
