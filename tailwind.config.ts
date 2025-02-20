@@ -20,6 +20,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          faded: "hsl(var(--primary-faded))",
         },
 
         secondary: "hsl(var(--secondary))",

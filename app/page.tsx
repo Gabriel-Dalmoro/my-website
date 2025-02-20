@@ -24,7 +24,7 @@ import {
   Copyright,
   GithubIcon,
   Instagram,
-  LinkedinIcon,
+  Linkedin,
   Mail,
   MessageCircle,
 } from "lucide-react";
@@ -91,18 +91,18 @@ export default function Home() {
                   <CardFooter className="justify-end">
                     <Dialog>
                       <DialogTrigger asChild>
-                        <Button variant="outline">More Info</Button>
+                        <Button variant="secondary">More Info</Button>
                       </DialogTrigger>
                       <DialogContent className="sm:max-w-md">
                         <DialogHeader>
                           <DialogTitle className="font-semibold">
                             {project.title}
                           </DialogTitle>
-                          <p className="text-text-tertiary dark:text-text-tertiary">
-                            <DialogDescription>
+                          <DialogDescription>
+                            <div className="dark:text-text-tertiary text-red-600">
                               {project.technologies}
-                            </DialogDescription>
-                          </p>
+                            </div>
+                          </DialogDescription>
                         </DialogHeader>
                         <p className="text-text-secondary dark:text-text-secondary mt-md text-sm">
                           {project.description}
@@ -124,7 +124,7 @@ export default function Home() {
           </ScrollArea>
         </section>
 
-        {/* ✅ Testimonials Section */}
+        {/* Testimonials Section */}
         <section>
           <h2 className="text-2xl font-semibold">
             {content.testimonialsTitle}
@@ -134,7 +134,7 @@ export default function Home() {
           </p>
         </section>
 
-        {/* ✅ Contact Section - Cleaned up layout */}
+        {/* Contact Section */}
         <section id="contact" className="mt-xl text-center">
           <h2 className="mb-md text-2xl font-semibold">
             {content.contactTitle}
@@ -146,7 +146,7 @@ export default function Home() {
             <Link
               href="mailto:ghdalmoro@gmail.com"
               className={buttonVariants({
-                variant: "outline",
+                variant: "default",
                 className: "flex h-16 w-48 items-center justify-center gap-2",
               })}
             >
@@ -157,7 +157,7 @@ export default function Home() {
               target="_blank"
               href="https://wa.me/14039732848"
               className={buttonVariants({
-                variant: "outline",
+                variant: "default",
                 className: "flex h-16 w-48 items-center justify-center gap-2",
               })}
             >
@@ -168,43 +168,26 @@ export default function Home() {
         </section>
       </main>
 
-      {/* ✅ Footer - Improved spacing */}
+      {/* ✅ Footer */}
       <footer className="mt-xl py-md text-center">
-        <div className="gap-md flex justify-center">
+        <div className="flex justify-center gap-10">
           <Link
             target="_blank"
             href="https://www.instagram.com/gabriel.dalmoro/"
-            className={buttonVariants({
-              variant: "secondary",
-              className: "flex items-center gap-2",
-            })}
           >
-            <Instagram />
-            Instagram
+            <Instagram className="h-8 w-8" strokeWidth={1.5} />
           </Link>
-          <Link
-            target="_blank"
-            href="https://github.com/Gabriel-Dalmoro"
-            className={buttonVariants({
-              variant: "secondary",
-              className: "flex items-center gap-2",
-            })}
-          >
-            <GithubIcon />
-            GitHub
+          <Link target="_blank" href="https://github.com/Gabriel-Dalmoro">
+            <GithubIcon className="h-8 w-8" strokeWidth={1.5} />
           </Link>
           <Link
             target="_blank"
             href="https://www.linkedin.com/in/gabrieldalmoro/"
-            className={buttonVariants({
-              variant: "secondary",
-              className: "flex items-center gap-2",
-            })}
           >
-            <LinkedinIcon />
-            LinkedIn
+            <Linkedin className="h-8 w-8" strokeWidth={1.5} />
           </Link>
         </div>
+
         <div className="mt-md text-muted-foreground flex items-center justify-center text-sm">
           <Copyright className="h-3 text-gray-500" />
           <small className="text-text-tertiary dark:text-text-tertiary">

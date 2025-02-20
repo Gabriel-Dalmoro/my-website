@@ -19,6 +19,7 @@ html {
     --foreground: 20 14.3% 4.1%; /* Almost black */
 
     --primary: 47.9 95.8% 53.1%; /* Yellow */
+    --primary-faded: 47.9 100% 96%; /* Light yellow (before hover) */
     --secondary: 220 90% 56%; /* Blue (used sparingly) */
 
     --primary-foreground: 26 83.3% 14.1%; /* Darker yellow */
@@ -38,6 +39,8 @@ html {
     --foreground: 60 9.1% 97.8%; /* Almost white */
 
     --border: 220 10% 30%; /* Darker gray */
+
+    --primary-faded: 47.9 100% 8%; /* A very dark muted yellow */
 
     --text-primary: 0 0% 100%; /* White for titles */
     --text-secondary: 220 14% 80%; /* Light gray for body text */

@@ -52,21 +52,13 @@ export default function RootLayout({
       >
         <header className="container mx-auto flex items-center justify-between p-4">
           <Logo size={50} />
+          <a href="#projects" className="text-base">
+            Projects
+          </a>
+          <a href="#contact" className="text-base">
+            Contact
+          </a>
           <DarkButton />
-          <nav>
-            <ul className="flex space-x-4">
-              <li>
-                <a href="#projects" className="text-base">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-base">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </nav>
         </header>
         {children}
       </body>

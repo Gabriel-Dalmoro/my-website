@@ -23,7 +23,7 @@ export default function ResumeDropdown({
 
   return (
     <Select onValueChange={handleDownload}>
-      <SelectTrigger className="mt-2 h-20 w-64 justify-center gap-6 text-lg">
+      <SelectTrigger className="bg-primary border-primary mt-2 h-20 w-72 justify-center gap-6 rounded-sm px-6 py-3 text-lg font-medium text-black transition-transform duration-200 hover:scale-105">
         <SelectValue placeholder={textContent[language].resumeDropdown} />
       </SelectTrigger>
       <SelectContent className="bg-background">
