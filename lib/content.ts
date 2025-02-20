@@ -13,6 +13,7 @@ export const textContent = {
       spanish: "/GabrielDalmoro_GeneralResume_Español_Feb2025.pdf",
       portuguese: "/GabrielDalmoro_GeneralResume_Português_Feb2025.pdf",
     },
+    resumeDropdown: "Resume Language",
     projectsTitle: "Projects",
     projects: [
       {
@@ -74,13 +75,48 @@ export const textContent = {
     // technologies: [],
   },
   portuguese: {
-    bio: "Esse é a minha bio",
-    // projects: {},
-    // technologies: [],
+    languages: ["Inglês", "Português", "Espanhol"],
+    bio: "Sou um desenvolvedor inovador...",
+    aboutTitle: "Sobre Mim",
+    about: "Sou um desenvolvedor dedicado...",
+    resumeTitle: "Currículo",
+    resume:
+      "Clique abaixo para baixar meu currículo em Inglês, Português ou Espanhol:",
+    resumeFiles: {
+      english: "/GabrielDalmoro_GeneralResume_English_Feb2025.pdf",
+      spanish: "/GabrielDalmoro_GeneralResume_Español_Feb2025.pdf",
+      portuguese: "/GabrielDalmoro_GeneralResume_Português_Feb2025.pdf",
+    },
+    resumeDropdown: "Idioma do Currículo",
+    projectsTitle: "Projetos",
+    projects: [],
+    testimonialsTitle: "Depoimentos",
+    testimonials: "",
+    contactTitle: "Contato",
+    contactText:
+      "Clique nos links abaixo para me enviar um e-mail ou mensagem no WhatsApp.",
   },
+
   spanish: {
-    bio: "Eso es mi bio",
-    // projects: {},
-    // technologies: [],
+    languages: ["Inglés", "Portugués", "Español"],
+    bio: "Soy un desarrollador innovador...",
+    aboutTitle: "Sobre Mí",
+    about: "Soy un desarrollador dedicado...",
+    resumeTitle: "Currículum",
+    resume:
+      "Haga clic a continuación para descargar mi currículum en inglés, portugués o español:",
+    resumeFiles: {
+      english: "/GabrielDalmoro_GeneralResume_English_Feb2025.pdf",
+      spanish: "/GabrielDalmoro_GeneralResume_Español_Feb2025.pdf",
+      portuguese: "/GabrielDalmoro_GeneralResume_Português_Feb2025.pdf",
+    },
+    resumeDropdown: "Idioma del Currículum",
+    projectsTitle: "Proyectos",
+    projects: [],
+    testimonialsTitle: "Testimonios",
+    testimonials: "",
+    contactTitle: "Contáctame",
+    contactText:
+      "Haga clic en los enlaces a continuación para enviarme un correo electrónico o un mensaje por WhatsApp.",
   },
 };

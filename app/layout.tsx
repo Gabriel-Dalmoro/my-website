@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Logo from "@/components/Logo";
 import "./globals.css";
+import DarkButton from "@/components/DarkButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,10 +48,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-background antialiased dark:bg-background`}
       >
         <header className="container mx-auto flex items-center justify-between p-4">
           <Logo size={50} />
+          <DarkButton />
           <nav>
             <ul className="flex space-x-4">
               <li>

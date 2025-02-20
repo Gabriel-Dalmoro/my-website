@@ -9,9 +9,13 @@ import {
 } from "@/components/ui/select";
 import { textContent } from "@/lib/content";
 
-export default function ResumeDropdown({ language }) {
+export default function ResumeDropdown({
+  language,
+}: {
+  language: "english" | "portuguese" | "spanish";
+}) {
   const handleDownload = (value: "english" | "portuguese" | "spanish") => {
-    const fileUrl = textContent.english.resumeFiles[value];
+    const fileUrl = textContent[language].resumeFiles[value];
     if (fileUrl) {
       window.open(fileUrl, "_blank");
     }
@@ -20,19 +24,17 @@ export default function ResumeDropdown({ language }) {
   return (
     <Select onValueChange={handleDownload}>
       <SelectTrigger className="mt-2 h-20 w-64 justify-center gap-6 text-lg">
-        <SelectValue className="">
-          <p>{language}</p>
-        </SelectValue>
+        <SelectValue placeholder={textContent[language].resumeDropdown} />
       </SelectTrigger>
       <SelectContent className="bg-background">
         <SelectItem value="english">
-          {textContent.english.languages[0]}
+          {textContent[language].languages[0]}
         </SelectItem>
         <SelectItem value="portuguese">
-          {textContent.english.languages[1]}
+          {textContent[language].languages[1]}
         </SelectItem>
         <SelectItem value="spanish">
-          {textContent.english.languages[2]}
+          {textContent[language].languages[2]}
         </SelectItem>
       </SelectContent>
     </Select>
