@@ -40,6 +40,12 @@ export const metadata: Metadata = {
       "Work and Life of Gabriel Dalmoro - Follow along my adventures in the tech world, and in the real world. 🌎 👨🏼‍💻",
     images: ["/meta-image.png"], // ✅ Twitter preview uses the same image
   },
+  icons: {
+    //favicon logo uses font Archivo Black
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
