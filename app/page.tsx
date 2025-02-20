@@ -81,7 +81,9 @@ export default function Home() {
                     <CardTitle className="text-lg font-semibold">
                       {project.title}
                     </CardTitle>
-                    <CardDescription>{project.technologies}</CardDescription>
+                    <CardDescription className="text-text-tertiary dark:text-text-tertiary">
+                      {project.technologies}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className="text-text-secondary dark:text-text-secondary text-sm">
@@ -99,7 +101,7 @@ export default function Home() {
                             {project.title}
                           </DialogTitle>
                           <DialogDescription>
-                            <div className="dark:text-text-tertiary text-red-600">
+                            <div className="dark:text-text-tertiary text-text-tertiary">
                               {project.technologies}
                             </div>
                           </DialogDescription>
