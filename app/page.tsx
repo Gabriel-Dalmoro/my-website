@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import ResumeDropdown from "@/components/ResumeDropdown";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import HeroImage from "@/components/HeroImage";
 
 export default function Home() {
   const language = "english";
@@ -40,9 +41,10 @@ export default function Home() {
       {/* 🏗 Updated layout to use `container` for auto width handling */}
       <main className="max-w-container gap-lg p-lg sm:p-xl container mx-auto flex flex-col bg-background dark:bg-background">
         {/* ✅ Applied system typography */}
-        <section>
-          <h1 className="text-5xl font-bold md:text-8xl">Gabriel Dalmoro</h1>
-          <p className="text-text-secondary dark:text-text-secondary text-base">
+        <section className="mb-lg">
+          {/* <h1 className="text-5xl font-bold md:text-8xl">Gabriel Dalmoro</h1> */}
+          <HeroImage />
+          <p className="mt-sm text-text-secondary dark:text-text-secondary text-center text-base">
             {content.bio}
           </p>
         </section>
