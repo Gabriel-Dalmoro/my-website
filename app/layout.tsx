@@ -1,18 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import Logo from "@/components/Logo";
+// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Logo from "@/components/Logo";
 import DarkButton from "@/components/DarkButton";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Gabriel Dalmoro",
@@ -53,20 +43,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-background antialiased dark:bg-background`}
-      >
-        <header className="container mx-auto flex items-center justify-between p-4">
+      <body className="flex min-h-screen flex-col">
+        {/* <header className="container mx-auto flex items-center justify-between p-4">
           <Logo size={50} />
-          <a href="#projects" className="text-base">
-            Projects
-          </a>
-          <a href="#contact" className="text-base">
-            Contact
-          </a>
           <DarkButton />
-        </header>
-        {children}
+        </header> */}
+        <main>{children}</main>
       </body>
     </html>
   );
