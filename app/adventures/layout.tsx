@@ -16,10 +16,10 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
       <body className="flex min-h-screen flex-col">
         <header className="container mx-auto flex items-center justify-between p-4">
           <Logo size={50} />
-          <a href="#projects" className="text-base">
+          <a href="/adventures/blog" className="text-base">
             Blog
           </a>
-          <a href="#contact" className="text-base">
+          <a href="/adventures/photos" className="text-base">
             Photos
           </a>
           <a href="#contact" className="text-base">
