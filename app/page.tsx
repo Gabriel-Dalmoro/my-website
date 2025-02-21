@@ -1,4 +1,4 @@
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import {
   Copyright,
@@ -25,30 +25,24 @@ export default function Home() {
 
         <section>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/adventures"
-              className={buttonVariants({
-                variant: "default",
-                className: "flex h-32 w-52 items-center justify-center gap-2",
-              })}
-            >
-              <div className="flex flex-col items-center">
-                <p>Check out my</p>
-                <h3 className="text-lg font-semibold sm:text-xl">Adventures</h3>
-              </div>
-            </Link>
-            <Link
-              href="/work"
-              className={buttonVariants({
-                variant: "default",
-                className: "flex h-32 w-52 items-center justify-center gap-2",
-              })}
-            >
-              <div className="flex flex-col items-center">
-                <p>Explore My</p>
-                <h3 className="text-lg font-semibold sm:text-xl">Work</h3>
-              </div>
-            </Link>
+            <Button className="h-32 w-52" asChild>
+              <Link href="/adventures">
+                <div className="flex flex-col items-center">
+                  <p>Check out my</p>
+                  <h3 className="text-lg font-semibold sm:text-xl">
+                    Adventures
+                  </h3>
+                </div>
+              </Link>
+            </Button>
+            <Button className="h-32 w-52" asChild>
+              <Link href="/work">
+                <div className="flex flex-col items-center">
+                  <p>Explore My</p>
+                  <h3 className="text-lg font-semibold sm:text-xl">Work</h3>
+                </div>
+              </Link>
+            </Button>
           </div>
         </section>
       </main>
