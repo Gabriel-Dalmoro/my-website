@@ -29,24 +29,24 @@ export default function Home() {
               href="/adventures"
               className={buttonVariants({
                 variant: "default",
-                className: "flex h-28 w-52 items-center justify-center gap-2",
+                className: "flex h-32 w-52 items-center justify-center gap-2",
               })}
             >
               <div className="flex flex-col items-center">
                 <p>Check out my</p>
-                <h3 className="text-xl font-semibold">Adventures</h3>
+                <h3 className="text-lg font-semibold sm:text-xl">Adventures</h3>
               </div>
             </Link>
             <Link
               href="/work"
               className={buttonVariants({
                 variant: "default",
-                className: "flex h-28 w-52 items-center justify-center gap-2",
+                className: "flex h-32 w-52 items-center justify-center gap-2",
               })}
             >
               <div className="flex flex-col items-center">
                 <p>Explore My</p>
-                <h3 className="text-xl font-semibold">Work</h3>
+                <h3 className="text-lg font-semibold sm:text-xl">Work</h3>
               </div>
             </Link>
           </div>
