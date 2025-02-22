@@ -14,7 +14,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col">
-        <header className="container mx-auto flex items-center justify-between p-4">
+        <header className="mx-4 flex items-center justify-between p-4">
           <Logo size={50} />
           <a href="/adventures/blog" className="text-base">
             Blog

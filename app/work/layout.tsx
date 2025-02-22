@@ -1,4 +1,5 @@
 import DarkButton from "@/components/DarkButton";
+import Hamburger from "@/components/Hamburger";
 import Logo from "@/components/Logo";
 import {
   Copyright,
@@ -14,7 +15,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col">
-        <header className="container mx-auto flex items-center justify-between p-4">
+        <header className="container mx-auto flex max-w-[1000px] items-center justify-between p-4 text-center">
           <Logo size={50} />
           <a href="#projects" className="text-base">
             Projects
@@ -25,6 +26,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
           <a href="/adventures" className="text-base">
             Check Out My Adventures
           </a>
+          <Hamburger />
           <DarkButton />
         </header>
         <main className="flex-grow">{children}</main>
