@@ -6,7 +6,11 @@ interface HamburgerProps {
 
 const Hamburger = ({ isMenuOpen, toggleMenu }: HamburgerProps) => {
   return (
-    <button onClick={toggleMenu} className="group relative">
+    <button
+      id="hamburger-button"
+      onClick={toggleMenu}
+      className="group relative"
+    >
       <div className="bg-primary relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full transition-all duration-200">
         {/* ✅ Three horizontal bars */}
         <div

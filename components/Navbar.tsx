@@ -18,6 +18,25 @@ const Navbar = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerButton = document.getElementById("hamburger-button");
+
+      // ✅ Close menu if click is outside of the menu and NOT on the Hamburger button
+      if (
+        isMenuOpen &&
+        !mobileMenu?.contains(event.target as Node) &&
+        !hamburgerButton?.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMenuOpen]);
+
   return (
     <header className="container mx-auto flex max-w-[1000px] items-center justify-between p-4 text-center">
       <Logo size={50} />
@@ -58,21 +77,41 @@ const Navbar = () => {
       )}
 
       {isMenuOpen && (
-        <div className="bg-primary-faded border-primary absolute left-0 top-0 h-auto w-full rounded-md border-2 p-4 transition-all">
+        <div
+          id="mobile-menu"
+          className="bg-primary-faded border-primary absolute left-0 top-0 h-auto w-full rounded-md border-2 p-4 transition-all"
+        >
           <nav className="mt-8 flex flex-col items-center gap-8">
             {pathname === "/work" ? (
               <>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-                <a href="/adventures">Check Out My Adventures</a>
+                <a onClick={() => setIsMenuOpen(false)} href="#projects">
+                  Projects
+                </a>
+                <a onClick={() => setIsMenuOpen(false)} href="#contact">
+                  Contact
+                </a>
+                <a onClick={() => setIsMenuOpen(false)} href="/adventures">
+                  Check Out My Adventures
+                </a>
                 <DarkButton />
               </>
             ) : (
               <>
-                <a href="/blog">Blog</a>
-                <a href="/photos">Photos</a>
-                <a href="/map">Map</a>
-                <a href="/work">Explore My Work</a>
+                <a onClick={() => setIsMenuOpen(false)} href="/adventures/blog">
+                  Blog
+                </a>
+                <a
+                  onClick={() => setIsMenuOpen(false)}
+                  href="/adventures/photos"
+                >
+                  Photos
+                </a>
+                <a onClick={() => setIsMenuOpen(false)} href="/adventures/map">
+                  Map
+                </a>
+                <a onClick={() => setIsMenuOpen(false)} href="/work">
+                  Explore My Work
+                </a>
                 <DarkButton />
               </>
             )}
