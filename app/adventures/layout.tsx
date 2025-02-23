@@ -1,5 +1,4 @@
-import DarkButton from "@/components/DarkButton";
-import Logo from "@/components/Logo";
+import Navbar from "@/components/Navbar";
 import {
   Copyright,
   GithubIcon,
@@ -14,22 +13,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col">
-        <header className="mx-4 flex items-center justify-between p-4">
-          <Logo size={50} />
-          <a href="/adventures/blog" className="text-base">
-            Blog
-          </a>
-          <a href="/adventures/photos" className="text-base">
-            Photos
-          </a>
-          <a href="#contact" className="text-base">
-            Map
-          </a>
-          <a href="/work" className="text-base">
-            Explore My Work
-          </a>
-          <DarkButton />
-        </header>
+        <Navbar />
         <main className="flex-grow">{children}</main>
 
         {/* ✅ Footer */}

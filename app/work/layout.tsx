@@ -1,6 +1,4 @@
-import DarkButton from "@/components/DarkButton";
-import Hamburger from "@/components/Hamburger";
-import Logo from "@/components/Logo";
+import Navbar from "@/components/Navbar";
 import {
   Copyright,
   GithubIcon,
@@ -15,26 +13,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col">
-        <header className="container mx-auto flex max-w-[1000px] items-center justify-between p-4 text-center">
-          <Logo size={50} />
-          {/* <div className="flex justify-between"> */}
-          <a href="#projects" className="hidden text-base sm:block">
-            Projects
-          </a>
-          <a href="#contact" className="hidden text-base sm:block">
-            Contact
-          </a>
-          <a href="/adventures" className="hidden text-base sm:block">
-            Check Out My Adventures
-          </a>
-          {/* </div> */}
-          <div className="hidden sm:block">
-            <DarkButton />
-          </div>
-          <div className="sm:hidden">
-            <Hamburger />
-          </div>
-        </header>
+        <Navbar />
         <main className="flex-grow">{children}</main>
 
         {/* ✅ Footer */}
