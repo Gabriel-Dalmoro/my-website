@@ -59,7 +59,7 @@ const Hamburger = () => {
   };
 
   return (
-    <button onClick={handleClick} className="group relative sm:hidden">
+    <button onClick={handleClick} className="group relative">
       <div className="bg-primary relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full transition-all duration-200">
         {/* ✅ Three horizontal bars */}
         <div
