@@ -64,7 +64,7 @@ const Navbar = () => {
           <a href="/adventures/photos" className="hidden text-base sm:block">
             Photos
           </a>
-          <a href="#contact" className="hidden text-base sm:block">
+          <a href="#map" className="hidden text-base sm:block">
             Map
           </a>
           <a href="/work" className="hidden text-base sm:block">

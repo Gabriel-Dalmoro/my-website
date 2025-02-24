@@ -1,7 +1,12 @@
+import UnderConstruction from "@/components/UnderConstruction";
 import React from "react";
 
 const Photos = () => {
-  return <div>Photos</div>;
+  return (
+    <div>
+      <UnderConstruction />
+    </div>
+  );
 };
 
 export default Photos;
