@@ -31,6 +31,7 @@ import {
 import ResumeDropdown from "@/components/ResumeDropdown";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import HeroImage from "@/components/HeroImage";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Home() {
   const language = "english";
@@ -47,6 +48,10 @@ export default function Home() {
           <p className="mt-sm text-text-secondary dark:text-text-secondary text-center text-base">
             {content.bio}
           </p>
+        </section>
+
+        <section className="-mt-6 mb-8 flex justify-center">
+          <LanguageSwitcher language={language} />
         </section>
 
         <section>

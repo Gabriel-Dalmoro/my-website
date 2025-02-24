@@ -1,10 +1,11 @@
 export const textContent = {
   english: {
     languages: ["English", "Portuguese", "Spanish"],
-    bio: "An innovative and adaptable developer, I blend a passion for tech advancement with a creative vision for design and collaborative excellence.",
+    bio: "An innovative and adaptable developer, I blend a passion for tech advancement with a creative vision for design and collaborative excellence.  I am also trilingual, fluent in English, Portuguese, and Spanish. Use the dropdown below to change the website language!",
     aboutTitle: "About Me",
     about:
       "I am a dedicated developer with a passion for continuous learning and a creative eye for design, driving innovation in technology. My adaptability and commitment to meaningful collaboration contribute to my pursuit of crafting impactful solutions and forming strong professional relationships.",
+    languageDropdown: "Website Language",
     resumeTitle: "Resume",
     resume:
       "Click below to download my resume in either English, Portuguese or Spanish:",
@@ -79,6 +80,7 @@ export const textContent = {
     bio: "Sou um desenvolvedor inovador...",
     aboutTitle: "Sobre Mim",
     about: "Sou um desenvolvedor dedicado...",
+    languageDropdown: "",
     resumeTitle: "Currículo",
     resume:
       "Clique abaixo para baixar meu currículo em Inglês, Português ou Espanhol:",
@@ -102,6 +104,7 @@ export const textContent = {
     bio: "Soy un desarrollador innovador...",
     aboutTitle: "Sobre Mí",
     about: "Soy un desarrollador dedicado...",
+    languageDropdown: "",
     resumeTitle: "Currículum",
     resume:
       "Haga clic a continuación para descargar mi currículum en inglés, portugués o español:",
