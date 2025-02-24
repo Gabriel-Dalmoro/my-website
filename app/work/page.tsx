@@ -20,30 +20,21 @@ import {
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  //   Copyright,
-  //   GithubIcon,
-  //   Instagram,
-  //   Linkedin,
-  Mail,
-  MessageCircle,
-} from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import ResumeDropdown from "@/components/ResumeDropdown";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import HeroImage from "@/components/HeroImage";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Home() {
-  const language = "english";
+  const { language } = useLanguage();
   const content = textContent[language];
 
   return (
     <div className="min-h-screen bg-background text-foreground dark:bg-background dark:text-foreground">
-      {/* 🏗 Updated layout to use `container` for auto width handling */}
       <main className="max-w-container gap-lg p-lg sm:p-xl container mx-auto flex flex-col bg-background dark:bg-background">
-        {/* ✅ Applied system typography */}
         <section className="mb-lg">
-          {/* <h1 className="text-5xl font-bold md:text-8xl">Gabriel Dalmoro</h1> */}
           <HeroImage />
           <p className="mt-sm text-text-secondary dark:text-text-secondary text-center text-base">
             {content.bio}
@@ -51,7 +42,7 @@ export default function Home() {
         </section>
 
         <section className="-mt-6 mb-8 flex justify-center">
-          <LanguageSwitcher language={language} />
+          <LanguageSwitcher />
         </section>
 
         <section>
