@@ -35,6 +35,8 @@ export default async function Home() {
       | "portuguese"
       | "spanish") || "english";
 
+  console.log(language);
+
   const content = textContent[language];
 
   return (

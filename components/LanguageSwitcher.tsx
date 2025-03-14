@@ -31,6 +31,7 @@ export default function LanguageSwitcher() {
   ) => {
     setLanguage(value);
     setCookie("selectedLanguage", value, { path: "/" }); // ✅ Store language in cookies
+    window.location.reload();
   };
 
   return (
