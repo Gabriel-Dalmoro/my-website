@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import { cookies } from "next/headers";
 import {
   Copyright,
   GithubIcon,
@@ -8,16 +9,23 @@ import {
   MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
-import { LanguageProvider } from "../context/LanguageContext";
 
-const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const layout = async ({
+  children,
+}: Readonly<{ children: React.ReactNode }>) => {
+  // ✅ Read the selected language from cookies
+  const cookieStore = await cookies();
+  const language =
+    (cookieStore.get("selectedLanguage")?.value as
+      | "english"
+      | "portuguese"
+      | "spanish") || "english";
+
   return (
-    <html lang="en">
+    <html lang={language}>
       <body className="flex min-h-screen flex-col">
         <Navbar />
-        <LanguageProvider>
-          <main className="flex-grow">{children}</main>
-        </LanguageProvider>
+        <main className="flex-grow">{children}</main>
 
         {/* ✅ Footer */}
         <footer className="mt-xl py-md text-center">
@@ -45,7 +53,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
             </Link>
           </div>
 
-          <div className="mt-md text-muted-foreground flex items-center justify-center text-sm">
+          <div className="text-muted-foreground mt-md flex items-center justify-center text-sm">
             <Copyright className="h-3 text-gray-500" />
             <small className="text-text-tertiary dark:text-text-tertiary">
               Gabriel Dalmoro 2025

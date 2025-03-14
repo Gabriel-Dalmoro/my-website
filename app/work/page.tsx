@@ -25,18 +25,24 @@ import ResumeDropdown from "@/components/ResumeDropdown";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import HeroImage from "@/components/HeroImage";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { useLanguage } from "../context/LanguageContext";
+import { cookies } from "next/headers";
 
-export default function Home() {
-  const { language } = useLanguage();
+export default async function Home() {
+  const cookieStore = await cookies();
+  const language =
+    (cookieStore.get("selectedLanguage")?.value as
+      | "english"
+      | "portuguese"
+      | "spanish") || "english";
+
   const content = textContent[language];
 
   return (
     <div className="min-h-screen bg-background text-foreground dark:bg-background dark:text-foreground">
-      <main className="max-w-container gap-lg p-lg sm:p-xl container mx-auto flex flex-col bg-background dark:bg-background">
+      <main className="container mx-auto flex max-w-container flex-col gap-lg bg-background p-lg dark:bg-background sm:p-xl">
         <section className="mb-lg">
           <HeroImage />
-          <p className="mt-sm text-text-secondary dark:text-text-secondary text-center text-base">
+          <p className="mt-sm text-center text-base text-text-secondary dark:text-text-secondary">
             {content.bio}
           </p>
         </section>
@@ -47,7 +53,7 @@ export default function Home() {
 
         <section>
           <h2 className="text-2xl font-semibold">{content.aboutTitle}</h2>
-          <p className="dark:text-text-secondary text-text-secondary text-base">
+          <p className="text-base text-text-secondary dark:text-text-secondary">
             {content.about}
           </p>
         </section>
@@ -55,7 +61,7 @@ export default function Home() {
         {/* ✅ Centering the resume section + styling improvements */}
         <section className="text-center">
           <h2 className="text-2xl font-semibold">{content.resumeTitle}</h2>
-          <p className="text-text-secondary dark:text-text-secondary text-base">
+          <p className="text-base text-text-secondary dark:text-text-secondary">
             {content.resume}
           </p>
           <div className="mt-lg flex justify-center">
@@ -69,10 +75,10 @@ export default function Home() {
             {content.projectsTitle}
           </h2>
           <ScrollArea className="w-full">
-            <div className="gap-md p-md flex w-max">
+            <div className="flex w-max gap-md p-md">
               {content.projects.map((project) => (
                 <Card
-                  className="border-border w-[300px] flex-shrink-0"
+                  className="w-[300px] flex-shrink-0 border-border"
                   key={project.id}
                 >
                   <CardHeader>
@@ -84,7 +90,7 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-text-secondary dark:text-text-secondary text-sm">
+                    <p className="text-sm text-text-secondary dark:text-text-secondary">
                       {project.summary}
                     </p>
                   </CardContent>
@@ -99,12 +105,12 @@ export default function Home() {
                             {project.title}
                           </DialogTitle>
                           <DialogDescription>
-                            <div className="dark:text-text-tertiary text-text-tertiary">
+                            <div className="text-text-tertiary dark:text-text-tertiary">
                               {project.technologies}
                             </div>
                           </DialogDescription>
                         </DialogHeader>
-                        <p className="text-text-secondary dark:text-text-secondary mt-md text-sm">
+                        <p className="mt-md text-sm text-text-secondary dark:text-text-secondary">
                           {project.description}
                         </p>
                         <DialogFooter className="sm:justify-start">
@@ -129,7 +135,7 @@ export default function Home() {
           <h2 className="text-2xl font-semibold">
             {content.testimonialsTitle}
           </h2>
-          <p className="text-text-secondary dark:text-text-secondary text-base">
+          <p className="text-base text-text-secondary dark:text-text-secondary">
             {content.testimonials}
           </p>
         </section>
@@ -139,10 +145,10 @@ export default function Home() {
           <h2 className="mb-md text-2xl font-semibold">
             {content.contactTitle}
           </h2>
-          <p className="text-text-secondary dark:text-text-secondary mb-lg text-base">
+          <p className="mb-lg text-base text-text-secondary dark:text-text-secondary">
             {content.contactText}
           </p>
-          <div className="gap-md flex justify-center">
+          <div className="flex justify-center gap-md">
             <Link
               href="mailto:ghdalmoro@gmail.com"
               className={buttonVariants({
