@@ -11,7 +11,7 @@ const Hamburger = ({ isMenuOpen, toggleMenu }: HamburgerProps) => {
       onClick={toggleMenu}
       className="group relative"
     >
-      <div className="bg-primary relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full transition-all duration-200">
+      <div className="relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full bg-primary transition-all duration-200">
         {/* ✅ Three horizontal bars */}
         <div
           className={`flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300 ${
