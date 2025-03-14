@@ -99,7 +99,7 @@ export default async function Home() {
                   <CardFooter className="justify-end">
                     <Dialog>
                       <DialogTrigger asChild>
-                        <Button variant="secondary">More Info</Button>
+                        <Button variant="secondary">{content.info}</Button>
                       </DialogTrigger>
                       <DialogContent className="sm:max-w-md">
                         <DialogHeader>
@@ -118,7 +118,7 @@ export default async function Home() {
                         <DialogFooter className="sm:justify-start">
                           <DialogClose asChild>
                             <Button type="button" variant="secondary">
-                              Close
+                              {content.close}
                             </Button>
                           </DialogClose>
                         </DialogFooter>
