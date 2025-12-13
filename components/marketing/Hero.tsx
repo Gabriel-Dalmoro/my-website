@@ -21,12 +21,13 @@ export default function Hero() {
                 </h1>
 
                 {/* The Solution */}
-                {/* @ts-ignore - TextType props inference issue */}
                 <div className="mt-4 min-h-[60px] text-2xl font-medium text-zinc-400 md:text-4xl">
                     <TextType
                         text={["I Build Autonomous AI Workflows."]}
                         showCursor={true}
                         cursorCharacter="|"
+                        variableSpeed={undefined}
+                        onSentenceComplete={undefined}
                     />
                 </div>
 

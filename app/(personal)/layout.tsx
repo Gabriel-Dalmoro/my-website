@@ -1,5 +1,4 @@
 import PersonalNav from "@/components/personal/PersonalNav";
-import styles from "./personal.module.css"; // We might want specific styles, or just use Tailwind
 
 export default function PersonalLayout({
     children,
