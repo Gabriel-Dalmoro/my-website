@@ -9,6 +9,15 @@ export default {
   ],
   theme: {
     extend: {
+      animation: {
+        marquee: "marquee 60s linear infinite",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
       maxWidth: {
         container: "1350px", // Limits max width on large screens
       },
