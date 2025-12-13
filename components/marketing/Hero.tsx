@@ -1,16 +1,40 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import DotGrid from "@/components/DotGrid";
+import TextType from "@/components/TextType";
 
 export default function Hero() {
     return (
-        <section className="flex flex-col items-center justify-center py-24 text-center">
-            <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
-                Stop Trading Time for Money. I Build Autonomous AI Workflows for Your
-                Business.
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Specializing in Next.js, n8n, and Python-based AI Agents.
-            </p>
+        <section className="relative flex flex-col items-center justify-center pt-24 pb-20 text-center overflow-hidden">
+            {/* DotGrid Background */}
+            <div className="absolute inset-0 -z-20">
+                <DotGrid baseColor="#333" style={{}} />
+            </div>
+
+            {/* Ambient Glow - Centered behind text */}
+            <div className="absolute top-1/2 left-1/2 -z-10 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/10 blur-[120px]"></div>
+
+            <div className="relative z-10 flex flex-col items-center">
+                {/* The Hook */}
+                <h1 className="text-5xl font-extrabold leading-tight text-white md:text-7xl">
+                    Stop Trading Time for Money.
+                </h1>
+
+                {/* The Solution */}
+                {/* @ts-ignore - TextType props inference issue */}
+                <div className="mt-4 min-h-[60px] text-2xl font-medium text-zinc-400 md:text-4xl">
+                    <TextType
+                        text={["I Build Autonomous AI Workflows."]}
+                        showCursor={true}
+                        cursorCharacter="|"
+                    />
+                </div>
+
+                <p className="mt-6 text-lg leading-8 text-zinc-400">
+                    Specializing in Next.js, n8n, and Python-based AI Agents.
+                </p>
+            </div>
+
             <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Button asChild size="lg" className="rounded-full">
                     <Link href="https://calendly.com/" target="_blank">
@@ -18,8 +42,9 @@ export default function Hero() {
                     </Link>
                 </Button>
             </div>
-            {/* Background decoration */}
-            <div className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-10 dark:bg-[radial-gradient(#ffffff_1px,transparent_1px)]"></div>
+
+            {/* Background decoration (Grid) - Kept subtle */}
+            <div className="absolute inset-0 -z-20 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-5 dark:bg-[radial-gradient(#ffffff_1px,transparent_1px)]"></div>
         </section>
     );
 }

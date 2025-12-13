@@ -1,3 +1,5 @@
+import BrowserFrame from "@/components/marketing/BrowserFrame";
+
 const projects = [
     {
         title: "AI Hiring Assistant (n8n + GPT-4)",
@@ -15,9 +17,9 @@ const projects = [
 
 export default function LoomGrid() {
     return (
-        <div className="py-24 sm:py-32">
+        <div className="py-16 sm:py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl text-center mb-16">
+                <div className="mx-auto max-w-2xl text-center mb-10">
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Featured Work</h2>
                     <p className="mt-2 text-lg leading-8 text-muted-foreground">
                         See the systems in action.
@@ -26,18 +28,20 @@ export default function LoomGrid() {
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
                     {projects.map((project) => (
                         <div key={project.title} className="flex flex-col gap-4">
-                            <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-muted">
-                                {/* 
-                    Note: For a real Loom embed, you'd typically use an iframe or their SDK.
-                    Using a simple iframe here for demonstration.
-                 */}
-                                <iframe
-                                    src={project.videoUrl}
-                                    allowFullScreen
-                                    className="absolute top-0 left-0 w-full h-full"
-                                    title={project.title}
-                                ></iframe>
-                            </div>
+                            <BrowserFrame>
+                                <div className="relative aspect-video w-full bg-muted">
+                                    {/* 
+                                        Note: For a real Loom embed, you'd typically use an iframe or their SDK.
+                                        Using a simple iframe here for demonstration.
+                                     */}
+                                    <iframe
+                                        src={project.videoUrl}
+                                        allowFullScreen
+                                        className="absolute top-0 left-0 w-full h-full"
+                                        title={project.title}
+                                    ></iframe>
+                                </div>
+                            </BrowserFrame>
                             <div>
                                 <h3 className="text-lg font-semibold">{project.title}</h3>
                                 <p className="text-muted-foreground">{project.description}</p>
