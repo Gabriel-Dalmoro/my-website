@@ -26,16 +26,16 @@
         "subheadline": "Agents et workflows évolutifs fonctionnant 24/7.",
         "cards": {
             "recruiting": {
-                "name": "Agents IA de Recrutement",
-                "description": "Filtrage et notation automatisés des candidats."
+                "name": "Noyé sous l'Admin ?",
+                "description": "Arrêtez la paperasse. Des agents spécialisés gèrent l'agenda, la facturation et la saisie de données automatiquement."
             },
             "dashboards": {
-                "name": "Tableaux de Bord Business",
-                "description": "Visualisation de données en temps réel (VisionSort)."
+                "name": "Suivi de Pistes trop Lent ?",
+                "description": "Ne ratez plus aucun deal. L'IA engage les prospects instantanément, les qualifie et réserve des RDV 24/7."
             },
             "workflows": {
-                "name": "Flux de Travail Personnalisés",
-                "description": "Connexion de vos API aux LLM pour des opérations automatisées."
+                "name": "Pilotage à l'Aveugle ?",
+                "description": "Obtenez une clarté immédiate. Des tableaux de bord temps réel qui centralisent toutes vos données."
             }
         }
     },

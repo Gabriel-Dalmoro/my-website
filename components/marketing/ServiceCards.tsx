@@ -24,7 +24,7 @@ export default function ServiceCards() {
     ];
 
     return (
-        <div className="pb-24 sm:pb-32 bg-zinc-950">
+        <div className="pb-12 sm:pb-16 bg-zinc-950">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                     <p className="text-base font-semibold leading-7 text-yellow-500 uppercase tracking-wide">{t("label")}</p>
@@ -43,8 +43,8 @@ export default function ServiceCards() {
                                 spotlightColor="rgba(234, 179, 8, 0.25)"
                                 className="bg-zinc-900/50 border-zinc-800 flex flex-col rounded-2xl border p-6 shadow-sm hover:shadow-md transition-shadow"
                             >
-                                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
-                                    <feature.icon className="h-5 w-5 flex-none text-yellow-500" aria-hidden="true" />
+                                <dt className="flex items-center gap-x-3 text-lg font-bold leading-7 text-white">
+                                    <feature.icon className="h-8 w-8 flex-none text-yellow-500" aria-hidden="true" />
                                     {feature.name}
                                 </dt>
                                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-zinc-400">

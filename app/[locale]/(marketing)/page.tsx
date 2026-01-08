@@ -1,8 +1,8 @@
 import Hero from "@/components/marketing/Hero";
 import TechStack from "@/components/marketing/TechStack";
-import Testimonials from "@/components/marketing/Testimonials";
 import ProblemSection from "@/components/marketing/ProblemSection";
 import ServiceCards from "@/components/marketing/ServiceCards";
+import Testimonials from "@/components/marketing/Testimonials";
 import LoomGrid from "@/components/marketing/LoomGrid";
 import AboutMe from "@/components/marketing/AboutMe";
 import FinalCTA from "@/components/marketing/FinalCTA";
@@ -14,9 +14,9 @@ export default function MarketingPage() {
       <main className="isolate">
         <Hero />
         <TechStack />
-        <Testimonials />
         <ProblemSection />
         <ServiceCards />
+        <Testimonials />
         <LoomGrid />
         <AboutMe />
         <FinalCTA />

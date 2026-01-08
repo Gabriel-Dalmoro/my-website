@@ -26,16 +26,16 @@
         "subheadline": "Scalable agents and workflows running 24/7.",
         "cards": {
             "recruiting": {
-                "name": "AI Recruiting Agents",
-                "description": "Automated candidate screening and scoring."
+                "name": "Buried in Admin?",
+                "description": "Stop drowning in paperwork. specialized agents handle scheduling, invoicing, and data entry automatically."
             },
             "dashboards": {
-                "name": "Business Dashboards",
-                "description": "Real-time data visualization (VisionSort)."
+                "name": "Slow Lead Follow-up?",
+                "description": "Never miss a deal. AI agents engage leads instantly, qualify them, and book meetings 24/7."
             },
             "workflows": {
-                "name": "Custom Workflows",
-                "description": "Connecting your APIs to LLMs for automated operations."
+                "name": "Flying Blind?",
+                "description": "Get clarity instantly. Real-time dashboards that pull data from all your tools into one view."
             }
         }
     },
