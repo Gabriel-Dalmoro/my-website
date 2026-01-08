@@ -1,57 +1,48 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { setCookie, getCookie } from "cookies-next"; // ✅ Use only cookies
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { textContent } from "@/lib/content";
+import { useLocale } from "next-intl";
+import { useRouter, usePathname } from "@/i18n/routing";
+import { ChangeEvent, useTransition } from "react";
 
-export default function LanguageSwitcher() {
-  const [language, setLanguage] = useState<
-    "english" | "portuguese" | "spanish"
-  >("english");
+export default function LanguageSwitcher({ variant = 'full' }: { variant?: 'minimal' | 'full' }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale();
+  const [isPending, startTransition] = useTransition();
 
-  // ✅ Load the language from cookies when the component mounts
-  useEffect(() => {
-    const storedLang = (getCookie("selectedLanguage") || "english") as
-      | "english"
-      | "portuguese"
-      | "spanish";
-    setLanguage(storedLang);
-  }, []);
-
-  // ✅ Update the cookie when the user changes the language
-  const handleLanguageSwitch = (
-    value: "english" | "portuguese" | "spanish",
-  ) => {
-    setLanguage(value);
-    setCookie("selectedLanguage", value, { path: "/" }); // ✅ Store language in cookies
-    window.location.reload();
+  const onChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const nextLocale = event.target.value;
+    startTransition(() => {
+      router.replace(pathname, { locale: nextLocale });
+    });
   };
 
+  const isMinimal = variant === 'minimal';
+
   return (
-    <Select onValueChange={handleLanguageSwitch} value={language}>
-      <SelectTrigger className="w-42 mt-2 h-12 justify-center gap-6 rounded-sm border-primary bg-primary-faded px-6 py-3 font-medium text-black text-foreground transition-transform duration-200 hover:scale-105">
-        {/* ✅ Dynamically update placeholder based on selected language */}
-        <SelectValue placeholder={textContent[language].languageDropdown} />
-      </SelectTrigger>
-      <SelectContent className="bg-background">
-        {/* ✅ Dropdown items update dynamically based on the selected language */}
-        <SelectItem value="english">
-          {textContent[language].languages[0]}
-        </SelectItem>
-        <SelectItem value="portuguese">
-          {textContent[language].languages[1]}
-        </SelectItem>
-        <SelectItem value="spanish">
-          {textContent[language].languages[2]}
-        </SelectItem>
-      </SelectContent>
-    </Select>
+    <div className="relative group">
+      <select
+        defaultValue={locale}
+        className={`appearance-none text-xs font-medium border rounded-md py-1.5 pl-3 pr-8 transition-colors focus:outline-none cursor-pointer ${isMinimal
+            ? "bg-transparent text-zinc-500 hover:text-white border-transparent hover:border-zinc-800"
+            : "bg-zinc-900 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-700 focus:ring-1 focus:ring-yellow-500/50"
+          }`}
+        onChange={onChange}
+        disabled={isPending}
+      >
+        <option value="en" className="bg-zinc-900 text-zinc-400">
+          {isMinimal ? "EN" : "English"}
+        </option>
+        <option value="fr" className="bg-zinc-900 text-zinc-400">
+          {isMinimal ? "FR" : "Français"}
+        </option>
+      </select>
+      <div className={`pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 transition-colors ${isMinimal ? "text-zinc-600 group-hover:text-zinc-400" : "text-zinc-500"
+        }`}>
+        <svg className="h-3 w-3 fill-current" viewBox="0 0 20 20">
+          <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd" />
+        </svg>
+      </div>
+    </div>
   );
 }

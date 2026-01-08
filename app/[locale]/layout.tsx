@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "../../i18n/routing";
+import "../globals.css";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
+// Check if metadata needs dynamic locale? For now keep static or update later.
 export const metadata: Metadata = {
   title: "Gabriel Dalmoro",
   description:
@@ -36,13 +42,32 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  // Providing all messages to the client
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className="dark">
+    <html lang={locale} className="dark">
       <body className="flex min-h-screen flex-col">
-        <main>{children}</main>
+        <NextIntlClientProvider messages={messages}>
+          <div className="absolute top-6 right-6 z-50">
+            <LanguageSwitcher variant="minimal" />
+          </div>
+          <main>{children}</main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -2,8 +2,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import DotGrid from "@/components/DotGrid";
 import TextType from "@/components/TextType";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+    const t = useTranslations("Hero");
+
     return (
         <section className="relative flex flex-col items-center justify-center pt-24 pb-20 text-center overflow-hidden">
             {/* DotGrid Background */}
@@ -14,16 +17,16 @@ export default function Hero() {
             {/* Ambient Glow - Centered behind text */}
             <div className="absolute top-1/2 left-1/2 -z-10 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/10 blur-[120px]"></div>
 
-            <div className="relative z-10 flex flex-col items-center">
+            <div className="relative z-10 flex flex-col items-center px-6 lg:px-8">
                 {/* The Hook */}
                 <h1 className="text-5xl font-extrabold leading-tight text-white md:text-7xl">
-                    Stop Trading Time for Money.
+                    {t("hook")}
                 </h1>
 
                 {/* The Solution */}
                 <div className="mt-4 min-h-[60px] text-2xl font-medium text-zinc-400 md:text-4xl">
                     <TextType
-                        text={["I Build Autonomous AI Workflows."]}
+                        text={[t("solution")]}
                         showCursor={true}
                         cursorCharacter="|"
                         variableSpeed={undefined}
@@ -32,14 +35,14 @@ export default function Hero() {
                 </div>
 
                 <p className="mt-6 text-lg leading-8 text-zinc-400">
-                    Specializing in Next.js, n8n, and Python-based AI Agents.
+                    {t("description")}
                 </p>
             </div>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Button asChild size="lg" className="rounded-full">
                     <Link href="https://calendly.com/" target="_blank">
-                        Book a 15-Min Automation Audit
+                        {t("cta")}
                     </Link>
                 </Button>
             </div>
