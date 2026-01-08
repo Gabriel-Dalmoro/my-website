@@ -16,13 +16,13 @@ export default function AboutMe() {
                             {t("description")}
                         </p>
                     </div>
-                    <div className="relative aspect-[3/4] w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-zinc-800">
+                    <div className="relative aspect-[3/4] w-full max-w-xs mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-zinc-800">
                         <Image
                             src="/gabriel.jpg"
                             alt="Gabriel Dalmoro"
                             fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover object-[50%_15%]"
+                            sizes="(max-width: 768px) 100vw, 33vw"
                         />
                         {/* Subtle overlay gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/40 to-transparent"></div>
