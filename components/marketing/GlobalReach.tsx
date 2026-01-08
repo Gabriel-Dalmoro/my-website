@@ -31,8 +31,8 @@ export default function GlobalReach() {
                     <ComposableMap
                         projection="geoMercator"
                         projectionConfig={{
-                            scale: 140,
-                            center: [0, 20] // Adjust center to show all 3 points nicely
+                            scale: 220,
+                            center: [-20, 25] // Focused on the Atlantic corridor (Americas <> Europe)
                         }}
                         className="w-full h-full"
                     >
