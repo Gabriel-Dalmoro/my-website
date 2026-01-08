@@ -1,55 +1,55 @@
 {
     "Hero": {
-        "hook": "Scale Operations Without Headcount.",
-        "solution": "I Build Autonomous AI Workflows.",
-        "description": "Specializing in operational automation for founders drowning in admin.",
-        "cta": "Book a 15-Min Automation Audit"
+        "hook": "Grow Your Business Without Hiring More Staff.",
+        "solution": "Automate your busywork.",
+        "description": "I build custom systems that handle your repetitive tasks—so you can focus on your customers and your profit.",
+        "cta": "Book a 15-Min Free Consultation"
     },
     "SocialProof": {
-        "headline": "Trusted by Founders & Startups",
+        "headline": "Trusted by Business Owners",
         "testimonials": {
             "0": {
-                "body": "I was lucky to have worked with Gabriel on our project. He immediately took the lead and communicated with our team on a consistent basis providing updates and asking questions about the product we were building. He not only has a strong understanding of application development but also understood the business implications of the product we were building and took the time to educate himself on the audience we were building it for. His leadership was paramount in delivering our product on time and in scope.",
+                "body": "Gabriel transformed how we work. He understood our business immediately and built a system that saves us hours every single day. We can finally focus on growth instead of just keeping up.",
                 "author": "Zach Hodder",
-                "role": "Mobile Startup (Harpia) CEO"
+                "role": "CEO, Harpia"
             }
         }
     },
     "Problem": {
         "label": "The Problem",
-        "headline": "Administrative bottlenecks are stifling your growth.",
-        "subheadline": "Your team is spending valuable liquidity on low-leverage tasks. Recover that operational bandwidth."
+        "headline": "You are spending too much time on admin.",
+        "subheadline": "Manual data entry, chasing invoices, and repetitive emails are slowing you down. It's time to stop doing the busywork yourself."
     },
     "Services": {
         "label": "The Solution",
-        "headline": "Automated Systems",
-        "subheadline": "Scalable agents and workflows running 24/7.",
+        "headline": "Systems That Do The Work For You",
+        "subheadline": "I build tools that run 24/7 to handle your operations automatically.",
         "cards": {
             "recruiting": {
-                "name": "Buried in Admin?",
-                "description": "Stop drowning in paperwork. specialized agents handle scheduling, invoicing, and data entry automatically."
+                "name": "Drowning in Paperwork?",
+                "description": "Stop doing manual data entry. I build systems that handle scheduling, invoicing, and filing automatically."
             },
             "dashboards": {
-                "name": "Slow Lead Follow-up?",
-                "description": "Never miss a deal. AI agents engage leads instantly, qualify them, and book meetings 24/7."
+                "name": "Missing New Leads?",
+                "description": "Never miss a customer. My systems reply to inquiries instantly and book meetings for you, day or night."
             },
             "workflows": {
-                "name": "Flying Blind?",
-                "description": "Get clarity instantly. Real-time dashboards that pull data from all your tools into one view."
+                "name": "Messy Spreadsheets?",
+                "description": "Stop guessing. I put all your important business numbers into one simple dashboard you can check on your phone."
             }
         }
     },
     "FeaturedWork": {
-        "headline": "Recent Deployments",
-        "subheadline": "See automation in action."
+        "headline": "See It In Action",
+        "subheadline": "Real examples of systems I've built for other businesses."
     },
     "AboutMe": {
-        "headline": "The 'Hybrid' Developer",
-        "description": "Business Background + Full Stack Skills. I don't just write code; I understand P&L, Operations, and Growth. I build systems that actually move the needle for your business."
+        "headline": "I Speak Business & Tech",
+        "description": "I'm not just a coder. I have a business background, so I understand that you need results, not just fancy technology. I build practical solutions that save you time and money."
     },
     "GlobalReach": {
-        "headline": "Global Perspective",
-        "description": "Collaborating across continents. I work fluently in English, French, Portuguese, and Spanish, bridging cultural and technical gaps for clients in Brazil, Canada, and France.",
+        "headline": "Working Globally",
+        "description": "I work with clients everywhere. I speak English, French, Portuguese, and Spanish fluently.",
         "locations": {
             "brazil": "Brazil",
             "canada": "Canada",
@@ -57,7 +57,7 @@
         }
     },
     "CTA": {
-        "headline": "Ready to reclaim your time?",
-        "button": "Let's automate your first task"
+        "headline": "Ready to save 20+ hours a week?",
+        "button": "Book your free audit"
     }
 }

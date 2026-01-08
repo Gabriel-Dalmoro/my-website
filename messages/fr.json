@@ -1,55 +1,55 @@
 {
     "Hero": {
-        "hook": "Faites Croître vos Opérations sans Recruter.",
-        "solution": "Je Crée des Flux de Travail IA Autonomes.",
-        "description": "Spécialisé en automatisation opérationnelle pour les fondateurs noyés sous l'administratif.",
-        "cta": "Réserver un Audit d'Automatisation de 15 Min"
+        "hook": "Développez Votre Entreprise Sans Recruter.",
+        "solution": "Automatisez vos tâches administratives.",
+        "description": "Je crée des systèmes sur mesure qui gèrent vos tâches répétitives, pour que vous puissiez vous concentrer sur vos clients et vos profits.",
+        "cta": "Réserver une Consultation Gratuite"
     },
     "SocialProof": {
-        "headline": "La Confiance des Fondateurs & Startups",
+        "headline": "La Confiance des Entrepreneurs",
         "testimonials": {
             "0": {
-                "body": "J’ai eu la chance de travailler avec Gabriel sur notre projet. Il a immédiatement pris les devants et a communiqué régulièrement avec notre équipe, nous tenant informés et posant des questions pertinentes sur le produit que nous développions. Il ne possède pas seulement une solide compréhension du développement d’applications, mais il a également su saisir les enjeux commerciaux du produit, prenant le temps de se former et de s’informer sur le public cible auquel nous nous adressions. Son sens du leadership a été essentiel pour livrer notre produit dans les délais et dans le respect du périmètre prévu.",
+                "body": "Gabriel a transformé notre façon de travailler. Il a tout de suite compris notre business et a créé un système qui nous fait gagner des heures chaque jour. On peut enfin se concentrer sur la croissance.",
                 "author": "Zach Hodder",
-                "role": "CEO de la startup mobile Harpia"
+                "role": "CEO, Harpia"
             }
         }
     },
     "Problem": {
         "label": "Le Problème",
-        "headline": "Les goulots d'étranglement administratifs freinent votre croissance.",
-        "subheadline": "Votre équipe dépense une liquidité précieuse sur des tâches à faible levier. Récupérez cette bande passante opérationnelle."
+        "headline": "Vous passez trop de temps sur l'administratif.",
+        "subheadline": "La saisie de données, les factures et les emails répétitifs vous ralentissent. Il est temps d'arrêter de faire le 'sale boulot' vous-même."
     },
     "Services": {
         "label": "La Solution",
-        "headline": "Systèmes Automatisés",
-        "subheadline": "Agents et workflows évolutifs fonctionnant 24/7.",
+        "headline": "Des Systèmes Qui Travaillent Pour Vous",
+        "subheadline": "Je construis des outils qui tournent 24/7 pour gérer vos opérations automatiquement.",
         "cards": {
             "recruiting": {
-                "name": "Noyé sous l'Admin ?",
-                "description": "Arrêtez la paperasse. Des agents spécialisés gèrent l'agenda, la facturation et la saisie de données automatiquement."
+                "name": "Noyé sous la paperasse ?",
+                "description": "Arrêtez la saisie manuelle. Je crée des systèmes qui gèrent l'agenda, la facturation et le classement automatiquement."
             },
             "dashboards": {
-                "name": "Suivi de Pistes trop Lent ?",
-                "description": "Ne ratez plus aucun deal. L'IA engage les prospects instantanément, les qualifie et réserve des RDV 24/7."
+                "name": "Vous ratez des clients ?",
+                "description": "Ne manquez plus aucune opportunité. Mes systèmes répondent aux demandes instantanément et prennent vos RDV, jour et nuit."
             },
             "workflows": {
-                "name": "Pilotage à l'Aveugle ?",
-                "description": "Obtenez une clarté immédiate. Des tableaux de bord temps réel qui centralisent toutes vos données."
+                "name": "Tableurs illisibles ?",
+                "description": "Arrêtez de deviner. Je rassemble tous vos chiffres importants dans un tableau de bord simple, consultable sur votre téléphone."
             }
         }
     },
     "FeaturedWork": {
-        "headline": "Déploiements Récents",
-        "subheadline": "Voyez l'automatisation en action."
+        "headline": "En Action",
+        "subheadline": "Exemples réels de systèmes créés pour d'autres entreprises."
     },
     "AboutMe": {
-        "headline": "Le Développeur 'Hybride'",
-        "description": "Background Business + Compétences Full Stack. Je ne fais pas que coder; je comprends le P&L, les Opérations et la Croissance. Je construis des systèmes qui font vraiment bouger les choses."
+        "headline": "Je Parle Business & Tech",
+        "description": "Je ne suis pas juste un codeur. J'ai un background business, donc je comprends que vous voulez des résultats, pas juste de la technologie. Je crée des solutions pratiques qui vous font gagner du temps et de l'argent."
     },
     "GlobalReach": {
-        "headline": "Perspective Monde",
-        "description": "Collaboration intercontinentale. Je travaille couramment en Anglais, Français, Portugais et Espagnol, comblant les écarts culturels et techniques pour des clients au Brésil, au Canada et en France.",
+        "headline": "Travail à l'International",
+        "description": "Je travaille avec des clients partout. Je parle couramment Anglais, Français, Portugais et Espagnol.",
         "locations": {
             "brazil": "Brésil",
             "canada": "Canada",
@@ -57,7 +57,7 @@
         }
     },
     "CTA": {
-        "headline": "Prêt à reprendre le contrôle de votre temps?",
-        "button": "Automatisons votre première tâche"
+        "headline": "Prêt à gagner 20h par semaine ?",
+        "button": "Réserver votre audit gratuit"
     }
 }
