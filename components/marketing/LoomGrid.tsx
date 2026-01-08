@@ -1,4 +1,5 @@
 import BrowserFrame from "@/components/marketing/BrowserFrame";
+import { useTranslations } from "next-intl";
 
 const projects = [
     {
@@ -16,13 +17,17 @@ const projects = [
 ];
 
 export default function LoomGrid() {
+    const t = useTranslations("FeaturedWork");
+
     return (
-        <div className="py-16 sm:py-24">
+        <div className="py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl text-center mb-10">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Featured Work</h2>
-                    <p className="mt-2 text-lg leading-8 text-muted-foreground">
-                        See the systems in action.
+                <div className="mx-auto max-w-2xl text-center mb-16">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">
+                        {t("headline")}
+                    </h2>
+                    <p className="mt-2 text-lg leading-8 text-zinc-400">
+                        {t("subheadline")}
                     </p>
                 </div>
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">

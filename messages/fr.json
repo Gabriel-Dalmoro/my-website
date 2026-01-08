@@ -1,8 +1,57 @@
 {
     "Hero": {
-        "hook": "Arrêtez d'Échanger du Temps contre de l'Argent.",
+        "hook": "Faites Croître vos Opérations sans Recruter.",
         "solution": "Je Crée des Flux de Travail IA Autonomes.",
-        "description": "Spécialisé en Next.js, n8n et Agents IA basés sur Python.",
+        "description": "Spécialisé en automatisation opérationnelle pour les fondateurs noyés sous l'administratif.",
         "cta": "Réserver un Audit d'Automatisation de 15 Min"
+    },
+    "SocialProof": {
+        "headline": "La Confiance des Fondateurs & Startups",
+        "testimonials": {
+            "0": {
+                "body": "Gabriel a automatisé tout notre processus de sélection de candidats. On gagne 15+ heures/semaine.",
+                "author": "Alex C.",
+                "role": "Fondateur, TechRecruit"
+            },
+            "1": {
+                "body": "Les tableaux de bord opérationnels nous ont donné une visibilité inédite. Recommandé à 100%.",
+                "author": "Sarah L.",
+                "role": "COO, DataFlow"
+            }
+        }
+    },
+    "Problem": {
+        "headline": "Votre équipe gaspille 20h par semaine sur Ctrl+C / Ctrl+V.",
+        "subheadline": "Arrêtez de brûler du cash sur la saisie manuelle et les tâches répétitives."
+    },
+    "Services": {
+        "headline": "La Solution: Systèmes Automatisés",
+        "subheadline": "Agents et workflows évolutifs fonctionnant 24/7.",
+        "cards": {
+            "recruiting": {
+                "name": "Agents IA de Recrutement",
+                "description": "Filtrage et notation automatisés des candidats."
+            },
+            "dashboards": {
+                "name": "Tableaux de Bord Business",
+                "description": "Visualisation de données en temps réel (VisionSort)."
+            },
+            "workflows": {
+                "name": "Flux de Travail Personnalisés",
+                "description": "Connexion de vos API aux LLM pour des opérations automatisées."
+            }
+        }
+    },
+    "FeaturedWork": {
+        "headline": "Déploiements Récents",
+        "subheadline": "Voyez l'automatisation en action."
+    },
+    "AboutMe": {
+        "headline": "Le Développeur 'Hybride'",
+        "description": "Background Business + Compétences Full Stack. Je ne fais pas que coder; je comprends le P&L, les Opérations et la Croissance. Je construis des systèmes qui font vraiment bouger les choses."
+    },
+    "CTA": {
+        "headline": "Prêt à reprendre le contrôle de votre temps?",
+        "button": "Automatisons votre première tâche"
     }
 }

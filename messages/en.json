@@ -1,8 +1,57 @@
 {
     "Hero": {
-        "hook": "Stop Trading Time for Money.",
+        "hook": "Scale Operations Without Headcount.",
         "solution": "I Build Autonomous AI Workflows.",
-        "description": "Specializing in Next.js, n8n, and Python-based AI Agents.",
+        "description": "Specializing in operational automation for founders drowning in admin.",
         "cta": "Book a 15-Min Automation Audit"
+    },
+    "SocialProof": {
+        "headline": "Trusted by Founders & Startups",
+        "testimonials": {
+            "0": {
+                "body": "Gabriel automated our entire candidate screening process. We saved 15+ hours/week immediately.",
+                "author": "Alex C.",
+                "role": "Founder, TechRecruit"
+            },
+            "1": {
+                "body": "The operational dashboards gave us visibility we never had. Highly recommended for any founder.",
+                "author": "Sarah L.",
+                "role": "COO, DataFlow"
+            }
+        }
+    },
+    "Problem": {
+        "headline": "Your team is wasting 20 hours a week on Ctrl+C / Ctrl+V.",
+        "subheadline": "Stop burning cash on manual data entry and repetitive tasks."
+    },
+    "Services": {
+        "headline": "The Solution: Automated Systems",
+        "subheadline": "Scalable agents and workflows running 24/7.",
+        "cards": {
+            "recruiting": {
+                "name": "AI Recruiting Agents",
+                "description": "Automated candidate screening and scoring."
+            },
+            "dashboards": {
+                "name": "Business Dashboards",
+                "description": "Real-time data visualization (VisionSort)."
+            },
+            "workflows": {
+                "name": "Custom Workflows",
+                "description": "Connecting your APIs to LLMs for automated operations."
+            }
+        }
+    },
+    "FeaturedWork": {
+        "headline": "Recent Deployments",
+        "subheadline": "See automation in action."
+    },
+    "AboutMe": {
+        "headline": "The 'Hybrid' Developer",
+        "description": "Business Background + Full Stack Skills. I don't just write code; I understand P&L, Operations, and Growth. I build systems that actually move the needle for your business."
+    },
+    "CTA": {
+        "headline": "Ready to reclaim your time?",
+        "button": "Let's automate your first task"
     }
 }
