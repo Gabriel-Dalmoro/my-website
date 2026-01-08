@@ -8,7 +8,7 @@ export default function ProblemSection() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl text-center">
                     <p className="text-base font-semibold leading-7 text-red-500 uppercase tracking-wide">{t("label")}</p>
-                    <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         {t("headline")}
                     </h2>
                     <p className="mt-6 text-xl leading-8 text-zinc-400 max-w-2xl mx-auto">
