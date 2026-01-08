@@ -5,6 +5,7 @@ import ServiceCards from "@/components/marketing/ServiceCards";
 import Testimonials from "@/components/marketing/Testimonials";
 import LoomGrid from "@/components/marketing/LoomGrid";
 import AboutMe from "@/components/marketing/AboutMe";
+import GlobalReach from "@/components/marketing/GlobalReach";
 import FinalCTA from "@/components/marketing/FinalCTA";
 import Footer from "@/components/marketing/Footer";
 
@@ -19,6 +20,7 @@ export default function MarketingPage() {
         <Testimonials />
         <LoomGrid />
         <AboutMe />
+        <GlobalReach />
         <FinalCTA />
       </main>
       <Footer />

@@ -47,6 +47,15 @@
         "headline": "The 'Hybrid' Developer",
         "description": "Business Background + Full Stack Skills. I don't just write code; I understand P&L, Operations, and Growth. I build systems that actually move the needle for your business."
     },
+    "GlobalReach": {
+        "headline": "Global Perspective",
+        "description": "Collaborating across continents. I work fluently in English, French, and Portuguese, bridging cultural and technical gaps for clients in Brazil, Canada, and France.",
+        "locations": {
+            "brazil": "Brazil",
+            "canada": "Canada",
+            "france": "France"
+        }
+    },
     "CTA": {
         "headline": "Ready to reclaim your time?",
         "button": "Let's automate your first task"

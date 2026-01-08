@@ -47,6 +47,15 @@
         "headline": "Le Développeur 'Hybride'",
         "description": "Background Business + Compétences Full Stack. Je ne fais pas que coder; je comprends le P&L, les Opérations et la Croissance. Je construis des systèmes qui font vraiment bouger les choses."
     },
+    "GlobalReach": {
+        "headline": "Perspective Monde",
+        "description": "Collaboration intercontinentale. Je travaille couramment en Anglais, Français et Portugais, comblant les écarts culturels et techniques pour des clients au Brésil, au Canada et en France.",
+        "locations": {
+            "brazil": "Brésil",
+            "canada": "Canada",
+            "france": "France"
+        }
+    },
     "CTA": {
         "headline": "Prêt à reprendre le contrôle de votre temps?",
         "button": "Automatisons votre première tâche"
