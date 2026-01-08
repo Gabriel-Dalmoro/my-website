@@ -9,14 +9,9 @@
         "headline": "La Confiance des Fondateurs & Startups",
         "testimonials": {
             "0": {
-                "body": "Gabriel a automatisé tout notre processus de sélection de candidats. On gagne 15+ heures/semaine.",
-                "author": "Alex C.",
-                "role": "Fondateur, TechRecruit"
-            },
-            "1": {
-                "body": "Les tableaux de bord opérationnels nous ont donné une visibilité inédite. Recommandé à 100%.",
-                "author": "Sarah L.",
-                "role": "COO, DataFlow"
+                "body": "J’ai eu la chance de travailler avec Gabriel sur notre projet. Il a immédiatement pris les devants et a communiqué régulièrement avec notre équipe, nous tenant informés et posant des questions pertinentes sur le produit que nous développions. Il ne possède pas seulement une solide compréhension du développement d’applications, mais il a également su saisir les enjeux commerciaux du produit, prenant le temps de se former et de s’informer sur le public cible auquel nous nous adressions. Son sens du leadership a été essentiel pour livrer notre produit dans les délais et dans le respect du périmètre prévu.",
+                "author": "Zach Hodder",
+                "role": "CEO de la startup mobile Harpia"
             }
         }
     },
