@@ -16,9 +16,9 @@ export default function GlobalReach() {
     const t = useTranslations("GlobalReach");
 
     return (
-        <div className="py-24 sm:py-32 overflow-hidden bg-zinc-950">
+        <div className="py-16 sm:py-24 overflow-hidden bg-zinc-950">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl text-center mb-16">
+                <div className="mx-auto max-w-2xl text-center mb-10">
                     <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl text-yellow-500">
                         {t("headline")}
                     </h2>

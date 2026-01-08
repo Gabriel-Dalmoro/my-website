@@ -5,7 +5,7 @@ export default function AboutMe() {
     const t = useTranslations("AboutMe");
 
     return (
-        <div className="bg-zinc-900/30 py-24 sm:py-32 border-y border-zinc-900">
+        <div className="bg-zinc-900/30 py-16 sm:py-24 border-y border-zinc-900">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16 items-center">
                     <div className="mx-auto max-w-2xl lg:mx-0">

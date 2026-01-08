@@ -4,14 +4,14 @@ export default function Testimonials() {
     const t = useTranslations("SocialProof");
 
     return (
-        <div className="py-24 bg-zinc-950/50 border-y border-zinc-900">
+        <div className="py-16 bg-zinc-950/50 border-y border-zinc-900">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-2xl font-bold tracking-tight text-yellow-500 sm:text-3xl">
                         {t("headline")}
                     </h2>
                 </div>
-                <div className="mx-auto mt-16 max-w-4xl">
+                <div className="mx-auto mt-10 max-w-4xl">
                     <figure className="rounded-3xl bg-zinc-900/40 p-8 sm:p-12 text-center ring-1 ring-white/10 shadow-2xl">
                         <blockquote className="text-lg font-medium leading-8 text-zinc-300 sm:text-xl sm:leading-9">
                             <p>“{t("testimonials.0.body")}”</p>
