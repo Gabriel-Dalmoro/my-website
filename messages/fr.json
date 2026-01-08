@@ -16,11 +16,13 @@
         }
     },
     "Problem": {
-        "headline": "Votre équipe gaspille 20h par semaine sur Ctrl+C / Ctrl+V.",
-        "subheadline": "Arrêtez de brûler du cash sur la saisie manuelle et les tâches répétitives."
+        "label": "Le Problème",
+        "headline": "Les goulots d'étranglement administratifs freinent votre croissance.",
+        "subheadline": "Votre équipe dépense une liquidité précieuse sur des tâches à faible levier. Récupérez cette bande passante opérationnelle."
     },
     "Services": {
-        "headline": "La Solution: Systèmes Automatisés",
+        "label": "La Solution",
+        "headline": "Systèmes Automatisés",
         "subheadline": "Agents et workflows évolutifs fonctionnant 24/7.",
         "cards": {
             "recruiting": {

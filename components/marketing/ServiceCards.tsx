@@ -24,13 +24,14 @@ export default function ServiceCards() {
     ];
 
     return (
-        <div className="py-24 sm:py-32">
+        <div className="pb-24 sm:pb-32 bg-zinc-950">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">
+                    <p className="text-base font-semibold leading-7 text-yellow-500 uppercase tracking-wide">{t("label")}</p>
+                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         {t("headline")}
                     </h2>
-                    <p className="mt-2 text-lg leading-8 text-zinc-400">
+                    <p className="mt-4 text-lg leading-8 text-zinc-400">
                         {t("subheadline")}
                     </p>
                 </div>

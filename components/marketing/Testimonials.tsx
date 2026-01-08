@@ -7,13 +7,13 @@ export default function Testimonials() {
         <div className="py-24 bg-zinc-950/50 border-y border-zinc-900">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl text-yellow-500">
+                    <h2 className="text-2xl font-bold tracking-tight text-yellow-500 sm:text-3xl">
                         {t("headline")}
                     </h2>
                 </div>
                 <div className="mx-auto mt-16 max-w-4xl">
-                    <figure className="rounded-3xl bg-zinc-900/50 p-8 sm:p-10 text-center ring-1 ring-zinc-800 shadow-xl">
-                        <blockquote className="text-xl font-medium leading-9 text-zinc-300 sm:text-2xl sm:leading-10">
+                    <figure className="rounded-3xl bg-zinc-900/40 p-8 sm:p-12 text-center ring-1 ring-white/10 shadow-2xl">
+                        <blockquote className="text-lg font-medium leading-8 text-zinc-300 sm:text-xl sm:leading-9">
                             <p>“{t("testimonials.0.body")}”</p>
                         </blockquote>
                         <figcaption className="mt-10 flex items-center justify-center gap-x-6">

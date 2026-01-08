@@ -4,13 +4,14 @@ export default function ProblemSection() {
     const t = useTranslations("Problem");
 
     return (
-        <div className="bg-zinc-950 py-24 sm:py-32">
+        <div className="bg-zinc-950 pt-32 pb-16">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-3xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-6">
+                <div className="mx-auto max-w-4xl text-center">
+                    <p className="text-base font-semibold leading-7 text-red-500 uppercase tracking-wide">{t("label")}</p>
+                    <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
                         {t("headline")}
                     </h2>
-                    <p className="text-lg leading-8 text-zinc-400">
+                    <p className="mt-6 text-xl leading-8 text-zinc-400 max-w-2xl mx-auto">
                         {t("subheadline")}
                     </p>
                 </div>

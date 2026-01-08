@@ -16,11 +16,13 @@
         }
     },
     "Problem": {
-        "headline": "Your team is wasting 20 hours a week on Ctrl+C / Ctrl+V.",
-        "subheadline": "Stop burning cash on manual data entry and repetitive tasks."
+        "label": "The Problem",
+        "headline": "Administrative bottlenecks are stifling your growth.",
+        "subheadline": "Your team is spending valuable liquidity on low-leverage tasks. Recover that operational bandwidth."
     },
     "Services": {
-        "headline": "The Solution: Automated Systems",
+        "label": "The Solution",
+        "headline": "Automated Systems",
         "subheadline": "Scalable agents and workflows running 24/7.",
         "cards": {
             "recruiting": {
