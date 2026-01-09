@@ -7,9 +7,9 @@ const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 // Coordinates: [Longitude, Latitude]
 const markers = [
-    { name: "canada", coordinates: [-114.0719, 51.0447], labelOffset: [0, -30] }, // Calgary
-    { name: "brazil", coordinates: [-48.5495, -27.5969], labelOffset: [30, 0] },  // Florianópolis
-    { name: "france", coordinates: [6.1294, 45.8992], labelOffset: [30, -30] },   // Annecy
+    { name: "canada", coordinates: [-114.0719, 51.0447], labelOffset: [0, -40] }, // Calgary - moved up further
+    { name: "brazil", coordinates: [-48.5495, -27.5969], labelOffset: [50, 0] },  // Florianópolis - moved right further
+    { name: "france", coordinates: [6.1294, 45.8992], labelOffset: [40, -30] },   // Annecy - slightly adjusted
 ];
 
 export default function GlobalReach() {
@@ -67,8 +67,8 @@ export default function GlobalReach() {
                                     textAnchor="middle"
                                     y={labelOffset[1]}
                                     x={labelOffset[0]}
-                                    className="text-[20px] sm:text-[14px] font-semibold uppercase tracking-wider fill-zinc-200"
-                                    style={{ fontFamily: "system-ui" }}
+                                    className="text-[32px] sm:text-[18px] font-bold uppercase tracking-wider fill-zinc-200"
+                                    style={{ fontFamily: "system-ui", textShadow: "0px 2px 4px rgba(0,0,0,0.8)" }}
                                 >
                                     {t(`locations.${name}`)}
                                 </text>

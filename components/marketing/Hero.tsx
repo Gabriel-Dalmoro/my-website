@@ -24,7 +24,7 @@ export default function Hero() {
                 </h1>
 
                 {/* The Solution */}
-                <div className="mt-4 min-h-[80px] sm:min-h-[60px] text-2xl font-medium text-zinc-400 md:text-4xl">
+                <div className="mt-4 min-h-[120px] sm:min-h-[60px] text-2xl font-medium text-zinc-400 md:text-4xl">
                     <TextType
                         text={[t("solution")]}
                         showCursor={true}
