@@ -124,6 +124,5 @@ export default function GlobalReach() {
                 </div>
             </div>
         </div>
-        </div >
     );
 }
