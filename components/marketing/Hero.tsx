@@ -41,7 +41,7 @@ export default function Hero() {
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Button asChild size="lg" className="rounded-full">
-                    <Link href="https://calendly.com/" target="_blank">
+                    <Link href="https://calendar.app.google/xDnhe1Nf37SwG7ci7" target="_blank">
                         {t("cta")}
                     </Link>
                 </Button>

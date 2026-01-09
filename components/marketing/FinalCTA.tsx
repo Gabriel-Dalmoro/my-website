@@ -14,7 +14,7 @@ export default function FinalCTA() {
                     </h2>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <Button asChild size="lg" className="rounded-full text-base font-semibold">
-                            <Link href="https://calendly.com/" target="_blank">
+                            <Link href="https://calendar.app.google/xDnhe1Nf37SwG7ci7" target="_blank">
                                 {t("button")}
                             </Link>
                         </Button>
