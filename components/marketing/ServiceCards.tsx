@@ -37,7 +37,7 @@ export default function ServiceCards() {
                     </p>
                 </div>
                 <div className="mx-auto mt-10 max-w-2xl sm:mt-12 lg:mt-16 lg:max-w-none">
-                    <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3">
+                    <dl className="mx-auto grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3">
                         {features.map((feature, index) => (
                             <SpotlightCard
                                 key={index}
