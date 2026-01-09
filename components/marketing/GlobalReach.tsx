@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
@@ -94,12 +95,15 @@ export default function GlobalReach() {
 
                     <div className="relative z-10">
                         {/* Click Indicator - Positioned relative to the buttons */}
-                        <div className="absolute -right-32 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-2 text-yellow-500/80 animate-pulse">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="transform rotate-180">
-                                <path d="M7 11L12 6V10H20V12H12V16L7 11Z" />
-                                {/* Simple pointer finger icon */}
-                                <path d="M10.5 18a2.5 2.5 0 0 1-2.5-2.5V8.5a.5.5 0 0 0-1 0v4.793a2.5 2.5 0 0 1-4.268 1.768L2.5 14.854 8 20.354A5.5 5.5 0 0 0 11.854 22H18.5a3.5 3.5 0 0 0 3.5-3.5V11a.5.5 0 0 0-1 0v7.5a2.5 2.5 0 0 1-2.5 2.5h-8z" />
-                            </svg>
+                        {/* Click Indicator - Positioned relative to the buttons */}
+                        <div className="absolute -right-12 sm:-right-32 top-[120%] sm:top-1/2 -translate-y-1/2 flex items-center gap-2 text-yellow-500/80 animate-pulse z-20">
+                            <Image
+                                src="/hand_pointer.png"
+                                alt="Click here"
+                                width={32}
+                                height={32}
+                                className="transform rotate-180 opacity-80"
+                            />
                             <span className="font-handwriting text-xl -rotate-12">click!</span>
                         </div>
 
