@@ -42,12 +42,12 @@ export default function LoomGrid() {
                                         Note: For a real Loom embed, you'd typically use an iframe or their SDK.
                                         Using a simple iframe here for demonstration.
                                      */}
-                                    <iframe
-                                        src={project.videoUrl}
-                                        allowFullScreen
-                                        className="absolute top-0 left-0 w-full h-full"
-                                        title={project.title}
-                                    ></iframe>
+                                    <Image
+                                        src={project.imageUrl}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover"
+                                    />
                                 </div>
                             </BrowserFrame>
                             <div>
