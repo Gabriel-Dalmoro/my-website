@@ -1,5 +1,6 @@
 import { Bot, LineChart, Workflow } from "lucide-react";
 import SpotlightCard from "@/components/SpotlightCard";
+import ShinyText from "@/components/ui/ShinyText";
 import { useTranslations } from "next-intl";
 
 export default function ServiceCards() {
@@ -29,7 +30,7 @@ export default function ServiceCards() {
                 <div className="mx-auto max-w-2xl text-center">
                     <p className="text-base font-semibold leading-7 text-yellow-500 uppercase tracking-wide">{t("label")}</p>
                     <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                        {t("headline")}
+                        <ShinyText text={t("headline")} disabled={false} speed={3} className="" color="#ffffff" shineColor="#EAB308" />
                     </h2>
                     <p className="mt-6 text-xl leading-8 text-zinc-400">
                         {t("subheadline")}
