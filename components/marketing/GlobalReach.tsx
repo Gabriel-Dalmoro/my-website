@@ -79,6 +79,23 @@ export default function GlobalReach() {
                     {/* Subtle overlay gradient to blend edges if map cuts off */}
                     <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(transparent_50%,#09090b_100%)]"></div>
                 </div>
+
+                {/* Languages - Minimalist Badges */}
+                <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
+                    {[
+                        { code: "en", label: t("languages.en") },
+                        { code: "pt", label: t("languages.pt") },
+                        { code: "fr", label: t("languages.fr") },
+                        { code: "es", label: t("languages.es") },
+                    ].map((lang) => (
+                        <div
+                            key={lang.code}
+                            className="px-4 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/50 text-sm font-medium text-zinc-300 hover:border-yellow-500/50 hover:text-white transition-colors cursor-default"
+                        >
+                            {lang.label}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

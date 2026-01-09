@@ -62,11 +62,17 @@
     },
     "GlobalReach": {
         "headline": "Travail à l'International",
-        "description": "J'ai travaillé avec des clients et collaboré en Amérique du Nord, Amérique du Sud et en Europe. Je suis entièrement bilingue et travaille en 4 langues.",
+        "description": "Le business n'a pas de frontières. Je comble les fossés culturels et les fuseaux horaires pour une collaboration fluide en Amérique du Nord, Amérique du Sud et en Europe.",
         "locations": {
             "brazil": "Brésil",
             "canada": "Canada",
             "france": "France"
+        },
+        "languages": {
+            "en": "Anglais",
+            "pt": "Portugais",
+            "fr": "Français",
+            "es": "Espagnol"
         }
     },
     "CTA": {

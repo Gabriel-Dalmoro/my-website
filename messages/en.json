@@ -62,11 +62,17 @@
     },
     "GlobalReach": {
         "headline": "Working Globally",
-        "description": "I've worked with clients and collaborated across North America, South America, and Europe. I am fully fluent in 4 languages.",
+        "description": "Business doesn't stop at borders. I bridge cultural gaps and time zones to deliver seamless collaboration across North America, South America, and Europe.",
         "locations": {
             "brazil": "Brazil",
             "canada": "Canada",
             "france": "France"
+        },
+        "languages": {
+            "en": "English",
+            "pt": "Portuguese",
+            "fr": "French",
+            "es": "Spanish"
         }
     },
     "CTA": {
