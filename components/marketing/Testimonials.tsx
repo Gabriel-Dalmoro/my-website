@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import StarBorder from "@/components/ui/StarBorder";
 
 export default function Testimonials() {
@@ -19,11 +20,14 @@ export default function Testimonials() {
                                 <p>“{t("testimonials.0.body")}”</p>
                             </blockquote>
                             <figcaption className="mt-10 flex items-center justify-center gap-x-6">
-                                <div className="h-14 w-14 overflow-hidden rounded-full bg-zinc-800">
-                                    {/* Placeholder for Zach's image if available, otherwise generic or initials */}
-                                    <div className="flex h-full w-full items-center justify-center bg-zinc-700 text-xl font-bold text-zinc-400">
-                                        ZH
-                                    </div>
+                                <div className="h-14 w-14 overflow-hidden rounded-full bg-zinc-800 relative">
+                                    <Image
+                                        src="/avatar_male.png"
+                                        alt={t("testimonials.0.author")}
+                                        className="h-full w-full object-cover"
+                                        width={56}
+                                        height={56}
+                                    />
                                 </div>
                                 <div className="text-left">
                                     <div className="font-semibold text-white text-lg">{t("testimonials.0.author")}</div>

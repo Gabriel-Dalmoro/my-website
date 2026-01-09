@@ -41,11 +41,24 @@
     },
     "FeaturedWork": {
         "headline": "En Action",
-        "subheadline": "Exemples réels de systèmes créés pour d'autres entreprises."
+        "subheadline": "Exemples réels de systèmes créés pour d'autres entreprises.",
+        "projects": {
+            "hiring": {
+                "title": "Assistant Recrutement IA (n8n + GPT-4)",
+                "description": "Un agent autonome qui évalue les CV par rapport aux fiches de poste."
+            },
+            "dashboard": {
+                "title": "Tableau de Bord VisionSort",
+                "description": "Visualisation de données complexes en temps réel sur Next.js."
+            }
+        }
+    },
+    "TechStack": {
+        "headline": "L'Automatisation par l'Infrastructure Moderne"
     },
     "AboutMe": {
         "headline": "Je Parle Business & Tech",
-        "description": "Je ne suis pas juste un codeur. J'ai un background business, donc je comprends que vous voulez des résultats, pas juste de la technologie. Je crée des solutions pratiques qui vous font gagner du temps et de l'argent."
+        "description": "J'ai été à votre place. En tant qu'ancien entrepreneur devenu développeur, je connais la frustration des processus inefficaces. Je ne fais pas que du code; je construis des systèmes qui résolvent de vrais problèmes business. Je suis passionné par l'optimisation pour vous rendre votre atout le plus précieux : le temps."
     },
     "GlobalReach": {
         "headline": "Travail à l'International",
@@ -57,7 +70,7 @@
         }
     },
     "CTA": {
-        "headline": "Prêt à gagner 20h par semaine ?",
+        "headline": "Prêt à récupérer votre temps ?",
         "button": "Réserver votre audit gratuit"
     }
 }

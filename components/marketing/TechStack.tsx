@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import {
     CreditCard,
     Bot,
@@ -26,12 +27,13 @@ const technologies = [
 ];
 
 export default function TechStack() {
+    const t = useTranslations("TechStack");
     return (
         <section className="py-10 border-y border-border/40 bg-card/50 overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="text-center mb-8">
                     <p className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground">
-                        Powering Automation with Modern Infrastructure
+                        {t("headline")}
                     </p>
                 </div>
 

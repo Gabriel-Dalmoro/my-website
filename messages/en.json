@@ -41,11 +41,24 @@
     },
     "FeaturedWork": {
         "headline": "See It In Action",
-        "subheadline": "Real examples of systems I've built for other businesses."
+        "subheadline": "Real examples of systems I've built for other businesses.",
+        "projects": {
+            "hiring": {
+                "title": "AI Hiring Assistant (n8n + GPT-4)",
+                "description": "A fully autonomous agent that scores resumes against job descriptions."
+            },
+            "dashboard": {
+                "title": "VisionSort Dashboard",
+                "description": "Real-time complex data visualization in Next.js."
+            }
+        }
+    },
+    "TechStack": {
+        "headline": "Powering Automation with Modern Infrastructure"
     },
     "AboutMe": {
         "headline": "I Speak Business & Tech",
-        "description": "I'm not just a coder. I have a business background, so I understand that you need results, not just fancy technology. I build practical solutions that save you time and money."
+        "description": "I've been in your shoes. As a former entrepreneur turned coder, I know the frustration of inefficient processes. I don't just write code; I build systems that solve real business problems. I'm passionate about optimizing workflows to give you back your most valuable asset: time."
     },
     "GlobalReach": {
         "headline": "Working Globally",
@@ -57,7 +70,7 @@
         }
     },
     "CTA": {
-        "headline": "Ready to save 20+ hours a week?",
+        "headline": "Ready to reclaim your time?",
         "button": "Book your free audit"
     }
 }

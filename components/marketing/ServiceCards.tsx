@@ -28,7 +28,7 @@ export default function ServiceCards() {
         <div className="pb-12 sm:pb-16 bg-zinc-950">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
-                    <p className="text-base font-semibold leading-7 text-yellow-500 uppercase tracking-wide">{t("label")}</p>
+                    <p className="text-base font-semibold leading-7 text-green-500 uppercase tracking-wide">{t("label")}</p>
                     <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         <ShinyText text={t("headline")} disabled={false} speed={3} className="" color="#ffffff" shineColor="#EAB308" />
                     </h2>
