@@ -93,16 +93,16 @@ export default function GlobalReach() {
                 <div className="flex flex-col items-center mt-12 space-y-8">
 
                     {/* Languages Subtitle */}
-                    <h3 className="text-zinc-400 text-sm font-medium uppercase tracking-widest">
+                    <h3 className="text-zinc-400 text-sm font-medium uppercase tracking-widest text-center px-4">
                         {t("languages_title")}
                     </h3>
 
-                    <div className="flex flex-wrap items-center justify-center gap-4 relative z-10">
+                    <div className="flex flex-wrap items-center justify-center gap-4 relative z-10 w-full px-4">
                         {Object.entries(languageDemos).map(([code, { label }]) => (
                             <button
                                 key={code}
                                 onClick={() => setActiveLang(code)}
-                                className={`px-6 py-2 rounded-full border text-base font-medium transition-all duration-300 ${activeLang === code
+                                className={`px-4 sm:px-6 py-2 rounded-full border text-sm sm:text-base font-medium transition-all duration-300 ${activeLang === code
                                     ? "border-yellow-500 bg-yellow-500/10 text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)] scale-105"
                                     : "border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200 hover:scale-105"
                                     }`}
@@ -111,16 +111,16 @@ export default function GlobalReach() {
                             </button>
                         ))}
                     </div>
-                </div>
 
-                <div className="h-24 flex items-center justify-center px-4">
-                    <p
-                        key={activeLang}
-                        className="text-2xl sm:text-3xl text-zinc-200 font-handwriting italic text-center animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-2xl leading-relaxed"
-                        style={{ fontFamily: "'Caveat', cursive" }}
-                    >
-                        "{languageDemos[activeLang].text}"
-                    </p>
+                    <div className="min-h-[6rem] flex items-center justify-center px-4">
+                        <p
+                            key={activeLang}
+                            className="text-2xl sm:text-3xl text-zinc-200 font-handwriting italic text-center animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-2xl leading-relaxed"
+                            style={{ fontFamily: "'Caveat', cursive" }}
+                        >
+                            "{languageDemos[activeLang].text}"
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
