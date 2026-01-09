@@ -11,14 +11,14 @@ export default function LoomGrid() {
             description: t("projects.hiring.description"),
             // Placeholder video ID, replace with actual
             videoUrl: "https://www.loom.com/embed/placeholder1",
-            imageUrl: "/project_hiring_minimal.png"
+            imageUrl: "/project_hiring_final.png"
         },
         {
             title: t("projects.dashboard.title"),
             description: t("projects.dashboard.description"),
             // Placeholder video ID, replace with actual
             videoUrl: "https://www.loom.com/embed/placeholder2",
-            imageUrl: "/project_dashboard_minimal.png"
+            imageUrl: "/project_visionsort_final.png"
         },
     ];
 
