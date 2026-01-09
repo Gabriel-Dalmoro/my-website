@@ -67,7 +67,8 @@ export default function GlobalReach() {
                                     textAnchor="middle"
                                     y={labelOffset[1]}
                                     x={labelOffset[0]}
-                                    style={{ fontFamily: "system-ui", fill: "#E4E4E7", fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}
+                                    className="text-[20px] sm:text-[14px] font-semibold uppercase tracking-wider fill-zinc-200"
+                                    style={{ fontFamily: "system-ui" }}
                                 >
                                     {t(`locations.${name}`)}
                                 </text>

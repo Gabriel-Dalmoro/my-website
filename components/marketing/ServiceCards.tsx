@@ -31,7 +31,7 @@ export default function ServiceCards() {
                     <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         {t("headline")}
                     </h2>
-                    <p className="mt-4 text-lg leading-8 text-zinc-400">
+                    <p className="mt-6 text-xl leading-8 text-zinc-400">
                         {t("subheadline")}
                     </p>
                 </div>
