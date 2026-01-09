@@ -1,5 +1,6 @@
 import BrowserFrame from "@/components/marketing/BrowserFrame";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function LoomGrid() {
     const t = useTranslations("FeaturedWork");
@@ -10,12 +11,14 @@ export default function LoomGrid() {
             description: t("projects.hiring.description"),
             // Placeholder video ID, replace with actual
             videoUrl: "https://www.loom.com/embed/placeholder1",
+            imageUrl: "/project_hiring_minimal.png"
         },
         {
             title: t("projects.dashboard.title"),
             description: t("projects.dashboard.description"),
             // Placeholder video ID, replace with actual
             videoUrl: "https://www.loom.com/embed/placeholder2",
+            imageUrl: "/project_dashboard_minimal.png"
         },
     ];
 
