@@ -19,8 +19,8 @@ export default function GlobalReach() {
 
     const languageDemos: Record<string, { label: string; text: string }> = {
         en: { label: "English", text: "Because Google Translate isn't going to close that deal for you." },
-        pt: { label: "Português", text: "Do 'jeitinho' à eficiência, sem perder a tradução." },
-        fr: { label: "Français", text: "Aussi à l'aise avec Molière qu'avec le JavaScript." },
+        pt: { label: "Português", text: "Conectando culturas com o calor e a agilidade que só o Brasil tem." },
+        fr: { label: "Français", text: "La finesse de la langue pour des relations d'affaires durables." },
         es: { label: "Español", text: "Más que un 'Hola', hablo el idioma de los negocios." },
     };
 
@@ -90,15 +90,24 @@ export default function GlobalReach() {
                 </div>
 
                 {/* Languages - Interactive Demo */}
-                <div className="flex flex-col items-center mt-8 space-y-6">
-                    <div className="flex flex-wrap items-center justify-center gap-4">
+                <div className="flex flex-col items-center mt-12 space-y-8 relative">
+
+                    {/* Click Indicator */}
+                    <div className="absolute -top-8 right-[10%] sm:right-[25%] animate-bounce hidden sm:flex items-center gap-2 text-yellow-500/80 rotate-12">
+                        <span className="font-handwriting text-xl">click!</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform rotate-180">
+                            <path d="M12 4L12 20M12 20L5 13M12 20L19 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-center gap-4 relative z-10">
                         {Object.entries(languageDemos).map(([code, { label }]) => (
                             <button
                                 key={code}
                                 onClick={() => setActiveLang(code)}
-                                className={`px-4 py-1.5 rounded-full border text-sm font-medium transition-all duration-300 ${activeLang === code
-                                        ? "border-yellow-500 bg-yellow-500/10 text-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.2)]"
-                                        : "border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
+                                className={`px-6 py-2 rounded-full border text-base font-medium transition-all duration-300 ${activeLang === code
+                                    ? "border-yellow-500 bg-yellow-500/10 text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)] scale-105"
+                                    : "border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200 hover:scale-105"
                                     }`}
                             >
                                 {label}
@@ -106,10 +115,11 @@ export default function GlobalReach() {
                         ))}
                     </div>
 
-                    <div className="h-8 flex items-center justify-center">
+                    <div className="h-24 flex items-center justify-center px-4">
                         <p
                             key={activeLang}
-                            className="text-zinc-300 italic animate-in fade-in slide-in-from-bottom-2 duration-300"
+                            className="text-2xl sm:text-3xl text-zinc-200 font-handwriting italic text-center animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-2xl leading-relaxed"
+                            style={{ fontFamily: "'Caveat', cursive" }}
                         >
                             "{languageDemos[activeLang].text}"
                         </p>
