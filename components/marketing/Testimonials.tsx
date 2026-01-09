@@ -31,6 +31,7 @@ export default function Testimonials() {
                                 </div>
                             </figcaption>
                         </figure>
+                    </StarBorder>
                 </div>
             </div>
         </div>
