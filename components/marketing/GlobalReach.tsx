@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
@@ -93,47 +92,38 @@ export default function GlobalReach() {
                 {/* Languages - Interactive Demo */}
                 <div className="flex flex-col items-center mt-12 space-y-8">
 
-                    <div className="relative z-10">
-                        {/* Click Indicator - Positioned relative to the buttons */}
-                        {/* Click Indicator - Positioned relative to the buttons */}
-                        <div className="absolute -right-12 sm:-right-32 top-[120%] sm:top-1/2 -translate-y-1/2 flex items-center gap-2 text-yellow-500/80 animate-pulse z-20">
-                            <Image
-                                src="/hand_pointer.png"
-                                alt="Click here"
-                                width={32}
-                                height={32}
-                                className="transform rotate-180 opacity-80"
-                            />
-                            <span className="font-handwriting text-xl -rotate-12">click!</span>
-                        </div>
+                    {/* Languages Subtitle */}
+                    <h3 className="text-zinc-400 text-sm font-medium uppercase tracking-widest">
+                        {t("languages_title")}
+                    </h3>
 
-                        <div className="flex flex-wrap items-center justify-center gap-4">
-                            {Object.entries(languageDemos).map(([code, { label }]) => (
-                                <button
-                                    key={code}
-                                    onClick={() => setActiveLang(code)}
-                                    className={`px-6 py-2 rounded-full border text-base font-medium transition-all duration-300 ${activeLang === code
-                                        ? "border-yellow-500 bg-yellow-500/10 text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)] scale-105"
-                                        : "border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200 hover:scale-105"
-                                        }`}
-                                >
-                                    {label}
-                                </button>
-                            ))}
-                        </div>
+                    <div className="flex flex-wrap items-center justify-center gap-4 relative z-10">
+                        {Object.entries(languageDemos).map(([code, { label }]) => (
+                            <button
+                                key={code}
+                                onClick={() => setActiveLang(code)}
+                                className={`px-6 py-2 rounded-full border text-base font-medium transition-all duration-300 ${activeLang === code
+                                    ? "border-yellow-500 bg-yellow-500/10 text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)] scale-105"
+                                    : "border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200 hover:scale-105"
+                                    }`}
+                            >
+                                {label}
+                            </button>
+                        ))}
                     </div>
+                </div>
 
-                    <div className="h-24 flex items-center justify-center px-4">
-                        <p
-                            key={activeLang}
-                            className="text-2xl sm:text-3xl text-zinc-200 font-handwriting italic text-center animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-2xl leading-relaxed"
-                            style={{ fontFamily: "'Caveat', cursive" }}
-                        >
-                            "{languageDemos[activeLang].text}"
-                        </p>
-                    </div>
+                <div className="h-24 flex items-center justify-center px-4">
+                    <p
+                        key={activeLang}
+                        className="text-2xl sm:text-3xl text-zinc-200 font-handwriting italic text-center animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-2xl leading-relaxed"
+                        style={{ fontFamily: "'Caveat', cursive" }}
+                    >
+                        "{languageDemos[activeLang].text}"
+                    </p>
                 </div>
             </div>
         </div>
+        </div >
     );
 }
