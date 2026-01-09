@@ -13,8 +13,8 @@ export default function Testimonials() {
                     </h2>
                 </div>
                 <div className="mx-auto mt-10 max-w-4xl relative">
-                    <StarBorder as="div" className="w-full rounded-3xl overflow-hidden bg-transparent" color="#EAB308" speed="4s">
-                        <figure className="bg-zinc-900/40 p-8 sm:p-12 text-center shadow-2xl h-full w-full">
+                    <StarBorder as="div" className="w-full rounded-3xl overflow-hidden bg-zinc-950" color="#EAB308" speed="4s">
+                        <figure className="bg-zinc-900 p-8 sm:p-12 text-center shadow-2xl h-full w-full relative z-10">
                             <blockquote className="text-lg font-medium leading-8 text-zinc-300 sm:text-xl sm:leading-9">
                                 <p>“{t("testimonials.0.body")}”</p>
                             </blockquote>
