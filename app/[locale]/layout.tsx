@@ -9,30 +9,30 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 // Check if metadata needs dynamic locale? For now keep static or update later.
 export const metadata: Metadata = {
-  title: "Gabriel Dalmoro",
+  title: "Gabriel Dalmoro | Business Automation Expert",
   description:
-    "Work and Life of Gabriel Dalmoro - Follow along my adventures in the tech world, and in the real world. 🌎 👨🏼‍💻",
+    "I build systems that do the work for you. Save 20+ hours a week and scale your business with custom AI & Automation solutions.",
   openGraph: {
     type: "website",
     url: "https://www.gabrieldalmoro.com/",
-    title: "Gabriel Dalmoro",
+    title: "Gabriel Dalmoro | Business Automation Expert",
     description:
-      "Work and Life of Gabriel Dalmoro - Follow along my adventures in the tech world, and in the real world. 🌎 👨🏼‍💻",
+      "I build systems that do the work for you. Save 20+ hours a week and scale your business with custom AI & Automation solutions.",
     images: [
       {
-        url: "/meta-image.png", // ✅ Uses the image in /public
+        url: "/og-image.png", // Updated OG image
         width: 1200,
         height: 630,
-        alt: "Gabriel Dalmoro - Portfolio Cover",
+        alt: "Gabriel Dalmoro - Business Automation & AI",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gabriel Dalmoro",
+    title: "Gabriel Dalmoro | Business Automation Expert",
     description:
-      "Work and Life of Gabriel Dalmoro - Follow along my adventures in the tech world, and in the real world. 🌎 👨🏼‍💻",
-    images: ["/meta-image.png"], // ✅ Twitter preview uses the same image
+      "I build systems that do the work for you. Save 20+ hours a week and scale your business with custom AI & Automation solutions.",
+    images: ["/og-image.png"],
   },
   icons: {
     //favicon logo uses font Archivo Black
