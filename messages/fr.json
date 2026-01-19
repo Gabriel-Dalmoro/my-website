@@ -53,6 +53,10 @@
             }
         }
     },
+    "ClientShowcase": {
+        "headline": "Voir la Démo",
+        "description": "Découvrez comment l'automatisation élimine les tâches manuelles et libère votre croissance sans recruter."
+    },
     "TechStack": {
         "headline": "L'Automatisation par l'Infrastructure Moderne"
     },

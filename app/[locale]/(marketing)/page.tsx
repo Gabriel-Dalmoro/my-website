@@ -3,7 +3,7 @@ import TechStack from "@/components/marketing/TechStack";
 import ProblemSection from "@/components/marketing/ProblemSection";
 import ServiceCards from "@/components/marketing/ServiceCards";
 import Testimonials from "@/components/marketing/Testimonials";
-import LoomGrid from "@/components/marketing/LoomGrid";
+import ClientShowcase from "@/components/marketing/ClientShowcase";
 import AboutMe from "@/components/marketing/AboutMe";
 import GlobalReach from "@/components/marketing/GlobalReach";
 import FinalCTA from "@/components/marketing/FinalCTA";
@@ -18,7 +18,7 @@ export default function MarketingPage() {
         <ProblemSection />
         <ServiceCards />
         <Testimonials />
-        <LoomGrid />
+        <ClientShowcase />
         <AboutMe />
         <GlobalReach />
         <FinalCTA />

@@ -53,6 +53,10 @@
             }
         }
     },
+    "ClientShowcase": {
+        "headline": "See It In Action",
+        "description": "Watch how custom automation eliminates bottleneck tasks and scales operations without adding headcount."
+    },
     "TechStack": {
         "headline": "Powering Automation with Modern Infrastructure"
     },
