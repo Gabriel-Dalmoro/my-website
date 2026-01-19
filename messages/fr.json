@@ -55,7 +55,18 @@
     },
     "ClientShowcase": {
         "headline": "Voir la Démo",
-        "description": "Découvrez comment l'automatisation élimine les tâches manuelles et libère votre croissance sans recruter."
+        "description": "Découvrez comment l'automatisation élimine les tâches manuelles et libère votre croissance sans recruter.",
+        "timeSaved": "15+ Heures Gagnées / Semaine",
+        "techTitle": "Technologies Intégrées",
+        "techs": {
+            "gmail": "Automatisation Gmail",
+            "sheets": "Google Sheets",
+            "calendar": "Google Calendar",
+            "accounting": "Facturation Automatisée",
+            "payments": "Paiement en Ligne",
+            "crm": "Suivi de Prospects (CRM)",
+            "design": "Design Site Web"
+        }
     },
     "TechStack": {
         "headline": "L'Automatisation par l'Infrastructure Moderne"

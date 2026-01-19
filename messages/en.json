@@ -55,7 +55,18 @@
     },
     "ClientShowcase": {
         "headline": "See It In Action",
-        "description": "Watch how custom automation eliminates bottleneck tasks and scales operations without adding headcount."
+        "description": "Watch how custom automation eliminates bottleneck tasks and scales operations without adding headcount.",
+        "timeSaved": "15+ Hours Saved Weekly",
+        "techTitle": "Tech Stack Integrated",
+        "techs": {
+            "gmail": "Gmail Automation",
+            "sheets": "Google Sheets",
+            "calendar": "Google Calendar",
+            "accounting": "Automated Invoicing",
+            "payments": "Online Payments",
+            "crm": "Lead Tracking CRM",
+            "design": "Website Design"
+        }
     },
     "TechStack": {
         "headline": "Powering Automation with Modern Infrastructure"

@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import BrowserFrame from "./BrowserFrame";
-import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX, Maximize, Mail, FileSpreadsheet, Calendar, Receipt, CreditCard, Users, Layout } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { LampContainer } from "../ui/lamp";
 import { motion } from "motion/react";
@@ -80,6 +80,16 @@ export default function ClientShowcase() {
     }
   };
 
+  const techStack = [
+    { name: t("techs.gmail"), icon: Mail },
+    { name: t("techs.sheets"), icon: FileSpreadsheet },
+    { name: t("techs.calendar"), icon: Calendar },
+    { name: t("techs.accounting"), icon: Receipt },
+    { name: t("techs.payments"), icon: CreditCard },
+    { name: t("techs.crm"), icon: Users },
+    { name: t("techs.design"), icon: Layout },
+  ];
+
   return (
     <section className="bg-zinc-950 pt-24 pb-24">
       <LampContainer className="pt-32 bg-zinc-950 min-h-[60vh]">
@@ -105,101 +115,136 @@ export default function ClientShowcase() {
         </motion.p>
       </LampContainer>
 
-      <div className="relative z-50 mx-auto max-w-5xl px-6 -mt-48 lg:-mt-64">
-        <BrowserFrame className="relative group bg-zinc-900 shadow-2xl shadow-primary/10 border-zinc-800">
-          <div className="relative aspect-video w-full bg-black overflow-hidden group rounded-b-xl">
-            <video
-              ref={videoRef}
-              className="w-full h-full object-cover"
-              playsInline
-              onClick={togglePlay}
-              poster="/video-poster.jpg"
-            >
-              <source src="/video/elisa_project_video1.mp4" type="video/mp4" />
-              <track
-                kind="subtitles"
-                src="/video/english-subtitles-final.vtt"
-                srcLang="en"
-                label="English"
-                default={activeSubtitle === "en"}
-              />
-              <track
-                kind="subtitles"
-                src="/video/french-subtitles-final.vtt"
-                srcLang="fr"
-                label="Français"
-              />
-              Your browser does not support the video tag.
-            </video>
-
-            {/* Custom Controls Overlay */}
-            <div
-              className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 ${isPlaying ? "opacity-0 hover:opacity-100" : "opacity-100"
-                }`}
-            >
-              {!isPlaying && (
-                <button
+      <div className="relative z-50 mx-auto max-w-6xl px-6 -mt-48 lg:-mt-64">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          {/* Main Content: Video Player */}
+          <div className="lg:col-span-2">
+            <BrowserFrame className="relative group bg-zinc-900 shadow-2xl shadow-primary/10 border-zinc-800">
+              <div className="relative aspect-video w-full bg-black overflow-hidden group rounded-b-xl">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  playsInline
                   onClick={togglePlay}
-                  className="rounded-full bg-white/10 p-4 backdrop-blur-sm transition-transform hover:scale-110 hover:bg-white/20"
+                  poster="/video-poster.jpg"
                 >
-                  <Play className="h-12 w-12 text-white fill-white" />
-                </button>
-              )}
+                  <source src="/video/elisa_project_video1.mp4" type="video/mp4" />
+                  <track
+                    kind="subtitles"
+                    src="/video/english-subtitles-final.vtt"
+                    srcLang="en"
+                    label="English"
+                    default={activeSubtitle === "en"}
+                  />
+                  <track
+                    kind="subtitles"
+                    src="/video/french-subtitles-final.vtt"
+                    srcLang="fr"
+                    label="Français"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+
+                {/* Custom Controls Overlay */}
+                <div
+                  className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 ${isPlaying ? "opacity-0 hover:opacity-100" : "opacity-100"
+                    }`}
+                >
+                  {!isPlaying && (
+                    <button
+                      onClick={togglePlay}
+                      className="rounded-full bg-white/10 p-4 backdrop-blur-sm transition-transform hover:scale-110 hover:bg-white/20"
+                    >
+                      <Play className="h-12 w-12 text-white fill-white" />
+                    </button>
+                  )}
+                </div>
+
+                {/* Bottom Bar Controls */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 gap-2">
+
+                  {/* Scrub Bar */}
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={progress}
+                    onChange={handleSeek}
+                    className="w-full h-1 bg-white/30 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary transition-all hover:h-2"
+                  />
+
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center gap-4">
+                      <button onClick={togglePlay} className="text-white hover:text-primary transition-colors">
+                        {isPlaying ? <Pause className="h-6 w-6 fill-current" /> : <Play className="h-6 w-6 fill-current" />}
+                      </button>
+
+                      <button onClick={toggleMute} className="text-white hover:text-primary transition-colors">
+                        {isMuted ? <VolumeX className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
+                      </button>
+
+                      <button onClick={toggleFullScreen} className="text-white hover:text-primary transition-colors">
+                        <Maximize className="h-6 w-6" />
+                      </button>
+                    </div>
+
+                    {/* Subtitle Switcher */}
+                    <div className="flex gap-2 p-1 bg-black/50 rounded-lg backdrop-blur-sm">
+                      <button
+                        onClick={(e) => { e.stopPropagation(); switchSubtitle("en"); }}
+                        className={`px-3 py-1 text-xs font-medium rounded-md transition-all ${activeSubtitle === "en"
+                          ? "bg-primary text-primary-foreground shadow-sm"
+                          : "text-white/70 hover:text-white hover:bg-white/10"
+                          }`}
+                      >
+                        EN
+                      </button>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); switchSubtitle("fr"); }}
+                        className={`px-3 py-1 text-xs font-medium rounded-md transition-all ${activeSubtitle === "fr"
+                          ? "bg-primary text-primary-foreground shadow-sm"
+                          : "text-white/70 hover:text-white hover:bg-white/10"
+                          }`}
+                      >
+                        FR
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </BrowserFrame>
+          </div>
+
+          {/* Sidebar: Stats & Tech */}
+          <div className="flex flex-col gap-6 lg:pt-8 w-full">
+            {/* Impact Card */}
+            <div className="rounded-xl border border-primary/20 bg-zinc-900/80 p-6 text-center backdrop-blur-sm">
+              <h3 className="text-5xl font-bold text-primary mb-2 tracking-tight">
+                {t("timeSaved").split(" ")[0]}
+              </h3>
+              <p className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                {t("timeSaved").split(" ").slice(1).join(" ")}
+              </p>
             </div>
 
-            {/* Bottom Bar Controls */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 gap-2">
-
-              {/* Scrub Bar */}
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={progress}
-                onChange={handleSeek}
-                className="w-full h-1 bg-white/30 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary transition-all hover:h-2"
-              />
-
-              <div className="flex items-center justify-between w-full">
-                <div className="flex items-center gap-4">
-                  <button onClick={togglePlay} className="text-white hover:text-primary transition-colors">
-                    {isPlaying ? <Pause className="h-6 w-6 fill-current" /> : <Play className="h-6 w-6 fill-current" />}
-                  </button>
-
-                  <button onClick={toggleMute} className="text-white hover:text-primary transition-colors">
-                    {isMuted ? <VolumeX className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
-                  </button>
-
-                  <button onClick={toggleFullScreen} className="text-white hover:text-primary transition-colors">
-                    <Maximize className="h-6 w-6" />
-                  </button>
-                </div>
-
-                {/* Subtitle Switcher */}
-                <div className="flex gap-2 p-1 bg-black/50 rounded-lg backdrop-blur-sm">
-                  <button
-                    onClick={(e) => { e.stopPropagation(); switchSubtitle("en"); }}
-                    className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${activeSubtitle === "en"
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : "text-white/70 hover:text-white hover:bg-white/10"
-                      }`}
-                  >
-                    English
-                  </button>
-                  <button
-                    onClick={(e) => { e.stopPropagation(); switchSubtitle("fr"); }}
-                    className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${activeSubtitle === "fr"
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : "text-white/70 hover:text-white hover:bg-white/10"
-                      }`}
-                  >
-                    Français
-                  </button>
-                </div>
+            {/* Tech Stack List */}
+            <div className="rounded-xl border border-white/10 bg-zinc-900/50 p-6 backdrop-blur-sm">
+              <h4 className="text-sm font-semibold text-zinc-100 mb-4 uppercase tracking-wider">
+                {t("techTitle")}
+              </h4>
+              <div className="grid grid-cols-2 gap-3">
+                {techStack.map((tech, index) => (
+                  <div key={index} className="flex items-center gap-2 text-zinc-400 hover:text-zinc-200 transition-colors group p-2 rounded-md hover:bg-white/5">
+                    <div className="text-primary/70 group-hover:text-primary transition-colors">
+                      <tech.icon className="h-4 w-4" />
+                    </div>
+                    <span className="font-medium text-xs">{tech.name}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </BrowserFrame>
+        </div>
       </div>
     </section>
   );
