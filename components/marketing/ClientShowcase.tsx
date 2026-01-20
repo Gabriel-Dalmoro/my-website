@@ -49,10 +49,24 @@ export default function ClientShowcase() {
   };
 
   const toggleFullScreen = () => {
-    if (videoRef.current) {
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
-      }
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Standard
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    }
+    // iOS / Safari
+    else if ((video as any).webkitEnterFullscreen) {
+      (video as any).webkitEnterFullscreen();
+    }
+    // Older Webkit
+    else if ((video as any).webkitRequestFullscreen) {
+      (video as any).webkitRequestFullscreen();
+    }
+    // IE/Edge
+    else if ((video as any).msRequestFullscreen) {
+      (video as any).msRequestFullscreen();
     }
   };
 
