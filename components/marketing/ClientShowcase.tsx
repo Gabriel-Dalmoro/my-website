@@ -116,7 +116,7 @@ export default function ClientShowcase() {
       </LampContainer>
 
       <div className="relative z-50 mx-auto max-w-6xl px-6 -mt-48 lg:-mt-64">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content: Video Player */}
           <div className="lg:col-span-2">
             <BrowserFrame className="relative group bg-zinc-900 shadow-2xl shadow-primary/10 border-zinc-800">
@@ -128,17 +128,17 @@ export default function ClientShowcase() {
                   onClick={togglePlay}
                   poster="/video-poster.jpg"
                 >
-                  <source src="/video/elisa_project_video1.mp4" type="video/mp4" />
+                  <source src="/video/elisa_project_videoDEMO2.mp4" type="video/mp4" />
                   <track
                     kind="subtitles"
-                    src="/video/english-subtitles-final.vtt"
+                    src="/video/elisa_project_videoDEMO2.vtt"
                     srcLang="en"
                     label="English"
                     default={activeSubtitle === "en"}
                   />
                   <track
                     kind="subtitles"
-                    src="/video/french-subtitles-final.vtt"
+                    src="/video/elisa_project_videoDEMO2_fr.vtt"
                     srcLang="fr"
                     label="Français"
                   />
@@ -216,7 +216,7 @@ export default function ClientShowcase() {
           </div>
 
           {/* Sidebar: Stats & Tech */}
-          <div className="flex flex-col gap-6 lg:pt-8 w-full">
+          <div className="flex flex-col gap-6 lg:h-full lg:justify-between w-full">
             {/* Impact Card */}
             <div className="rounded-xl border border-primary/20 bg-zinc-900/80 p-6 text-center backdrop-blur-sm">
               <h3 className="text-5xl font-bold text-primary mb-2 tracking-tight">

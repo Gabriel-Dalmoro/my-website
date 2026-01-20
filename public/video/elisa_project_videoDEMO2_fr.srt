@@ -1,0 +1,211 @@
+1
+00:00:00,011 --> 00:00:04,622
+La plupart des chefs d'entreprise sont coincés dans un cycle de travail manuel qui épuise
+
+2
+00:00:04,623 --> 00:00:09,383
+leur ressource la plus précieuse, le temps. Chaque minute passée à calculer manuellement
+
+3
+00:00:09,384 --> 00:00:13,296
+un devis pour un prospect est une minute que vous ne passez pas à développer votre activité
+
+4
+00:00:13,327 --> 00:00:17,135
+ou à travailler avec vos clients. Pour cette entreprise de batch cooking professionnel,
+
+5
+00:00:17,389 --> 00:00:21,645
+nous avons transformé une corvée manuelle en une expérience libre-service instantanée.
+
+6
+00:00:23,018 --> 00:00:28,014
+En plus de ce site web sur mesure, j'ai créé cet outil de tarification interactif pour que
+
+7
+00:00:28,015 --> 00:00:32,555
+le client obtienne un devis précis et immédiat basé sur sa sélection et ses besoins spécifiques.
+
+8
+00:00:33,603 --> 00:00:36,608
+Au lieu que le propriétaire agisse comme une calculatrice humaine,
+
+9
+00:00:36,609 --> 00:00:38,696
+le système fait les calculs automatiquement.
+
+10
+00:00:39,371 --> 00:00:41,831
+Et dès que le client clique sur envoyer,
+
+11
+00:00:42,580 --> 00:00:44,880
+le prospect est capturé. Le système prend le relais,
+
+12
+00:00:45,469 --> 00:00:49,626
+ce qui signifie aucune saisie manuelle et plus d'allers-retours par e-mail juste pour
+
+13
+00:00:49,627 --> 00:00:52,905
+confirmer un prix. En coulisses,
+
+14
+00:00:52,915 --> 00:00:57,452
+j'ai construit un moteur d'automatisation sur mesure qui agit comme un assistant numérique
+
+15
+00:00:57,453 --> 00:01:01,157
+disponible 24h/24 et 7j/7 pour garantir une confidentialité et une sécurité absolues.
+
+16
+00:01:01,274 --> 00:01:05,880
+L'ensemble du système est hébergé en toute sécurité sur des serveurs privés européens,
+
+17
+00:01:06,360 --> 00:01:11,115
+gardant toutes les données clients en sécurité et conformes aux lois de l'UE.
+
+18
+00:01:11,648 --> 00:01:15,828
+Nous avons automatisé trois des parties les plus épuisantes de l'activité pour libérer
+
+19
+00:01:15,829 --> 00:01:20,482
+de la flexibilité au propriétaire. Chaque nouvelle demande est
+
+20
+00:01:20,483 --> 00:01:23,607
+automatiquement catégorisée et stockée dans une base de données centrale.
+
+21
+00:01:23,935 --> 00:01:27,051
+Plus besoin de chercher dans la boîte de réception pour trouver le numéro d'un client.
+
+22
+00:01:27,730 --> 00:01:32,396
+Lorsqu'une session est réservée, le système audite automatiquement
+
+23
+00:01:32,397 --> 00:01:37,045
+leurs dossiers comptables. Il reconnaît les clients fidèles, les fait se sentir
+
+24
+00:01:37,046 --> 00:01:39,769
+valorisés, et récupère leurs dernières données de tarification,
+
+25
+00:01:39,770 --> 00:01:42,972
+garantissant que la facture est toujours 100% exacte.
+
+26
+00:01:44,722 --> 00:01:48,559
+Le système croise ensuite la réservation et prépare tout pour le paiement,
+
+27
+00:01:48,816 --> 00:01:53,133
+contournant entièrement le besoin de tableurs manuels ou de notes manuscrites.
+
+28
+00:01:53,968 --> 00:01:58,121
+la vraie valeur réside dans l'expérience fluide que le client perçoit.
+
+29
+00:01:59,388 --> 00:02:02,375
+Ce système connecte l'agenda du propriétaire,
+
+30
+00:02:02,630 --> 00:02:07,257
+les e-mails, le système comptable et les paiements sécurisés en un flux
+
+31
+00:02:07,258 --> 00:02:12,056
+unifié. Le propriétaire reçoit toutes les informations du client automatiquement
+
+32
+00:02:12,396 --> 00:02:14,465
+avec ses coordonnées.
+
+33
+00:02:15,221 --> 00:02:17,440
+Pour le client, il obtient une réponse immédiate,
+
+34
+00:02:17,652 --> 00:02:22,691
+et personnalisée. Avec un lien pour réserver son créneau basé
+
+35
+00:02:22,692 --> 00:02:24,914
+sur la disponibilité en temps réel. Plus de
+
+36
+00:02:24,977 --> 00:02:28,560
+SMS demandant 'êtes-vous libre mardi'. Une fois l'heure choisie,
+
+37
+00:02:28,656 --> 00:02:33,422
+le système déclenche la seconde phase, un e-mail de paiement professionnel avec un lien
+
+38
+00:02:33,423 --> 00:02:38,039
+de paiement sécurisé pour qu'ils puissent payer instantanément et
+
+39
+00:02:38,049 --> 00:02:40,278
+la facture correcte est déjà jointe.
+
+40
+00:02:41,375 --> 00:02:43,599
+Enfin, ils reçoivent un e-mail de confirmation.
+
+41
+00:02:43,600 --> 00:02:46,160
+Toute cette expérience est automatisée,
+
+42
+00:02:46,624 --> 00:02:51,201
+profondément personnalisée, donnant au propriétaire et à l'entreprise une image
+
+43
+00:02:51,202 --> 00:02:53,580
+professionnelle, organisée et efficace.
+
+44
+00:02:54,845 --> 00:02:57,984
+Le propriétaire n'a pas envoyé manuellement un seul e-mail,
+
+45
+00:02:58,033 --> 00:03:01,001
+pourtant la session est réservée, la facture est générée,
+
+46
+00:03:01,253 --> 00:03:05,632
+et le paiement est sécurisé. Nous venons de récupérer des heures chaque semaine tout en
+
+47
+00:03:05,633 --> 00:03:07,668
+offrant une expérience haut de gamme aux clients.
+
+48
+00:03:12,940 --> 00:03:15,313
+Je ne crée pas seulement des sites web ou de l'automatisation IA, je bâtis des systèmes autonomes qui redonnent
+
+49
+00:03:15,314 --> 00:03:20,308
+leur vie aux chefs d'entreprise. Je peux prendre en charge l'administration manuelle
+
+50
+00:03:20,606 --> 00:03:22,750
+et le travail répétitif,
+
+51
+00:03:23,389 --> 00:03:27,153
+pour que vous ayez plus de temps pour développer votre entreprise, atteindre plus de clients,
+
+52
+00:03:27,579 --> 00:03:31,519
+et faire ce que vous faites le mieux. Cliquez sur le lien sur mon site et planifiez
+
+53
+00:03:31,520 --> 00:03:34,450
+une consultation gratuite pour voir combien de temps nous pouvons vous faire gagner.
