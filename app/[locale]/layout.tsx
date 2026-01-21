@@ -63,9 +63,7 @@ export default async function RootLayout({
     <html lang={locale} className="dark">
       <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider messages={messages}>
-          <div className="absolute top-6 right-6 z-50">
-            <LanguageSwitcher variant="minimal" />
-          </div>
+
           <main>{children}</main>
         </NextIntlClientProvider>
       </body>

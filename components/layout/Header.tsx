@@ -6,6 +6,7 @@ import LanguageSwitcher from "../LanguageSwitcher";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 export default function Header() {
     const t = useTranslations("Navigation");
@@ -64,15 +65,26 @@ export default function Header() {
                         ))}
                     </div>
 
-                    {/* Right Side: Lang Switcher & Mobile Menu Button */}
+                    {/* Right Side: CTA, Lang Switcher & Mobile Menu Button */}
                     <div className="flex flex-1 justify-end items-center gap-4">
-                        <LanguageSwitcher variant="minimal" />
+
+                        {/* CTA Button (Desktop) */}
+                        <div className="hidden lg:block">
+                            <Button asChild size="sm" className="hidden lg:flex rounded-full px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_20px_rgba(234,179,8,0.5)] transition-all">
+                                <Link href="/contact">
+                                    {t("bookCall")}
+                                </Link>
+                            </Button>
+                        </div>
+
+                        {/* Language Switcher (Full) */}
+                        <LanguageSwitcher />
 
                         {/* Mobile Menu Button */}
                         <div className="flex lg:hidden">
                             <button
                                 type="button"
-                                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-zinc-400 hover:text-white"
+                                className="-m-2.5 inline-flex items-center justify-center rounded-lg p-2.5 text-zinc-400 hover:text-white hover:bg-zinc-800/50 border border-transparent hover:border-zinc-700 transition-all"
                                 onClick={() => setMobileMenuOpen(true)}
                             >
                                 <span className="sr-only">Open main menu</span>

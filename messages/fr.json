@@ -9,7 +9,8 @@
         "home": "Accueil",
         "pricing": "Offres",
         "about": "À Propos",
-        "contact": "Contact"
+        "contact": "Contact",
+        "bookCall": "Réserver un appel"
     },
     "SocialProof": {
         "headline": "La Confiance des Entrepreneurs",
@@ -70,9 +71,14 @@
         }
     },
     "ClientShowcase": {
-        "headline": "Voir la Démo",
-        "description": "Découvrez comment l'automatisation élimine les tâches manuelles et libère votre croissance sans recruter.",
-        "timeSaved": "15+ Heures Gagnées / Semaine",
+        "title": "Voir la Démo",
+        "subtitle": "Découvrez comment l'automatisation élimine les tâches manuelles et libère votre croissance sans recruter.",
+        "project1": {
+            "timeSaved": "15+ Heures Gagnées / Semaine"
+        },
+        "project2": {
+            "timeSaved": "20+ Heures Gagnées / Semaine"
+        },
         "techTitle": "Technologies Intégrées",
         "stats": {
             "websiteDesign": "Conception de Site Web Sur Mesure",
@@ -81,7 +87,8 @@
             "sheets": "Google Sheets",
             "calendar": "Google Agenda",
             "invoicing": "Facturation Automatisée",
-            "payments": "Paiements Stripe"
+            "payments": "Paiements Stripe",
+            "crm": "Synchro CRM"
         }
     },
     "TechStack": {
@@ -108,42 +115,47 @@
         "languages_title": "Je parle et négocie en 4 langues"
     },
     "Pricing": {
-        "headline": "Forfaits de Services",
-        "cta": "Commencer votre Audit d'Efficacité",
+        "title": "Tarifs & ROI",
+        "subtitle": "Investissez dans des systèmes qui vous rapportent du temps et de la croissance.",
         "cards": {
-            "foundation": {
-                "name": "La Fondation",
-                "header": "Hub d'Opérations",
-                "subHeader": "À partir de 2 500 €",
-                "outcome": "Élimine 100% de la saisie manuelle pour les nouvelles demandes.",
-                "features": {
-                    "0": "Gestion centralisée des prospects",
-                    "1": "Entrée automatique dans la base client",
-                    "2": "Hébergement cloud sécurisé en Europe"
-                }
+            "starter": {
+                "badge": "Idéal pour ROI Rapide",
+                "headline": "Le Pilote d'Automatisation",
+                "price": "À partir de 950 €",
+                "goal": "Résolvez un goulot d'étranglement manuel",
+                "bullets": [
+                    "Automatisation mono-système (Capture de prospects, Facturation)",
+                    "Configuration Cloud EU Sécurisée",
+                    "5–10 heures/semaine récupérées immédiatement"
+                ],
+                "cta": "Démarrer l'Audit d'Efficacité",
+                "beforeAfter": {
+                    "before": "Avant : 5h manuels",
+                    "after": "Après : 0h"
+                },
+                "hoursReclaimed": "5-10 Heures / Semaine Récupérées"
             },
-            "performance": {
-                "name": "Moteur Haute Performance",
-                "header": "Automatisation Totale",
-                "subHeader": "À partir de 4 500 €",
-                "outcome": "Récupère 10+ heures par semaine de temps administratif.",
-                "features": {
-                    "0": "Parcours client complet (Onboarding jusqu'à Facturation)",
-                    "1": "Synchro temps réel agenda & paiement",
-                    "2": "Facturation automatisée et comptabilité"
-                }
-            },
-            "scaling": {
-                "name": "Partenaire de Croissance",
-                "header": "Systèmes Entreprise Sur Mesure",
-                "subHeader": "Sur Devis",
-                "outcome": "Infrastructure sur mesure conçue pour une échelle illimitée.",
-                "features": {
-                    "0": "Workflows avancés pilotés par IA",
-                    "1": "Intégrations multi-plateformes profondes",
-                    "2": "Optimisation continue de la performance"
-                }
+            "custom": {
+                "headline": "Infrastructure Business Totale",
+                "price": "Devis personnalisé selon ROI",
+                "goal": "Construisez un cycle de vie business autonome",
+                "bullets": [
+                    "Automatisation complète (Onboarding à Paiement)",
+                    "Flux de travail AI-Agentiques avancés",
+                    "Intégration CRM & Comptabilité profonde"
+                ],
+                "outcome": "Conçu pour une croissance illimitée sans recrutement.",
+                "cta": "Demander un Audit Personnalisé",
+                "hoursReclaimed": "Scalabilité Illimitée"
             }
+        },
+        "trust": {
+            "gdpr": "Sécurité RGPD-UE",
+            "instant": "Performance Instantanée"
+        },
+        "addon": {
+            "title": "Multiplicateur de Service",
+            "description": "Sites web haute performance conçus pour alimenter votre moteur d'automatisation. À partir de 350 € en extension."
         }
     },
     "Contact": {
@@ -152,9 +164,11 @@
         "form": {
             "steps": {
                 "qualification": "Qualification",
+                "offers": "Choisir l'Offre",
                 "details": "Coordonnées"
             },
             "fields": {
+                "website": "Inclure l'Extension Site Web (350 €+)",
                 "problem": {
                     "label": "Quelle est la tâche manuelle la plus répétitive qui ralentit votre équipe ?",
                     "placeholder": "ex: Copier des leads depuis les emails vers Excel..."
@@ -190,12 +204,15 @@
             "back": "Retour",
             "next": "Étape Suivante",
             "submit": "Envoyer ma Candidature",
+            "submitting": "Envoi en cours...",
             "success": "Candidature Reçue. J'analyserai votre stack et reviendrai vers vous avec un calcul de ROI préliminaire sous 24h.",
-            "security": "Toutes les données business sont traitées sur des serveurs privés et chiffrés situés strictement dans l'Union Européenne pour une conformité maximale."
+            "security": "Données traitées sur serveurs sécurisés et chiffrés en UE."
         },
         "info": {
-            "email": "Email",
-            "location": "Localisation",
+            "emailLabel": "Demandes Professionnelles",
+            "email": "dalmoro.enterprises@gmail.com",
+            "locationLabel": "Opérations Globales",
+            "location": "Annecy, France (Travail à Distance & Interculturel)",
             "socials": "Suivez-moi"
         }
     },

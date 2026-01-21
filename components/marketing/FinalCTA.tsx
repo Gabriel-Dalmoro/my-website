@@ -1,23 +1,23 @@
 import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { PulsatingButton } from "@/components/ui/pulsating-button";
 
 export default function FinalCTA() {
     const t = useTranslations("CTA");
 
     return (
-        <div className="py-16 sm:py-24">
+        <div className="py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <div className="mx-auto max-w-4xl text-center">
+                    <h2 className="text-5xl sm:text-7xl font-black tracking-tight text-white mb-12 drop-shadow-lg">
                         {t("headline")}
                     </h2>
-                    <div className="mt-10 flex items-center justify-center gap-x-6">
-                        <Button asChild size="lg" className="rounded-full text-base font-semibold">
-                            <Link href="https://calendar.app.google/xDnhe1Nf37SwG7ci7" target="_blank">
+                    <div className="flex items-center justify-center">
+                        <Link href="/contact">
+                            <PulsatingButton className="px-8 py-4 text-xl font-bold rounded-full" pulseColor="#EAB308">
                                 {t("button")}
-                            </Link>
-                        </Button>
+                            </PulsatingButton>
+                        </Link>
                     </div>
                 </div>
             </div>

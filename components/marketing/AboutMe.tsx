@@ -18,10 +18,10 @@ export default function AboutMe() {
                     </div>
                     <div className="relative aspect-[3/4] w-full max-w-xs mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-zinc-800">
                         <Image
-                            src="/gabriel.jpg"
+                            src="/gabriel-final.jpg"
                             alt="Gabriel Dalmoro"
                             fill
-                            className="object-cover object-[50%_15%]"
+                            className="object-cover object-top scale-105"
                             sizes="(max-width: 768px) 100vw, 33vw"
                         />
                         {/* Subtle overlay gradient */}

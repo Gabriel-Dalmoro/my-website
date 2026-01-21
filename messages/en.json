@@ -9,7 +9,8 @@
         "home": "Home",
         "pricing": "Pricing",
         "about": "About",
-        "contact": "Contact"
+        "contact": "Contact",
+        "bookCall": "Book a Call"
     },
     "SocialProof": {
         "headline": "Trusted by Business Owners",
@@ -70,9 +71,14 @@
         }
     },
     "ClientShowcase": {
-        "headline": "See It In Action",
-        "description": "Watch how custom automation eliminates bottleneck tasks and scales operations without adding headcount.",
-        "timeSaved": "15+ Hours Saved Weekly",
+        "title": "See It In Action",
+        "subtitle": "Watch how custom automation eliminates bottleneck tasks and scales operations without adding headcount.",
+        "project1": {
+            "timeSaved": "15+ Hours Saved Weekly"
+        },
+        "project2": {
+            "timeSaved": "20+ Hours Saved Weekly"
+        },
         "techTitle": "Tech Stack Integrated",
         "stats": {
             "websiteDesign": "Custom Website Design",
@@ -81,7 +87,8 @@
             "sheets": "Google Sheets",
             "calendar": "Google Calendar",
             "invoicing": "Automated Invoicing",
-            "payments": "Stripe Payments"
+            "payments": "Stripe Payments",
+            "crm": "CRM Sync"
         }
     },
     "TechStack": {
@@ -108,42 +115,47 @@
         "languages_title": "I speak & negotiate in 4 languages"
     },
     "Pricing": {
-        "headline": "Service Packages",
-        "cta": "Start Your Efficiency Audit",
+        "title": "Pricing & ROI",
+        "subtitle": "Invest in systems that pay you back in time and growth.",
         "cards": {
-            "foundation": {
-                "name": "The Foundation",
-                "header": "Core Operations Hub",
-                "subHeader": "Starting at €2,500",
-                "outcome": "Eliminates 100% of manual data entry for new inquiries.",
-                "features": {
-                    "0": "Centralized lead management",
-                    "1": "Automatic client database entry",
-                    "2": "Secure cloud hosting within Europe"
-                }
+            "starter": {
+                "badge": "Best for Quick ROI",
+                "headline": "The Automation Pilot",
+                "price": "Starting at €950",
+                "goal": "Solve one high-friction manual bottleneck",
+                "bullets": [
+                    "Single-system automation (Lead Capture, Invoicing)",
+                    "Secure EU-Cloud setup",
+                    "Immediate 5–10 hours/week reclaimed"
+                ],
+                "cta": "Start Your Efficiency Audit",
+                "beforeAfter": {
+                    "before": "Before: 5h manual",
+                    "after": "After: 0h"
+                },
+                "hoursReclaimed": "5-10 Hours / Week Reclaimed"
             },
-            "performance": {
-                "name": "The High-Performance Engine",
-                "header": "Total Business Automation",
-                "subHeader": "Starting at €4,500",
-                "outcome": "Reclaims 10+ hours per week of administrative time.",
-                "features": {
-                    "0": "Full-loop client journey (Onboarding to Invoicing)",
-                    "1": "Real-time calendar & payment sync",
-                    "2": "Automated billing and accounting updates"
-                }
-            },
-            "scaling": {
-                "name": "The Scaling Partner",
-                "header": "Custom Enterprise Systems",
-                "subHeader": "Contact for Quote",
-                "outcome": "Custom infrastructure designed for unlimited business scale.",
-                "features": {
-                    "0": "Advanced AI-driven workflows",
-                    "1": "Deep cross-platform integrations",
-                    "2": "Continuous performance optimization"
-                }
+            "custom": {
+                "headline": "Total Business Infrastructure",
+                "price": "Custom Quote Based on ROI",
+                "goal": "Build an autonomous, zero-touch business lifecycle",
+                "bullets": [
+                    "Full-loop automation (Onboarding to Payment)",
+                    "Advanced AI-Agentic workflows",
+                    "Deep CRM & Accounting integration"
+                ],
+                "outcome": "Engineered to support unlimited growth without adding headcount.",
+                "cta": "Request a Custom Audit",
+                "hoursReclaimed": "Unlimited Scalability"
             }
+        },
+        "trust": {
+            "gdpr": "EU-GDPR Secure",
+            "instant": "Instant Performance"
+        },
+        "addon": {
+            "title": "Service Multiplier",
+            "description": "High-performance websites designed to feed your automation engine. Starting at €350 as a project add-on."
         }
     },
     "Contact": {
@@ -152,9 +164,11 @@
         "form": {
             "steps": {
                 "qualification": "Qualification",
+                "offers": "Select Offer",
                 "details": "Contact Details"
             },
             "fields": {
+                "website": "Include Custom Website Add-on (€350+)",
                 "problem": {
                     "label": "What is the most repetitive manual task slowing your team down right now?",
                     "placeholder": "e.g. Copying leads from email to Excel..."
@@ -190,12 +204,15 @@
             "back": "Back",
             "next": "Next Step",
             "submit": "Submit Application",
+            "submitting": "Sending...",
             "success": "Application Received. I will review your stack and get back to you with a preliminary ROI calculation within 24 hours.",
-            "security": "All business data is handled on encrypted, private servers located strictly in the European Union for maximum privacy and compliance."
+            "security": "Data handled on encrypted, secure servers in the EU."
         },
         "info": {
-            "email": "Email Me",
-            "location": "Location",
+            "emailLabel": "Business Inquiries",
+            "email": "dalmoro.enterprises@gmail.com",
+            "locationLabel": "Global Operations",
+            "location": "Annecy, France (Remote & Intercultural Work)",
             "socials": "Follow Me"
         }
     },

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { PulsatingButton } from "@/components/ui/pulsating-button";
 import DotGrid from "@/components/DotGrid";
 import TextType from "@/components/TextType";
 import { useTranslations } from "next-intl";
@@ -40,15 +41,14 @@ export default function Hero() {
             </div>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Button asChild size="lg" className="rounded-full">
-                    <Link href="https://calendar.app.google/xDnhe1Nf37SwG7ci7" target="_blank">
+                <Link href="/contact">
+                    <PulsatingButton className="px-8 py-3 text-lg font-bold rounded-full" pulseColor="#EAB308">
                         {t("cta")}
-                    </Link>
-                </Button>
+                    </PulsatingButton>
+                </Link>
             </div>
 
-            {/* Background decoration (Grid) - Kept subtle */}
-            <div className="absolute inset-0 -z-20 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-5 dark:bg-[radial-gradient(#ffffff_1px,transparent_1px)]"></div>
+
         </section>
     );
 }
