@@ -74,14 +74,14 @@
         "description": "Découvrez comment l'automatisation élimine les tâches manuelles et libère votre croissance sans recruter.",
         "timeSaved": "15+ Heures Gagnées / Semaine",
         "techTitle": "Technologies Intégrées",
-        "techs": {
+        "stats": {
+            "websiteDesign": "Conception de Site Web Sur Mesure",
+            "optionalPremium": "(Premium Optionnel)",
             "gmail": "Automatisation Gmail",
             "sheets": "Google Sheets",
-            "calendar": "Google Calendar",
-            "accounting": "Facturation Automatisée",
-            "payments": "Paiement en Ligne",
-            "crm": "Suivi de Prospects (CRM)",
-            "design": "Design Site Web"
+            "calendar": "Google Agenda",
+            "invoicing": "Facturation Automatisée",
+            "payments": "Paiements Stripe"
         }
     },
     "TechStack": {

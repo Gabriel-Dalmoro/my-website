@@ -7,9 +7,9 @@ interface BrowserFrameProps {
 
 export default function BrowserFrame({ children, className = "" }: BrowserFrameProps) {
     return (
-        <div className={`overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-2xl ${className}`}>
+        <div className={`flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-2xl ${className}`}>
             {/* Header Bar */}
-            <div className="flex h-10 items-center gap-2 border-b border-zinc-800 bg-zinc-900/50 px-4">
+            <div className="flex h-10 items-center gap-2 border-b border-zinc-800 bg-zinc-900/50 px-4 shrink-0">
                 {/* Traffic Lights */}
                 <div className="h-3 w-3 rounded-full border border-red-500/50 bg-red-500/20"></div>
                 <div className="h-3 w-3 rounded-full border border-yellow-500/50 bg-yellow-500/20"></div>
@@ -17,7 +17,7 @@ export default function BrowserFrame({ children, className = "" }: BrowserFrameP
             </div>
 
             {/* Content Area */}
-            <div className="relative bg-zinc-800/50">
+            <div className="relative bg-zinc-800/50 flex-1 min-h-0">
                 {children}
             </div>
         </div>

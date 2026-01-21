@@ -74,14 +74,14 @@
         "description": "Watch how custom automation eliminates bottleneck tasks and scales operations without adding headcount.",
         "timeSaved": "15+ Hours Saved Weekly",
         "techTitle": "Tech Stack Integrated",
-        "techs": {
+        "stats": {
+            "websiteDesign": "Custom Website Design",
+            "optionalPremium": "(Optional Premium)",
             "gmail": "Gmail Automation",
             "sheets": "Google Sheets",
             "calendar": "Google Calendar",
-            "accounting": "Automated Invoicing",
-            "payments": "Online Payments",
-            "crm": "Lead Tracking CRM",
-            "design": "Website Design"
+            "invoicing": "Automated Invoicing",
+            "payments": "Stripe Payments"
         }
     },
     "TechStack": {
