@@ -5,6 +5,12 @@
         "description": "Je crée des systèmes sur mesure qui gèrent vos tâches répétitives, pour que vous puissiez vous concentrer sur vos clients et vos profits.",
         "cta": "Réserver une Consultation Gratuite"
     },
+    "Navigation": {
+        "home": "Accueil",
+        "pricing": "Offres",
+        "about": "À Propos",
+        "contact": "Contact"
+    },
     "SocialProof": {
         "headline": "La Confiance des Entrepreneurs",
         "testimonials": {
@@ -100,6 +106,150 @@
             "es": "Espagnol"
         },
         "languages_title": "Je parle et négocie en 4 langues"
+    },
+    "Pricing": {
+        "headline": "Forfaits de Services",
+        "cta": "Commencer votre Audit d'Efficacité",
+        "cards": {
+            "foundation": {
+                "name": "La Fondation",
+                "header": "Hub d'Opérations",
+                "subHeader": "À partir de 2 500 €",
+                "outcome": "Élimine 100% de la saisie manuelle pour les nouvelles demandes.",
+                "features": {
+                    "0": "Gestion centralisée des prospects",
+                    "1": "Entrée automatique dans la base client",
+                    "2": "Hébergement cloud sécurisé en Europe"
+                }
+            },
+            "performance": {
+                "name": "Moteur Haute Performance",
+                "header": "Automatisation Totale",
+                "subHeader": "À partir de 4 500 €",
+                "outcome": "Récupère 10+ heures par semaine de temps administratif.",
+                "features": {
+                    "0": "Parcours client complet (Onboarding jusqu'à Facturation)",
+                    "1": "Synchro temps réel agenda & paiement",
+                    "2": "Facturation automatisée et comptabilité"
+                }
+            },
+            "scaling": {
+                "name": "Partenaire de Croissance",
+                "header": "Systèmes Entreprise Sur Mesure",
+                "subHeader": "Sur Devis",
+                "outcome": "Infrastructure sur mesure conçue pour une échelle illimitée.",
+                "features": {
+                    "0": "Workflows avancés pilotés par IA",
+                    "1": "Intégrations multi-plateformes profondes",
+                    "2": "Optimisation continue de la performance"
+                }
+            }
+        }
+    },
+    "Contact": {
+        "headline": "Commencez Votre Transformation",
+        "subheadline": "Calculons votre ROI. Répondez à quelques questions pour voir si nous sommes faits pour travailler ensemble.",
+        "form": {
+            "steps": {
+                "qualification": "Qualification",
+                "details": "Coordonnées"
+            },
+            "fields": {
+                "problem": {
+                    "label": "Quelle est la tâche manuelle la plus répétitive qui ralentit votre équipe ?",
+                    "placeholder": "ex: Copier des leads depuis les emails vers Excel..."
+                },
+                "hours": {
+                    "label": "En moyenne, combien d'heures/semaine passez-vous sur l'administratif ?",
+                    "placeholder": "Sélectionnez une plage",
+                    "options": {
+                        "low": "1-5 heures",
+                        "medium": "6-10 heures",
+                        "high": "11-20 heures",
+                        "critical": "20+ heures"
+                    }
+                },
+                "opportunity": {
+                    "label": "Si ce travail était automatisé à 100%, sur quoi vous concentreriez-vous ?",
+                    "placeholder": "ex: Vendre plus, Stratégie, Développement produit..."
+                },
+                "tools": {
+                    "label": "Quels outils utilisez-vous actuellement ? (Sélectionnez tout ce qui s'applique)",
+                    "options": {
+                        "google": "Google Workspace / Microsoft 365",
+                        "invoice": "Logiciel de Facturation (Quickbooks, Stripe...)",
+                        "crm": "CRM (HubSpot, Salesforce...)",
+                        "project": "Gestion de Projet (Notion, Trello, Asana)",
+                        "other": "Autres Systèmes Legacy"
+                    }
+                },
+                "name": "Nom Complet",
+                "email": "Email Professionnel",
+                "message": "Contexte Supplémentaire (Optionnel)"
+            },
+            "back": "Retour",
+            "next": "Étape Suivante",
+            "submit": "Envoyer ma Candidature",
+            "success": "Candidature Reçue. J'analyserai votre stack et reviendrai vers vous avec un calcul de ROI préliminaire sous 24h.",
+            "security": "Toutes les données business sont traitées sur des serveurs privés et chiffrés situés strictement dans l'Union Européenne pour une conformité maximale."
+        },
+        "info": {
+            "email": "Email",
+            "location": "Localisation",
+            "socials": "Suivez-moi"
+        }
+    },
+    "About": {
+        "headline": "Je Parle Business & Tech",
+        "subheadline": "Mon parcours, des opérations manuelles à l'échelle automatisée.",
+        "story": {
+            "title": "Mon Histoire",
+            "p1": "Je n'ai pas commencé comme codeur. J'ai commencé comme entrepreneur. J'ai passé des années noyé sous les tableurs, à courir après les factures et à copier manuellement des données.",
+            "p2": "J'ai réalisé que le plus gros goulot d'étranglement n'était pas les ventes, mais les opérations. J'ai appris à coder avec un seul but : m'automatiser hors du quotidien.",
+            "p3": "Aujourd'hui, je construis ces mêmes systèmes pour d'autres entrepreneurs. Je ne fais pas que du code ; je conçois des workflows qui vous rendent votre vie."
+        },
+        "journey": {
+            "title": "Parcours",
+            "steps": {
+                "0": {
+                    "year": "2018",
+                    "title": "La Lutte",
+                    "description": "Gestion d'un e-commerce, submergé par la logistique manuelle."
+                },
+                "1": {
+                    "year": "2020",
+                    "title": "Le Déclic",
+                    "description": "Découverte de n8n. 20h/semaine économisées sur mon propre business."
+                },
+                "2": {
+                    "year": "2023",
+                    "title": "L'Échelle",
+                    "description": "Création de systèmes d'automatisation sur mesure pour des clients sélects."
+                },
+                "3": {
+                    "year": "Aujourd'hui",
+                    "title": "L'Expert",
+                    "description": "Aide les entreprises mondiales à automatiser leurs opérations cœurs."
+                }
+            }
+        },
+        "values": {
+            "title": "Philosophie",
+            "cards": {
+                "0": {
+                    "title": "Pragmatisme",
+                    "description": "Si ça ne gagne pas de temps ou d'argent, on ne le construit pas."
+                },
+                "1": {
+                    "title": "Simplicité",
+                    "description": "Code complexe, interface simple. Vous ne devriez pas avoir besoin d'un manuel."
+                },
+                "2": {
+                    "title": "Propriété",
+                    "description": "Je construis des outils qui vous appartiennent. Pas de frais cachés."
+                }
+            }
+        }
     },
     "CTA": {
         "headline": "Prêt à récupérer votre temps ?",

@@ -4,10 +4,10 @@ import ProblemSection from "@/components/marketing/ProblemSection";
 import ServiceCards from "@/components/marketing/ServiceCards";
 import Testimonials from "@/components/marketing/Testimonials";
 import ClientShowcase from "@/components/marketing/ClientShowcase";
+import Pricing from "@/components/marketing/Pricing";
 import AboutMe from "@/components/marketing/AboutMe";
 import GlobalReach from "@/components/marketing/GlobalReach";
 import FinalCTA from "@/components/marketing/FinalCTA";
-import Footer from "@/components/marketing/Footer";
 
 export default function MarketingPage() {
   return (
@@ -19,11 +19,11 @@ export default function MarketingPage() {
         <ServiceCards />
         <Testimonials />
         <ClientShowcase />
+        <Pricing />
         <AboutMe />
         <GlobalReach />
         <FinalCTA />
       </main>
-      <Footer />
     </div>
   );
 }

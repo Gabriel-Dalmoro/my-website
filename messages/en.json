@@ -5,6 +5,12 @@
         "description": "I build custom systems that handle your repetitive tasks—so you can focus on your customers and your profit.",
         "cta": "Book a 15-Min Free Consultation"
     },
+    "Navigation": {
+        "home": "Home",
+        "pricing": "Pricing",
+        "about": "About",
+        "contact": "Contact"
+    },
     "SocialProof": {
         "headline": "Trusted by Business Owners",
         "testimonials": {
@@ -100,6 +106,150 @@
             "es": "Spanish"
         },
         "languages_title": "I speak & negotiate in 4 languages"
+    },
+    "Pricing": {
+        "headline": "Service Packages",
+        "cta": "Start Your Efficiency Audit",
+        "cards": {
+            "foundation": {
+                "name": "The Foundation",
+                "header": "Core Operations Hub",
+                "subHeader": "Starting at €2,500",
+                "outcome": "Eliminates 100% of manual data entry for new inquiries.",
+                "features": {
+                    "0": "Centralized lead management",
+                    "1": "Automatic client database entry",
+                    "2": "Secure cloud hosting within Europe"
+                }
+            },
+            "performance": {
+                "name": "The High-Performance Engine",
+                "header": "Total Business Automation",
+                "subHeader": "Starting at €4,500",
+                "outcome": "Reclaims 10+ hours per week of administrative time.",
+                "features": {
+                    "0": "Full-loop client journey (Onboarding to Invoicing)",
+                    "1": "Real-time calendar & payment sync",
+                    "2": "Automated billing and accounting updates"
+                }
+            },
+            "scaling": {
+                "name": "The Scaling Partner",
+                "header": "Custom Enterprise Systems",
+                "subHeader": "Contact for Quote",
+                "outcome": "Custom infrastructure designed for unlimited business scale.",
+                "features": {
+                    "0": "Advanced AI-driven workflows",
+                    "1": "Deep cross-platform integrations",
+                    "2": "Continuous performance optimization"
+                }
+            }
+        }
+    },
+    "Contact": {
+        "headline": "Start Your Transformation",
+        "subheadline": "Let's calculate your ROI. Answer a few questions to see if we're a good fit.",
+        "form": {
+            "steps": {
+                "qualification": "Qualification",
+                "details": "Contact Details"
+            },
+            "fields": {
+                "problem": {
+                    "label": "What is the most repetitive manual task slowing your team down right now?",
+                    "placeholder": "e.g. Copying leads from email to Excel..."
+                },
+                "hours": {
+                    "label": "On average, how many hours/week are spent on administrative work?",
+                    "placeholder": "Select a range",
+                    "options": {
+                        "low": "1-5 hours",
+                        "medium": "6-10 hours",
+                        "high": "11-20 hours",
+                        "critical": "20+ hours"
+                    }
+                },
+                "opportunity": {
+                    "label": "If this work was 100% automated, what would you focus on instead?",
+                    "placeholder": "e.g. Closing more deals, Strategy, Product development..."
+                },
+                "tools": {
+                    "label": "Which tools are you currently using? (Select all that apply)",
+                    "options": {
+                        "google": "Google Workspace / Microsoft 365",
+                        "invoice": "Invoicing Software (Quickbooks, Stripe, etc.)",
+                        "crm": "CRM (HubSpot, Salesforce, etc.)",
+                        "project": "Project Management (Notion, Trello, Asana)",
+                        "other": "Other Legacy Systems"
+                    }
+                },
+                "name": "Full Name",
+                "email": "Business Email",
+                "message": "Additional Context (Optional)"
+            },
+            "back": "Back",
+            "next": "Next Step",
+            "submit": "Submit Application",
+            "success": "Application Received. I will review your stack and get back to you with a preliminary ROI calculation within 24 hours.",
+            "security": "All business data is handled on encrypted, private servers located strictly in the European Union for maximum privacy and compliance."
+        },
+        "info": {
+            "email": "Email Me",
+            "location": "Location",
+            "socials": "Follow Me"
+        }
+    },
+    "About": {
+        "headline": "I Speak Business & Tech",
+        "subheadline": "My journey from manual operations to automated scale.",
+        "story": {
+            "title": "My Story",
+            "p1": "I didn't start as a coder. I started as an entrepreneur. I spent years drowning in spreadsheets, chasing invoices, and manually copying data between tools.",
+            "p2": "I realized that the biggest bottleneck in my business wasn't sales or product—it was operations. So I taught myself to code with one goal: to automate myself out of the daily grind.",
+            "p3": "Now, I build those same systems for other business owners. I don't just write code; I design workflows that give you back your life."
+        },
+        "journey": {
+            "title": "Timeline",
+            "steps": {
+                "0": {
+                    "year": "2018",
+                    "title": "The Struggle",
+                    "description": "Running an e-commerce business, overwhelmed by manual logistics."
+                },
+                "1": {
+                    "year": "2020",
+                    "title": "The Awakening",
+                    "description": "Discovered n8n and automation. Saved 20 hours/week in my own business."
+                },
+                "2": {
+                    "year": "2023",
+                    "title": "The Scale",
+                    "description": "Started building custom automation systems for select clients."
+                },
+                "3": {
+                    "year": "Today",
+                    "title": "The Expert",
+                    "description": "Helping businesses worldwide automate their core operations."
+                }
+            }
+        },
+        "values": {
+            "title": "Philosophy",
+            "cards": {
+                "0": {
+                    "title": "Pragmatism",
+                    "description": "If it doesn't save time or make money, we don't build it."
+                },
+                "1": {
+                    "title": "Simplicity",
+                    "description": "Complex code, simple interface. You shouldn't need a manual to run your business."
+                },
+                "2": {
+                    "title": "Ownership",
+                    "description": "I build tools you own. No vendor lock-in, no hidden fees."
+                }
+            }
+        }
     },
     "CTA": {
         "headline": "Ready to reclaim your time?",
