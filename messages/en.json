@@ -9,6 +9,7 @@
         "home": "Home",
         "pricing": "Pricing",
         "about": "About",
+        "blog": "Blog",
         "contact": "Contact",
         "bookCall": "Book a Call"
     },
@@ -271,5 +272,41 @@
     "CTA": {
         "headline": "Ready to reclaim your time?",
         "button": "Book your free audit"
+    },
+    "Blog": {
+        "title": "Journal & Insights",
+        "description": "Where Business Automation Meets Adventure. \nI share the technical systems that scale businesses and the outdoor adventures they fund.",
+        "categories": {
+            "all": "All",
+            "business": "Business",
+            "adventure": "Adventure",
+            "journal": "Journal"
+        },
+        "readMore": "Read more",
+        "backToBlog": "Back to Blog",
+        "noPosts": "No posts found.",
+        "authorBy": "By {name}",
+        "hero": {
+            "readStory": "Read Full Story"
+        },
+        "newsletter": {
+            "headline": "Join the <gold>1%</gold> Automating Their Freedom.",
+            "subheadline": "Get ultra-actionable systems, workflows, and adventure stories delivered straight to your inbox. No fluff, just leverage.",
+            "placeholder": "enter@your.email",
+            "button": "Subscribe",
+            "unsubscribe": "Unsubscribe at any time."
+        },
+        "promo": {
+            "badge": "Free Audit",
+            "title": "Stop Wasting Time on Admin.",
+            "description": "Let me build the systems that do the work for you.",
+            "cta": "Get Your Audit"
+        },
+        "floating": {
+            "cta": "Book Audit"
+        },
+        "details": {
+            "localeWarning": "This post is only available in {language}. We're working on the translation!"
+        }
     }
 }

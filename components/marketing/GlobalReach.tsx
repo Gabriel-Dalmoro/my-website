@@ -16,6 +16,14 @@ const markers = [
 export default function GlobalReach() {
     const t = useTranslations("GlobalReach");
     const [activeLang, setActiveLang] = useState("en");
+    const [mounted, setMounted] = useState(false);
+
+    // Initial mount effect
+    useState(() => {
+        if (typeof window !== 'undefined') {
+            setMounted(true);
+        }
+    });
 
     const languageDemos: Record<string, { label: string; text: string }> = {
         en: { label: "English", text: "Because Google Translate isn't going to close that deal for you." },
@@ -36,54 +44,60 @@ export default function GlobalReach() {
                     </p>
                 </div>
 
-                <div className="relative w-full aspect-[2/1] max-w-5xl mx-auto rounded-3xl bg-zinc-900/20 border border-zinc-800/50 shadow-2xl overflow-hidden">
-                    <ComposableMap
-                        projection="geoMercator"
-                        projectionConfig={{
-                            scale: 220,
-                            center: [-20, 25] // Focused on the Atlantic corridor (Americas <> Europe)
-                        }}
-                        className="w-full h-full"
-                    >
-                        <Geographies geography={geoUrl}>
-                            {({ geographies }: { geographies: any[] }) =>
-                                geographies.map((geo: any) => (
-                                    <Geography
-                                        key={geo.rsmKey}
-                                        geography={geo}
-                                        fill="#27272a" // zinc-800
-                                        stroke="#3f3f46" // zinc-700
-                                        strokeWidth={0.5}
-                                        style={{
-                                            default: { outline: "none" },
-                                            hover: { fill: "#3f3f46", outline: "none" },
-                                            pressed: { outline: "none" },
-                                        }}
-                                    />
-                                ))
-                            }
-                        </Geographies>
+                <div className="relative w-full aspect-[2/1] max-w-5xl mx-auto rounded-3xl bg-zinc-900/20 border border-zinc-800/50 shadow-2xl overflow-hidden min-h-[300px]">
+                    {mounted ? (
+                        <ComposableMap
+                            projection="geoMercator"
+                            projectionConfig={{
+                                scale: 220,
+                                center: [-20, 25] // Focused on the Atlantic corridor (Americas <> Europe)
+                            }}
+                            className="w-full h-full"
+                        >
+                            <Geographies geography={geoUrl}>
+                                {({ geographies }: { geographies: any[] }) =>
+                                    geographies.map((geo: any) => (
+                                        <Geography
+                                            key={geo.rsmKey}
+                                            geography={geo}
+                                            fill="#27272a" // zinc-800
+                                            stroke="#3f3f46" // zinc-700
+                                            strokeWidth={0.5}
+                                            style={{
+                                                default: { outline: "none" },
+                                                hover: { fill: "#3f3f46", outline: "none" },
+                                                pressed: { outline: "none" },
+                                            }}
+                                        />
+                                    ))
+                                }
+                            </Geographies>
 
-                        {markers.map(({ name, coordinates, labelOffset }) => (
-                            <Marker key={name} coordinates={coordinates as [number, number]}>
-                                {/* Glowing Effect */}
-                                <circle r={8} fill="#EAB308" opacity="0.3" className="animate-ping" />
-                                {/* Pin Point */}
-                                <circle r={3} fill="#EAB308" />
+                            {markers.map(({ name, coordinates, labelOffset }) => (
+                                <Marker key={name} coordinates={coordinates as [number, number]}>
+                                    {/* Glowing Effect */}
+                                    <circle r={8} fill="#EAB308" opacity="0.3" className="animate-ping" />
+                                    {/* Pin Point */}
+                                    <circle r={3} fill="#EAB308" />
 
-                                {/* Country Label */}
-                                <text
-                                    textAnchor="middle"
-                                    y={labelOffset[1]}
-                                    x={labelOffset[0]}
-                                    className="text-[32px] sm:text-[18px] font-bold uppercase tracking-wider fill-zinc-200"
-                                    style={{ fontFamily: "system-ui", textShadow: "0px 2px 4px rgba(0,0,0,0.8)" }}
-                                >
-                                    {t(`locations.${name}`)}
-                                </text>
-                            </Marker>
-                        ))}
-                    </ComposableMap>
+                                    {/* Country Label */}
+                                    <text
+                                        textAnchor="middle"
+                                        y={labelOffset[1]}
+                                        x={labelOffset[0]}
+                                        className="text-[32px] sm:text-[18px] font-bold uppercase tracking-wider fill-zinc-200"
+                                        style={{ fontFamily: "system-ui", textShadow: "0px 2px 4px rgba(0,0,0,0.8)" }}
+                                    >
+                                        {t(`locations.${name}`)}
+                                    </text>
+                                </Marker>
+                            ))}
+                        </ComposableMap>
+                    ) : (
+                        <div className="w-full h-full flex items-center justify-center text-zinc-600 animate-pulse">
+                            Loading Map...
+                        </div>
+                    )}
 
                     {/* Subtle overlay gradient to blend edges if map cuts off */}
                     <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(transparent_50%,#09090b_100%)]"></div>

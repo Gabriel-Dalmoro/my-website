@@ -66,7 +66,7 @@ function ContactForm() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch("https://n8n-production-ced7.up.railway.app/webhook/1a7dab8b-98a0-4536-881a-d7b52f73cb5c", {
+            const response = await fetch("https://n8n-production-ced7.up.railway.app/webhook-test/1a7dab8b-98a0-4536-881a-d7b52f73cb5c", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

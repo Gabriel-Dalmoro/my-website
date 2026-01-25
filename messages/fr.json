@@ -7,8 +7,9 @@
     },
     "Navigation": {
         "home": "Accueil",
-        "pricing": "Offres",
+        "pricing": "Tarifs",
         "about": "À Propos",
+        "blog": "Blog",
         "contact": "Contact",
         "bookCall": "Réserver un appel"
     },
@@ -113,6 +114,42 @@
             "es": "Espagnol"
         },
         "languages_title": "Je parle et négocie en 4 langues"
+    },
+    "Blog": {
+        "title": "Journal & Insights",
+        "description": "L'Automatisation Business rencontre l'Aventure. \nJe partage les systèmes techniques qui font croître les entreprises et les aventures qu'ils financent.",
+        "categories": {
+            "all": "Tous",
+            "business": "Business",
+            "adventure": "Aventure",
+            "journal": "Journal"
+        },
+        "readMore": "Lire la suite",
+        "backToBlog": "Retour au blog",
+        "noPosts": "Aucun article trouvé.",
+        "authorBy": "Par {name}",
+        "hero": {
+            "readStory": "Lire l'article"
+        },
+        "newsletter": {
+            "headline": "Rejoignez le <gold>1%</gold> qui automatise sa liberté.",
+            "subheadline": "Recevez des systèmes ultra-actionnables, des workflows et des récits d'aventure directement dans votre boîte mail. Pas de blabla, juste du levier.",
+            "placeholder": "votre@email.com",
+            "button": "S'abonner",
+            "unsubscribe": "Désinscription à tout moment."
+        },
+        "promo": {
+            "badge": "Audit Offert",
+            "title": "Arrêtez de perdre du temps sur l'admin.",
+            "description": "Laissez-moi construire les systèmes qui travaillent pour vous.",
+            "cta": "Obtenir mon Audit"
+        },
+        "floating": {
+            "cta": "Réserver un Audit"
+        },
+        "details": {
+            "localeWarning": "Cet article est uniquement disponible en {language}. Nous travaillons sur la traduction !"
+        }
     },
     "Pricing": {
         "title": "Tarifs & ROI",
@@ -241,7 +278,7 @@
                 "2": {
                     "year": "2023",
                     "title": "L'Échelle",
-                    "description": "Création de systèmes d'automatisation sur mesure pour des clients sélects."
+                    "description": "L'Automatisation Business rencontre l'Aventure. \nJe partage les systèmes techniques qui font croître les entreprises et les aventures qu'ils financent."
                 },
                 "3": {
                     "year": "Aujourd'hui",

@@ -25,6 +25,7 @@ export default function Header() {
     const navLinks = [
         { name: t("home"), href: "/" },
         { name: t("about"), href: "/about" },
+        { name: t("blog"), href: "/blog" },
         { name: t("pricing"), href: "/#pricing" },
         { name: t("contact"), href: "/contact" },
     ];
@@ -36,9 +37,15 @@ export default function Header() {
         return false;
     };
 
+    const isBlog = pathname?.includes("/blog") || pathname?.includes("/studio");
+
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900 py-3" : "bg-transparent py-6"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+                ? isBlog
+                    ? "bg-white/80 backdrop-blur-md border-b border-zinc-200 py-3 text-zinc-900 shadow-sm"
+                    : "bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900 py-3"
+                : "bg-transparent py-6"
                 }`}
         >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -47,7 +54,7 @@ export default function Header() {
                     <div className="flex lg:flex-1">
                         <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2 transition-opacity hover:opacity-80">
                             <img src="/favicon.png" alt="GD" className="w-8 h-8 rounded-md" />
-                            <span className="text-lg font-bold text-white tracking-tight">Gabriel Dalmoro</span>
+                            <span className={`text-lg font-bold tracking-tight ${isBlog && !isScrolled ? "text-zinc-900" : isBlog && isScrolled ? "text-zinc-900" : "text-white"}`}>Gabriel Dalmoro</span>
                         </Link>
                     </div>
 
@@ -57,7 +64,11 @@ export default function Header() {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className={`text-sm font-semibold leading-6 transition-colors ${isActive(item.href) ? "text-primary" : "text-zinc-300 hover:text-white"
+                                className={`text-sm font-semibold leading-6 transition-colors ${isActive(item.href)
+                                    ? "text-primary"
+                                    : isBlog
+                                        ? "text-zinc-600 hover:text-primary"
+                                        : "text-zinc-300 hover:text-white"
                                     }`}
                             >
                                 {item.name}
@@ -84,7 +95,10 @@ export default function Header() {
                         <div className="flex lg:hidden">
                             <button
                                 type="button"
-                                className="-m-2.5 inline-flex items-center justify-center rounded-lg p-2.5 text-zinc-400 hover:text-white hover:bg-zinc-800/50 border border-transparent hover:border-zinc-700 transition-all"
+                                className={`-m-2.5 inline-flex items-center justify-center rounded-lg p-2.5 border border-transparent transition-all ${isBlog
+                                    ? "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100"
+                                    : "text-zinc-400 hover:text-white hover:bg-zinc-800/50 hover:border-zinc-700"
+                                    }`}
                                 onClick={() => setMobileMenuOpen(true)}
                             >
                                 <span className="sr-only">Open main menu</span>
