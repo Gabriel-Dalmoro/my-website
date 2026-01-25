@@ -28,14 +28,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     locale
   }`;
 
-    const posts = await client.fetch(query);
+    let postRoutes: any[] = [];
 
-    const postRoutes = posts.map((post: any) => ({
-        url: `${baseUrl}/${post.locale || 'en'}/blog/${post.slug}`,
-        lastModified: new Date(post.updatedAt),
-        changeFrequency: "weekly" as const,
-        priority: 0.7,
-    }));
+    try {
+        const posts = await client.fetch(query);
+        postRoutes = posts.map((post: any) => ({
+            url: `${baseUrl}/${post.locale || 'en'}/blog/${post.slug}`,
+            lastModified: new Date(post.updatedAt),
+            changeFrequency: "weekly" as const,
+            priority: 0.7,
+        }));
+    } catch (error) {
+        console.error("Failed to fetch blog posts for sitemap:", error);
+        // Continue with static routes only if Sanity fails (e.g. missing env vars during build)
+    }
 
     return [...routes, ...postRoutes];
 }
