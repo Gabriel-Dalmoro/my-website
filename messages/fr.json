@@ -168,8 +168,12 @@
                 ],
                 "cta": "Démarrer",
                 "beforeAfter": {
-                    "before": "Avant : 10h de travail manuel",
-                    "after": "Après : 0h"
+                    "beforeLabel": "Avant",
+                    "beforeValue": "10h",
+                    "beforeSub": "Travail Manuel",
+                    "afterLabel": "Après",
+                    "afterValue": "0h",
+                    "afterSub": "Automatisé"
                 },
                 "hoursReclaimed": "10 Heures / Semaine Gagnées"
             },

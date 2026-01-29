@@ -71,14 +71,14 @@ export default function Pricing() {
                         <div className="rounded-xl bg-zinc-950/40 border border-zinc-800/50 p-6 mb-8 text-center flex-1 flex flex-col justify-center">
                             <div className="grid grid-cols-2 gap-4 divide-x divide-zinc-800">
                                 <div className="flex flex-col justify-center">
-                                    <div className="text-[11px] uppercase text-zinc-500 font-bold tracking-wider mb-2">Before</div>
-                                    <div className="text-red-500 font-black text-4xl sm:text-5xl leading-none mb-2">10h</div>
-                                    <div className="text-xs text-zinc-400 font-medium">Manual Work</div>
+                                    <div className="text-[11px] uppercase text-zinc-500 font-bold tracking-wider mb-2">{t("cards.starter.beforeAfter.beforeLabel")}</div>
+                                    <div className="text-red-500 font-black text-4xl sm:text-5xl leading-none mb-2">{t("cards.starter.beforeAfter.beforeValue")}</div>
+                                    <div className="text-xs text-zinc-400 font-medium">{t("cards.starter.beforeAfter.beforeSub")}</div>
                                 </div>
                                 <div className="flex flex-col justify-center">
-                                    <div className="text-[11px] uppercase text-zinc-500 font-bold tracking-wider mb-2">After</div>
-                                    <div className="text-green-500 font-black text-4xl sm:text-5xl leading-none mb-2">0h</div>
-                                    <div className="text-xs text-zinc-400 font-medium">Automated</div>
+                                    <div className="text-[11px] uppercase text-zinc-500 font-bold tracking-wider mb-2">{t("cards.starter.beforeAfter.afterLabel")}</div>
+                                    <div className="text-green-500 font-black text-4xl sm:text-5xl leading-none mb-2">{t("cards.starter.beforeAfter.afterValue")}</div>
+                                    <div className="text-xs text-zinc-400 font-medium">{t("cards.starter.beforeAfter.afterSub")}</div>
                                 </div>
                             </div>
                         </div>

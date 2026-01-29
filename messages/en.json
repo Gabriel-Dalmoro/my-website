@@ -132,8 +132,12 @@
                 ],
                 "cta": "Get Started",
                 "beforeAfter": {
-                    "before": "Before: 10h manual work",
-                    "after": "After: 0h"
+                    "beforeLabel": "Before",
+                    "beforeValue": "10h",
+                    "beforeSub": "Manual Work",
+                    "afterLabel": "After",
+                    "afterValue": "0h",
+                    "afterSub": "Automated"
                 },
                 "hoursReclaimed": "10 Hours / Week Reclaimed"
             },
