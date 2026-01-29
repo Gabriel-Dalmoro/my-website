@@ -26,7 +26,7 @@ export default function Header() {
         { name: t("home"), href: "/" },
         { name: t("about"), href: "/about" },
         { name: t("blog"), href: "/blog" },
-        { name: t("pricing"), href: "/#pricing" },
+        { name: t("pricing"), href: "/pricing" },
         { name: t("contact"), href: "/contact" },
     ];
 
@@ -110,34 +110,47 @@ export default function Header() {
 
                 {/* Mobile Menu Overlay */}
                 {mobileMenuOpen && (
-                    <div className="lg:hidden fixed inset-0 z-50 bg-zinc-950 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10 flex flex-col">
-                        <div className="flex items-center justify-between">
-                            <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-                                <img src="/favicon.png" alt="GD" className="w-8 h-8 rounded-md" />
-                                <span className="text-lg font-bold text-white tracking-tight">Gabriel Dalmoro</span>
-                            </Link>
-                            <button
-                                type="button"
-                                className="-m-2.5 rounded-md p-2.5 text-zinc-400 hover:text-white"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                <span className="sr-only">Close menu</span>
-                                <X className="h-6 w-6" aria-hidden="true" />
-                            </button>
-                        </div>
-                        <div className="mt-8 flow-root">
-                            <div className="-my-6 divide-y divide-zinc-500/10">
-                                <div className="space-y-2 py-6">
-                                    {navLinks.map((item) => (
-                                        <Link
-                                            key={item.name}
-                                            href={item.href}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
+                    <div className="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)}>
+                        <div
+                            className="absolute top-0 right-0 w-full sm:max-w-xs h-full bg-zinc-950 border-l border-white/10 p-6 shadow-2xl animate-in slide-in-from-right duration-300"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="flex items-center justify-between mb-8">
+                                <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
+                                    <img src="/favicon.png" alt="GD" className="w-8 h-8 rounded-md" />
+                                    <span className="text-lg font-bold text-white tracking-tight">Gabriel Dalmoro</span>
+                                </Link>
+                                <button
+                                    type="button"
+                                    className="-m-2.5 rounded-md p-2.5 text-zinc-400 hover:text-white transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    <span className="sr-only">Close menu</span>
+                                    <X className="h-6 w-6" aria-hidden="true" />
+                                </button>
+                            </div>
+                            <div className="flow-root">
+                                <div className="-my-6 divide-y divide-white/10">
+                                    <div className="space-y-4 py-6">
+                                        {navLinks.map((item) => (
+                                            <Link
+                                                key={item.name}
+                                                href={item.href}
+                                                className={`block rounded-lg px-3 py-3 text-lg font-bold leading-7 hover:bg-white/5 transition-colors ${isActive(item.href) ? "text-primary" : "text-white"
+                                                    }`}
+                                                onClick={() => setMobileMenuOpen(false)}
+                                            >
+                                                {item.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                    <div className="py-6">
+                                        <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg h-12 rounded-xl shadow-lg shadow-primary/20">
+                                            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                                                {t("bookCall")}
+                                            </Link>
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

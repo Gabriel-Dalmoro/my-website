@@ -13,8 +13,8 @@ export default function Footer() {
                     </p>
                 </div>
                 <div className="flex items-center gap-6">
-                    <Link href="/adventures" className="text-sm font-semibold leading-6 text-zinc-400 hover:text-white transition-colors">
-                        Personal Journal <span aria-hidden="true">&rarr;</span>
+                    <Link href="/blog" className="text-sm font-semibold leading-6 text-zinc-400 hover:text-white transition-colors">
+                        Blog <span aria-hidden="true">&rarr;</span>
                     </Link>
                     <LanguageSwitcher variant="full" />
                 </div>

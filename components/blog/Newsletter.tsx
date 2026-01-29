@@ -37,22 +37,9 @@ export default function Newsletter() {
                             gold: (chunks) => <span className="text-yellow-500">{chunks}</span>
                         })}
                     </h2>
-                    <p className="text-zinc-400 text-base sm:text-lg mb-8 leading-relaxed max-w-xl mx-auto">
-                        {t("subheadline")}
-                    </p>
-
-                    <form className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto" onSubmit={(e) => e.preventDefault()}>
-                        <input
-                            type="email"
-                            placeholder={t("placeholder")}
-                            className="flex-1 bg-zinc-900 border border-zinc-700 text-white rounded-full px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-yellow-500/50 transition-all placeholder:text-zinc-600"
-                            required
-                        />
-                        <Button size="default" className="rounded-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold h-auto py-3 px-6 text-sm shadow-[0_0_15px_rgba(250,204,21,0.3)] hover:shadow-[0_0_20px_rgba(250,204,21,0.5)] transition-all">
-                            {t("button")}
-                        </Button>
-                    </form>
-                    <p className="text-zinc-600 text-xs mt-3">{t("unsubscribe")}</p>
+                    <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 inline-block">
+                        <p className="text-zinc-500 text-sm font-medium">✨ {t("subheadline")}</p>
+                    </div>
                 </motion.div>
             </div>
         </section>

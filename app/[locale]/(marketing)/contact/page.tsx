@@ -121,7 +121,7 @@ function ContactForm() {
                     <h3 className="text-xs uppercase tracking-wider font-semibold text-zinc-500 mb-3 flex items-center gap-2">
                         <Mail className="w-4 h-4 text-primary" /> {t("info.emailLabel")}
                     </h3>
-                    <a href="mailto:dalmoro.enterprises@gmail.com" className="text-zinc-200 hover:text-white transition-colors text-sm font-medium break-all flex items-center gap-2 group-hover:text-primary">
+                    <a href="mailto:gabriel@gabrieldalmoro.com" className="text-zinc-200 hover:text-white transition-colors text-sm font-medium break-all flex items-center gap-2 group-hover:text-primary">
                         {t("info.email")}
                     </a>
                 </div>

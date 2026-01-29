@@ -96,8 +96,8 @@
         "headline": "Powering Automation with Modern Infrastructure"
     },
     "AboutMe": {
-        "headline": "I Speak Business & Tech",
-        "description": "I've been in your shoes. As a former entrepreneur turned coder, I know the frustration of inefficient processes. I don't just write code; I build systems that solve real business problems. I'm passionate about optimizing workflows to give you back your most valuable asset: time."
+        "headline": "Business DNA. Engineering Mindset.",
+        "description": "From running a chess school as a kid to building global software systems. I solve the operational headaches I lived through."
     },
     "GlobalReach": {
         "headline": "Working Globally",
@@ -116,52 +116,61 @@
         "languages_title": "I speak & negotiate in 4 languages"
     },
     "Pricing": {
-        "title": "Pricing & ROI",
-        "subtitle": "Invest in systems that pay you back in time and growth.",
+        "title": "Invest in Your Future Freedom",
+        "subtitle": "Clear, value-driven pricing designed to pay for itself in reclaimed time and growth.",
         "cards": {
             "starter": {
-                "badge": "Best for Quick ROI",
-                "headline": "The Automation Pilot",
-                "price": "Starting at €950",
-                "goal": "Solve one high-friction manual bottleneck",
+                "badge": "Start Here",
+                "headline": "The Pilot",
+                "price": "Starting at €999",
+                "goal": "Solve One Critical Challenge",
                 "bullets": [
-                    "Single-system automation (Lead Capture, Invoicing)",
-                    "Secure EU-Cloud setup",
-                    "Immediate 5–10 hours/week reclaimed"
+                    "Automate a specific high-value workflow",
+                    "Secure, scalable setup",
+                    "Immediate reclaimed time (avg. 10h/week)"
                 ],
-                "cta": "Start Your Efficiency Audit",
+                "cta": "Get Started",
                 "beforeAfter": {
-                    "before": "Before: 5h manual",
+                    "before": "Before: 10h manual work",
                     "after": "After: 0h"
                 },
-                "hoursReclaimed": "5-10 Hours / Week Reclaimed"
+                "hoursReclaimed": "10 Hours / Week Reclaimed"
             },
             "custom": {
-                "headline": "Total Business Infrastructure",
-                "price": "Custom Quote Based on ROI",
-                "goal": "Build an autonomous, zero-touch business lifecycle",
+                "headline": "Custom Ecosystem",
+                "price": "Tailored Solution",
+                "goal": "Strategic Operations Integration",
                 "bullets": [
-                    "Full-loop automation (Onboarding to Payment)",
-                    "Advanced AI-Agentic workflows",
-                    "Deep CRM & Accounting integration"
+                    "End-to-end workflow orchestration",
+                    "Intelligent process automation",
+                    "Multi-platform system synchronization"
                 ],
-                "outcome": "Engineered to support unlimited growth without adding headcount.",
-                "cta": "Request a Custom Audit",
-                "hoursReclaimed": "Unlimited Scalability"
+                "outcome": "Scale your operations without increasing headcount.",
+                "cta": "Request Custom Audit",
+                "hoursReclaimed": "Unlimited Scalability",
+                "visual": {
+                    "label": "Fully Integrated Stack",
+                    "nodes": {
+                        "crm": "CRM",
+                        "mail": "Email",
+                        "pay": "Payments",
+                        "data": "Data"
+                    }
+                }
             }
         },
         "trust": {
-            "gdpr": "EU-GDPR Secure",
-            "instant": "Instant Performance"
+            "gdpr": "Secure & Private",
+            "instant": "Fast Results"
         },
         "addon": {
-            "title": "Service Multiplier",
-            "description": "High-performance websites designed to feed your automation engine. Starting at €350 as a project add-on."
+            "title": "Conversion-Ready Website",
+            "description": "A high-performance website engineered to turn visitors into clients. Starting at €399."
         }
     },
     "Contact": {
         "headline": "Start Your Transformation",
-        "subheadline": "Let's calculate your ROI. Answer a few questions to see if we're a good fit.",
+        "subheadline": "Let's calculate your potential value. Answer a few questions to see if we're a good fit.",
         "form": {
             "steps": {
                 "qualification": "Qualification",
@@ -206,48 +215,48 @@
             "next": "Next Step",
             "submit": "Submit Application",
             "submitting": "Sending...",
-            "success": "Application Received. I will review your stack and get back to you with a preliminary ROI calculation within 24 hours.",
+            "success": "Application Received. I will review your stack and get back to you with a preliminary value calculation within 24 hours.",
             "security": "Data handled on encrypted, secure servers in the EU."
         },
         "info": {
             "emailLabel": "Business Inquiries",
-            "email": "dalmoro.enterprises@gmail.com",
+            "email": "gabriel@gabrieldalmoro.com",
             "locationLabel": "Global Operations",
             "location": "Annecy, France (Remote & Intercultural Work)",
             "socials": "Follow Me"
         }
     },
     "About": {
-        "headline": "I Speak Business & Tech",
-        "subheadline": "My journey from manual operations to automated scale.",
+        "headline": "Business DNA. Engineering Mindset.",
+        "subheadline": "The journey from manual entrepreneurship to automated scale.",
         "story": {
-            "title": "My Story",
-            "p1": "I didn't start as a coder. I started as an entrepreneur. I spent years drowning in spreadsheets, chasing invoices, and manually copying data between tools.",
-            "p2": "I realized that the biggest bottleneck in my business wasn't sales or product—it was operations. So I taught myself to code with one goal: to automate myself out of the daily grind.",
-            "p3": "Now, I build those same systems for other business owners. I don't just write code; I design workflows that give you back your life."
+            "title": "Why I Do This",
+            "p1": "I’ve always been an entrepreneur at heart. It started with opening my own chess school as a kid and partnering with friends to resell imported toys as a teenager. I loved the game of business—until I started my first real company.",
+            "p2": "That’s when the reality hit. I wasn't 'building' anymore; I was drowning in paperwork, invoicing, and admin. I saw this pattern everywhere I worked—from the fitness industry to outdoor adventure companies. Great businesses were being suffocated by inefficient systems.",
+            "p3": "I refused to accept that as the norm. I pivoted to software engineering, working with clients across North and South America to master the technology that scales companies. Now, I merge those worlds. I use my engineering background to solve the business problems I experienced firsthand."
         },
         "journey": {
             "title": "Timeline",
             "steps": {
                 "0": {
-                    "year": "2018",
-                    "title": "The Struggle",
-                    "description": "Running an e-commerce business, overwhelmed by manual logistics."
+                    "year": "2008",
+                    "title": "The Spark",
+                    "description": "Early Entrepreneur. Opened a chess school and ran small ventures. Learned the thrill of building something from scratch."
                 },
                 "1": {
-                    "year": "2020",
-                    "title": "The Awakening",
-                    "description": "Discovered n8n and automation. Saved 20 hours/week in my own business."
+                    "year": "2018",
+                    "title": "The Reality Check",
+                    "description": "First Company & Industry Exp. Launched my first startup and worked in Fitness/Outdoor sectors. Witnessed how admin kills momentum."
                 },
                 "2": {
-                    "year": "2023",
-                    "title": "The Scale",
-                    "description": "Started building custom automation systems for select clients."
+                    "year": "2021",
+                    "title": "The Pivot",
+                    "description": "Software Engineering. Transitioned to tech. Spent 2 years building production-grade software for clients across the Americas."
                 },
                 "3": {
                     "year": "Today",
-                    "title": "The Expert",
-                    "description": "Helping businesses worldwide automate their core operations."
+                    "title": "The Synthesis",
+                    "description": "Bridging the Gap. Merging business acumen with technical expertise to build the automated systems I wish I had back then."
                 }
             }
         },
@@ -255,18 +264,23 @@
             "title": "Philosophy",
             "cards": {
                 "0": {
-                    "title": "Pragmatism",
-                    "description": "If it doesn't save time or make money, we don't build it."
+                    "title": "Impact",
+                    "description": "Results you can feel. I measure success by hours saved and revenue generated, not just clean code."
                 },
                 "1": {
-                    "title": "Simplicity",
-                    "description": "Complex code, simple interface. You shouldn't need a manual to run your business."
+                    "title": "Collaboration",
+                    "description": "A Partner, Not a Vendor. I deeply believe in working with you to understand your specific vision and needs."
                 },
                 "2": {
-                    "title": "Ownership",
-                    "description": "I build tools you own. No vendor lock-in, no hidden fees."
+                    "title": "Pragmatism",
+                    "description": "Solutions that work. Technology should serve your business, not the other way around."
                 }
             }
+        },
+        "finalCta": {
+            "headline": "Let's Build Better Workflows Together.",
+            "description": "Business is hard work, but it shouldn't be held back by unnecessary manual tasks. Stop drowning in admin. Let's automate the repetitive work so you can reclaim your time and scale.",
+            "button": "Let's Talk Efficiency"
         }
     },
     "CTA": {
@@ -290,8 +304,8 @@
             "readStory": "Read Full Story"
         },
         "newsletter": {
-            "headline": "Join the <gold>1%</gold> Automating Their Freedom.",
-            "subheadline": "Get ultra-actionable systems, workflows, and adventure stories delivered straight to your inbox. No fluff, just leverage.",
+            "headline": "Newsletter Series.",
+            "subheadline": "We are preparing a high-value newsletter with systems and workflows. Coming soon.",
             "placeholder": "enter@your.email",
             "button": "Subscribe",
             "unsubscribe": "Unsubscribe at any time."

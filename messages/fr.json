@@ -96,8 +96,8 @@
         "headline": "L'Automatisation par l'Infrastructure Moderne"
     },
     "AboutMe": {
-        "headline": "Je Parle Business & Tech",
-        "description": "J'ai été à votre place. En tant qu'ancien entrepreneur devenu développeur, je connais la frustration des processus inefficaces. Je ne fais pas que du code; je construis des systèmes qui résolvent de vrais problèmes business. Je suis passionné par l'optimisation pour vous rendre votre atout le plus précieux : le temps."
+        "headline": "ADN Entrepreneur. Esprit Ingénieur.",
+        "description": "De mon école d'échecs d'enfance aux systèmes logiciels mondiaux. Je résous les problèmes opérationnels que j'ai moi-même vécus."
     },
     "GlobalReach": {
         "headline": "Travail à l'International",
@@ -132,8 +132,8 @@
             "readStory": "Lire l'article"
         },
         "newsletter": {
-            "headline": "Rejoignez le <gold>1%</gold> qui automatise sa liberté.",
-            "subheadline": "Recevez des systèmes ultra-actionnables, des workflows et des récits d'aventure directement dans votre boîte mail. Pas de blabla, juste du levier.",
+            "headline": "Série Newsletter.",
+            "subheadline": "Nous préparons une newsletter à haute valeur ajoutée avec des systèmes et des workflows. Bientôt disponible.",
             "placeholder": "votre@email.com",
             "button": "S'abonner",
             "unsubscribe": "Désinscription à tout moment."
@@ -152,52 +152,61 @@
         }
     },
     "Pricing": {
-        "title": "Tarifs & ROI",
-        "subtitle": "Investissez dans des systèmes qui vous rapportent du temps et de la croissance.",
+        "title": "Investissez dans Votre Liberté",
+        "subtitle": "Une tarification claire et axée sur la valeur ajouté, conçue pour s'autofinancer.",
         "cards": {
             "starter": {
-                "badge": "Idéal pour ROI Rapide",
-                "headline": "Le Pilote d'Automatisation",
-                "price": "À partir de 950 €",
-                "goal": "Résolvez un goulot d'étranglement manuel",
+                "badge": "Commencez Ici",
+                "headline": "Le Pilote",
+                "price": "Jusqu'à 999 €",
+                "goal": "Résoudre un Défi Majeur",
                 "bullets": [
-                    "Automatisation mono-système (Capture de prospects, Facturation)",
-                    "Configuration Cloud EU Sécurisée",
-                    "5–10 heures/semaine récupérées immédiatement"
+                    "Automatisation d'un flux critique",
+                    "Configuration sécurisée et évolutive",
+                    "Gain de temps immédiat (moy. 10h/semaine)"
                 ],
-                "cta": "Démarrer l'Audit d'Efficacité",
+                "cta": "Démarrer",
                 "beforeAfter": {
-                    "before": "Avant : 5h manuels",
+                    "before": "Avant : 10h de travail manuel",
                     "after": "Après : 0h"
                 },
-                "hoursReclaimed": "5-10 Heures / Semaine Récupérées"
+                "hoursReclaimed": "10 Heures / Semaine Gagnées"
             },
             "custom": {
-                "headline": "Infrastructure Business Totale",
-                "price": "Devis personnalisé selon ROI",
-                "goal": "Construisez un cycle de vie business autonome",
+                "headline": "Écosystème Sur Mesure",
+                "price": "Solution Personnalisée",
+                "goal": "Intégration Stratégique",
                 "bullets": [
-                    "Automatisation complète (Onboarding à Paiement)",
-                    "Flux de travail AI-Agentiques avancés",
-                    "Intégration CRM & Comptabilité profonde"
+                    "Orchestration de flux de bout en bout",
+                    "Automatisation intelligente des processus",
+                    "Synchronisation multi-systèmes"
                 ],
-                "outcome": "Conçu pour une croissance illimitée sans recrutement.",
-                "cta": "Demander un Audit Personnalisé",
-                "hoursReclaimed": "Scalabilité Illimitée"
+                "outcome": "Développez vos opérations sans augmenter vos effectifs.",
+                "cta": "Demander un Audit",
+                "hoursReclaimed": "Évolutivité Illimitée",
+                "visual": {
+                    "label": "Stack Complètement Intégrée",
+                    "nodes": {
+                        "crm": "CRM",
+                        "mail": "Email",
+                        "pay": "Paiement",
+                        "data": "Données"
+                    }
+                }
             }
         },
         "trust": {
-            "gdpr": "Sécurité RGPD-UE",
-            "instant": "Performance Instantanée"
+            "gdpr": "100% Sécurisé",
+            "instant": "Résultats Rapides"
         },
         "addon": {
-            "title": "Multiplicateur de Service",
-            "description": "Sites web haute performance conçus pour alimenter votre moteur d'automatisation. À partir de 350 € en extension."
+            "title": "Site Web de Conversion",
+            "description": "Un site vitrine haute performance conçu pour transformer vos visiteurs en clients. À partir de 399 €."
         }
     },
     "Contact": {
         "headline": "Commencez Votre Transformation",
-        "subheadline": "Calculons votre ROI. Répondez à quelques questions pour voir si nous sommes faits pour travailler ensemble.",
+        "subheadline": "Calculons votre potentiel. Répondez à quelques questions pour voir si nous sommes faits pour travailler ensemble.",
         "form": {
             "steps": {
                 "qualification": "Qualification",
@@ -242,48 +251,48 @@
             "next": "Étape Suivante",
             "submit": "Envoyer ma Candidature",
             "submitting": "Envoi en cours...",
-            "success": "Candidature Reçue. J'analyserai votre stack et reviendrai vers vous avec un calcul de ROI préliminaire sous 24h.",
+            "success": "Candidature Reçue. J'analyserai votre stack et reviendrai vers vous avec une estimation de la valeur générée sous 24h.",
             "security": "Données traitées sur serveurs sécurisés et chiffrés en UE."
         },
         "info": {
             "emailLabel": "Demandes Professionnelles",
-            "email": "dalmoro.enterprises@gmail.com",
+            "email": "gabriel@gabrieldalmoro.com",
             "locationLabel": "Opérations Globales",
             "location": "Annecy, France (Travail à Distance & Interculturel)",
             "socials": "Suivez-moi"
         }
     },
     "About": {
-        "headline": "Je Parle Business & Tech",
-        "subheadline": "Mon parcours, des opérations manuelles à l'échelle automatisée.",
+        "headline": "ADN Entrepreneur. Esprit Ingénieur.",
+        "subheadline": "De l'entrepreneuriat manuel à l'échelle automatisée.",
         "story": {
-            "title": "Mon Histoire",
-            "p1": "Je n'ai pas commencé comme codeur. J'ai commencé comme entrepreneur. J'ai passé des années noyé sous les tableurs, à courir après les factures et à copier manuellement des données.",
-            "p2": "J'ai réalisé que le plus gros goulot d'étranglement n'était pas les ventes, mais les opérations. J'ai appris à coder avec un seul but : m'automatiser hors du quotidien.",
-            "p3": "Aujourd'hui, je construis ces mêmes systèmes pour d'autres entrepreneurs. Je ne fais pas que du code ; je conçois des workflows qui vous rendent votre vie."
+            "title": "Pourquoi je fais ça",
+            "p1": "J'ai toujours eu l'âme d'un entrepreneur. Tout a commencé quand j'étais enfant avec l'ouverture de ma propre école d'échecs, puis adolescent en revendant des jouets importés. J'adorais le jeu du business—jusqu'à ce que je lance ma première vraie entreprise.",
+            "p2": "C'est là que la réalité a frappé. Je ne 'construisais' plus ; je me noyais sous la paperasse, la facturation et l'administratif. J'ai vu ce même schéma partout où j'ai travaillé, du secteur du fitness aux entreprises d'aventure en plein air.",
+            "p3": "J'ai refusé d'accepter ça comme une norme. Je me suis tourné vers le génie logiciel, travaillant avec des clients en Amérique du Nord et du Sud. Aujourd'hui, je fusionne l'expertise technique avec ma vision business pour créer les systèmes que j'aurais aimé avoir."
         },
         "journey": {
             "title": "Parcours",
             "steps": {
                 "0": {
-                    "year": "2018",
-                    "title": "La Lutte",
-                    "description": "Gestion d'un e-commerce, submergé par la logistique manuelle."
+                    "year": "2008",
+                    "title": "L'Étincelle",
+                    "description": "Commerçant né. Ouverture d'une école d'échecs et petites entreprises. Découverte de la passion de bâtir."
                 },
                 "1": {
-                    "year": "2020",
-                    "title": "Le Déclic",
-                    "description": "Découverte de n8n. 20h/semaine économisées sur mon propre business."
+                    "year": "2018",
+                    "title": "La Réalité",
+                    "description": "Première Boîte & Expérience Terrain. Lancement de ma propre startup. Constat direct : l'admin manuel tue la dynamique."
                 },
                 "2": {
-                    "year": "2023",
-                    "title": "L'Échelle",
-                    "description": "L'Automatisation Business rencontre l'Aventure. \nJe partage les systèmes techniques qui font croître les entreprises et les aventures qu'ils financent."
+                    "year": "2021",
+                    "title": "Le Pivot",
+                    "description": "Génie Logiciel. Transition vers la tech. 2 ans à construire des logiciels complexes pour des clients à travers les Amériques."
                 },
                 "3": {
                     "year": "Aujourd'hui",
-                    "title": "L'Expert",
-                    "description": "Aide les entreprises mondiales à automatiser leurs opérations cœurs."
+                    "title": "La Fusion",
+                    "description": "Le Pont. Je fusionne vision business et expertise technique pour construire les systèmes automatisés que j'aurais aimé avoir à l'époque."
                 }
             }
         },
@@ -291,18 +300,23 @@
             "title": "Philosophie",
             "cards": {
                 "0": {
-                    "title": "Pragmatisme",
-                    "description": "Si ça ne gagne pas de temps ou d'argent, on ne le construit pas."
+                    "title": "Impact",
+                    "description": "Des résultats concrets. Je mesure le succès en heures gagnées et en revenus générés, pas seulement en code propre."
                 },
                 "1": {
-                    "title": "Simplicité",
-                    "description": "Code complexe, interface simple. Vous ne devriez pas avoir besoin d'un manuel."
+                    "title": "Collaboration",
+                    "description": "Partenaire, pas Prestataire. Je crois profondément au travail d'équipe pour comprendre votre vision spécifique."
                 },
                 "2": {
-                    "title": "Propriété",
-                    "description": "Je construis des outils qui vous appartiennent. Pas de frais cachés."
+                    "title": "Pragmatisme",
+                    "description": "Des solutions qui marchent. La technologie doit servir votre business, et non l'inverse."
                 }
             }
+        },
+        "finalCta": {
+            "headline": "Construisons de meilleurs processus ensemble.",
+            "description": "Entreprendre demande des efforts, mais ne devrait pas être freiné par des tâches manuelles inutiles. Arrêtez de subir l'administratif. Automatisons le travail répétitif pour récupérer votre temps et passer à l'échelle.",
+            "button": "Parlons Efficacité"
         }
     },
     "CTA": {
