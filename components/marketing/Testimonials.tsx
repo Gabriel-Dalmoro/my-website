@@ -88,7 +88,7 @@ export default function Testimonials() {
                                             <div className="flex items-center justify-center gap-x-4">
                                                 <div className="relative h-12 w-12 overflow-hidden rounded-full bg-zinc-800 ring-2 ring-primary/20 shrink-0">
                                                     <Image
-                                                        src={currentIndex === 1 ? "/avatar_female.png" : "/avatar_male.png"}
+                                                        src={currentIndex === 1 ? "/avatar_female.png" : "/avatar_zach.png"}
                                                         alt={t(`testimonials.${currentIndex}.author`)}
                                                         fill
                                                         className="object-cover"

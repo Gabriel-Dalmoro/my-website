@@ -5,6 +5,7 @@ import { Check, ShieldCheck, Zap, ArrowRight, ArrowDown, UsersIcon, MailIcon, Cr
 import { Button } from "@/components/ui/button";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { Link } from "@/i18n/routing";
+import { MiniIntegrationsBeam } from "./MiniIntegrationsBeam";
 
 export default function Pricing() {
     const t = useTranslations("Pricing");
@@ -66,17 +67,18 @@ export default function Pricing() {
                         </ul>
 
                         {/* Before/After Micro-Component */}
-                        <div className="rounded-lg bg-zinc-950/50 border border-zinc-800 p-3 mb-6 text-center">
-                            <div className="grid grid-cols-2 gap-2 divide-x divide-zinc-800">
-                                <div>
-                                    <div className="text-[9px] uppercase text-zinc-500 font-semibold mb-0.5">Before</div>
-                                    <div className="text-red-400 font-bold text-base">10h</div>
-                                    <div className="text-[9px] text-zinc-600">Manual Work</div>
+                        {/* Before/After Micro-Component */}
+                        <div className="rounded-xl bg-zinc-950/40 border border-zinc-800/50 p-6 mb-8 text-center flex-1 flex flex-col justify-center">
+                            <div className="grid grid-cols-2 gap-4 divide-x divide-zinc-800">
+                                <div className="flex flex-col justify-center">
+                                    <div className="text-[11px] uppercase text-zinc-500 font-bold tracking-wider mb-2">Before</div>
+                                    <div className="text-red-500 font-black text-4xl sm:text-5xl leading-none mb-2">10h</div>
+                                    <div className="text-xs text-zinc-400 font-medium">Manual Work</div>
                                 </div>
-                                <div>
-                                    <div className="text-[9px] uppercase text-zinc-500 font-semibold mb-0.5">After</div>
-                                    <div className="text-green-400 font-bold text-base">0h</div>
-                                    <div className="text-[9px] text-zinc-600">Automated</div>
+                                <div className="flex flex-col justify-center">
+                                    <div className="text-[11px] uppercase text-zinc-500 font-bold tracking-wider mb-2">After</div>
+                                    <div className="text-green-500 font-black text-4xl sm:text-5xl leading-none mb-2">0h</div>
+                                    <div className="text-xs text-zinc-400 font-medium">Automated</div>
                                 </div>
                             </div>
                         </div>
@@ -132,38 +134,7 @@ export default function Pricing() {
 
                         {/* Visual Connector Stack (Fills space dynamically) */}
                         <div className="flex-1 flex flex-col justify-end mt-4 mb-6">
-                            <div className="bg-zinc-950/50 rounded-lg p-3 border border-zinc-800/50">
-                                <div className="text-[10px] text-zinc-500 uppercase font-semibold text-center mb-3">
-                                    {t("cards.custom.visual.label")}
-                                </div>
-                                <div className="flex justify-between items-center px-2">
-                                    {/* CRM Node */}
-                                    <div className="flex flex-col items-center gap-1">
-                                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
-                                            <UsersIcon className="w-4 h-4" />
-                                        </div>
-                                        <span className="text-[9px] text-zinc-500">{t("cards.custom.visual.nodes.crm")}</span>
-                                    </div>
-                                    {/* Connector */}
-                                    <div className="h-px flex-1 bg-gradient-to-r from-blue-500/20 via-zinc-700 to-purple-500/20 mx-1" />
-                                    {/* Email Node */}
-                                    <div className="flex flex-col items-center gap-1">
-                                        <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-                                            <MailIcon className="w-4 h-4" />
-                                        </div>
-                                        <span className="text-[9px] text-zinc-500">{t("cards.custom.visual.nodes.mail")}</span>
-                                    </div>
-                                    {/* Connector */}
-                                    <div className="h-px flex-1 bg-gradient-to-r from-purple-500/20 via-zinc-700 to-green-500/20 mx-1" />
-                                    {/* Payment Node */}
-                                    <div className="flex flex-col items-center gap-1">
-                                        <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400">
-                                            <CreditCardIcon className="w-4 h-4" />
-                                        </div>
-                                        <span className="text-[9px] text-zinc-500">{t("cards.custom.visual.nodes.pay")}</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <MiniIntegrationsBeam />
                         </div>
 
                         {/* Outcome Box */}

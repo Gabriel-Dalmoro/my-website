@@ -1,5 +1,8 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Link } from "@/i18n/routing";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export default function AboutMe() {
     const t = useTranslations("AboutMe");
@@ -15,6 +18,13 @@ export default function AboutMe() {
                         <p className="mt-6 text-xl leading-8 text-zinc-300">
                             {t("description")}
                         </p>
+                        <div className="mt-8">
+                            <Link href="/about">
+                                <Button className="bg-primary text-zinc-950 font-bold hover:bg-primary/90">
+                                    {t("readMore")} <ArrowRight className="w-4 h-4 ml-2" />
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
                     <div className="relative aspect-[3/4] w-full max-w-xs mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-zinc-800">
                         <Image
