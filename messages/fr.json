@@ -72,24 +72,112 @@
         }
     },
     "ClientShowcase": {
-        "title": "Voir la Démo",
-        "subtitle": "Découvrez comment l'automatisation élimine les tâches manuelles et libère votre croissance sans recruter.",
-        "project1": {
-            "timeSaved": "15+ Heures Gagnées / Semaine"
+        "industryLabel": "Industrie :",
+        "selection": {
+            "title": "Quelle partie de votre entreprise vous ralentit ?",
+            "narrativeBridge": "Voici comment nous avons réglé ça pour :",
+            "back": "← Choisir un Autre Focus",
+            "demoComingSoon": "Démo vidéo à venir",
+            "cards": {
+                "operations": {
+                    "title": "Admin Quotidien & Liberté"
+                },
+                "marketing": {
+                    "title": "Contenu & Image de Marque"
+                },
+                "sales": {
+                    "title": "Ventes & Pipeline"
+                }
+            }
         },
-        "project2": {
-            "timeSaved": "20+ Heures Gagnées / Semaine"
+        "operations": {
+            "tab": "Opérations & Finance",
+            "caseStudyLabel": "ÉTUDE DE CAS",
+            "clientName": "ELISA BATCH COOKING",
+            "clientIndustry": "Chef à Domicile",
+            "videoTitle": "Le Moteur Opérationnel de 520 Heures",
+            "pain": "Vous passez plus de 10h par semaine sur du 'travail occupé'...",
+            "outcome": "Intégration automatisée, facturation instantanée et clarté totale sur les profits.",
+            "logic": "Nous n'avons pas juste construit un site web ; nous avons construit un employé numérique.",
+            "impact": {
+                "value": "520+",
+                "label": "Heures Récupérées / An"
+            },
+            "manualWorkTitle": "Le Travail Manuel Automatisé",
+            "automations": [
+                {
+                    "manual": "Facturer à la main",
+                    "automated": "Suivi d'argent instantané"
+                },
+                {
+                    "manual": "Inscrire de nouveaux clients",
+                    "automated": "Assistant toujours prêt"
+                }
+            ],
+            "cta": "Récupérer mes week-ends",
+            "valueHammer": "Économisez 520+ heures de travail manuel dès ce mois-ci."
         },
-        "techTitle": "Technologies Intégrées",
-        "stats": {
-            "websiteDesign": "Conception de Site Web Sur Mesure",
-            "optionalPremium": "(Premium Optionnel)",
-            "gmail": "Automatisation Gmail",
-            "sheets": "Google Sheets",
-            "calendar": "Google Agenda",
-            "invoicing": "Facturation Automatisée",
-            "payments": "Paiements Stripe",
-            "crm": "Synchro CRM"
+        "marketing": {
+            "tab": "Marque & Marketing",
+            "caseStudyLabel": "ÉTUDE DE CAS",
+            "clientName": "FIT TO EXCEL",
+            "clientIndustry": "Automatisation de Marque",
+            "videoTitle": "L'Armée Marketing en Un Clic",
+            "pain": "Votre marque est invisible...",
+            "outcome": "Des posts haut de gamme, fidèles à la marque—en attente de votre approbation.",
+            "logic": "Votre marketing doit être un actif, pas une corvée.",
+            "impact": {
+                "value": "100%",
+                "label": "Présence Cohérente"
+            },
+            "manualWorkTitle": "Le Travail Manuel Automatisé",
+            "automations": [
+                {
+                    "manual": "Créer des posts pendant des heures",
+                    "automated": "Créateur d'art en un clic"
+                },
+                {
+                    "manual": "Publier un par un",
+                    "automated": "Publier partout en même temps"
+                }
+            ],
+            "cta": "Marque en Pilote Auto",
+            "valueHammer": "Économisez 520+ heures de travail manuel dès ce mois-ci."
+        },
+        "sales": {
+            "tab": "Ventes & Croissance",
+            "caseStudyLabel": "ÉTUDE DE CAS",
+            "clientName": "LE DÉTECTEUR DE CLIENTS INTELLIGENT",
+            "clientIndustry": "Croissance d'Affaires Pro",
+            "videoTitle": "L'Usine à Leads Intelligente",
+            "pain": "Vous attendez le bouche-à-oreille...",
+            "outcome": "Un flux prévisible de leads qualifiés et de pitchs personnalisés livrés en pilote automatique.",
+            "logic": "Nous transformons les marchés froids en opportunités.",
+            "impact": {
+                "value": "10x",
+                "label": "Vélocité du Pipeline"
+            },
+            "manualWorkTitle": "Le Travail Humain Retraité",
+            "automations": [
+                {
+                    "manual": "Rechercher de nouveaux clients",
+                    "automated": "Détecteur de clients intelligent"
+                },
+                {
+                    "manual": "Deviner qui va acheter",
+                    "automated": "Détecteur de fit idéal"
+                },
+                {
+                    "manual": "Envoyer des emails un par un",
+                    "automated": "Machine de relance facile"
+                },
+                {
+                    "manual": "Chercher des infos d'entreprise",
+                    "automated": "Données instantanées"
+                }
+            ],
+            "cta": "Lancer mon détecteur de clients",
+            "valueHammer": "Économisez 520+ heures de travail manuel dès ce mois-ci."
         }
     },
     "TechStack": {

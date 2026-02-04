@@ -1,17 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import StarBorder from "@/components/ui/StarBorder";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 
-export default function Testimonials() {
+interface TestimonialsProps {
+    focusedCategory?: "operations" | "marketing" | "sales" | null;
+}
+
+export default function Testimonials({ focusedCategory }: TestimonialsProps) {
     const t = useTranslations("SocialProof");
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const testimonialCount = 3;
+
+    // Sync focused category to testimonial index
+    useEffect(() => {
+        if (!focusedCategory) return;
+
+        switch (focusedCategory) {
+            case "operations": setCurrentIndex(0); break;
+            case "marketing": setCurrentIndex(1); break;
+            case "sales": setCurrentIndex(2); break;
+        }
+    }, [focusedCategory]);
 
     const handleNext = () => {
         setCurrentIndex((prev) => (prev + 1) % testimonialCount);

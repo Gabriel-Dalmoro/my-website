@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
@@ -19,11 +19,9 @@ export default function GlobalReach() {
     const [mounted, setMounted] = useState(false);
 
     // Initial mount effect
-    useState(() => {
-        if (typeof window !== 'undefined') {
-            setMounted(true);
-        }
-    });
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const languageDemos: Record<string, { label: string; text: string }> = {
         en: { label: "English", text: "Because Google Translate isn't going to close that deal for you." },

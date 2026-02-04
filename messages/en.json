@@ -72,24 +72,112 @@
         }
     },
     "ClientShowcase": {
-        "title": "See It In Action",
-        "subtitle": "Watch how custom automation eliminates bottleneck tasks and scales operations without adding headcount.",
-        "project1": {
-            "timeSaved": "15+ Hours Saved Weekly"
+        "industryLabel": "Industry:",
+        "selection": {
+            "title": "Which part of your business is slowing you down?",
+            "narrativeBridge": "Here is how we fixed that for:",
+            "back": "← Choose Another Focus",
+            "demoComingSoon": "Video demo coming soon",
+            "cards": {
+                "operations": {
+                    "title": "Daily Admin & Freedom"
+                },
+                "marketing": {
+                    "title": "Content & Branding"
+                },
+                "sales": {
+                    "title": "Sales & Pipeline"
+                }
+            }
         },
-        "project2": {
-            "timeSaved": "20+ Hours Saved Weekly"
+        "operations": {
+            "tab": "Operations & Finance",
+            "caseStudyLabel": "CASE STUDY",
+            "clientName": "ELISA BATCH COOKING",
+            "clientIndustry": "Professional Chef Service",
+            "videoTitle": "The 520-Hour Operational Engine",
+            "pain": "You spend 10+ hours a week on 'busy-work'...",
+            "outcome": "Automated onboarding, instant invoicing, and 100% profit clarity.",
+            "logic": "We didn't just build a website; we built a digital employee.",
+            "impact": {
+                "value": "520+",
+                "label": "Hours Reclaimed / Year"
+            },
+            "manualWorkTitle": "The Manual Work we automated",
+            "automations": [
+                {
+                    "manual": "Typing invoices by hand",
+                    "automated": "Instant Money Tracking"
+                },
+                {
+                    "manual": "Signing up new clients",
+                    "automated": "Always-Ready Assistant"
+                }
+            ],
+            "cta": "Win My Weekends Back",
+            "valueHammer": "Save 520+ hours of manual work starting this month."
         },
-        "techTitle": "Tech Stack Integrated",
-        "stats": {
-            "websiteDesign": "Custom Website Design",
-            "optionalPremium": "(Optional Premium)",
-            "gmail": "Gmail Automation",
-            "sheets": "Google Sheets",
-            "calendar": "Google Calendar",
-            "invoicing": "Automated Invoicing",
-            "payments": "Stripe Payments",
-            "crm": "CRM Sync"
+        "marketing": {
+            "tab": "Brand & Marketing",
+            "caseStudyLabel": "CASE STUDY",
+            "clientName": "FIT TO EXCEL",
+            "clientIndustry": "Fitness Technology Startup",
+            "videoTitle": "The One-Click Marketing Army",
+            "pain": "Your brand is invisible...",
+            "outcome": "High-end, on-brand posts prepared daily—waiting for your one-click approval.",
+            "logic": "Your marketing should be an asset, not an errand.",
+            "impact": {
+                "value": "100%",
+                "label": "Consistent Brand Presence"
+            },
+            "manualWorkTitle": "The Manual Work we automated",
+            "automations": [
+                {
+                    "manual": "Making posts for hours",
+                    "automated": "One-Click Art Maker"
+                },
+                {
+                    "manual": "Posting one by one",
+                    "automated": "Post Everywhere at Once"
+                }
+            ],
+            "cta": "Grow My Brand on Autopilot",
+            "valueHammer": "Save 520+ hours of manual work starting this month."
+        },
+        "sales": {
+            "tab": "Sales & Growth",
+            "caseStudyLabel": "CASE STUDY",
+            "clientName": "THE SMART CLIENT FINDER",
+            "clientIndustry": "Professional Business Growth",
+            "videoTitle": "The Unlimited Smart Lead Factory",
+            "pain": "You’re waiting for referrals...",
+            "outcome": "A predictable stream of qualified leads and personalized pitches delivered on autopilot.",
+            "logic": "We turn cold markets into opportunity.",
+            "impact": {
+                "value": "10x",
+                "label": "Pipeline Velocity"
+            },
+            "manualWorkTitle": "The Human Work We Retired",
+            "automations": [
+                {
+                    "manual": "Looking for new clients",
+                    "automated": "Smart Client Finder"
+                },
+                {
+                    "manual": "Guessing who will buy",
+                    "automated": "Best-Fit Finder"
+                },
+                {
+                    "manual": "Sending emails one by one",
+                    "automated": "Easy Follow-Up Machine"
+                },
+                {
+                    "manual": "Searching for business info",
+                    "automated": "Instant Facts"
+                }
+            ],
+            "cta": "Start My Client Finder",
+            "valueHammer": "Save 520+ hours of manual work starting this month."
         }
     },
     "TechStack": {

@@ -16,9 +16,7 @@ export default function MarketingPage() {
         <TechStack />
         <ProblemSection />
         <ServiceCards />
-        <Testimonials />
         <ClientShowcase />
-        <AboutMe />
         <GlobalReach />
         <FinalCTA />
       </main>
