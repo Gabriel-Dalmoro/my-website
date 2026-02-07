@@ -72,7 +72,36 @@ export const post = {
             title: 'Content',
             type: 'array',
             of: [
-                { type: 'block' },
+                {
+                    type: 'block',
+                    marks: {
+                        annotations: [
+                            {
+                                name: 'link',
+                                type: 'object',
+                                title: 'Link',
+                                fields: [
+                                    {
+                                        name: 'href',
+                                        type: 'url',
+                                        title: 'URL',
+                                        validation: (Rule: any) =>
+                                            Rule.uri({
+                                                scheme: ['http', 'https', 'tel', 'mailto'],
+                                                allowRelative: true,
+                                            }),
+                                    },
+                                    {
+                                        title: 'Open in new tab',
+                                        name: 'openInNewTab',
+                                        type: 'boolean',
+                                        initialValue: false,
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                },
                 { type: 'image' },
             ],
         },

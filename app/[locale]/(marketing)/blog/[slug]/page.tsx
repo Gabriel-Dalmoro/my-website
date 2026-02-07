@@ -6,7 +6,7 @@ import { ArrowLeft, Globe } from "lucide-react";
 import ReadingProgress from "@/components/blog/ReadingProgress";
 import { getTranslations } from "next-intl/server";
 
-export const revalidate = 60;
+export const revalidate = 1;
 
 // ... imports
 
@@ -112,13 +112,33 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
                 if (!value?.asset?._ref) {
                     return null;
                 }
+
+                // Parse dimensions from asset ref "image-ID-WIDTHxHEIGHT-format"
+                const ref = value.asset._ref;
+                let width = 800;
+                let height = 600;
+
+                try {
+                    const dimensions = ref.split('-')[2];
+                    if (dimensions) {
+                        const [w, h] = dimensions.split('x').map(Number);
+                        width = w;
+                        height = h;
+                    }
+                } catch (e) {
+                    console.error("Error parsing image dimensions", e);
+                }
+
                 return (
-                    <div className="relative w-full aspect-video my-8 rounded-2xl overflow-hidden">
+                    <div className="flex justify-center my-8">
                         <Image
                             src={urlFor(value).url()}
                             alt={value.alt || 'Blog image'}
-                            fill
-                            className="object-cover"
+                            width={width}
+                            height={height}
+                            className="h-auto max-w-full rounded-2xl shadow-lg"
+                            style={{ aspectRatio: `${width} / ${height}` }}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 800px"
                         />
                     </div>
                 );
@@ -127,12 +147,41 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
         block: {
             h2: ({ children }: any) => <h2 className="text-3xl font-bold mt-12 mb-6 text-zinc-950">{children}</h2>,
             h3: ({ children }: any) => <h3 className="text-2xl font-bold mt-8 mb-4 text-zinc-950">{children}</h3>,
-            normal: ({ children }: any) => <p className="text-lg leading-relaxed text-zinc-700 mb-6">{children}</p>,
+            normal: ({ children }: any) => {
+                // Check if children is just an empty string, null, or has no characters
+                const isEmpty =
+                    !children ||
+                    (Array.isArray(children) && children.length === 1 && (children[0] === "" || children[0] === "\n")) ||
+                    (typeof children === 'string' && children.trim() === "");
+
+                if (isEmpty) {
+                    return <br className="block content-[''] my-4" />;
+                }
+                return <p className="text-lg leading-relaxed text-zinc-700 mb-6 min-h-[1.5em]">{children}</p>;
+            },
             blockquote: ({ children }: any) => (
                 <blockquote className="border-l-4 border-primary pl-6 py-2 my-8 italic text-xl text-zinc-800 bg-zinc-50 rounded-r-xl">
                     {children}
                 </blockquote>
             ),
+        },
+        marks: {
+            link: ({ children, value }: any) => {
+                console.log("Link value:", value);
+                const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
+                const target = value.openInNewTab ? '_blank' : undefined;
+
+                return (
+                    <a
+                        href={value.href}
+                        rel={rel}
+                        target={target}
+                        className="text-primary font-bold hover:underline"
+                    >
+                        {children}
+                    </a>
+                );
+            },
         },
     };
 
