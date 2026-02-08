@@ -74,34 +74,37 @@
     "ClientShowcase": {
         "industryLabel": "Industry:",
         "selection": {
-            "title": "Which part of your business is slowing you down?",
+            "title_new": "Client Results",
+            "subtitle_new": "Proven Transformations",
+            "watchStory": "Watch Full Story",
+            "title": "Select a Client Demo",
             "narrativeBridge": "Here is how we fixed that for:",
             "back": "← Choose Another Focus",
-            "demoComingSoon": "Video demo coming soon",
+            "demoComingSoon": "Demo Coming Soon",
             "cards": {
                 "operations": {
-                    "title": "Daily Admin & Freedom"
+                    "title": "Elisa Batch Cooking"
                 },
                 "marketing": {
-                    "title": "Content & Branding"
+                    "title": "Fit To Excel"
                 },
                 "sales": {
-                    "title": "Sales & Pipeline"
+                    "title": "Smart Client Finder"
                 }
             }
         },
         "operations": {
             "tab": "Operations & Finance",
             "caseStudyLabel": "CASE STUDY",
-            "clientName": "ELISA BATCH COOKING",
+            "clientName": "Elisa Batch Cooking",
             "clientIndustry": "Professional Chef Service",
             "videoTitle": "The 520-Hour Operational Engine",
-            "pain": "You spend 10+ hours a week on 'busy-work'...",
-            "outcome": "Automated onboarding, instant invoicing, and 100% profit clarity.",
+            "pain": "Manual invoicing taking 10+ hours per week.",
+            "outcome": "Fully automated business operations.",
             "logic": "We didn't just build a website; we built a digital employee.",
             "impact": {
                 "value": "520+",
-                "label": "Hours Reclaimed / Year"
+                "label": "Hours Saved Per Year"
             },
             "manualWorkTitle": "The Manual Work we automated",
             "automations": [
@@ -120,14 +123,14 @@
         "marketing": {
             "tab": "Brand & Marketing",
             "caseStudyLabel": "CASE STUDY",
-            "clientName": "FIT TO EXCEL",
-            "clientIndustry": "Fitness Technology Startup",
+            "clientName": "Fit To Excel",
+            "clientIndustry": "Fitness Tech startup",
             "videoTitle": "The One-Click Marketing Army",
-            "pain": "Your brand is invisible...",
-            "outcome": "High-end, on-brand posts prepared daily—waiting for your one-click approval.",
+            "pain": "Inconsistent social media presence.",
+            "outcome": "Automated brand presence and engagement.",
             "logic": "Your marketing should be an asset, not an errand.",
             "impact": {
-                "value": "100%",
+                "value": "100+",
                 "label": "Consistent Brand Presence"
             },
             "manualWorkTitle": "The Manual Work we automated",
@@ -147,7 +150,7 @@
         "sales": {
             "tab": "Sales & Growth",
             "caseStudyLabel": "CASE STUDY",
-            "clientName": "THE SMART CLIENT FINDER",
+            "clientName": "Smart Client Finder",
             "clientIndustry": "Professional Business Growth",
             "videoTitle": "The Unlimited Smart Lead Factory",
             "pain": "You’re waiting for referrals...",

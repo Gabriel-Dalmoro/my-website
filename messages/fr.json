@@ -74,110 +74,54 @@
     "ClientShowcase": {
         "industryLabel": "Industrie :",
         "selection": {
-            "title": "Quelle partie de votre entreprise vous ralentit ?",
-            "narrativeBridge": "Voici comment nous avons réglé ça pour :",
+            "title_new": "Résultats Clients",
+            "subtitle_new": "Transformations Prouvées",
+            "watchStory": "Voir l'Histoire",
+            "title": "Sélectionnez une Démo",
+            "narrativeBridge": "Voici comment nous avons réglé cela pour :",
             "back": "← Choisir un Autre Focus",
-            "demoComingSoon": "Démo vidéo à venir",
+            "demoComingSoon": "Démo Bientôt Disponible",
             "cards": {
                 "operations": {
-                    "title": "Admin Quotidien & Liberté"
+                    "title": "Elisa Batch Cooking"
                 },
                 "marketing": {
-                    "title": "Contenu & Image de Marque"
+                    "title": "Fit To Excel"
                 },
                 "sales": {
-                    "title": "Ventes & Pipeline"
+                    "title": "Smart Client Finder"
                 }
             }
         },
         "operations": {
-            "tab": "Opérations & Finance",
-            "caseStudyLabel": "ÉTUDE DE CAS",
-            "clientName": "ELISA BATCH COOKING",
-            "clientIndustry": "Chef à Domicile",
-            "videoTitle": "Le Moteur Opérationnel de 520 Heures",
-            "pain": "Vous passez plus de 10h par semaine sur du 'travail occupé'...",
-            "outcome": "Intégration automatisée, facturation instantanée et clarté totale sur les profits.",
-            "logic": "Nous n'avons pas juste construit un site web ; nous avons construit un employé numérique.",
+            "clientName": "Elisa Batch Cooking",
+            "clientIndustry": "Service de Chef à Domicile",
+            "pain": "Facturation manuelle prenant 10+ heures par semaine.",
+            "outcome": "Opérations commerciales entièrement automatisées.",
             "impact": {
                 "value": "520+",
-                "label": "Heures Récupérées / An"
-            },
-            "manualWorkTitle": "Le Travail Manuel Automatisé",
-            "automations": [
-                {
-                    "manual": "Facturer à la main",
-                    "automated": "Suivi d'argent instantané"
-                },
-                {
-                    "manual": "Inscrire de nouveaux clients",
-                    "automated": "Assistant toujours prêt"
-                }
-            ],
-            "cta": "Récupérer mes week-ends",
-            "valueHammer": "Économisez 520+ heures de travail manuel dès ce mois-ci."
+                "label": "Heures Économisées / An"
+            }
         },
         "marketing": {
-            "tab": "Marque & Marketing",
-            "caseStudyLabel": "ÉTUDE DE CAS",
-            "clientName": "FIT TO EXCEL",
-            "clientIndustry": "Automatisation de Marque",
-            "videoTitle": "L'Armée Marketing en Un Clic",
-            "pain": "Votre marque est invisible...",
-            "outcome": "Des posts haut de gamme, fidèles à la marque—en attente de votre approbation.",
-            "logic": "Votre marketing doit être un actif, pas une corvée.",
+            "clientName": "Fit To Excel",
+            "clientIndustry": "Startup Tech Fitness",
+            "pain": "Présence sur les réseaux sociaux incohérente.",
+            "outcome": "Présence de marque et engagement automatisés.",
             "impact": {
-                "value": "100%",
-                "label": "Présence Cohérente"
-            },
-            "manualWorkTitle": "Le Travail Manuel Automatisé",
-            "automations": [
-                {
-                    "manual": "Créer des posts pendant des heures",
-                    "automated": "Créateur d'art en un clic"
-                },
-                {
-                    "manual": "Publier un par un",
-                    "automated": "Publier partout en même temps"
-                }
-            ],
-            "cta": "Marque en Pilote Auto",
-            "valueHammer": "Économisez 520+ heures de travail manuel dès ce mois-ci."
+                "value": "100+",
+                "label": "Posts Automatisés / Mois"
+            }
         },
         "sales": {
-            "tab": "Ventes & Croissance",
-            "caseStudyLabel": "ÉTUDE DE CAS",
-            "clientName": "LE DÉTECTEUR DE CLIENTS INTELLIGENT",
-            "clientIndustry": "Croissance d'Affaires Pro",
-            "videoTitle": "L'Usine à Leads Intelligente",
-            "pain": "Vous attendez le bouche-à-oreille...",
-            "outcome": "Un flux prévisible de leads qualifiés et de pitchs personnalisés livrés en pilote automatique.",
-            "logic": "Nous transformons les marchés froids en opportunités.",
+            "clientName": "Smart Client Finder",
+            "clientIndustry": "Service B2B",
+            "pain": "Prospection manuelle et démarchage à froid.",
+            "outcome": "Séquences de génération de leads automatisées.",
             "impact": {
-                "value": "10x",
-                "label": "Vélocité du Pipeline"
-            },
-            "manualWorkTitle": "Le Travail Humain Retraité",
-            "automations": [
-                {
-                    "manual": "Rechercher de nouveaux clients",
-                    "automated": "Détecteur de clients intelligent"
-                },
-                {
-                    "manual": "Deviner qui va acheter",
-                    "automated": "Détecteur de fit idéal"
-                },
-                {
-                    "manual": "Envoyer des emails un par un",
-                    "automated": "Machine de relance facile"
-                },
-                {
-                    "manual": "Chercher des infos d'entreprise",
-                    "automated": "Données instantanées"
-                }
-            ],
-            "cta": "Lancer mon détecteur de clients",
-            "valueHammer": "Économisez 520+ heures de travail manuel dès ce mois-ci."
+                "value": "50+",
+                "label": "Leads Générés / Jour"
+            }
         }
     },
     "TechStack": {
