@@ -241,61 +241,109 @@
         }
     },
     "Pricing": {
-        "title": "Investissez dans Votre Liberté",
-        "subtitle": "Une tarification claire et axée sur la valeur ajouté, conçue pour s'autofinancer.",
-        "cards": {
-            "starter": {
-                "badge": "Commencez Ici",
-                "headline": "Le Pilote",
-                "price": "Jusqu'à 999 €",
-                "goal": "Résoudre un Défi Majeur",
-                "bullets": [
-                    "Automatisation d'un flux critique",
-                    "Configuration sécurisée et évolutive",
-                    "Gain de temps immédiat (moy. 10h/semaine)"
-                ],
-                "cta": "Démarrer",
-                "beforeAfter": {
-                    "beforeLabel": "Avant",
-                    "beforeValue": "10h",
-                    "beforeSub": "Travail Manuel",
-                    "afterLabel": "Après",
-                    "afterValue": "0h",
-                    "afterSub": "Automatisé"
+        "from": "À partir de",
+        "title": "Investissez dans Votre Liberté Future",
+        "guarantee": {
+            "badge": "Ma Garantie",
+            "title": "Gagnez 8+ Heures Par Semaine — Ou Nous Travaillons Gratuitement"
+        },
+        "faq": {
+            "headline": "Questions",
+            "questions": {
+                "0": {
+                    "q": "Et si quelque chose casse ?",
+                    "a": "Tous les forfaits incluent le support. Ensuite, maintenance disponible à 200 €/mois."
                 },
-                "hoursReclaimed": "10 Heures / Semaine Gagnées"
-            },
-            "custom": {
-                "headline": "Écosystème Sur Mesure",
-                "price": "Solution Personnalisée",
-                "goal": "Intégration Stratégique",
-                "bullets": [
-                    "Orchestration de flux de bout en bout",
-                    "Automatisation intelligente des processus",
-                    "Synchronisation multi-systèmes"
-                ],
-                "outcome": "Développez vos opérations sans augmenter vos effectifs.",
-                "cta": "Demander un Audit",
-                "hoursReclaimed": "Évolutivité Illimitée",
-                "visual": {
-                    "label": "Stack Complètement Intégrée",
-                    "nodes": {
-                        "crm": "CRM",
-                        "mail": "Email",
-                        "pay": "Paiement",
-                        "data": "Données"
-                    }
+                "1": {
+                    "q": "Proposez-vous des facilités de paiement ?",
+                    "a": "Oui. 40% acompte, 30% intermédiaire, 30% à la livraison."
+                },
+                "2": {
+                    "q": "Avec quels outils travaillez-vous ?",
+                    "a": "Google, Microsoft, Slack, la plupart des CRM, API. Demandez pour vos outils spécifiques."
                 }
             }
         },
-        "trust": {
-            "gdpr": "100% Sécurisé",
-            "instant": "Résultats Rapides"
+        "cards": {
+            "pilot": {
+                "headline": "Le Pilote",
+                "price": "2 497 €",
+                "value": "Votre Première Automatisation, Sans Risque",
+                "bullets": [
+                    "Un flux de travail complet automatisé",
+                    "Documentation complète et formation",
+                    "Support de 30 jours inclus",
+                    "Garantie de 8+ heures économisées/semaine"
+                ],
+                "roi": "Rentabilisé en 1–2 mois",
+                "cta": "Démarrer"
+            },
+            "custom": {
+                "headline": "Écosystème Sur Mesure",
+                "subhead": "Automatisation complète pour équipes en croissance",
+                "tiers": {
+                    "0": {
+                        "name": "Starter",
+                        "price": "7 997 €",
+                        "desc": "Opérations clés automatisées",
+                        "features": [
+                            "2-3 flux",
+                            "Équipe 1-5",
+                            "Support 60j"
+                        ]
+                    },
+                    "1": {
+                        "name": "Pro",
+                        "price": "11 997 €",
+                        "desc": "Automatisation par département",
+                        "badge": "Plus Populaire",
+                        "features": [
+                            "5-7 flux",
+                            "Équipe 5-20",
+                            "Support 90j",
+                            "Fonctions IA"
+                        ]
+                    },
+                    "2": {
+                        "name": "Elite",
+                        "price": "14 997 €+",
+                        "desc": "Transformation complète",
+                        "features": [
+                            "10+ flux",
+                            "Équipe 20+",
+                            "Support 6 mois",
+                            "IA Avancée",
+                            "Support dédié"
+                        ]
+                    }
+                },
+                "cta": "Réserver un Appel Stratégique"
+            }
         },
-        "addon": {
-            "title": "Site Web de Conversion",
-            "description": "Un site vitrine haute performance conçu pour transformer vos visiteurs en clients. À partir de 399 €."
-        }
+        "websiteAddon": {
+            "title": "ADD-ON : Pack Site Web",
+            "price": "1 497 € – 2 997 €",
+            "description": "Une landing page haute conversion pour vendre vos services. La base parfaite pour votre nouveau système.",
+            "link": "En Savoir Plus"
+        },
+        "socialProof": {
+            "headline": "Résultats Prouvés",
+            "items": [
+                {
+                    "name": "Elisa Batch Cooking",
+                    "result": "520+ h/an économisées"
+                },
+                {
+                    "name": "Fit to Excel",
+                    "result": "Présence réseaux sociaux automatisée"
+                },
+                {
+                    "name": "Smart Client Finder",
+                    "result": "50+ leads/jour et rédaction email sur mesure"
+                }
+            ]
+        },
+        "finalCta": "Places limitées ce mois-ci – Audit Gratuit →"
     },
     "Contact": {
         "headline": "Commencez Votre Transformation",
@@ -307,7 +355,7 @@
                 "details": "Coordonnées"
             },
             "fields": {
-                "website": "Inclure l'Extension Site Web (350 €+)",
+                "website": "Inclure l'Extension Site Web (1 497 € – 2 997 €)",
                 "problem": {
                     "label": "Quelle est la tâche manuelle la plus répétitive qui ralentit votre équipe ?",
                     "placeholder": "ex: Copier des leads depuis les emails vers Excel..."
@@ -414,6 +462,6 @@
     },
     "CTA": {
         "headline": "Prêt à récupérer votre temps ?",
-        "button": "Réserver votre audit gratuit"
+        "button": "Places limitées ce mois-ci – Audit Gratuit →"
     }
 }

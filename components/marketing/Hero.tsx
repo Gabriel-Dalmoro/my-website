@@ -42,7 +42,7 @@ export default function Hero() {
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Link href="/contact">
-                    <PulsatingButton className="px-8 py-3 text-lg font-bold rounded-full" pulseColor="#EAB308">
+                    <PulsatingButton className="px-8 py-3 text-lg font-bold" pulseColor="#EAB308">
                         {t("cta")}
                     </PulsatingButton>
                 </Link>

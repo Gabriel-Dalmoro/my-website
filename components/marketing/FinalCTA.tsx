@@ -14,7 +14,7 @@ export default function FinalCTA() {
                     </h2>
                     <div className="flex items-center justify-center">
                         <Link href="/contact">
-                            <PulsatingButton className="px-8 py-4 text-xl font-bold rounded-full" pulseColor="#EAB308">
+                            <PulsatingButton className="px-8 py-4 text-xl font-bold" pulseColor="#EAB308">
                                 {t("button")}
                             </PulsatingButton>
                         </Link>

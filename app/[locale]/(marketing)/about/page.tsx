@@ -192,7 +192,7 @@ export default function AboutPage() {
                             {t("finalCta.description")}
                         </p>
                         <Link href="/contact">
-                            <Button size="lg" className="font-bold text-base px-8 py-6 rounded-full bg-primary text-zinc-950 hover:bg-primary/90">
+                            <Button size="lg" className="font-bold text-base px-8 py-6 bg-primary text-zinc-950 hover:bg-primary/90">
                                 {t("finalCta.button")} <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                         </Link>

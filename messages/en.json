@@ -205,61 +205,109 @@
         "languages_title": "I speak & negotiate in 4 languages"
     },
     "Pricing": {
+        "from": "From",
         "title": "Invest in Your Future Freedom",
-        "subtitle": "Clear, value-driven pricing designed to pay for itself in reclaimed time and growth.",
-        "cards": {
-            "starter": {
-                "badge": "Start Here",
-                "headline": "The Pilot",
-                "price": "Starting at €999",
-                "goal": "Solve One Critical Challenge",
-                "bullets": [
-                    "Automate a specific high-value workflow",
-                    "Secure, scalable setup",
-                    "Immediate reclaimed time (avg. 10h/week)"
-                ],
-                "cta": "Get Started",
-                "beforeAfter": {
-                    "beforeLabel": "Before",
-                    "beforeValue": "10h",
-                    "beforeSub": "Manual Work",
-                    "afterLabel": "After",
-                    "afterValue": "0h",
-                    "afterSub": "Automated"
+        "guarantee": {
+            "badge": "My Guarantee",
+            "title": "Save 8+ Hours Per Week — Or We Work Free Until You Do"
+        },
+        "faq": {
+            "headline": "Questions",
+            "questions": {
+                "0": {
+                    "q": "What if something breaks?",
+                    "a": "All packages include support. After that, €200/month maintenance available."
                 },
-                "hoursReclaimed": "10 Hours / Week Reclaimed"
-            },
-            "custom": {
-                "headline": "Custom Ecosystem",
-                "price": "Tailored Solution",
-                "goal": "Strategic Operations Integration",
-                "bullets": [
-                    "End-to-end workflow orchestration",
-                    "Intelligent process automation",
-                    "Multi-platform system synchronization"
-                ],
-                "outcome": "Scale your operations without increasing headcount.",
-                "cta": "Request Custom Audit",
-                "hoursReclaimed": "Unlimited Scalability",
-                "visual": {
-                    "label": "Fully Integrated Stack",
-                    "nodes": {
-                        "crm": "CRM",
-                        "mail": "Email",
-                        "pay": "Payments",
-                        "data": "Data"
-                    }
+                "1": {
+                    "q": "Do you offer payment plans?",
+                    "a": "Yes. 40% upfront, 30% midpoint, 30% completion."
+                },
+                "2": {
+                    "q": "What tools do you work with?",
+                    "a": "Google, Microsoft, Slack, most CRMs, APIs. Ask about your specific tools."
                 }
             }
         },
-        "trust": {
-            "gdpr": "Secure & Private",
-            "instant": "Fast Results"
+        "cards": {
+            "pilot": {
+                "headline": "The Pilot",
+                "price": "€2,497",
+                "value": "Your First Automation, Risk-Free",
+                "bullets": [
+                    "One complete workflow automated",
+                    "Full documentation & training",
+                    "30-day support included",
+                    "Guaranteed 8+ hours saved/week"
+                ],
+                "roi": "Pays for itself in 1–2 months",
+                "cta": "Get Started"
+            },
+            "custom": {
+                "headline": "Custom Ecosystem",
+                "subhead": "Full business automation for growing teams",
+                "tiers": {
+                    "0": {
+                        "name": "Starter",
+                        "price": "€7,997",
+                        "desc": "Core operations automated",
+                        "features": [
+                            "2-3 workflows",
+                            "1-5 people",
+                            "60-day support"
+                        ]
+                    },
+                    "1": {
+                        "name": "Pro",
+                        "price": "€11,997",
+                        "desc": "Department-wide automation",
+                        "badge": "Most Popular",
+                        "features": [
+                            "5-7 workflows",
+                            "5-20 people",
+                            "90-day support",
+                            "AI features"
+                        ]
+                    },
+                    "2": {
+                        "name": "Elite",
+                        "price": "€14,997+",
+                        "desc": "Full business transformation",
+                        "features": [
+                            "10+ workflows",
+                            "20+ people",
+                            "6-month support",
+                            "Advanced AI",
+                            "Dedicated support"
+                        ]
+                    }
+                },
+                "cta": "Book Strategy Call"
+            }
         },
-        "addon": {
-            "title": "Conversion-Ready Website",
-            "description": "A high-performance website engineered to turn visitors into clients. Starting at €399."
-        }
+        "websiteAddon": {
+            "title": "ADD-ON: Website Package",
+            "price": "€1,497 – €2,997",
+            "description": "A high-converting landing page to sell your services. The perfect foundation for your new automation system.",
+            "link": "Learn More"
+        },
+        "socialProof": {
+            "headline": "Proven Results",
+            "items": [
+                {
+                    "name": "Elisa Batch Cooking",
+                    "result": "520+ hours saved/year"
+                },
+                {
+                    "name": "Fit to Excel",
+                    "result": "Automated weekly social media presence"
+                },
+                {
+                    "name": "Smart Client Finder",
+                    "result": "50+ leads/day and custom email writer"
+                }
+            ]
+        },
+        "finalCta": "Limited spots this month – Book Free Audit →"
     },
     "Contact": {
         "headline": "Start Your Transformation",
@@ -271,7 +319,7 @@
                 "details": "Contact Details"
             },
             "fields": {
-                "website": "Include Custom Website Add-on (€350+)",
+                "website": "Include Custom Website Add-on (€1,497 – €2,997)",
                 "problem": {
                     "label": "What is the most repetitive manual task slowing your team down right now?",
                     "placeholder": "e.g. Copying leads from email to Excel..."
@@ -378,7 +426,7 @@
     },
     "CTA": {
         "headline": "Ready to reclaim your time?",
-        "button": "Book your free audit"
+        "button": "Limited spots this month – Book Free Audit →"
     },
     "Blog": {
         "title": "Journal & Insights",

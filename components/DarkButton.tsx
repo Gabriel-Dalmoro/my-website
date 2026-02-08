@@ -36,7 +36,7 @@ const DarkButton = () => {
     <Button
       variant="secondary"
       onClick={toggleDarkMode}
-      className="rounded border p-2 text-base"
+      className="rounded-lg border p-2 text-base"
     >
       {icon}
     </Button>

@@ -162,7 +162,7 @@ export default function ProjectView({
                         </ul>
 
                         <div className="mt-auto">
-                            <Button className="w-full bg-primary text-zinc-950 hover:bg-white hover:scale-[1.02] active:scale-[0.98] font-black text-xs h-14 shadow-[0_20px_40px_-10px_rgba(234,179,8,0.3)] transition-all duration-300 rounded-2xl px-4 text-center uppercase tracking-widest">
+                            <Button className="w-full bg-primary text-zinc-950 hover:bg-white hover:scale-[1.02] active:scale-[0.98] font-black text-xs h-14 shadow-[0_20px_40px_-10px_rgba(234,179,8,0.3)] transition-all duration-300 px-4 text-center uppercase tracking-widest">
                                 {t("cta")}
                             </Button>
                         </div>

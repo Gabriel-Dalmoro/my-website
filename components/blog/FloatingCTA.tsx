@@ -35,7 +35,7 @@ export default function FloatingCTA() {
                 >
                     <Link
                         href="/contact"
-                        className="flex items-center gap-3 px-5 py-3 bg-zinc-950/90 backdrop-blur-xl border border-zinc-800 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-105 active:scale-95 transition-all text-white"
+                        className="flex items-center gap-3 px-5 py-3 bg-zinc-950/90 backdrop-blur-xl border border-zinc-800 rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-105 active:scale-95 transition-all text-white"
                     >
                         <div className="relative">
                             <div className="absolute inset-0 bg-yellow-400 rounded-full blur-[2px] opacity-20 animate-pulse" />

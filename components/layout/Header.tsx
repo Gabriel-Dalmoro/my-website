@@ -81,7 +81,7 @@ export default function Header() {
 
                         {/* CTA Button (Desktop) */}
                         <div className="hidden lg:block">
-                            <Button asChild size="sm" className="hidden lg:flex rounded-full px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_20px_rgba(234,179,8,0.5)] transition-all">
+                            <Button asChild size="sm" className="hidden lg:flex px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_20px_rgba(234,179,8,0.5)] transition-all">
                                 <Link href="/contact">
                                     {t("bookCall")}
                                 </Link>
@@ -145,7 +145,7 @@ export default function Header() {
                                         ))}
                                     </div>
                                     <div className="py-6">
-                                        <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg h-12 rounded-xl shadow-lg shadow-primary/20">
+                                        <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg h-12 shadow-lg shadow-primary/20">
                                             <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
                                                 {t("bookCall")}
                                             </Link>
