@@ -185,11 +185,44 @@
         }
     },
     "Pricing": {
-        "from": "À partir de",
-        "title": "Investissez dans Votre Liberté Future",
-        "guarantee": {
-            "badge": "Ma Garantie",
-            "title": "Gagnez 8+ Heures Par Semaine — Ou Nous Travaillons Gratuitement"
+        "title": "Investissez dans votre liberté",
+        "guarantee": "Économisez 8+ heures par semaine — ou je travaille gratuitement jusqu'à ce que ce soit le cas",
+        "cards": {
+            "starter": {
+                "badge": "Point d'entrée",
+                "headline": "Libérez 10h/semaine",
+                "price": "2 497 €",
+                "tagline": "The Pilot",
+                "bullets": [
+                    "Automatisez votre tâche la plus répétitive.",
+                    "Installation complète en 30 jours.",
+                    "Documentation claire et simple."
+                ],
+                "note": "Rentabilisé en quelques semaines",
+                "cta": "Commençons maintenant"
+            },
+            "custom": {
+                "headline": "Systèmes sur mesure",
+                "tagline": "Développez votre activité",
+                "price": "À partir de 7 997 €",
+                "description": "Des systèmes sur mesure conçus pour vos besoins spécifiques. Pas de forfaits, pas d'approximations.",
+                "bullets": [
+                    "Éliminez les corvées quotidiennes.",
+                    "Des systèmes qui travaillent pour vous.",
+                    "Plus de résultats avec moins d'effort.",
+                    "Intégré à vos outils habituels."
+                ],
+                "cta": "Réserver un audit gratuit"
+            }
+        },
+        "trust": {
+            "gdpr": "100% Sécurisé",
+            "instant": "Résultats Rapides"
+        },
+        "addon": {
+            "title": "Site web sur mesure",
+            "price": "Dès 1 497 €",
+            "description": "Un site haute performance pour accompagner vos nouveaux systèmes."
         },
         "faq": {
             "headline": "Questions",
@@ -207,68 +240,6 @@
                     "a": "Google, Microsoft, Slack, la plupart des CRM, API. Demandez pour vos outils spécifiques."
                 }
             }
-        },
-        "cards": {
-            "pilot": {
-                "headline": "Le Pilote",
-                "price": "2 497 €",
-                "value": "Votre Première Automatisation, Sans Risque",
-                "bullets": [
-                    "Un flux de travail complet automatisé",
-                    "Documentation complète et formation",
-                    "Support de 30 jours inclus",
-                    "Garantie de 8+ heures économisées/semaine"
-                ],
-                "roi": "Rentabilisé en 1–2 mois",
-                "cta": "Démarrer"
-            },
-            "custom": {
-                "headline": "Écosystème Sur Mesure",
-                "subhead": "Automatisation complète pour équipes en croissance",
-                "tiers": {
-                    "0": {
-                        "name": "Starter",
-                        "price": "7 997 €",
-                        "desc": "Opérations clés automatisées",
-                        "features": [
-                            "2-3 flux",
-                            "Équipe 1-5",
-                            "Support 60j"
-                        ]
-                    },
-                    "1": {
-                        "name": "Pro",
-                        "price": "11 997 €",
-                        "desc": "Automatisation par département",
-                        "badge": "Plus Populaire",
-                        "features": [
-                            "5-7 flux",
-                            "Équipe 5-20",
-                            "Support 90j",
-                            "Fonctions IA"
-                        ]
-                    },
-                    "2": {
-                        "name": "Elite",
-                        "price": "14 997 €+",
-                        "desc": "Transformation complète",
-                        "features": [
-                            "10+ flux",
-                            "Équipe 20+",
-                            "Support 6 mois",
-                            "IA Avancée",
-                            "Support dédié"
-                        ]
-                    }
-                },
-                "cta": "Réserver un Appel Stratégique"
-            }
-        },
-        "websiteAddon": {
-            "title": "ADD-ON : Pack Site Web",
-            "price": "1 497 € – 2 997 €",
-            "description": "Une landing page haute conversion pour vendre vos services. La base parfaite pour votre nouveau système.",
-            "link": "En Savoir Plus"
         },
         "socialProof": {
             "headline": "Résultats Prouvés",

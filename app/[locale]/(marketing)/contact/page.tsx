@@ -22,7 +22,7 @@ function ContactForm() {
         hours: "",
         opportunity: "",
         tools: [] as string[],
-        plan: "pilot", // Default to starter or none? 'starter', 'custom', 'none'
+        plan: "starter", // Default to starter
         websiteAddon: false,
         name: "",
         email: "",
@@ -34,7 +34,7 @@ function ContactForm() {
         const planParam = searchParams.get('plan');
         const addonParam = searchParams.get('addon');
 
-        if (planParam === 'pilot' || planParam === 'custom') {
+        if (planParam === 'starter' || planParam === 'custom') {
             setFormData(prev => ({ ...prev, plan: planParam }));
         }
         if (addonParam === 'website') {
@@ -279,10 +279,10 @@ function ContactForm() {
                                                 {/* Pilot Plan */}
                                                 <button
                                                     type="button"
-                                                    onClick={() => setFormData(prev => ({ ...prev, plan: 'pilot' }))}
+                                                    onClick={() => setFormData(prev => ({ ...prev, plan: 'starter' }))}
                                                     className={cn(
                                                         "relative flex flex-col items-start p-5 rounded-xl border transition-all text-left group hover:border-zinc-700",
-                                                        formData.plan === 'pilot'
+                                                        formData.plan === 'starter'
                                                             ? "bg-zinc-800/80 border-primary shadow-lg ring-1 ring-primary/50"
                                                             : "bg-zinc-900/50 border-zinc-800"
                                                     )}
@@ -291,12 +291,12 @@ function ContactForm() {
                                                         <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-500">
                                                             <Rocket className="w-5 h-5" />
                                                         </div>
-                                                        {formData.plan === 'pilot' && <CheckCircle2 className="w-5 h-5 text-primary" />}
+                                                        {formData.plan === 'starter' && <CheckCircle2 className="w-5 h-5 text-primary" />}
                                                     </div>
-                                                    <h4 className="text-base font-bold text-white mb-1">{tPricing("cards.pilot.headline")}</h4>
-                                                    <p className="text-xs text-zinc-400 mb-2">{tPricing("cards.pilot.price")}</p>
+                                                    <h4 className="text-base font-bold text-white mb-1">{tPricing("cards.starter.headline")}</h4>
+                                                    <p className="text-xs text-zinc-400 mb-2">{tPricing("cards.starter.price")}</p>
                                                     <p className="text-[11px] text-zinc-500 leading-relaxed">
-                                                        {tPricing("cards.pilot.value")}
+                                                        {tPricing("cards.starter.tagline")}
                                                     </p>
                                                 </button>
 
@@ -318,9 +318,9 @@ function ContactForm() {
                                                         {formData.plan === 'custom' && <CheckCircle2 className="w-5 h-5 text-white" />}
                                                     </div>
                                                     <h4 className="text-base font-bold text-white mb-1">{tPricing("cards.custom.headline")}</h4>
-                                                    <p className="text-xs text-zinc-400 mb-2">{tPricing("from")} {tPricing("cards.custom.tiers.0.price")}+</p>
+                                                    <p className="text-xs text-zinc-400 mb-2">{tPricing("cards.custom.price")}</p>
                                                     <p className="text-[11px] text-zinc-500 leading-relaxed">
-                                                        {tPricing("cards.custom.subhead")}
+                                                        {tPricing("cards.custom.tagline")}
                                                     </p>
                                                 </button>
                                             </div>

@@ -1,9 +1,9 @@
 {
     "Hero": {
-        "hook": "Grow Your Business Without Hiring More Staff.",
-        "solution": "Automate your busywork.",
-        "description": "I build custom systems that handle your repetitive tasks—so you can focus on your customers and your profit.",
-        "cta": "Book a 15-Min Free Consultation"
+        "hook": "Less admin. More impact.",
+        "solution": "I build automated systems for businesses.",
+        "description": "Save 10+ hours a week by automating the busywork that's slowing you down.",
+        "cta": "Let's see if automation can help"
     },
     "Navigation": {
         "home": "Home",
@@ -14,7 +14,7 @@
         "bookCall": "Book a Call"
     },
     "SocialProof": {
-        "headline": "Trusted by Business Owners",
+        "headline": "520+ hours saved per year for clients",
         "testimonials": {
             "0": {
                 "body": "Gabriel transformed how we work. He understood our business immediately and built a system that saves us hours every single day. We can finally focus on growth instead of just keeping up.",
@@ -35,39 +35,39 @@
     },
     "Problem": {
         "label": "The Problem",
-        "headline": "You are spending too much time on admin.",
-        "subheadline": "Manual data entry, chasing invoices, and repetitive emails are slowing you down. It's time to stop doing the busywork yourself."
+        "headline": "You're stuck in manual work.",
+        "subheadline": "Repetitive admin is slowing your business down. It's time to stop doing the busywork yourself."
     },
     "Services": {
         "label": "The Solution",
-        "headline": "Systems That Do The Work For You",
-        "subheadline": "I build tools that run 24/7 to handle your operations automatically.",
+        "headline": "From manual work to automated results",
+        "subheadline": "I build automated systems that handle the busywork for you.",
         "cards": {
             "recruiting": {
-                "name": "Drowning in Paperwork?",
-                "description": "Stop doing manual data entry. I build systems that handle scheduling, invoicing, and filing automatically."
+                "name": "Spending hours on admin?",
+                "description": "I build automated systems that handle your scheduling, invoicing, and paperwork."
             },
             "dashboards": {
-                "name": "Missing New Leads?",
-                "description": "Never miss a customer. My systems reply to inquiries instantly and book meetings for you, day or night."
+                "name": "Losing track of leads?",
+                "description": "I build systems that respond to inquiries and book meetings for you, day or night."
             },
             "workflows": {
-                "name": "Messy Spreadsheets?",
-                "description": "Stop guessing. I put all your important business numbers into one simple dashboard you can check on your phone."
+                "name": "Managing messy spreadsheets?",
+                "description": "I build dashboards that show your business numbers in real-time on any device."
             }
         }
     },
     "FeaturedWork": {
         "headline": "See It In Action",
-        "subheadline": "Real examples of systems I've built for other businesses.",
+        "subheadline": "Real examples of automated systems I've built.",
         "projects": {
             "hiring": {
-                "title": "AI Hiring Assistant (n8n + GPT-4)",
-                "description": "A fully autonomous agent that scores resumes against job descriptions."
+                "title": "AI Hiring Assistant",
+                "description": "A system that automatically scores resumes against job descriptions."
             },
             "dashboard": {
-                "title": "VisionSort Dashboard",
-                "description": "Real-time complex data visualization in Next.js."
+                "title": "Business Dashboard",
+                "description": "Real-time visualization of key business metrics."
             }
         }
     },
@@ -75,125 +75,125 @@
         "industryLabel": "Industry:",
         "selection": {
             "title_new": "Client Results",
-            "subtitle_new": "Proven Transformations",
-            "watchStory": "Watch Full Story",
-            "title": "Select a Client Demo",
-            "narrativeBridge": "Here is how we fixed that for:",
-            "back": "← Choose Another Focus",
-            "demoComingSoon": "Demo Coming Soon",
+            "subtitle_new": "520+ hours saved per year for clients",
+            "watchStory": "Watch Story",
+            "title": "Choose an area to automate",
+            "narrativeBridge": "How I helped:",
+            "back": "← Back",
+            "demoComingSoon": "Coming Soon",
             "cards": {
                 "operations": {
-                    "title": "Elisa Batch Cooking"
+                    "title": "Operations"
                 },
                 "marketing": {
-                    "title": "Fit To Excel"
+                    "title": "Marketing"
                 },
                 "sales": {
-                    "title": "Smart Client Finder"
+                    "title": "Sales"
                 }
             }
         },
         "operations": {
-            "tab": "Operations & Finance",
-            "caseStudyLabel": "CASE STUDY",
+            "tab": "Operations",
+            "caseStudyLabel": "Case Study",
             "clientName": "Elisa Batch Cooking",
             "clientIndustry": "Professional Chef Service",
-            "videoTitle": "The 520-Hour Operational Engine",
-            "pain": "Manual invoicing taking 10+ hours per week.",
-            "outcome": "Fully automated business operations.",
-            "logic": "We didn't just build a website; we built a digital employee.",
+            "videoTitle": "Saving 520+ Hours Every Year",
+            "pain": "Manual invoicing was taking 10+ hours per week.",
+            "outcome": "A business that runs on autopilot.",
+            "logic": "I didn't just build a website; I built a system that works for you.",
             "impact": {
                 "value": "520+",
                 "label": "Hours Saved Per Year"
             },
-            "manualWorkTitle": "The Manual Work we automated",
+            "manualWorkTitle": "The manual work I automated",
             "automations": [
                 {
                     "manual": "Typing invoices by hand",
-                    "automated": "Instant Money Tracking"
+                    "automated": "Instant invoicing"
                 },
                 {
-                    "manual": "Signing up new clients",
-                    "automated": "Always-Ready Assistant"
+                    "manual": "Booking new clients",
+                    "automated": "Automatic scheduling"
                 }
             ],
-            "cta": "Win My Weekends Back",
-            "valueHammer": "Save 520+ hours of manual work starting this month."
+            "cta": "See if I can help you",
+            "valueHammer": "Save 10+ hours a week, starting month one"
         },
         "marketing": {
-            "tab": "Brand & Marketing",
-            "caseStudyLabel": "CASE STUDY",
+            "tab": "Marketing",
+            "caseStudyLabel": "Case Study",
             "clientName": "Fit To Excel",
-            "clientIndustry": "Fitness Tech startup",
-            "videoTitle": "The One-Click Marketing Army",
-            "pain": "Inconsistent social media presence.",
-            "outcome": "Automated brand presence and engagement.",
+            "clientIndustry": "Fitness Brand",
+            "videoTitle": "Growth on Autopilot",
+            "pain": "Marketing was a constant manual chore.",
+            "outcome": "A brand that stays active without the manual effort.",
             "logic": "Your marketing should be an asset, not an errand.",
             "impact": {
-                "value": "100+",
-                "label": "Consistent Brand Presence"
+                "value": "520+",
+                "label": "Hours Saved Per Year"
             },
-            "manualWorkTitle": "The Manual Work we automated",
+            "manualWorkTitle": "The manual work I automated",
             "automations": [
                 {
-                    "manual": "Making posts for hours",
-                    "automated": "One-Click Art Maker"
+                    "manual": "Creating posts manually",
+                    "automated": "One-click generation"
                 },
                 {
-                    "manual": "Posting one by one",
-                    "automated": "Post Everywhere at Once"
+                    "manual": "Posting to every platform",
+                    "automated": "Automatic distribution"
                 }
             ],
-            "cta": "Grow My Brand on Autopilot",
-            "valueHammer": "Save 520+ hours of manual work starting this month."
+            "cta": "Let's automate your brand",
+            "valueHammer": "Save 10+ hours a week, starting month one"
         },
         "sales": {
-            "tab": "Sales & Growth",
-            "caseStudyLabel": "CASE STUDY",
+            "tab": "Sales",
+            "caseStudyLabel": "Case Study",
             "clientName": "Smart Client Finder",
-            "clientIndustry": "Professional Business Growth",
-            "videoTitle": "The Unlimited Smart Lead Factory",
-            "pain": "You’re waiting for referrals...",
-            "outcome": "A predictable stream of qualified leads and personalized pitches delivered on autopilot.",
-            "logic": "We turn cold markets into opportunity.",
+            "clientIndustry": "Business Growth",
+            "videoTitle": "More Leads, Less Work",
+            "pain": "Spending hours every day searching for leads.",
+            "outcome": "A steady stream of qualified opportunities.",
+            "logic": "I turn manual outreach into a predictable system.",
             "impact": {
                 "value": "10x",
-                "label": "Pipeline Velocity"
+                "label": "More Pipeline"
             },
-            "manualWorkTitle": "The Human Work We Retired",
+            "manualWorkTitle": "The manual work I automated",
             "automations": [
                 {
-                    "manual": "Looking for new clients",
-                    "automated": "Smart Client Finder"
+                    "manual": "Searching for new clients",
+                    "automated": "Smart finder system"
                 },
                 {
-                    "manual": "Guessing who will buy",
-                    "automated": "Best-Fit Finder"
+                    "manual": "Qualifying every lead",
+                    "automated": "Automated scoring"
                 },
                 {
-                    "manual": "Sending emails one by one",
-                    "automated": "Easy Follow-Up Machine"
+                    "manual": "Sending follow-up emails",
+                    "automated": "Automated outreach"
                 },
                 {
-                    "manual": "Searching for business info",
-                    "automated": "Instant Facts"
+                    "manual": "Gathering prospect info",
+                    "automated": "Instant insights"
                 }
             ],
-            "cta": "Start My Client Finder",
-            "valueHammer": "Save 520+ hours of manual work starting this month."
+            "cta": "Start your audit",
+            "valueHammer": "Save 10+ hours a week, starting month one"
         }
     },
     "TechStack": {
-        "headline": "Powering Automation with Modern Infrastructure"
+        "headline": "The technology that powers your systems"
     },
     "AboutMe": {
-        "headline": "I Speak Business & Tech",
-        "description": "I've been in your shoes. As a former entrepreneur turned coder, I know the frustration of inefficient processes.  I build systems that solve real business problems. I'm passionate about optimizing processes to give you back your most valuable asset: time.",
-        "readMore": "Read more"
+        "headline": "Former entrepreneur. Now I build the systems I wish I had.",
+        "description": "I've been in your shoes. I know the frustration of being buried in admin when you should be growing your business. I build automated systems that give you back your time.",
+        "readMore": "My story"
     },
     "GlobalReach": {
-        "headline": "Working Globally",
-        "description": "Business doesn't stop at borders. I bridge cultural gaps and time zones to deliver seamless collaboration across North America, South America, and Europe.",
+        "headline": "Serving business owners worldwide",
+        "description": "I help founders across Europe and the Americas eliminate manual work and scale their impact.",
         "locations": {
             "brazil": "Brazil",
             "canada": "Canada",
@@ -205,93 +205,64 @@
             "fr": "French",
             "es": "Spanish"
         },
-        "languages_title": "I speak & negotiate in 4 languages"
+        "languages_title": "I speak & work in 4 languages"
     },
     "Pricing": {
-        "from": "From",
-        "title": "Invest in Your Future Freedom",
-        "guarantee": {
-            "badge": "My Guarantee",
-            "title": "Save 8+ Hours Per Week — Or We Work Free Until You Do"
+        "title": "Invest in your freedom",
+        "guarantee": "Save 8+ hours per week — or I work free until you do",
+        "cards": {
+            "starter": {
+                "badge": "Entry Point",
+                "headline": "Reclaim 10 hours/week",
+                "price": "€2,497",
+                "tagline": "The Pilot",
+                "bullets": [
+                    "Fix your most repetitive task.",
+                    "Fully set up in 30 days.",
+                    "Clear, simple documentation."
+                ],
+                "note": "Pays for itself in weeks",
+                "cta": "Let's get started"
+            },
+            "custom": {
+                "headline": "Custom Systems",
+                "tagline": "Scale your business",
+                "price": "Starting at €7,997",
+                "description": "Bespoke systems built for your specific needs. No packages, no guesswork.",
+                "bullets": [
+                    "Eliminate daily busywork.",
+                    "Systems that work while you sleep.",
+                    "Higher output with less effort.",
+                    "Integrated with the tools you already use."
+                ],
+                "cta": "Book a free audit"
+            }
+        },
+        "trust": {
+            "gdpr": "Secure & Private",
+            "instant": "Fast Results"
+        },
+        "addon": {
+            "title": "Custom Website",
+            "price": "From €1,497",
+            "description": "A high-converting site to support your new automated systems."
         },
         "faq": {
             "headline": "Questions",
             "questions": {
                 "0": {
                     "q": "What if something breaks?",
-                    "a": "All packages include support. After that, €200/month maintenance available."
+                    "a": "All packages include support. After that, maintenance options are available to keep everything running smoothly."
                 },
                 "1": {
                     "q": "Do you offer payment plans?",
-                    "a": "Yes. 40% upfront, 30% midpoint, 30% completion."
+                    "a": "Yes. Most projects are split into upfront, midpoint, and completion payments."
                 },
                 "2": {
                     "q": "What tools do you work with?",
-                    "a": "Google, Microsoft, Slack, most CRMs, APIs. Ask about your specific tools."
+                    "a": "Google, Microsoft, Slack, most CRMs, and custom APIs. I build for the tools you already use."
                 }
             }
-        },
-        "cards": {
-            "pilot": {
-                "headline": "The Pilot",
-                "price": "€2,497",
-                "value": "Your First Automation, Risk-Free",
-                "bullets": [
-                    "One complete workflow automated",
-                    "Full documentation & training",
-                    "30-day support included",
-                    "Guaranteed 8+ hours saved/week"
-                ],
-                "roi": "Pays for itself in 1–2 months",
-                "cta": "Get Started"
-            },
-            "custom": {
-                "headline": "Custom Ecosystem",
-                "subhead": "Full business automation for growing teams",
-                "tiers": {
-                    "0": {
-                        "name": "Starter",
-                        "price": "€7,997",
-                        "desc": "Core operations automated",
-                        "features": [
-                            "2-3 workflows",
-                            "1-5 people",
-                            "60-day support"
-                        ]
-                    },
-                    "1": {
-                        "name": "Pro",
-                        "price": "€11,997",
-                        "desc": "Department-wide automation",
-                        "badge": "Most Popular",
-                        "features": [
-                            "5-7 workflows",
-                            "5-20 people",
-                            "90-day support",
-                            "AI features"
-                        ]
-                    },
-                    "2": {
-                        "name": "Elite",
-                        "price": "€14,997+",
-                        "desc": "Full business transformation",
-                        "features": [
-                            "10+ workflows",
-                            "20+ people",
-                            "6-month support",
-                            "Advanced AI",
-                            "Dedicated support"
-                        ]
-                    }
-                },
-                "cta": "Book Strategy Call"
-            }
-        },
-        "websiteAddon": {
-            "title": "ADD-ON: Website Package",
-            "price": "€1,497 – €2,997",
-            "description": "A high-converting landing page to sell your services. The perfect foundation for your new automation system.",
-            "link": "Learn More"
         },
         "socialProof": {
             "headline": "Proven Results",
@@ -302,34 +273,34 @@
                 },
                 {
                     "name": "Fit to Excel",
-                    "result": "Automated weekly social media presence"
+                    "result": "Automated weekly brand presence"
                 },
                 {
                     "name": "Smart Client Finder",
-                    "result": "50+ leads/day and custom email writer"
+                    "result": "Automated lead discovery"
                 }
             ]
         },
-        "finalCta": "Limited spots this month – Book Free Audit →"
+        "finalCta": "Book a free audit to see how much time you can save →"
     },
     "Contact": {
-        "headline": "Start Your Transformation",
-        "subheadline": "Let's calculate your potential value. Answer a few questions to see if we're a good fit.",
+        "headline": "Less admin. More impact.",
+        "subheadline": "Let's find out how many hours we can save you. Answer a few questions to see if we're a good fit.",
         "form": {
             "steps": {
-                "qualification": "Qualification",
-                "offers": "Select Offer",
-                "details": "Contact Details"
+                "qualification": "Your Business",
+                "offers": "Your Needs",
+                "details": "Contact info"
             },
             "fields": {
-                "website": "Include Custom Website Add-on (€1,497 – €2,997)",
+                "website": "Include custom website (€1,497 – €2,997)",
                 "problem": {
-                    "label": "What is the most repetitive manual task slowing your team down right now?",
-                    "placeholder": "e.g. Copying leads from email to Excel..."
+                    "label": "What is the repetitive task slowing you down?",
+                    "placeholder": "e.g. Invoicing, lead entry, scheduling..."
                 },
                 "hours": {
-                    "label": "On average, how many hours/week are spent on administrative work?",
-                    "placeholder": "Select a range",
+                    "label": "How many hours per week do you spend on admin?",
+                    "placeholder": "Select range",
                     "options": {
                         "low": "1-5 hours",
                         "medium": "6-10 hours",
@@ -338,69 +309,69 @@
                     }
                 },
                 "opportunity": {
-                    "label": "If this work was 100% automated, what would you focus on instead?",
-                    "placeholder": "e.g. Closing more deals, Strategy, Product development..."
+                    "label": "What would you focus on if this was automated?",
+                    "placeholder": "e.g. Strategy, closing deals, family..."
                 },
                 "tools": {
-                    "label": "Which tools are you currently using? (Select all that apply)",
+                    "label": "Which tools do you use? (Select all that apply)",
                     "options": {
                         "google": "Google Workspace / Microsoft 365",
-                        "invoice": "Invoicing Software (Quickbooks, Stripe, etc.)",
+                        "invoice": "Invoicing Software",
                         "crm": "CRM (HubSpot, Salesforce, etc.)",
-                        "project": "Project Management (Notion, Trello, Asana)",
-                        "other": "Other Legacy Systems"
+                        "project": "Project Management",
+                        "other": "Other systems"
                     }
                 },
                 "name": "Full Name",
                 "email": "Business Email",
-                "message": "Additional Context (Optional)"
+                "message": "Anything else I should know? (Optional)"
             },
             "back": "Back",
-            "next": "Next Step",
-            "submit": "Submit Application",
+            "next": "Next",
+            "submit": "Send request",
             "submitting": "Sending...",
-            "success": "Application Received. I will review your stack and get back to you with a preliminary value calculation within 24 hours.",
-            "security": "Data handled on encrypted, secure servers in the EU."
+            "success": "Got it. I'll review your details and get back to you within 24 hours.",
+            "security": "Your information is secure and private."
         },
         "info": {
-            "emailLabel": "Business Inquiries",
+            "emailLabel": "Email",
             "email": "gabriel@gabrieldalmoro.com",
-            "locationLabel": "Global Operations",
-            "location": "Annecy, France (Remote & Intercultural Work)",
+            "locationLabel": "Location",
+            "location": "Annecy, France (Working globally)",
             "socials": "Follow Me"
         }
     },
     "About": {
-        "headline": "Business DNA. Engineering Mindset.",
-        "subheadline": "The journey from manual entrepreneurship to automated scale.",
+        "headline": "Former Entrepreneur. Software Engineer.",
+        "subheadline": "I build the systems I wish I had when I was in your shoes.",
         "story": {
-            "title": "Why I Do This",
-            "p1": "I’ve always been an entrepreneur at heart. It started with opening my own chess school as a kid and partnering with friends to resell imported toys as a teenager. I loved the game of business—until I started my first real company.",
-            "p2": "That’s when the reality hit. I wasn't 'building' anymore; I was drowning in paperwork, invoicing, and admin. I saw this pattern everywhere I worked—from the fitness industry to outdoor adventure companies. Great businesses were being suffocated by inefficient systems.",
-            "p3": "I refused to accept that as the norm. I pivoted to software engineering, working with clients across North and South America to master the technology that scales companies. Now, I merge those worlds. I use my engineering background to solve the business problems I experienced firsthand."
+            "title": "From manual work to automated results",
+            "p1": "I've always loved building businesses. From a childhood chess school to scaling ventures as a teenager, the game of entrepreneurship was my passion.",
+            "p2": "But as my businesses grew, I hit a wall. I wasn't growing anymore—I was stuck doing paperwork, managing invoices, and chasing admin. I saw this everywhere, from the fitness industry to outdoor startups. Founders were being slowed down by their own success because their systems couldn't keep up.",
+            "p3": "I decided to fix it. I became a software engineer to master the tools that scale companies. Today, I don't just write code; I build automated systems for businesses so owners can stop doing busywork and start making an impact. I build the systems I wish I had when I was starting out."
         },
         "journey": {
-            "title": "Timeline",
+            "title": "The Path",
             "steps": {
                 "0": {
                     "year": "2008",
-                    "title": "The Spark",
-                    "description": "Early Entrepreneur. Opened a chess school and ran small ventures. Learned the thrill of building something from scratch."
+                    "title": "Early Ventures",
+                    "description": "Started my first small businesses and learned the value of building from scratch."
                 },
                 "1": {
                     "year": "2018",
-                    "title": "The Reality Check",
-                    "description": "First Company & Industry Exp. Launched my first startup and worked in Fitness/Outdoor sectors. Witnessed how admin kills momentum."
+                    "title": "The Admin Wall",
+                    "description": "Experienced firsthand how repetitive manual work stops a growing business in its tracks."
                 },
                 "2": {
                     "year": "2021",
-                    "title": "The Pivot",
-                    "description": "Software Engineering. Transitioned to tech. Spent 2 years building production-grade software for clients across the Americas."
+                    "title": "Engineering Mastery",
+                    "description": "Spent years building software for international clients to understand how to scale operations with tech."
                 },
                 "3": {
                     "year": "Today",
-                    "title": "The Synthesis",
-                    "description": "Bridging the Gap. Merging business acumen with technical expertise to build the automated systems I wish I had back then."
+                    "title": "Full Automation",
+                    "description": "Merging business experience with engineering to help owners reclaim their time."
                 }
             }
         },
@@ -409,31 +380,31 @@
             "cards": {
                 "0": {
                     "title": "Impact",
-                    "description": "Results you can feel. I measure success by hours saved and revenue generated, not just clean code."
+                    "description": "I measure success by the hours you save and the growth you achieve."
                 },
                 "1": {
-                    "title": "Collaboration",
-                    "description": "A Partner, Not a Vendor. I deeply believe in working with you to understand your specific vision and needs."
+                    "title": "Partnership",
+                    "description": "I work directly with you as a partner to understand your business, not as a vendor."
                 },
                 "2": {
-                    "title": "Pragmatism",
-                    "description": "Solutions that work. Technology should serve your business, not the other way around."
+                    "title": "Results",
+                    "description": "Technology is only useful if it solves a real problem and saves you time."
                 }
             }
         },
         "finalCta": {
-            "headline": "Let's Build Better Workflows Together.",
-            "description": "Business is hard work, but it shouldn't be held back by unnecessary manual tasks. Stop drowning in admin. Let's automate the repetitive work so you can reclaim your time and scale.",
-            "button": "Let's Talk Efficiency"
+            "headline": "Let's get your time back.",
+            "description": "Stop doing the work that a system should be doing for you. Let's see if we can automate your admin so you can focus on growth.",
+            "button": "Let's see if I can help"
         }
     },
     "CTA": {
-        "headline": "Ready to reclaim your time?",
-        "button": "Limited spots this month – Book Free Audit →"
+        "headline": "Ready to save 10+ hours a week?",
+        "button": "Book your free audit →"
     },
     "Blog": {
-        "title": "Journal & Insights",
-        "description": "Where Business Automation Meets Adventure. \nI share the technical systems that scale businesses and the outdoor adventures they fund.",
+        "title": "Writing & Insights",
+        "description": "Sharing the systems and automations that help businesses scale.",
         "categories": {
             "all": "All",
             "business": "Business",
@@ -445,20 +416,20 @@
         "noPosts": "No posts found.",
         "authorBy": "By {name}",
         "hero": {
-            "readStory": "Read Full Story"
+            "readStory": "Read full story"
         },
         "newsletter": {
-            "headline": "Newsletter Series.",
-            "subheadline": "We are preparing a high-value newsletter with systems and workflows. Coming soon.",
-            "placeholder": "enter@your.email",
+            "headline": "The Automation Series",
+            "subheadline": "I'm building a series of guides on business systems. Join the list to get them first.",
+            "placeholder": "your@email.com",
             "button": "Subscribe",
             "unsubscribe": "Unsubscribe at any time."
         },
         "promo": {
             "badge": "Free Audit",
-            "title": "Stop Wasting Time on Admin.",
-            "description": "Let me build the systems that do the work for you.",
-            "cta": "Get Your Audit"
+            "title": "Stop wasting time on admin.",
+            "description": "I'll build the systems that do the work for you.",
+            "cta": "Get your audit"
         },
         "floating": {
             "cta": "Book Audit"
