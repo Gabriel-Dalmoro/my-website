@@ -51,12 +51,7 @@ function ContactForm() {
         if (addonParam === 'website') setFormData(prev => ({ ...prev, websiteAddon: true }));
     }, [searchParams]);
 
-    // Auto-focus logic
-    useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.focus();
-        }
-    }, [step, submitted]);
+    // Auto-focus logic is now handled via onAnimationComplete on the motion.div for better timing
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -172,6 +167,7 @@ function ContactForm() {
                                 animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                                 exit={{ opacity: 0, x: -20, filter: "blur(8px)" }}
                                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                                onAnimationComplete={() => inputRef.current?.focus()}
                                 className="space-y-8 sm:space-y-12"
                                 onKeyDown={onKeyDown}
                             >
