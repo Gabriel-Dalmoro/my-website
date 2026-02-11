@@ -43,8 +43,8 @@ export default function Header() {
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
                 ? isBlog
-                    ? "bg-white/80 backdrop-blur-md border-b border-zinc-200 py-3 text-zinc-900 shadow-sm"
-                    : "bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900 py-3"
+                    ? `bg-white/80 ${mobileMenuOpen ? "" : "backdrop-blur-md"} border-b border-zinc-200 py-3 text-zinc-900 shadow-sm`
+                    : `bg-zinc-950/80 ${mobileMenuOpen ? "" : "backdrop-blur-md"} border-b border-zinc-900 py-3`
                 : "bg-transparent py-6"
                 }`}
         >
