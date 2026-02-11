@@ -284,74 +284,57 @@
         "finalCta": "Book a free audit to see how much time you can save →"
     },
     "Contact": {
-        "headline": "Less admin. More impact.",
-        "subheadline": "Let's find out how many hours we can save you. Answer a few questions to see if we're a good fit.",
-        "form": {
-            "steps": {
-                "qualification": "Your Business",
-                "offers": "Your Needs",
-                "details": "Contact info"
-            },
-            "fields": {
-                "website": "Include custom website (€1,497 – €2,997)",
-                "problem": {
-                    "label": "What is the repetitive task slowing you down?",
-                    "placeholder": "e.g. Invoicing, lead entry, scheduling..."
-                },
-                "hours": {
-                    "label": "How many hours per week do you spend on admin?",
-                    "placeholder": "Select range",
-                    "options": {
-                        "low": "1-5 hours",
-                        "medium": "6-10 hours",
-                        "high": "11-20 hours",
-                        "critical": "20+ hours"
-                    }
-                },
-                "opportunity": {
-                    "label": "What would you focus on if this was automated?",
-                    "placeholder": "e.g. Strategy, closing deals, family..."
-                },
-                "tools": {
-                    "label": "Which tools do you use? (Select all that apply)",
-                    "options": {
-                        "google": "Google Workspace / Microsoft 365",
-                        "invoice": "Invoicing Software",
-                        "crm": "CRM (HubSpot, Salesforce, etc.)",
-                        "project": "Project Management",
-                        "other": "Other systems"
-                    }
-                },
-                "planFocus": "Choose your focus",
-                "websiteFocus": "Need a professional site?",
-                "websiteDescription": "Add a high-converting website to your systems",
-                "nameFocus": "What's your name?",
-                "namePlaceholder": "Type your full name...",
-                "emailFocus": "And your email?",
-                "emailPlaceholder": "email@example.com",
-                "messageFocus": "Anything else?",
-                "messagePlaceholder": "Additional context, specific goals, or just a quick hello...",
-                "optional": "Optional",
-                "pressToProceed": "Press to proceed",
-                "successTitle": "Application Received",
-                "name": "Full Name",
-                "email": "Business Email",
-                "message": "Anything else I should know? (Optional)"
-            },
-            "back": "Back",
-            "next": "Next",
-            "submit": "Send request",
-            "submitting": "Sending...",
-            "success": "Got it. I'll review your details and get back to you within 24 hours.",
-            "security": "Your information is secure and private."
-        },
-        "info": {
-            "emailLabel": "Email",
-            "email": "gabriel@gabrieldalmoro.com",
-            "locationLabel": "Location",
-            "location": "Annecy, France (Working globally)",
-            "socials": "Follow Me"
-        }
+        "headline": "Let's find out how many hours I can save you.",
+        "subheadline": "Answer a few questions to see if we're a good fit.",
+        "steps_qualification": "Your Business",
+        "steps_offers": "Your Needs",
+        "steps_details": "Contact info",
+        "field_website": "Include custom website (€1,497 – €2,997)",
+        "field_problem_label": "What is the repetitive task slowing you down?",
+        "field_problem_placeholder": "e.g. Invoicing, lead entry, scheduling...",
+        "field_hours_label": "How many hours per week do you spend on admin?",
+        "field_hours_placeholder": "Select range",
+        "field_hours_low": "1-5 hours",
+        "field_hours_medium": "6-10 hours",
+        "field_hours_high": "11-20 hours",
+        "field_hours_critical": "20+ hours",
+        "field_opportunity_label": "What would you focus on if this was automated?",
+        "field_opportunity_placeholder": "e.g. Strategy, closing deals, family...",
+        "field_tools_label": "Which tools do you use? (Select all that apply)",
+        "field_tools_google": "Google Workspace / Microsoft 365",
+        "field_tools_invoice": "Invoicing Software",
+        "field_tools_crm": "CRM (HubSpot, Salesforce, etc.)",
+        "field_tools_project": "Project Management",
+        "field_tools_other": "Other systems",
+        "field_name_label": "Full Name",
+        "field_email_label": "Business Email",
+        "field_message_label": "Anything else I should know? (Optional)",
+        "planFocus": "Choose your focus",
+        "websiteFocus": "Need a professional site?",
+        "websiteDescription": "Add a high-converting website to your systems",
+        "nameFocus": "What's your name?",
+        "namePlaceholder": "Type your full name...",
+        "emailFocus": "And your email?",
+        "emailPlaceholder": "email@example.com",
+        "messageFocus": "Anything else?",
+        "messagePlaceholder": "Additional context, specific goals, or just a quick hello...",
+        "optional": "Optional",
+        "pressToProceed": "Press to proceed",
+        "successTitle": "Application Received",
+        "back": "Back",
+        "next": "Next",
+        "submit": "Send request",
+        "submitting": "Sending...",
+        "success": "Got it. I'll review your details and get back to you within 24 hours.",
+        "security": "Processed on secure EU servers.",
+        "directEmailMessage": "Prefer a direct message? Feel free to connect and email me:"
+    },
+    "info": {
+        "emailLabel": "Email",
+        "email": "gabriel@gabrieldalmoro.com",
+        "locationLabel": "Location",
+        "location": "Annecy, France (Working globally)",
+        "socials": "Follow Me"
     },
     "About": {
         "headline": "Former Entrepreneur. Software Engineer.",

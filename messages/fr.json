@@ -261,67 +261,50 @@
         "finalCta": "Places limitées ce mois-ci – Audit Gratuit →"
     },
     "Contact": {
-        "headline": "Commencez Votre Transformation",
-        "subheadline": "Calculons votre potentiel. Répondez à quelques questions pour voir si nous sommes faits pour travailler ensemble.",
-        "form": {
-            "steps": {
-                "qualification": "Qualification",
-                "offers": "Choisir l'Offre",
-                "details": "Coordonnées"
-            },
-            "fields": {
-                "website": "Inclure l'Extension Site Web (1 497 € – 2 997 €)",
-                "problem": {
-                    "label": "Quelle est la tâche manuelle la plus répétitive qui ralentit votre équipe ?",
-                    "placeholder": "ex: Copier des leads depuis les emails vers Excel..."
-                },
-                "hours": {
-                    "label": "En moyenne, combien d'heures/semaine passez-vous sur l'administratif ?",
-                    "placeholder": "Sélectionnez une plage",
-                    "options": {
-                        "low": "1-5 heures",
-                        "medium": "6-10 heures",
-                        "high": "11-20 heures",
-                        "critical": "20+ heures"
-                    }
-                },
-                "opportunity": {
-                    "label": "Si ce travail était automatisé à 100%, sur quoi vous concentreriez-vous ?",
-                    "placeholder": "ex: Vendre plus, Stratégie, Développement produit..."
-                },
-                "tools": {
-                    "label": "Quels outils utilisez-vous ? (Sélectionnez tout ce qui s'applique)",
-                    "options": {
-                        "google": "Google Workspace / Microsoft 365",
-                        "invoice": "Logiciel de facturation",
-                        "crm": "CRM (HubSpot, Salesforce, etc.)",
-                        "project": "Gestion de projet",
-                        "other": "Autres systèmes"
-                    }
-                },
-                "planFocus": "Choisissez votre objectif",
-                "websiteFocus": "Besoin d'un site professionnel ?",
-                "websiteDescription": "Ajoutez un site à fort taux de conversion à vos systèmes",
-                "nameFocus": "Quel est votre nom ?",
-                "namePlaceholder": "Tapez votre nom complet...",
-                "emailFocus": "Et votre email ?",
-                "emailPlaceholder": "email@exemple.com",
-                "messageFocus": "Autre chose ?",
-                "messagePlaceholder": "Contexte supplémentaire, objectifs spécifiques ou juste un petit bonjour...",
-                "optional": "Optionnel",
-                "pressToProceed": "Appuyez pour continuer",
-                "successTitle": "Candidature reçue",
-                "name": "Nom complet",
-                "email": "Email professionnel",
-                "message": "Autre chose que je devrais savoir ? (Optionnel)"
-            },
-            "back": "Retour",
-            "next": "Étape Suivante",
-            "submit": "Envoyer ma Candidature",
-            "submitting": "Envoi en cours...",
-            "success": "Candidature Reçue. J'analyserai votre stack et reviendrai vers vous avec une estimation de la valeur générée sous 24h.",
-            "security": "Données traitées sur serveurs sécurisés et chiffrés en UE."
-        },
+        "headline": "Voyons combien d'heures je peux vous faire gagner.",
+        "subheadline": "Répondez à quelques questions pour voir si nous sommes faits pour travailler ensemble.",
+        "steps_qualification": "Qualification",
+        "steps_offers": "Choisir l'Offre",
+        "steps_details": "Coordonnées",
+        "field_website": "Inclure l'Extension Site Web (1 497 € – 2 997 €)",
+        "field_problem_label": "Quelle est la tâche manuelle la plus répétitive qui ralentit votre équipe ?",
+        "field_problem_placeholder": "ex: Copier des leads depuis les emails vers Excel...",
+        "field_hours_label": "En moyenne, combien d'heures/semaine passez-vous sur l'administratif ?",
+        "field_hours_placeholder": "Sélectionnez une plage",
+        "field_hours_low": "1-5 heures",
+        "field_hours_medium": "6-10 heures",
+        "field_hours_high": "11-20 heures",
+        "field_hours_critical": "20+ heures",
+        "field_opportunity_label": "Si ce travail était automatisé à 100%, sur quoi vous concentreriez-vous ?",
+        "field_opportunity_placeholder": "ex: Vendre plus, Stratégie, Développement produit...",
+        "field_tools_label": "Quels outils utilisez-vous ? (Sélectionnez tout ce qui s'applique)",
+        "field_tools_google": "Google Workspace / Microsoft 365",
+        "field_tools_invoice": "Logiciel de facturation",
+        "field_tools_crm": "CRM (HubSpot, Salesforce, etc.)",
+        "field_tools_project": "Gestion de projet",
+        "field_tools_other": "Autres systèmes",
+        "field_name_label": "Nom complet",
+        "field_email_label": "Email professionnel",
+        "field_message_label": "Autre chose que je devrais savoir ? (Optionnel)",
+        "planFocus": "Choisissez votre objectif",
+        "websiteFocus": "Besoin d'un site professionnel ?",
+        "websiteDescription": "Ajoutez un site à fort taux de conversion à vos systèmes",
+        "nameFocus": "Quel est votre nom ?",
+        "namePlaceholder": "Tapez votre nom complet...",
+        "emailFocus": "Et votre email ?",
+        "emailPlaceholder": "email@exemple.com",
+        "messageFocus": "Autre chose ?",
+        "messagePlaceholder": "Contexte supplémentaire, objectifs spécifiques ou juste un petit bonjour...",
+        "optional": "Optionnel",
+        "pressToProceed": "Appuyez pour continuer",
+        "successTitle": "Candidature reçue",
+        "back": "Retour",
+        "next": "Suivante",
+        "submit": "Envoyer ma Candidature",
+        "submitting": "Envoi...",
+        "success": "C'est noté. Je vais examiner vos détails et vous recontacter d'ici 24 heures.",
+        "security": "Traité sur des serveurs sécurisés de l'UE.",
+        "directEmailMessage": "Vous préférez un message direct ? N'hésitez pas à me contacter par email :",
         "info": {
             "emailLabel": "Demandes Professionnelles",
             "email": "gabriel@gabrieldalmoro.com",
