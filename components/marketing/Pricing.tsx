@@ -6,6 +6,7 @@ import { Check, ArrowRight, ShieldCheck, Globe, ArrowUpRight, TrendingUp, Users,
 import { Button } from "@/components/ui/button";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { Link } from "@/i18n/routing";
+import { motion } from "motion/react";
 
 export default function Pricing() {
     const t = useTranslations("Pricing");
@@ -13,8 +14,28 @@ export default function Pricing() {
 
     return (
         <section className="py-20 bg-zinc-950 relative overflow-hidden" id="pricing">
-            {/* Background Decor - Subtle */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_70%)] pointer-events-none" />
+            {/* Background Decor - Premium Depth */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,193,7,0.08),transparent_50%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(59,130,246,0.05),transparent_50%)] pointer-events-none" />
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+            {/* Floating Glows */}
+            <motion.div
+                animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.1, 0.2, 0.1]
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none"
+            />
+            <motion.div
+                animate={{
+                    scale: [1.2, 1, 1.2],
+                    opacity: [0.05, 0.1, 0.05]
+                }}
+                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none"
+            />
 
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -34,7 +55,7 @@ export default function Pricing() {
 
                     {/* Offer 1: The Pilot */}
                     <div className="relative group lg:h-full">
-                        <div className="h-full relative rounded-2xl bg-zinc-900 border border-primary/20 p-8 sm:p-10 flex flex-col shadow-xl shadow-black/50 ring-1 ring-white/5 transition-all duration-500 hover:scale-[1.01] overflow-hidden">
+                        <div className="h-full relative rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/10 p-8 sm:p-10 flex flex-col shadow-2xl shadow-black/50 ring-1 ring-white/5 transition-all duration-500 hover:scale-[1.01] hover:bg-white/[0.04] hover:border-white/20 overflow-hidden">
                             {/* Visual Highlight */}
                             <ShineBorder
                                 shineColor={["#EAB308"]}
@@ -83,7 +104,7 @@ export default function Pricing() {
 
                     {/* Offer 2: Custom Systems */}
                     <div className="relative group lg:h-full">
-                        <div className="h-full relative rounded-2xl bg-zinc-900/40 border border-zinc-800/80 p-8 sm:p-10 flex flex-col transition-all duration-300 hover:bg-zinc-900/60 hover:border-zinc-700 overflow-hidden">
+                        <div className="h-full relative rounded-2xl bg-white/[0.01] backdrop-blur-lg border border-white/5 p-8 sm:p-10 flex flex-col transition-all duration-500 hover:bg-white/[0.03] hover:border-white/10 overflow-hidden">
                             <div className="relative z-10 flex-grow">
                                 <div className="mb-6">
                                     <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">{t("cards.custom.headline")}</h3>
@@ -119,7 +140,7 @@ export default function Pricing() {
 
                 {/* 3. Website Add-on Simplified */}
                 <div className="max-w-2xl mx-auto w-full mb-20 px-4">
-                    <div className="rounded-2xl bg-zinc-900/40 border border-zinc-800/80 p-5 flex items-center justify-between gap-6 hover:bg-zinc-900/60 transition-colors group">
+                    <div className="rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/5 p-5 flex items-center justify-between gap-6 hover:bg-white/[0.04] hover:border-white/10 transition-all group">
                         <div className="flex items-center gap-4">
                             <div className="p-2.5 bg-zinc-950 rounded-lg border border-zinc-800 text-zinc-500 group-hover:text-primary transition-colors">
                                 <Globe className="w-4 h-4" />
