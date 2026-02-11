@@ -128,6 +128,9 @@ function ContactForm() {
             <div className="absolute -z-10 -top-40 -left-40 w-96 h-96 bg-primary/20 rounded-full blur-[120px] opacity-40 animate-pulse" />
             <div className="absolute -z-10 -bottom-40 -right-40 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] opacity-20 animate-pulse" />
 
+            {/* New Centered Yellow Glow around the card */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[110%] h-[110%] bg-primary/10 rounded-full blur-[120px] opacity-40 animate-pulse" />
+
             <motion.div
                 layout
                 className="rounded-3xl bg-zinc-900/40 backdrop-blur-2xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] overflow-hidden relative min-h-[400px] flex flex-col transition-all duration-700 hover:border-white/20"
@@ -183,7 +186,7 @@ function ContactForm() {
 
                                 {step === 1 && (
                                     <div className="space-y-6">
-                                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-[1.2] tracking-tight">
+                                        <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-[1.3] tracking-tight">
                                             {t("field_problem_label")}
                                         </h2>
                                         <textarea
@@ -200,7 +203,7 @@ function ContactForm() {
 
                                 {step === 2 && (
                                     <div className="space-y-8">
-                                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-[1.2] tracking-tight">
+                                        <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-[1.3] tracking-tight">
                                             {t("field_hours_label")}
                                         </h2>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -230,7 +233,7 @@ function ContactForm() {
 
                                 {step === 3 && (
                                     <div className="space-y-6">
-                                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-[1.2] tracking-tight">
+                                        <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-[1.3] tracking-tight">
                                             {t("field_opportunity_label")}
                                         </h2>
                                         <textarea
@@ -247,7 +250,7 @@ function ContactForm() {
 
                                 {step === 4 && (
                                     <div className="space-y-8">
-                                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-[1.2] tracking-tight">
+                                        <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-[1.3] tracking-tight">
                                             {t("field_tools_label")}
                                         </h2>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -278,7 +281,7 @@ function ContactForm() {
 
                                 {step === 5 && (
                                     <div className="space-y-8">
-                                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-[1.2] tracking-tight">{t("planFocus")}</h2>
+                                        <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-[1.3] tracking-tight">{t("planFocus")}</h2>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <button
                                                 type="button"
@@ -314,7 +317,7 @@ function ContactForm() {
 
                                 {step === 6 && (
                                     <div className="space-y-8">
-                                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-[1.2] tracking-tight">{t("websiteFocus")}</h2>
+                                        <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-[1.3] tracking-tight">{t("websiteFocus")}</h2>
                                         <button
                                             type="button"
                                             onClick={() => setFormData(p => ({ ...p, websiteAddon: !p.websiteAddon }))}
@@ -328,8 +331,9 @@ function ContactForm() {
                                                     <Globe className="w-7 h-7" />
                                                 </div>
                                                 <div className="text-left">
-                                                    <h4 className="text-lg font-black tracking-tight text-white mb-1 leading-tight">{t("field_website")}</h4>
-                                                    <p className="text-[11px] text-zinc-500 font-bold uppercase tracking-wider">{t("field_website_price")}</p>
+                                                    <h4 className="text-lg font-black tracking-tight text-white mb-0.5 leading-tight">{t("field_website_title")}</h4>
+                                                    <p className="text-[13px] text-zinc-400 font-medium mb-2 leading-relaxed">{t("field_website")}</p>
+                                                    <p className="text-[10px] text-zinc-500 font-black uppercase tracking-widest">{t("field_website_price")}</p>
                                                 </div>
                                             </div>
                                             <div className={cn("w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all", formData.websiteAddon ? "bg-blue-500 border-blue-500 text-white" : "border-white/10 group-hover:border-white/30 text-transparent")}>
@@ -341,7 +345,7 @@ function ContactForm() {
 
                                 {step === 7 && (
                                     <div className="space-y-6">
-                                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-[1.2] tracking-tight">
+                                        <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-[1.3] tracking-tight">
                                             {t("nameFocus")}
                                         </h2>
                                         <input
@@ -358,7 +362,7 @@ function ContactForm() {
 
                                 {step === 8 && (
                                     <div className="space-y-6">
-                                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-[1.2] tracking-tight">
+                                        <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-[1.3] tracking-tight">
                                             {t("emailFocus")}
                                         </h2>
                                         <input
@@ -376,7 +380,7 @@ function ContactForm() {
                                 {step === 9 && (
                                     <div className="space-y-6">
                                         <div className="flex items-center gap-4 mb-2">
-                                            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-[1.2] tracking-tight">{t("messageFocus")}</h2>
+                                            <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-[1.3] tracking-tight">{t("messageFocus")}</h2>
                                             <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-zinc-500 font-black text-[10px] uppercase tracking-[0.2em]">{t("optional")}</span>
                                         </div>
                                         <textarea
