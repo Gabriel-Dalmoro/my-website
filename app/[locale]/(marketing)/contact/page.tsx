@@ -514,7 +514,7 @@ export default function ContactPage() {
                     </p>
                     <a
                         href="mailto:gabriel@gabrieldalmoro.com"
-                        className="inline-block text-white font-black text-2xl sm:text-3xl tracking-tight hover:text-primary transition-all duration-300 relative group"
+                        className="inline-block text-white font-black text-xl sm:text-3xl tracking-tight break-all sm:break-normal hover:text-primary transition-all duration-300 relative group"
                     >
                         gabriel@gabrieldalmoro.com
                         <span className="absolute -bottom-2 left-0 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full" />

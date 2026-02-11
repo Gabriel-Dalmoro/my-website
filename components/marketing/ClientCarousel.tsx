@@ -63,11 +63,10 @@ export default function ClientCarousel() {
     };
 
     const getVideoSrc = (id: string) => {
-        // Map project IDs to video sources
+        // Map project IDs to video sources - Only Elisa has a video for now
         switch (id) {
             case "operations": return "/video/Elisa_projectDEMO.mp4";
-            case "marketing": return "/video/Elisa_projectDEMO.mp4";
-            case "sales": return "/video/Elisa_projectDEMO.mp4";
+            // Other projects don't have videos yet
             default: return "";
         }
     };
@@ -130,27 +129,40 @@ export default function ClientCarousel() {
                                 <BrowserFrame className="w-full aspect-video shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-zinc-800/50 bg-zinc-900/50 backdrop-blur-sm p-1 rounded-2xl relative">
                                     {/* Subtle Yellow Glow Behind Video */}
                                     <div className="absolute -inset-4 bg-[#FFD700]/5 blur-3xl rounded-full -z-10 opacity-50"></div>
-                                    <div className="relative w-full h-full bg-black group rounded-xl overflow-hidden shadow-inner">
-                                        <video
-                                            className="w-full h-full object-cover"
-                                            controls
-                                            playsInline
-                                            src={getVideoSrc(activeProject.id)}
-                                        >
-                                            <track
-                                                src="/video/Elisa_projectDEMO - en.vtt"
-                                                kind="subtitles"
-                                                srcLang="en"
-                                                label="English"
-                                                default
-                                            />
-                                            <track
-                                                src="/video/Elisa_projectDEMO - fr.vtt"
-                                                kind="subtitles"
-                                                srcLang="fr"
-                                                label="Français"
-                                            />
-                                        </video>
+                                    <div className="relative w-full h-full bg-black/40 group rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
+                                        {getVideoSrc(activeProject.id) ? (
+                                            <video
+                                                className="w-full h-full object-cover"
+                                                controls
+                                                playsInline
+                                                src={getVideoSrc(activeProject.id)}
+                                            >
+                                                <track
+                                                    src="/video/Elisa_projectDEMO - en.vtt"
+                                                    kind="subtitles"
+                                                    srcLang="en"
+                                                    label="English"
+                                                    default
+                                                />
+                                                <track
+                                                    src="/video/Elisa_projectDEMO - fr.vtt"
+                                                    kind="subtitles"
+                                                    srcLang="fr"
+                                                    label="Français"
+                                                />
+                                            </video>
+                                        ) : (
+                                            <div className="flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-700">
+                                                <div className="px-6 py-3 rounded-full bg-[#FFD700]/10 border border-[#FFD700]/30 backdrop-blur-md shadow-[0_0_20px_rgba(255,215,0,0.2)]">
+                                                    <span className="text-sm font-black text-[#FFD700] uppercase tracking-[0.2em] animate-pulse">
+                                                        {t("selection.videoComingSoon")}
+                                                    </span>
+                                                </div>
+                                                <p className="text-zinc-500 text-xs font-medium uppercase tracking-widest opacity-60">
+                                                    Case Study In Production
+                                                </p>
+                                            </div>
+                                        )}
                                     </div>
                                 </BrowserFrame>
                             </div>

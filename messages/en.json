@@ -81,6 +81,7 @@
             "narrativeBridge": "How I helped:",
             "back": "← Back",
             "demoComingSoon": "Coming Soon",
+            "videoComingSoon": "Video coming soon",
             "cards": {
                 "operations": {
                     "title": "Operations"
@@ -245,6 +246,7 @@
         "addon": {
             "title": "Custom Website",
             "price": "From €1,497",
+            "price_cta": "Add",
             "description": "A high-converting site to support your new automated systems."
         },
         "faq": {

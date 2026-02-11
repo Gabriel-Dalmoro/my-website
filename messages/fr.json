@@ -81,6 +81,7 @@
             "narrativeBridge": "Voici comment nous avons réglé cela pour :",
             "back": "← Choisir un Autre Focus",
             "demoComingSoon": "Démo Bientôt Disponible",
+            "videoComingSoon": "Vidéo bientôt disponible",
             "cards": {
                 "operations": {
                     "title": "Elisa Batch Cooking"
@@ -222,6 +223,7 @@
         "addon": {
             "title": "Site web sur mesure",
             "price": "Dès 1 497 €",
+            "price_cta": "Ajouter",
             "description": "Un site haute performance pour accompagner vos nouveaux systèmes."
         },
         "faq": {

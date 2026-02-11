@@ -123,7 +123,7 @@ export default function Pricing() {
 
                 {/* 3. Website Add-on Simplified */}
                 <div className="max-w-2xl mx-auto w-full mb-20 px-4">
-                    <div className="rounded-2xl bg-zinc-900 border border-zinc-800/80 p-5 flex items-center justify-between gap-6 hover:bg-zinc-800/80 hover:border-zinc-700 transition-all group">
+                    <div className="rounded-2xl bg-zinc-900 border border-zinc-800/80 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:bg-zinc-800/80 hover:border-zinc-700 transition-all group">
                         <div className="flex items-center gap-4">
                             <div className="p-2.5 bg-zinc-950 rounded-lg border border-zinc-800 text-zinc-500 group-hover:text-primary transition-colors">
                                 <Globe className="w-4 h-4" />
@@ -135,10 +135,10 @@ export default function Pricing() {
                                 </p>
                             </div>
                         </div>
-                        <div className="text-right">
-                            <div className="text-white font-bold text-sm mb-1">{t("addon.price")}</div>
+                        <div className="text-left sm:text-right w-full sm:w-auto flex sm:flex-col items-center sm:items-end justify-between sm:justify-center">
+                            <div className="text-white font-bold text-sm sm:mb-1 whitespace-nowrap">{t("addon.price")}</div>
                             <Link href="/contact?addon=website" className="text-[10px] font-black uppercase tracking-widest text-primary hover:text-white transition-colors flex items-center gap-1 justify-end">
-                                Add <ArrowUpRight className="w-3 h-3" />
+                                {t("addon.price_cta") || "Add"} <ArrowUpRight className="w-3 h-3" />
                             </Link>
                         </div>
                     </div>
