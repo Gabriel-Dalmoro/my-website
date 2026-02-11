@@ -290,18 +290,30 @@
                     "placeholder": "ex: Vendre plus, Stratégie, Développement produit..."
                 },
                 "tools": {
-                    "label": "Quels outils utilisez-vous actuellement ? (Sélectionnez tout ce qui s'applique)",
+                    "label": "Quels outils utilisez-vous ? (Sélectionnez tout ce qui s'applique)",
                     "options": {
                         "google": "Google Workspace / Microsoft 365",
-                        "invoice": "Logiciel de Facturation (Quickbooks, Stripe...)",
-                        "crm": "CRM (HubSpot, Salesforce...)",
-                        "project": "Gestion de Projet (Notion, Trello, Asana)",
-                        "other": "Autres Systèmes Legacy"
+                        "invoice": "Logiciel de facturation",
+                        "crm": "CRM (HubSpot, Salesforce, etc.)",
+                        "project": "Gestion de projet",
+                        "other": "Autres systèmes"
                     }
                 },
-                "name": "Nom Complet",
-                "email": "Email Professionnel",
-                "message": "Contexte Supplémentaire (Optionnel)"
+                "planFocus": "Choisissez votre objectif",
+                "websiteFocus": "Besoin d'un site professionnel ?",
+                "websiteDescription": "Ajoutez un site à fort taux de conversion à vos systèmes",
+                "nameFocus": "Quel est votre nom ?",
+                "namePlaceholder": "Tapez votre nom complet...",
+                "emailFocus": "Et votre email ?",
+                "emailPlaceholder": "email@exemple.com",
+                "messageFocus": "Autre chose ?",
+                "messagePlaceholder": "Contexte supplémentaire, objectifs spécifiques ou juste un petit bonjour...",
+                "optional": "Optionnel",
+                "pressToProceed": "Appuyez pour continuer",
+                "successTitle": "Candidature reçue",
+                "name": "Nom complet",
+                "email": "Email professionnel",
+                "message": "Autre chose que je devrais savoir ? (Optionnel)"
             },
             "back": "Retour",
             "next": "Étape Suivante",

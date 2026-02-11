@@ -10,36 +10,29 @@ import { useSearchParams } from "next/navigation";
 
 function ContactForm() {
     const t = useTranslations("Contact");
-    const tPricing = useTranslations("Pricing"); // Reuse Pricing translations
+    const tPricing = useTranslations("Pricing");
     const searchParams = useSearchParams();
     const [step, setStep] = useState(1);
     const [submitted, setSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Form State
     const [formData, setFormData] = useState({
         problem: "",
         hours: "",
         opportunity: "",
         tools: [] as string[],
-        plan: "starter", // Default to starter
+        plan: "starter",
         websiteAddon: false,
         name: "",
         email: "",
         message: ""
     });
 
-    // Handle URL Params
     useEffect(() => {
         const planParam = searchParams.get('plan');
         const addonParam = searchParams.get('addon');
-
-        if (planParam === 'starter' || planParam === 'custom') {
-            setFormData(prev => ({ ...prev, plan: planParam }));
-        }
-        if (addonParam === 'website') {
-            setFormData(prev => ({ ...prev, websiteAddon: true }));
-        }
+        if (planParam === 'starter' || planParam === 'custom') setFormData(prev => ({ ...prev, plan: planParam }));
+        if (addonParam === 'website') setFormData(prev => ({ ...prev, websiteAddon: true }));
     }, [searchParams]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -47,30 +40,39 @@ function ContactForm() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const setHours = (value: string) => {
-        setFormData(prev => ({ ...prev, hours: value }));
-    }
-
     const toggleTool = (value: string) => {
-        setFormData(prev => {
-            if (prev.tools.includes(value)) {
-                return { ...prev, tools: prev.tools.filter(item => item !== value) };
-            } else {
-                return { ...prev, tools: [...prev.tools, value] };
-            }
-        });
+        setFormData(prev => ({
+            ...prev,
+            tools: prev.tools.includes(value) ? prev.tools.filter(i => i !== value) : [...prev.tools, value]
+        }));
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
+    const totalSteps = 9;
 
+    const nextStep = () => {
+        if (step === 1 && !formData.problem) return;
+        if (step === 2 && !formData.hours) return;
+        if (step === 3 && !formData.opportunity) return;
+        if (step === 7 && !formData.name) return;
+        if (step === 8 && !formData.email) return;
+
+        if (step < totalSteps) {
+            setStep(prev => prev + 1);
+        } else {
+            submitForm();
+        }
+    };
+
+    const prevStep = () => {
+        if (step > 1) setStep(prev => prev - 1);
+    };
+
+    const submitForm = async () => {
+        setIsSubmitting(true);
         try {
             const response = await fetch("https://n8n-production-ced7.up.railway.app/webhook-test/1a7dab8b-98a0-4536-881a-d7b52f73cb5c", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     ...formData,
                     submittedAt: new Date().toISOString(),
@@ -78,380 +80,334 @@ function ContactForm() {
                     locale: searchParams.get('lang') || 'en'
                 }),
             });
-
-            if (response.ok) {
-                setSubmitted(true);
-            } else {
-                throw new Error("Failed to submit");
-            }
+            if (response.ok) setSubmitted(true);
+            else throw new Error("Failed");
         } catch (error) {
-            console.error("Submission error:", error);
-            alert("Sorry, there was an error sending your application. Please try again or email me directly.");
+            console.error(error);
+            alert("Error sending application. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
     };
 
-    const nextStep = () => {
-        if (step === 1) {
-            if (!formData.problem || !formData.hours || !formData.opportunity) {
-                alert("Please fill in the required fields");
-                return;
+    const onKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            if (step !== totalSteps || step === 9) { // Allow enter for message step too
+                e.preventDefault();
+                nextStep();
             }
         }
-        setStep(prev => prev + 1);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    const prevStep = () => {
-        setStep(prev => prev - 1);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
-            {/* Contact Info */}
-            <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="flex flex-col gap-4 lg:col-span-4 order-2 lg:order-1"
-            >
-                <div className="rounded-xl bg-zinc-900/30 p-5 border border-zinc-800/50 hover:border-zinc-700 transition-colors group">
-                    <h3 className="text-xs uppercase tracking-wider font-semibold text-zinc-500 mb-3 flex items-center gap-2">
-                        <Mail className="w-4 h-4 text-primary" /> {t("info.emailLabel")}
-                    </h3>
-                    <a href="mailto:gabriel@gabrieldalmoro.com" className="text-zinc-200 hover:text-white transition-colors text-sm font-medium break-all flex items-center gap-2 group-hover:text-primary">
-                        {t("info.email")}
-                    </a>
+        <div className="max-w-3xl mx-auto w-full">
+            <div className="rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl overflow-hidden relative min-h-[500px] flex flex-col">
+                {/* Progress Bar */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-zinc-800/50 z-20">
+                    <motion.div
+                        className="h-full bg-gradient-to-r from-primary via-yellow-400 to-orange-500"
+                        initial={{ width: "0%" }}
+                        animate={{ width: `${(step / totalSteps) * 100}%` }}
+                        transition={{ type: "spring", stiffness: 50, damping: 20 }}
+                    />
                 </div>
-                <div className="rounded-xl bg-zinc-900/30 p-5 border border-zinc-800/50 hover:border-zinc-700 transition-colors">
-                    <h3 className="text-xs uppercase tracking-wider font-semibold text-zinc-500 mb-3 flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-primary" /> {t("info.locationLabel")}
-                    </h3>
-                    <p className="text-zinc-200 text-sm font-medium leading-relaxed">
-                        {t("info.location")}
-                    </p>
-                </div>
-            </motion.div>
 
-            {/* Multi-step Form */}
-            <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-                className="lg:col-span-8 order-1 lg:order-2"
-            >
-                <div className="rounded-2xl bg-zinc-900 border border-zinc-800 shadow-xl overflow-hidden relative">
-                    {/* Top Progress Line */}
-                    <div className="h-1 w-full bg-zinc-800">
-                        <motion.div
-                            className="h-full bg-gradient-to-r from-primary to-yellow-400"
-                            initial={{ width: "0%" }}
-                            animate={{ width: `${(step / 3) * 100}%` }}
-                            transition={{ duration: 0.5 }}
-                        />
-                    </div>
-
-                    <div className="p-6 lg:p-8">
+                <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center relative">
+                    <AnimatePresence mode="wait">
                         {submitted ? (
-                            <div className="flex flex-col items-center justify-center text-center py-12">
-                                <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-4 text-green-500">
-                                    <ShieldCheck className="w-8 h-8" />
+                            <motion.div
+                                key="success"
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="text-center py-12"
+                            >
+                                <div className="w-20 h-20 rounded-full bg-emerald-500/10 flex items-center justify-center mb-6 mx-auto text-emerald-500 ring-1 ring-emerald-500/20">
+                                    <ShieldCheck className="w-10 h-10" />
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">Application Received</h3>
-                                <p className="text-zinc-400 max-w-xs">{t("form.success")}</p>
-                            </div>
+                                <h3 className="text-2xl font-bold text-white mb-3">{t("successTitle")}</h3>
+                                <p className="text-zinc-400 max-w-sm mx-auto leading-relaxed">{t("form.success")}</p>
+                            </motion.div>
                         ) : (
-                            <form onSubmit={handleSubmit}>
-                                <AnimatePresence mode="wait">
-                                    {/* STEP 1: Qualification */}
-                                    {step === 1 && (
-                                        <motion.div
-                                            key="step1"
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="space-y-8"
-                                        >
-                                            <div className="space-y-3">
-                                                <label className="block text-sm font-medium text-white">
-                                                    {t("form.fields.problem.label")} <span className="text-primary">*</span>
-                                                </label>
-                                                <textarea
-                                                    name="problem"
-                                                    rows={2}
-                                                    required
-                                                    value={formData.problem}
-                                                    onChange={handleInputChange}
-                                                    placeholder={t("form.fields.problem.placeholder")}
-                                                    className="block w-full rounded-lg border-0 bg-zinc-950 px-4 py-3 text-white shadow-sm ring-1 ring-inset ring-zinc-800 placeholder:text-zinc-600 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-relaxed transition-all resize-none"
-                                                />
-                                            </div>
+                            <motion.div
+                                key={step}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                className="space-y-8"
+                                onKeyDown={onKeyDown}
+                            >
+                                {/* Step Indicator */}
+                                <div className="flex items-center gap-3 mb-2 text-zinc-500 font-bold text-[10px] uppercase tracking-widest">
+                                    <span className="text-primary">{step.toString().padStart(2, '0')}</span>
+                                    <div className="w-8 h-[1px] bg-zinc-800" />
+                                    <span>{totalSteps.toString().padStart(2, '0')}</span>
+                                </div>
 
-                                            <div className="space-y-3">
-                                                <label className="block text-sm font-medium text-white">
-                                                    {t("form.fields.hours.label")} <span className="text-primary">*</span>
-                                                </label>
-                                                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                                    {['1-5', '6-10', '11-20', '20+'].map((val) => (
-                                                        <button
-                                                            key={val}
-                                                            type="button"
-                                                            onClick={() => setHours(val)}
-                                                            className={cn(
-                                                                "relative flex items-center justify-center rounded-lg p-3 text-xs font-semibold transition-all border",
-                                                                formData.hours === val
-                                                                    ? "bg-primary/10 border-primary text-primary shadow-[0_0_15px_rgba(234,179,8,0.2)]"
-                                                                    : "bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900"
-                                                            )}
-                                                        >
-                                                            <Clock className={cn("w-3 h-3 mr-1.5", formData.hours === val ? "text-primary" : "text-zinc-600")} />
-                                                            {t(`form.fields.hours.options.${val === '20+' ? 'critical' : val === '11-20' ? 'high' : val === '6-10' ? 'medium' : 'low'}`)}
-                                                        </button>
-                                                    ))}
-                                                </div>
-                                            </div>
+                                {step === 1 && (
+                                    <div className="space-y-4">
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                                            {t("form.fields.problem.label")}
+                                        </h2>
+                                        <textarea
+                                            autoFocus
+                                            name="problem"
+                                            rows={3}
+                                            value={formData.problem}
+                                            onChange={handleInputChange}
+                                            placeholder={t("form.fields.problem.placeholder")}
+                                            className="block w-full text-xl sm:text-2xl bg-transparent border-0 border-b border-zinc-800 p-0 pb-4 text-white focus:ring-0 focus:border-primary placeholder:text-zinc-800 transition-all resize-none font-medium"
+                                        />
+                                    </div>
+                                )}
 
-                                            <div className="space-y-3">
-                                                <label className="block text-sm font-medium text-white">
-                                                    {t("form.fields.opportunity.label")} <span className="text-primary">*</span>
-                                                </label>
-                                                <textarea
-                                                    name="opportunity"
-                                                    rows={2}
-                                                    required
-                                                    value={formData.opportunity}
-                                                    onChange={handleInputChange}
-                                                    placeholder={t("form.fields.opportunity.placeholder")}
-                                                    className="block w-full rounded-lg border-0 bg-zinc-950 px-4 py-3 text-white shadow-sm ring-1 ring-inset ring-zinc-800 placeholder:text-zinc-600 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-relaxed transition-all resize-none"
-                                                />
-                                            </div>
+                                {step === 2 && (
+                                    <div className="space-y-6">
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                                            {t("form.fields.hours.label")}
+                                        </h2>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            {['low', 'medium', 'high', 'critical'].map((key) => {
+                                                // Map keys back to values for state
+                                                const valMap: Record<string, string> = { low: '1-5', medium: '6-10', high: '11-20', critical: '20+' };
+                                                const val = valMap[key];
+                                                return (
+                                                    <button
+                                                        key={key}
+                                                        type="button"
+                                                        onClick={() => { setFormData(p => ({ ...p, hours: val })); setTimeout(nextStep, 300); }}
+                                                        className={cn(
+                                                            "flex items-center gap-4 rounded-2xl p-4 text-sm font-bold transition-all border-2 text-left group",
+                                                            formData.hours === val
+                                                                ? "bg-primary/5 border-primary text-primary"
+                                                                : "bg-zinc-950 border-zinc-800/50 text-zinc-500 hover:border-zinc-700 hover:text-zinc-300"
+                                                        )}
+                                                    >
+                                                        <div className={cn("w-2 h-2 rounded-full", formData.hours === val ? "bg-primary" : "bg-zinc-800 group-hover:bg-zinc-700")} />
+                                                        {t(`form.fields.hours.options.${key}`)}
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                )}
 
-                                            <div className="space-y-3">
-                                                <label className="block text-sm font-medium text-white">
-                                                    {t("form.fields.tools.label")}
-                                                </label>
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                                    {['google', 'invoice', 'crm', 'project', 'other'].map((toolKey) => (
-                                                        <button
-                                                            key={toolKey}
-                                                            type="button"
-                                                            onClick={() => toggleTool(toolKey)}
-                                                            className={cn(
-                                                                "flex items-center justify-between w-full rounded-lg px-3 py-2 text-left transition-all border",
-                                                                formData.tools.includes(toolKey)
-                                                                    ? "bg-zinc-800 border-primary text-white"
-                                                                    : "bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700"
-                                                            )}
-                                                        >
-                                                            <span className="text-xs font-medium">{t(`form.fields.tools.options.${toolKey}`)}</span>
-                                                            {formData.tools.includes(toolKey) && (
-                                                                <CheckCircle2 className="w-4 h-4 text-primary" />
-                                                            )}
-                                                        </button>
-                                                    ))}
-                                                </div>
-                                            </div>
+                                {step === 3 && (
+                                    <div className="space-y-4">
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                                            {t("form.fields.opportunity.label")}
+                                        </h2>
+                                        <textarea
+                                            autoFocus
+                                            name="opportunity"
+                                            rows={3}
+                                            value={formData.opportunity}
+                                            onChange={handleInputChange}
+                                            placeholder={t("form.fields.opportunity.placeholder")}
+                                            className="block w-full text-xl sm:text-2xl bg-transparent border-0 border-b border-zinc-800 p-0 pb-4 text-white focus:ring-0 focus:border-primary placeholder:text-zinc-800 transition-all resize-none font-medium"
+                                        />
+                                    </div>
+                                )}
 
-                                            <div className="pt-4 flex justify-end">
-                                                <Button type="button" onClick={nextStep} size="sm" className="w-full sm:w-auto px-6 font-semibold">
-                                                    {t("form.next")} <ChevronRight className="w-4 h-4 ml-1.5" />
-                                                </Button>
-                                            </div>
-                                        </motion.div>
-                                    )}
-
-                                    {/* STEP 2: Offer Selection */}
-                                    {step === 2 && (
-                                        <motion.div
-                                            key="step2"
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="space-y-6"
-                                        >
-                                            <h3 className="text-lg font-bold text-white mb-4">Select Your Plan</h3>
-
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                {/* Pilot Plan */}
+                                {step === 4 && (
+                                    <div className="space-y-6">
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                                            {t("form.fields.tools.label")}
+                                        </h2>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                            {['google', 'invoice', 'crm', 'project', 'other'].map((toolKey) => (
                                                 <button
+                                                    key={toolKey}
                                                     type="button"
-                                                    onClick={() => setFormData(prev => ({ ...prev, plan: 'starter' }))}
+                                                    onClick={() => toggleTool(toolKey)}
                                                     className={cn(
-                                                        "relative flex flex-col items-start p-5 rounded-xl border transition-all text-left group hover:border-zinc-700",
-                                                        formData.plan === 'starter'
-                                                            ? "bg-zinc-800/80 border-primary shadow-lg ring-1 ring-primary/50"
-                                                            : "bg-zinc-900/50 border-zinc-800"
+                                                        "flex items-center justify-between w-full rounded-xl px-4 py-3 text-left transition-all border group",
+                                                        formData.tools.includes(toolKey)
+                                                            ? "bg-zinc-800 border-primary text-white"
+                                                            : "bg-zinc-950 border-zinc-800/50 text-zinc-500 hover:border-zinc-700 hover:text-white"
                                                     )}
                                                 >
-                                                    <div className="flex items-center justify-between w-full mb-3">
-                                                        <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-500">
-                                                            <Rocket className="w-5 h-5" />
-                                                        </div>
-                                                        {formData.plan === 'starter' && <CheckCircle2 className="w-5 h-5 text-primary" />}
+                                                    <span className="text-xs font-bold">{t(`form.fields.tools.options.${toolKey}`)}</span>
+                                                    <div className={cn(
+                                                        "w-4 h-4 rounded border flex items-center justify-center transition-colors",
+                                                        formData.tools.includes(toolKey) ? "bg-primary border-primary text-zinc-950" : "border-zinc-800 group-hover:border-zinc-700"
+                                                    )}>
+                                                        {formData.tools.includes(toolKey) && <CheckSquare className="w-3 h-3" />}
                                                     </div>
-                                                    <h4 className="text-base font-bold text-white mb-1">{tPricing("cards.starter.headline")}</h4>
-                                                    <p className="text-xs text-zinc-400 mb-2">{tPricing("cards.starter.price")}</p>
-                                                    <p className="text-[11px] text-zinc-500 leading-relaxed">
-                                                        {tPricing("cards.starter.tagline")}
-                                                    </p>
                                                 </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
 
-                                                {/* Custom Plan */}
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setFormData(prev => ({ ...prev, plan: 'custom' }))}
-                                                    className={cn(
-                                                        "relative flex flex-col items-start p-5 rounded-xl border transition-all text-left group hover:border-zinc-700",
-                                                        formData.plan === 'custom'
-                                                            ? "bg-zinc-800/80 border-white shadow-lg ring-1 ring-white/50"
-                                                            : "bg-zinc-900/50 border-zinc-800"
-                                                    )}
-                                                >
-                                                    <div className="flex items-center justify-between w-full mb-3">
-                                                        <div className="p-2 rounded-lg bg-white/10 text-white">
-                                                            <Settings2 className="w-5 h-5" />
-                                                        </div>
-                                                        {formData.plan === 'custom' && <CheckCircle2 className="w-5 h-5 text-white" />}
-                                                    </div>
-                                                    <h4 className="text-base font-bold text-white mb-1">{tPricing("cards.custom.headline")}</h4>
-                                                    <p className="text-xs text-zinc-400 mb-2">{tPricing("cards.custom.price")}</p>
-                                                    <p className="text-[11px] text-zinc-500 leading-relaxed">
-                                                        {tPricing("cards.custom.tagline")}
-                                                    </p>
-                                                </button>
-                                            </div>
-
-                                            {/* Website Addon */}
+                                {step === 5 && (
+                                    <div className="space-y-6">
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">{t("form.planFocus")}</h2>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            {/* Pilot */}
                                             <button
                                                 type="button"
-                                                onClick={() => setFormData(prev => ({ ...prev, websiteAddon: !prev.websiteAddon }))}
+                                                onClick={() => { setFormData(prev => ({ ...prev, plan: 'starter' })); setTimeout(nextStep, 300); }}
                                                 className={cn(
-                                                    "flex items-center w-full rounded-xl px-4 py-4 text-left transition-all border group",
-                                                    formData.websiteAddon
-                                                        ? "bg-zinc-800/50 border-blue-500/50 ring-1 ring-blue-500/20"
-                                                        : "bg-zinc-950/30 border-zinc-800 hover:border-zinc-700"
+                                                    "flex flex-col items-start p-5 rounded-2xl border-2 transition-all text-left group",
+                                                    formData.plan === 'starter' ? "bg-primary/5 border-primary" : "bg-zinc-950 border-zinc-800/50 hover:border-zinc-700"
                                                 )}
                                             >
-                                                <div className={cn(
-                                                    "h-5 w-5 rounded border flex items-center justify-center mr-4 transition-colors flex-shrink-0",
-                                                    formData.websiteAddon ? "bg-blue-500 border-blue-500 text-white" : "border-zinc-600 bg-zinc-900 text-transparent group-hover:border-zinc-500"
-                                                )}>
-                                                    <CheckSquare className="w-3.5 h-3.5" />
+                                                <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-500 mb-4 group-hover:scale-110 transition-transform">
+                                                    <Rocket className="w-5 h-5" />
                                                 </div>
-                                                <div className="flex-1">
-                                                    <div className="flex items-center gap-2 mb-0.5">
-                                                        <Globe className="w-3.5 h-3.5 text-blue-400" />
-                                                        <span className={cn("text-sm font-semibold", formData.websiteAddon ? "text-white" : "text-zinc-300")}>
-                                                            {t("form.fields.website")}
-                                                        </span>
-                                                    </div>
-                                                </div>
+                                                <h4 className="text-sm font-bold text-white mb-1">{tPricing("cards.starter.headline")}</h4>
+                                                <p className="text-[10px] text-zinc-500 font-medium uppercase tracking-widest">{tPricing("cards.starter.price")}</p>
                                             </button>
+                                            {/* Custom */}
+                                            <button
+                                                type="button"
+                                                onClick={() => { setFormData(prev => ({ ...prev, plan: 'custom' })); setTimeout(nextStep, 300); }}
+                                                className={cn(
+                                                    "flex flex-col items-start p-5 rounded-2xl border-2 transition-all text-left group",
+                                                    formData.plan === 'custom' ? "bg-white/5 border-white" : "bg-zinc-950 border-zinc-800/50 hover:border-zinc-700"
+                                                )}
+                                            >
+                                                <div className="p-2 rounded-lg bg-zinc-800 text-white mb-4 group-hover:scale-110 transition-transform">
+                                                    <Settings2 className="w-5 h-5" />
+                                                </div>
+                                                <h4 className="text-sm font-bold text-white mb-1">{tPricing("cards.custom.headline")}</h4>
+                                                <p className="text-[10px] text-zinc-500 font-medium uppercase tracking-widest">{tPricing("cards.custom.price")}</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
 
-                                            <div className="pt-4 flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
-                                                <Button type="button" variant="ghost" size="sm" onClick={prevStep} className="w-full sm:w-auto text-zinc-400 hover:text-white">
-                                                    <ChevronLeft className="w-4 h-4 mr-1.5" /> {t("form.back")}
-                                                </Button>
-                                                <Button type="button" onClick={nextStep} size="sm" className="w-full sm:w-auto px-6 font-semibold">
-                                                    {t("form.next")} <ChevronRight className="w-4 h-4 ml-1.5" />
-                                                </Button>
-                                            </div>
-                                        </motion.div>
-                                    )}
-
-                                    {/* STEP 3: Details */}
-                                    {step === 3 && (
-                                        <motion.div
-                                            key="step3"
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="space-y-6"
+                                {step === 6 && (
+                                    <div className="space-y-6">
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">{t("form.websiteFocus")}</h2>
+                                        <button
+                                            type="button"
+                                            onClick={() => setFormData(p => ({ ...p, websiteAddon: !p.websiteAddon }))}
+                                            className={cn(
+                                                "w-full rounded-2xl p-6 border-2 transition-all flex items-center justify-between group",
+                                                formData.websiteAddon ? "bg-blue-500/5 border-blue-500" : "bg-zinc-950 border-zinc-800/50 hover:border-zinc-700"
+                                            )}
                                         >
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div className="space-y-2">
-                                                    <label className="block text-xs font-medium text-zinc-400">
-                                                        {t("form.fields.name")} <span className="text-primary">*</span>
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        name="name"
-                                                        required
-                                                        value={formData.name}
-                                                        onChange={handleInputChange}
-                                                        className="block w-full rounded-lg border-0 bg-zinc-950 p-3 text-white shadow-sm ring-1 ring-inset ring-zinc-800 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm"
-                                                    />
+                                            <div className="flex items-center gap-5">
+                                                <div className={cn("p-3 rounded-xl transition-colors", formData.websiteAddon ? "bg-blue-500 text-white" : "bg-zinc-900 text-zinc-600")}>
+                                                    <Globe className="w-6 h-6" />
                                                 </div>
-
-                                                <div className="space-y-2">
-                                                    <label className="block text-xs font-medium text-zinc-400">
-                                                        {t("form.fields.email")} <span className="text-primary">*</span>
-                                                    </label>
-                                                    <input
-                                                        type="email"
-                                                        name="email"
-                                                        required
-                                                        value={formData.email}
-                                                        onChange={handleInputChange}
-                                                        className="block w-full rounded-lg border-0 bg-zinc-950 p-3 text-white shadow-sm ring-1 ring-inset ring-zinc-800 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm"
-                                                    />
+                                                <div className="text-left">
+                                                    <h4 className="text-lg font-bold text-white">{t("form.fields.website")}</h4>
+                                                    <p className="text-sm text-zinc-500 font-medium">{t("form.websiteDescription")}</p>
                                                 </div>
                                             </div>
-
-                                            <div className="space-y-2">
-                                                <label className="block text-xs font-medium text-zinc-400">
-                                                    {t("form.fields.message")}
-                                                </label>
-                                                <textarea
-                                                    name="message"
-                                                    rows={3}
-                                                    value={formData.message}
-                                                    onChange={handleInputChange}
-                                                    className="block w-full rounded-lg border-0 bg-zinc-950 p-3 text-white shadow-sm ring-1 ring-inset ring-zinc-800 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm resize-none"
-                                                />
+                                            <div className={cn("w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all", formData.websiteAddon ? "bg-blue-500 border-blue-500 text-white" : "border-zinc-800 group-hover:border-zinc-700 text-transparent")}>
+                                                <CheckCircle2 className="w-4 h-4" />
                                             </div>
+                                        </button>
+                                    </div>
+                                )}
 
-                                            <div className="pt-4 flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
-                                                <Button type="button" variant="ghost" size="sm" onClick={prevStep} className="w-full sm:w-auto text-zinc-400 hover:text-white">
-                                                    <ChevronLeft className="w-4 h-4 mr-1.5" /> {t("form.back")}
-                                                </Button>
-                                                <Button
-                                                    type="submit"
-                                                    disabled={isSubmitting}
-                                                    size="sm"
-                                                    className="w-full sm:w-auto px-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base min-w-[180px]"
-                                                >
-                                                    {isSubmitting ? (
-                                                        <div className="flex items-center gap-3">
-                                                            <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                                                            <span>{t("form.submitting")}</span>
-                                                        </div>
-                                                    ) : (
-                                                        t("form.submit")
-                                                    )}
-                                                </Button>
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
+                                {step === 7 && (
+                                    <div className="space-y-4">
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                                            {t("form.nameFocus")}
+                                        </h2>
+                                        <input
+                                            autoFocus
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleInputChange}
+                                            placeholder={t("form.namePlaceholder")}
+                                            className="block w-full text-xl sm:text-2xl bg-transparent border-0 border-b border-zinc-800 p-0 pb-4 text-white focus:ring-0 focus:border-primary placeholder:text-zinc-800 transition-all font-medium"
+                                        />
+                                    </div>
+                                )}
 
-                                {/* Security Footer */}
-                                <div className="mt-8 pt-4 border-t border-zinc-800/50 flex items-center justify-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
-                                    <ShieldCheck className="w-3.5 h-3.5 text-green-500 shrink-0" />
-                                    <p className="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">
-                                        {t("form.security")}
-                                    </p>
+                                {step === 8 && (
+                                    <div className="space-y-4">
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                                            {t("form.emailFocus")}
+                                        </h2>
+                                        <input
+                                            autoFocus
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            placeholder={t("form.emailPlaceholder")}
+                                            className="block w-full text-xl sm:text-2xl bg-transparent border-0 border-b border-zinc-800 p-0 pb-4 text-white focus:ring-0 focus:border-primary placeholder:text-zinc-800 transition-all font-medium"
+                                        />
+                                    </div>
+                                )}
+
+                                {step === 9 && (
+                                    <div className="space-y-4">
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">{t("form.messageFocus")}</h2>
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600 bg-zinc-950 px-2 py-1 rounded border border-zinc-800">{t("form.optional")}</span>
+                                        </div>
+                                        <textarea
+                                            autoFocus
+                                            name="message"
+                                            rows={3}
+                                            value={formData.message}
+                                            onChange={handleInputChange}
+                                            placeholder={t("form.messagePlaceholder")}
+                                            className="block w-full text-lg sm:text-xl bg-transparent border-0 border-b border-zinc-800 p-0 pb-4 text-white focus:ring-0 focus:border-primary placeholder:text-zinc-800 transition-all resize-none font-medium"
+                                        />
+                                    </div>
+                                )}
+
+                                {/* Navigation & Help */}
+                                <div className="pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                                    <div className="flex items-center gap-2">
+                                        {step > 1 && (
+                                            <button
+                                                type="button"
+                                                onClick={prevStep}
+                                                className="p-3 rounded-full bg-zinc-950 border border-zinc-800 text-zinc-500 hover:text-white hover:border-zinc-700 transition-all shadow-sm"
+                                            >
+                                                <ChevronLeft className="w-5 h-5" />
+                                            </button>
+                                        )}
+                                        <div className="flex flex-col">
+                                            <button
+                                                type="button"
+                                                onClick={nextStep}
+                                                disabled={isSubmitting}
+                                                className="group relative flex items-center gap-3 bg-primary hover:bg-white text-zinc-950 px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-xl shadow-primary/10 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50"
+                                            >
+                                                {isSubmitting ? (
+                                                    <div className="w-4 h-4 border-2 border-zinc-950/30 border-t-zinc-950 rounded-full animate-spin" />
+                                                ) : (
+                                                    <>
+                                                        {step === totalSteps ? t("form.submit") : t("form.next")}
+                                                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                    </>
+                                                )}
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center gap-4 text-zinc-600">
+                                        <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest">
+                                            <span className="px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">Enter</span>
+                                            <span>{t("form.pressToProceed")}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
+                            </motion.div>
                         )}
-                    </div>
+                    </AnimatePresence>
                 </div>
-            </motion.div>
+
+                {/* Bottom Security Footer */}
+                <div className="bg-zinc-950/50 px-8 py-4 border-t border-zinc-800/50 flex items-center gap-3">
+                    <ShieldCheck className="w-4 h-4 text-emerald-500" />
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500">
+                        {t("form.security")}
+                    </p>
+                </div>
+            </div>
         </div>
     );
 }

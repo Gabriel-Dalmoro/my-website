@@ -322,6 +322,18 @@
                         "other": "Other systems"
                     }
                 },
+                "planFocus": "Choose your focus",
+                "websiteFocus": "Need a professional site?",
+                "websiteDescription": "Add a high-converting website to your systems",
+                "nameFocus": "What's your name?",
+                "namePlaceholder": "Type your full name...",
+                "emailFocus": "And your email?",
+                "emailPlaceholder": "email@example.com",
+                "messageFocus": "Anything else?",
+                "messagePlaceholder": "Additional context, specific goals, or just a quick hello...",
+                "optional": "Optional",
+                "pressToProceed": "Press to proceed",
+                "successTitle": "Application Received",
                 "name": "Full Name",
                 "email": "Business Email",
                 "message": "Anything else I should know? (Optional)"
