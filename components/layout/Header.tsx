@@ -109,8 +109,9 @@ export default function Header() {
                 </nav>
 
                 {/* Mobile Menu Overlay */}
+                {/* Updated to be fully opaque for better readability over backdrop dots */}
                 {mobileMenuOpen && (
-                    <div className="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="lg:hidden fixed inset-0 z-50 bg-black" onClick={() => setMobileMenuOpen(false)}>
                         <div
                             className="absolute top-0 right-0 w-full sm:max-w-xs h-full bg-zinc-950 border-l border-white/10 p-6 shadow-2xl animate-in slide-in-from-right duration-300"
                             onClick={(e) => e.stopPropagation()}

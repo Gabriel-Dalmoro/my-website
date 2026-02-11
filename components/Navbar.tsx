@@ -79,7 +79,7 @@ const Navbar = () => {
       {isMenuOpen && (
         <div
           id="mobile-menu"
-          className="bg-primary-faded border-primary absolute left-0 top-0 h-auto w-full rounded-md border-2 p-4 transition-all"
+          className="bg-zinc-950 border-white/10 absolute left-0 top-0 h-auto w-full rounded-md border-2 p-4 transition-all z-50 shadow-2xl"
         >
           <nav className="mt-8 flex flex-col items-center gap-8">
             {pathname === "/work" ? (
