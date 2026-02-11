@@ -392,8 +392,8 @@ function ContactForm() {
                                 )}
 
                                 {/* Navigation & Help */}
-                                <div className="pt-8 sm:pt-12 flex flex-col sm:flex-row items-center justify-between gap-8 border-t border-white/5">
-                                    <div className="flex items-center gap-4 w-full sm:w-auto">
+                                <div className="pt-8 sm:pt-12 flex items-center justify-between gap-6">
+                                    <div className="min-w-[80px]">
                                         <AnimatePresence>
                                             {step > 1 && (
                                                 <motion.button
@@ -402,35 +402,38 @@ function ContactForm() {
                                                     exit={{ opacity: 0, scale: 0.8 }}
                                                     type="button"
                                                     onClick={prevStep}
-                                                    className="p-5 rounded-[1.25rem] bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all shadow-xl"
+                                                    className="p-4 rounded-xl bg-white/5 border border-white/10 text-zinc-500 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all group"
                                                 >
-                                                    <ChevronLeft className="w-6 h-6" />
+                                                    <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                                                 </motion.button>
                                             )}
                                         </AnimatePresence>
+                                    </div>
+
+                                    <div className="flex flex-col items-end gap-3">
                                         <motion.button
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
                                             type="button"
                                             onClick={nextStep}
                                             disabled={isSubmitting}
-                                            className="grow sm:grow-0 group relative flex items-center justify-center gap-4 bg-primary text-zinc-950 px-12 py-5 rounded-[1.25rem] font-black text-[13px] uppercase tracking-[0.25em] transition-all shadow-[0_20px_40px_-10px_rgba(255,193,7,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(255,193,7,0.4)] disabled:opacity-50"
+                                            className="grow sm:grow-0 group relative flex items-center justify-center gap-4 bg-primary text-zinc-950 px-10 py-4 rounded-xl font-black text-[11px] uppercase tracking-[0.25em] transition-all shadow-[0_20px_40px_-10px_rgba(255,193,7,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(255,193,7,0.4)] disabled:opacity-50"
                                         >
                                             {isSubmitting ? (
-                                                <div className="w-5 h-5 border-3 border-zinc-950/30 border-t-zinc-950 rounded-full animate-spin" />
+                                                <div className="w-4 h-4 border-2 border-zinc-950/30 border-t-zinc-950 rounded-full animate-spin" />
                                             ) : (
                                                 <>
                                                     {step === totalSteps ? t("submit") : t("next")}
-                                                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+                                                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                                 </>
                                             )}
                                         </motion.button>
-                                    </div>
 
-                                    <div className="hidden sm:flex items-center gap-6 text-zinc-500">
-                                        <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.25em]">
-                                            <span className="px-3 py-1.5 rounded-xl bg-white/5 text-zinc-400 border border-white/10 shadow-inner">Enter</span>
-                                            <span className="opacity-40">{t("pressToProceed")}</span>
+                                        <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-zinc-500/40 select-none mr-1">
+                                            <span>or press</span>
+                                            <span className="flex items-center justify-center min-w-[40px] h-5 px-2 rounded-md border border-white/10 bg-white/5 text-[9px] text-zinc-400 font-mono leading-none">
+                                                ENTER ↵
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
