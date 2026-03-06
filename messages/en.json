@@ -210,7 +210,7 @@
     },
     "Pricing": {
         "title": "Invest in your freedom",
-        "guarantee": "Save 8+ hours per week — or I work free until you do",
+        "guarantee": "Save 5+ hours per week — or I work free until you do",
         "cards": {
             "starter": {
                 "badge": "Entry Point",
@@ -435,6 +435,166 @@
         },
         "details": {
             "localeWarning": "This post is only available in {language}. We're working on the translation!"
+        }
+    },
+    "Footer": {
+        "rights": "All rights reserved.",
+        "legal": "Legal Notice",
+        "terms": "Terms & Conditions"
+    },
+    "Legal": {
+        "title": "Legal Notice & Privacy Policy",
+        "metaDescription": "Legal notice and privacy policy for gabrieldalmoro.com — GDPR compliant.",
+        "backHome": "Back to Home",
+        "lastUpdated": "Last updated",
+        "lastUpdatedDate": "March 6, 2026",
+        "viewTerms": "Terms & Conditions →",
+        "footerNote": "This policy was last updated on March 6, 2026. For any questions, contact gabriel@gabrieldalmoro.com.",
+        "sections": {
+            "identity": {
+                "title": "Site Identity",
+                "site": "Website",
+                "email": "Contact Email",
+                "location": "Location",
+                "status": "Legal Status",
+                "statusValue": "Sole Proprietor, registered in Alberta, Canada"
+            },
+            "dataController": {
+                "title": "Data Controller",
+                "content": "Gabriel Dalmoro is a sole proprietor registered in Alberta, Canada, currently operating from Annecy, France. He is the sole data controller for all personal data collected through this website. You can contact the data controller at gabriel@gabrieldalmoro.com."
+            },
+            "dataCollected": {
+                "title": "Data Collected",
+                "intro": "We only collect personal data that you provide voluntarily through the contact form on this website. This may include:",
+                "items": [
+                    "Your full name",
+                    "Your professional email address",
+                    "Information about your business and its needs (e.g., tools used, time spent on admin tasks)",
+                    "Any additional message you provide voluntarily"
+                ]
+            },
+            "purpose": {
+                "title": "Purpose & Legal Basis",
+                "intro": "Your personal data is processed for the following purposes, on the following legal bases:",
+                "items": [
+                    "Responding to your enquiry — Legitimate interest (Art. 6(1)(f) GDPR)",
+                    "Evaluating if a business collaboration is possible — Legitimate interest (Art. 6(1)(f) GDPR)",
+                    "Sending a proposal or quote — Pre-contractual measures (Art. 6(1)(b) GDPR)"
+                ]
+            },
+            "retention": {
+                "title": "Data Retention",
+                "content": "Your data is retained for a maximum of 3 years from your last contact, in line with GDPR best practices and applicable data protection law. If no business relationship is established, contact data is deleted within 12 months of your initial message. You may request deletion at any time."
+            },
+            "sharing": {
+                "title": "Data Sharing & Third Parties",
+                "intro": "Your data is never sold. It may be shared only with the following third-party services strictly necessary for operating this website:",
+                "items": [
+                    "Vercel (hosting) — USA, covered by Standard Contractual Clauses",
+                    "Google Workspace (email communication) — USA, covered by Standard Contractual Clauses"
+                ],
+                "note": "All third-party providers are selected for their GDPR compliance and reliability. No data is transferred to third countries without appropriate safeguards."
+            },
+            "rights": {
+                "title": "Your Rights Under GDPR",
+                "intro": "Under the General Data Protection Regulation (EU 2016/679), you have the following rights:",
+                "items": [
+                    "Right of access — request a copy of the data held about you",
+                    "Right to rectification — request correction of inaccurate data",
+                    "Right to erasure — request deletion of your data ('right to be forgotten')",
+                    "Right to restriction — request we limit how we use your data",
+                    "Right to data portability — request your data in a portable format",
+                    "Right to object — object to processing based on legitimate interests",
+                    "Right to withdraw consent — where processing is based on consent"
+                ],
+                "exercise": "To exercise any of these rights, contact the data controller directly:"
+            },
+            "cookies": {
+                "title": "Cookies & Analytics",
+                "content": "This website uses Vercel Analytics and Speed Insights for anonymous, aggregated performance monitoring. No personal data is collected through these tools. Microsoft Clarity is used for anonymous session analysis to improve user experience. No cookies requiring consent are used. You may block analytics via your browser settings."
+            },
+            "hosting": {
+                "title": "Hosting",
+                "content": "This website is hosted by Vercel Inc. Vercel processes data in accordance with EU Standard Contractual Clauses to ensure GDPR compliance for international data transfers."
+            },
+            "complaints": {
+                "title": "Complaints & Supervisory Authority",
+                "content": "If you believe your data protection rights have been violated, you have the right to lodge a complaint with the French data protection authority (CNIL), the competent supervisory authority for France:"
+            }
+        }
+    },
+    "Terms": {
+        "title": "Terms & Conditions",
+        "metaDescription": "Terms and conditions governing the freelance services provided by Gabriel Dalmoro.",
+        "badge": "Service Agreement",
+        "backHome": "Back to Home",
+        "lastUpdated": "Last updated",
+        "lastUpdatedDate": "March 6, 2026",
+        "viewLegal": "Legal Notice & Privacy Policy →",
+        "footerNote": "These terms are governed by the laws of the Province of Alberta, Canada. Last updated: March 6, 2026.",
+        "intro": "These Terms & Conditions govern the provision of freelance automation, software engineering, and related services by Gabriel Dalmoro (\"the Service Provider\") to clients (\"the Client\"). By engaging the Service Provider's services, you agree to be bound by these terms.",
+        "sections": {
+            "services": {
+                "title": "Services Provided",
+                "content": "Gabriel Dalmoro offers business automation, custom software engineering, workflow design, system integration, and related digital services on a freelance basis. The specific scope, deliverables, timelines, and pricing for each engagement are agreed upon in writing prior to commencement of work (via proposal, quote, or statement of work)."
+            },
+            "acceptance": {
+                "title": "Acceptance of Terms",
+                "content": "These terms apply to all service engagements unless a separate written agreement is in place. By signing a proposal, paying a deposit, or instructing work to begin, the Client accepts these terms in full. If you do not agree, do not engage the services."
+            },
+            "obligations": {
+                "title": "Client Obligations",
+                "intro": "To ensure a successful engagement, the Client agrees to:",
+                "items": [
+                    "Provide timely, accurate, and complete information and access to systems required for the work",
+                    "Designate a point of contact to provide feedback and approvals within agreed timeframes",
+                    "Respect the agreed payment schedule",
+                    "Not request changes outside the agreed scope without a written change order"
+                ]
+            },
+            "payment": {
+                "title": "Pricing & Payment",
+                "content": "All prices are quoted in Euros (€) and are exclusive of any applicable VAT. Payment terms are as follows:",
+                "items": [
+                    "A deposit (typically 40%) is due before work begins",
+                    "A midpoint payment (typically 30%) is due upon milestone delivery",
+                    "The final payment (typically 30%) is due upon project completion",
+                    "Invoices are due within 14 days of issue",
+                    "Late payments will accrue interest at 2% per month (24% per annum), compounded monthly, as permitted under Alberta law"
+                ]
+            },
+            "ip": {
+                "title": "Intellectual Property",
+                "content": "Upon receipt of full payment, the Client receives a full license to use all custom deliverables created for them. The Service Provider retains the right to use general knowledge, techniques, and methodologies. The Service Provider retains all rights to pre-existing tools, libraries, and frameworks used in the work. The Service Provider may mention the engagement in their portfolio unless the Client requests confidentiality in writing."
+            },
+            "confidentiality": {
+                "title": "Confidentiality",
+                "content": "Both parties agree to maintain the confidentiality of any sensitive business information shared during the engagement. The Service Provider will not disclose Client data, proprietary processes, or trade secrets to third parties. This obligation survives the end of the engagement."
+            },
+            "guarantee": {
+                "title": "Results Guarantee",
+                "content": "For eligible automation projects, Gabriel Dalmoro guarantees that the delivered system will save the Client a minimum of 5 hours per week, as measured against the Client's baseline prior to the engagement. If this outcome is not achieved within 60 days of delivery through no fault of the Client, the Service Provider will continue to improve and optimise the system at no additional charge until the guarantee is met. This guarantee applies only to the agreed scope of automation and requires that the Client's environment and processes remain substantially unchanged."
+            },
+            "liability": {
+                "title": "Limitation of Liability",
+                "content": "The Service Provider's total liability for any claim arising from an engagement shall not exceed the total fees paid by the Client for that engagement. The Service Provider is not liable for indirect, consequential, or incidental damages, including loss of business, loss of data, or lost profits. The Service Provider is not responsible for failures caused by third-party services, client infrastructure, or changes in the client's environment."
+            },
+            "termination": {
+                "title": "Termination",
+                "content": "Either party may terminate an engagement by providing 14 days' written notice. In the event of termination, the Client will be invoiced for all work completed up to the date of termination. Deposits are non-refundable unless the Service Provider fails to commence the agreed work. The Service Provider may terminate immediately in the event of non-payment exceeding 30 days or a material breach of these terms."
+            },
+            "law": {
+                "title": "Governing Law & Jurisdiction",
+                "content": "These Terms are governed by the laws of the Province of Alberta and the applicable federal laws of Canada, without regard to conflict of law principles. In the event of a dispute that cannot be resolved amicably, the parties submit to the exclusive jurisdiction of the courts of Alberta, Canada. Notwithstanding the foregoing, clients based in the European Union retain all mandatory rights under their applicable local consumer protection law, which these Terms do not seek to override."
+            },
+            "modifications": {
+                "title": "Modifications",
+                "content": "The Service Provider reserves the right to update these Terms at any time. The version in effect at the time of an engagement's commencement governs that specific engagement. Clients are encouraged to review these terms before entering into a new agreement."
+            },
+            "contact": {
+                "title": "Contact",
+                "content": "For any questions regarding these Terms & Conditions, please contact:"
+            }
         }
     }
 }

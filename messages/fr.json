@@ -187,7 +187,7 @@
     },
     "Pricing": {
         "title": "Investissez dans votre liberté",
-        "guarantee": "Économisez 8+ heures par semaine — ou je travaille gratuitement jusqu'à ce que ce soit le cas",
+        "guarantee": "Économisez 5+ heures par semaine — ou je travaille gratuitement jusqu'à ce que ce soit le cas",
         "cards": {
             "starter": {
                 "badge": "Point d'entrée",
@@ -377,5 +377,165 @@
     "CTA": {
         "headline": "Prêt à récupérer votre temps ?",
         "button": "Places limitées ce mois-ci – Audit Gratuit →"
+    },
+    "Footer": {
+        "rights": "Tous droits réservés.",
+        "legal": "Mentions Légales",
+        "terms": "CGV"
+    },
+    "Legal": {
+        "title": "Mentions Légales & Politique de Confidentialité",
+        "metaDescription": "Mentions légales et politique de confidentialité de gabrieldalmoro.com — conforme au RGPD.",
+        "backHome": "Retour à l'accueil",
+        "lastUpdated": "Dernière mise à jour",
+        "lastUpdatedDate": "6 mars 2026",
+        "viewTerms": "Conditions Générales de Vente →",
+        "footerNote": "Cette politique a été mise à jour le 6 mars 2026. Pour toute question, contactez gabriel@gabrieldalmoro.com.",
+        "sections": {
+            "identity": {
+                "title": "Identification du Site",
+                "site": "Site Web",
+                "email": "Email de contact",
+                "location": "Localisation",
+                "status": "Statut juridique",
+                "statusValue": "Travailleur autonome, enregistré en Alberta, Canada"
+            },
+            "dataController": {
+                "title": "Responsable du traitement",
+                "content": "Gabriel Dalmoro est un travailleur autonome enregistré en Alberta, Canada, et opère depuis Annecy, France. Il est le seul responsable du traitement des données personnelles collectées via ce site. Vous pouvez le contacter à gabriel@gabrieldalmoro.com."
+            },
+            "dataCollected": {
+                "title": "Données collectées",
+                "intro": "Nous collectons uniquement les données personnelles que vous nous fournissez volontairement via le formulaire de contact du site. Il peut s'agir de :",
+                "items": [
+                    "Votre nom et prénom",
+                    "Votre adresse email professionnelle",
+                    "Des informations sur votre entreprise et ses besoins (outils utilisés, temps passé sur les tâches administratives)",
+                    "Tout message complémentaire que vous fournissez volontairement"
+                ]
+            },
+            "purpose": {
+                "title": "Finalités & Base légale",
+                "intro": "Vos données personnelles sont traitées aux fins suivantes, sur les bases légales correspondantes :",
+                "items": [
+                    "Répondre à votre demande de contact — Intérêt légitime (Art. 6(1)(f) RGPD)",
+                    "Évaluer la possibilité d'une collaboration commerciale — Intérêt légitime (Art. 6(1)(f) RGPD)",
+                    "Envoyer un devis ou une proposition — Mesures précontractuelles (Art. 6(1)(b) RGPD)"
+                ]
+            },
+            "retention": {
+                "title": "Durée de conservation",
+                "content": "Vos données sont conservées au maximum 3 ans à compter de votre dernier contact, conformément aux meilleures pratiques RGPD et au droit applicable en matière de protection des données. En l'absence de relation commerciale établie, les données de contact sont supprimées dans les 12 mois suivant votre premier message. Vous pouvez demander leur suppression à tout moment."
+            },
+            "sharing": {
+                "title": "Partage des données & Tiers",
+                "intro": "Vos données ne sont jamais vendues. Elles peuvent être partagées uniquement avec les services tiers strictement nécessaires au fonctionnement du site :",
+                "items": [
+                    "Vercel (hébergement) — États-Unis, encadré par des Clauses Contractuelles Types",
+                    "Google Workspace (communication par email) — États-Unis, encadré par des Clauses Contractuelles Types"
+                ],
+                "note": "Tous les prestataires tiers sont sélectionnés pour leur conformité au RGPD et leur fiabilité. Aucune donnée n'est transférée vers des pays tiers sans garanties appropriées."
+            },
+            "rights": {
+                "title": "Vos droits au titre du RGPD",
+                "intro": "Conformément au Règlement Général sur la Protection des Données (UE 2016/679), vous disposez des droits suivants :",
+                "items": [
+                    "Droit d'accès — demander une copie des données vous concernant",
+                    "Droit de rectification — demander la correction de données inexactes",
+                    "Droit à l'effacement — demander la suppression de vos données ('droit à l'oubli')",
+                    "Droit à la limitation du traitement — demander à limiter l'utilisation de vos données",
+                    "Droit à la portabilité — demander vos données dans un format portable",
+                    "Droit d'opposition — vous opposer au traitement fondé sur un intérêt légitime",
+                    "Droit de retrait du consentement — lorsque le traitement est fondé sur votre consentement"
+                ],
+                "exercise": "Pour exercer l'un de ces droits, contactez directement le responsable du traitement :"
+            },
+            "cookies": {
+                "title": "Cookies & Analytiques",
+                "content": "Ce site utilise Vercel Analytics et Speed Insights pour un suivi de performance anonyme et agrégé. Aucune donnée personnelle n'est collectée via ces outils. Microsoft Clarity est utilisé pour une analyse anonyme des sessions afin d'améliorer l'expérience utilisateur. Aucun cookie nécessitant un consentement n'est utilisé. Vous pouvez bloquer les outils d'analyse via les paramètres de votre navigateur."
+            },
+            "hosting": {
+                "title": "Hébergement",
+                "content": "Ce site est hébergé par Vercel Inc. Vercel traite les données conformément aux Clauses Contractuelles Types de l'UE pour assurer la conformité RGPD des transferts internationaux de données."
+            },
+            "complaints": {
+                "title": "Réclamations & Autorité de contrôle",
+                "content": "Si vous estimez que vos droits en matière de protection des données n'ont pas été respectés, vous avez le droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés), autorité de contrôle compétente pour la France :"
+            }
+        }
+    },
+    "Terms": {
+        "title": "Conditions Générales de Vente",
+        "metaDescription": "Conditions générales régissant les prestations de services freelance de Gabriel Dalmoro.",
+        "badge": "Contrat de Prestation",
+        "backHome": "Retour à l'accueil",
+        "lastUpdated": "Dernière mise à jour",
+        "lastUpdatedDate": "6 mars 2026",
+        "viewLegal": "Mentions Légales & Confidentialité →",
+        "footerNote": "Ces CGV sont régies par le droit de la province d'Alberta, Canada. Dernière mise à jour : 6 mars 2026.",
+        "intro": "Les présentes Conditions Générales de Vente régissent la fourniture des services freelance d'automatisation, d'ingénierie logicielle et services connexes par Gabriel Dalmoro (\"le Prestataire\") à ses clients (\"le Client\"). En faisant appel aux services du Prestataire, vous acceptez d'être lié(e) par ces conditions.",
+        "sections": {
+            "services": {
+                "title": "Services proposés",
+                "content": "Gabriel Dalmoro propose des services d'automatisation business, d'ingénierie logicielle sur mesure, de conception de workflows, d'intégration de systèmes et de services digitaux connexes, à titre freelance. Le périmètre spécifique, les livrables, les délais et les tarifs de chaque mission sont convenus par écrit avant le début des travaux (via devis, proposition ou cahier des charges)."
+            },
+            "acceptance": {
+                "title": "Acceptation des conditions",
+                "content": "Ces conditions s'appliquent à toutes les missions de service, sauf accord écrit distinct. En signant un devis, en versant un acompte ou en donnant instruction de commencer les travaux, le Client accepte l'intégralité de ces conditions. En cas de désaccord, veuillez ne pas recourir aux services."
+            },
+            "obligations": {
+                "title": "Obligations du Client",
+                "intro": "Pour assurer le bon déroulement de la mission, le Client s'engage à :",
+                "items": [
+                    "Fournir dans les délais des informations exactes et complètes ainsi que les accès aux systèmes nécessaires",
+                    "Désigner un interlocuteur chargé de fournir des retours et des validations dans les délais convenus",
+                    "Respecter le calendrier de paiement convenu",
+                    "Ne pas demander de modifications hors périmètre sans bon de commande écrit complémentaire"
+                ]
+            },
+            "payment": {
+                "title": "Tarifs & Paiement",
+                "content": "Tous les prix sont exprimés en Euros (€) hors taxes applicables. Les conditions de paiement sont les suivantes :",
+                "items": [
+                    "Un acompte (généralement 40 %) est dû avant le début des travaux",
+                    "Un paiement intermédiaire (généralement 30 %) est dû à la livraison du jalon",
+                    "Le solde (généralement 30 %) est dû à la livraison finale",
+                    "Les factures sont payables sous 14 jours à compter de leur émission",
+                    "Les retards de paiement donnent lieu à des intérêts au taux de 2 % par mois (24 % par an), composés mensuellement, conformément au droit applicable en Alberta"
+                ]
+            },
+            "ip": {
+                "title": "Propriété intellectuelle",
+                "content": "Après paiement intégral, le Client bénéficie d'une licence complète pour utiliser l'ensemble des livrables créés pour lui. Le Prestataire conserve le droit d'utiliser les connaissances générales, techniques et méthodologies. Le Prestataire conserve tous droits sur les outils, bibliothèques et frameworks préexistants utilisés. Le Prestataire pourra mentionner la mission dans son portfolio, sauf demande expresse de confidentialité du Client par écrit."
+            },
+            "confidentiality": {
+                "title": "Confidentialité",
+                "content": "Les deux parties s'engagent à maintenir la confidentialité de toute information commerciale sensible échangée dans le cadre de la mission. Le Prestataire ne divulguera pas les données du Client, ses processus propriétaires ou ses secrets commerciaux à des tiers. Cette obligation survit à la fin de la mission."
+            },
+            "guarantee": {
+                "title": "Garantie de résultats",
+                "content": "Pour les projets d'automatisation éligibles, Gabriel Dalmoro garantit que le système livré permettra au Client d'économiser au minimum 5 heures par semaine, mesurées par rapport à la situation initiale du Client avant la mission. Si ce résultat n'est pas atteint dans les 60 jours suivant la livraison, sans faute du Client, le Prestataire continuera à améliorer et optimiser le système sans frais supplémentaires jusqu'à ce que la garantie soit satisfaite. Cette garantie s'applique uniquement au périmètre d'automatisation convenu et requiert que l'environnement et les processus du Client restent substantiellement inchangés."
+            },
+            "liability": {
+                "title": "Limitation de responsabilité",
+                "content": "La responsabilité totale du Prestataire pour toute réclamation relative à une mission ne pourra excéder le montant total des honoraires versés par le Client pour cette mission. Le Prestataire n'est pas responsable des dommages indirects, consécutifs ou accidentels, y compris la perte de clientèle, la perte de données ou le manque à gagner. Le Prestataire n'est pas responsable des défaillances causées par des services tiers, l'infrastructure du Client ou des modifications de l'environnement du Client."
+            },
+            "termination": {
+                "title": "Résiliation",
+                "content": "L'une ou l'autre des parties peut mettre fin à une mission moyennant un préavis écrit de 14 jours. En cas de résiliation, le Client sera facturé pour l'ensemble des travaux réalisés jusqu'à la date de résiliation. Les acomptes ne sont pas remboursables, sauf si le Prestataire n'a pas commencé les travaux convenus. Le Prestataire peut résilier immédiatement en cas de défaut de paiement supérieur à 30 jours ou de manquement grave aux présentes conditions."
+            },
+            "law": {
+                "title": "Droit applicable & Juridiction",
+                "content": "Les présentes CGV sont régies par le droit de la province d'Alberta et les lois fédérales applicables du Canada, sans égard aux règles de conflit de lois. En cas de litige ne pouvant être résolu à l'amiable, les parties se soumettent à la compétence exclusive des tribunaux de l'Alberta, Canada. Nonobstant ce qui précède, les clients basés dans l'Union européenne conservent l'ensemble des droits obligatoires prévus par leur droit local de protection des consommateurs, auxquels les présentes CGV ne sauraient déroger."
+            },
+            "modifications": {
+                "title": "Modifications",
+                "content": "Le Prestataire se réserve le droit de modifier les présentes CGV à tout moment. La version en vigueur au moment du début d'une mission régit cette mission spécifique. Les clients sont invités à consulter ces conditions avant de conclure un nouvel accord."
+            },
+            "contact": {
+                "title": "Contact",
+                "content": "Pour toute question relative aux présentes Conditions Générales de Vente, veuillez contacter :"
+            }
+        }
     }
 }

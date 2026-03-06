@@ -20,6 +20,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
     ]);
 
+    const legalRoutes = ["/legal", "/terms"].flatMap((route) => [
+        {
+            url: `${baseUrl}/en${route}`,
+            lastModified: new Date(),
+            changeFrequency: "yearly" as const,
+            priority: 0.3,
+        },
+        {
+            url: `${baseUrl}/fr${route}`,
+            lastModified: new Date(),
+            changeFrequency: "yearly" as const,
+            priority: 0.3,
+        },
+    ]);
+
     // Fetch all posts from Sanity
     // We fetch slug and locale to build precise URLs
     const query = `*[_type == "post"] {
@@ -43,5 +58,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Continue with static routes only if Sanity fails (e.g. missing env vars during build)
     }
 
-    return [...routes, ...postRoutes];
+    return [...routes, ...legalRoutes, ...postRoutes];
 }

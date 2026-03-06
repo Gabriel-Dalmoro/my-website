@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
         },
         marks: {
             link: ({ children, value }: any) => {
-                console.log("Link value:", value);
+                // Removed unused log
                 const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
                 const target = value.openInNewTab ? '_blank' : undefined;
 
