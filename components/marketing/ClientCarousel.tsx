@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowLeft, ArrowRight, Play, Pause } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import BrowserFrame from "@/components/marketing/BrowserFrame";
@@ -18,6 +18,7 @@ const PROJECTS = [
 
 export default function ClientCarousel() {
     const t = useTranslations("ClientShowcase");
+    const locale = useLocale();
     const [activeIndex, setActiveIndex] = useState(0);
     const [direction, setDirection] = useState(0);
 
@@ -62,11 +63,10 @@ export default function ClientCarousel() {
         })
     };
 
-    const getVideoSrc = (id: string) => {
-        // Map project IDs to video sources - Only Elisa has a video for now
+    // Returns YouTube video ID for each project, empty string if none yet
+    const getVideoId = (id: string) => {
         switch (id) {
-            case "operations": return "/video/Elisa_projectDEMO.mp4";
-            // Other projects don't have videos yet
+            case "operations": return "ifEZ0NNcEv0";
             default: return "";
         }
     };
@@ -130,27 +130,14 @@ export default function ClientCarousel() {
                                     {/* Subtle Yellow Glow Behind Video */}
                                     <div className="absolute -inset-4 bg-[#FFD700]/5 blur-3xl rounded-full -z-10 opacity-50"></div>
                                     <div className="relative w-full h-full bg-black/40 group rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
-                                        {getVideoSrc(activeProject.id) ? (
-                                            <video
-                                                className="w-full h-full object-cover"
-                                                controls
-                                                playsInline
-                                                src={getVideoSrc(activeProject.id)}
-                                            >
-                                                <track
-                                                    src="/video/Elisa_projectDEMO - en.vtt"
-                                                    kind="subtitles"
-                                                    srcLang="en"
-                                                    label="English"
-                                                    default
-                                                />
-                                                <track
-                                                    src="/video/Elisa_projectDEMO - fr.vtt"
-                                                    kind="subtitles"
-                                                    srcLang="fr"
-                                                    label="Français"
-                                                />
-                                            </video>
+                                        {getVideoId(activeProject.id) ? (
+                                            <iframe
+                                                className="w-full h-full rounded-xl"
+                                                src={`https://www.youtube.com/embed/${getVideoId(activeProject.id)}?rel=0&cc_load_policy=1&hl=${locale}`}
+                                                title={`${t(`${activeProject.id}.clientName`)} — Case Study`}
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowFullScreen
+                                            />
                                         ) : (
                                             <div className="flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-700">
                                                 <div className="px-6 py-3 rounded-full bg-[#FFD700]/10 border border-[#FFD700]/30 backdrop-blur-md shadow-[0_0_20px_rgba(255,215,0,0.2)]">

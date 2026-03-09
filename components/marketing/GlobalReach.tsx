@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
-const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const geoUrl = "/data/countries-110m.json";
 
 // Coordinates: [Longitude, Latitude]
 const markers = [
@@ -128,7 +128,7 @@ export default function GlobalReach() {
                         <p
                             key={activeLang}
                             className="text-2xl sm:text-3xl text-zinc-200 font-handwriting italic text-center animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-2xl leading-relaxed"
-                            style={{ fontFamily: "'Caveat', cursive" }}
+                            style={{ fontFamily: "var(--font-caveat), cursive" }}
                         >
                             "{languageDemos[activeLang].text}"
                         </p>

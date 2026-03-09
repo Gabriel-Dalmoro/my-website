@@ -1,12 +1,15 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/marketing/Hero";
 import TechStack from "@/components/marketing/TechStack";
 import ProblemSection from "@/components/marketing/ProblemSection";
-import ServiceCards from "@/components/marketing/ServiceCards";
-import Testimonials from "@/components/marketing/Testimonials";
-import ClientCarousel from "@/components/marketing/ClientCarousel";
-import AboutMe from "@/components/marketing/AboutMe";
-import GlobalReach from "@/components/marketing/GlobalReach";
-import FinalCTA from "@/components/marketing/FinalCTA";
+
+// Below-fold sections: code-split to reduce initial JS bundle
+const ServiceCards = dynamic(() => import("@/components/marketing/ServiceCards"));
+const ClientCarousel = dynamic(() => import("@/components/marketing/ClientCarouselLazy"));
+const Testimonials = dynamic(() => import("@/components/marketing/Testimonials"));
+const GlobalReach = dynamic(() => import("@/components/marketing/GlobalReachLazy"));
+const AboutMe = dynamic(() => import("@/components/marketing/AboutMe"));
+const FinalCTA = dynamic(() => import("@/components/marketing/FinalCTA"));
 
 export default function MarketingPage() {
   return (

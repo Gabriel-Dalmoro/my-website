@@ -5,7 +5,13 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "../../i18n/routing";
 import "../globals.css";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Caveat } from "next/font/google";
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+});
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Clarity from "@/components/analytics/Clarity";
@@ -20,7 +26,6 @@ export const metadata: Metadata = {
   description:
     "I build systems that do the work for you. Save 20+ hours a week and scale your business with custom AI & Automation solutions.",
   alternates: {
-    canonical: "/",
     languages: {
       en: "/en",
       fr: "/fr",
@@ -88,7 +93,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="dark">
+    <html lang={locale} className={`dark ${caveat.variable}`}>
       <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider messages={messages}>
           <main>{children}</main>
