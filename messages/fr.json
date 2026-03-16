@@ -378,6 +378,80 @@
         "headline": "Prêt à récupérer votre temps ?",
         "button": "Places limitées ce mois-ci – Audit Gratuit →"
     },
+    "Chef": {
+        "Hero": {
+            "badge": "Pour les Chefs et Traiteurs",
+            "hook": "Moins d'admin. Plus de cuisine.",
+            "solution": "Je gère vos réservations, factures et papiers.",
+            "description": "Économisez 10+ heures par semaine sur l'admin. Restez dans votre cuisine.",
+            "cta": "Voir comment ça marche pour les chefs →"
+        },
+        "SocialProof": {
+            "label": "Résultats réels pour Elisa Batch Cooking — Cheffe professionnelle",
+            "stat0value": "520+",
+            "stat0label": "heures économisées par an",
+            "stat1value": "10+",
+            "stat1label": "heures libérées chaque semaine",
+            "stat2value": "100%",
+            "stat2label": "facturation automatisée"
+        },
+        "Problem": {
+            "label": "Le Problème",
+            "headline": "Vous cuisinez. Mais les papiers ne s'arrêtent jamais.",
+            "subheadline": "Chaque prestation amène une pile d'admin. Emails. Factures. Relances. Ça prend des heures — chaque semaine.",
+            "pain0emoji": "📨",
+            "pain0": "Des emails dans tous les sens juste pour confirmer une date",
+            "pain1emoji": "🧾",
+            "pain1": "Taper les factures à la main après chaque prestation",
+            "pain2emoji": "📋",
+            "pain2": "Les clients qui envoient leurs besoins par SMS ou DM",
+            "pain3emoji": "📞",
+            "pain3": "Relancer soi-même les factures impayées"
+        },
+        "Services": {
+            "label": "La Solution",
+            "headline": "Je gère l'ennuyeux. Vous cuisinez.",
+            "subheadline": "Des systèmes simples faits pour les chefs et traiteurs.",
+            "card0name": "Noyé dans les emails de réservation ?",
+            "card0description": "Les clients réservent et paient en ligne. Votre agenda se remplit tout seul. Fini les allers-retours.",
+            "card1name": "Vous tapez vos factures à la main ?",
+            "card1description": "Après chaque prestation, une facture part toute seule. Vous êtes payé plus vite. Zéro effort de votre part.",
+            "card2name": "Vous courez après les demandes de menus ?",
+            "card2description": "Les clients remplissent leurs besoins en ligne. Allergies, nombre de personnes, détails — tout est enregistré pour vous."
+        },
+        "CaseStudy": {
+            "label": "Étude de Cas",
+            "clientName": "Elisa Batch Cooking",
+            "location": "Cheffe professionnelle — Annecy, France",
+            "beforeLabel": "Avant",
+            "before0": "Factures tapées à la main après chaque prestation",
+            "before1": "Réservations par WhatsApp ou email",
+            "before2": "Suivi des paiements dans un tableur",
+            "before3": "10+ heures d'admin par semaine",
+            "afterLabel": "Après",
+            "after0": "Factures envoyées automatiquement",
+            "after1": "Clients qui réservent et paient en ligne",
+            "after2": "Paiements mis à jour tout seuls",
+            "after3": "520+ heures économisées par an",
+            "impactValue": "520+",
+            "impactLabel": "Heures Économisées / An",
+            "impactNote": "Soit 10+ heures récupérées chaque semaine.",
+            "cta": "Voir si je peux faire pareil pour vous",
+            "videoTitle": "Voir comment ça marche"
+        },
+        "Testimonial": {
+            "headline": "Ce qu'une cheffe en dit",
+            "body": "Gabriel a pris en charge tout mon administratif. <bold>Ça me fait gagner des heures chaque semaine.</bold> Tout est simple — pour moi et pour mes clients. <bold>Je le recommande les yeux fermés.</bold>",
+            "author": "Elisa Curtelin",
+            "role": "Fondatrice, Elisa Batch Cooking"
+        },
+        "CTA": {
+            "headline": "Arrêtez de faire les papiers.",
+            "description": "Réservez un appel gratuit de 30 minutes. Je vous montre ce que je peux gérer pour vous — et combien de temps vous allez récupérer.",
+            "button": "Obtenir votre audit gratuit →",
+            "note": "Sans engagement. Sans jargon. Juste un plan clair."
+        }
+    },
     "Footer": {
         "rights": "Tous droits réservés.",
         "legal": "Mentions Légales",
