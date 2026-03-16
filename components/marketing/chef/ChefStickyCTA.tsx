@@ -27,7 +27,7 @@ export default function ChefStickyCTA() {
                     </p>
                     <Link
                         href="/contact"
-                        className="ml-auto flex-shrink-0 rounded-lg bg-amber-500 px-5 py-2.5 text-sm font-bold text-black hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20 active:scale-95"
+                        className="ml-auto flex-shrink-0 rounded-lg bg-yellow-500 px-5 py-2.5 text-sm font-bold text-black hover:bg-yellow-400 transition-colors shadow-lg shadow-yellow-500/20 active:scale-95"
                     >
                         {t("button")}
                     </Link>

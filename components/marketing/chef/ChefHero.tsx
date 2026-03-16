@@ -20,7 +20,7 @@ export default function ChefHero() {
 
             <div className="relative z-10 flex flex-col items-center px-6 lg:px-8">
                 {/* Niche badge */}
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-400">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-1.5 text-sm font-medium text-yellow-400">
                     <span>🍽️</span>
                     <span>{t("badge")}</span>
                 </div>
@@ -48,7 +48,7 @@ export default function ChefHero() {
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Link href="/contact">
-                    <PulsatingButton className="px-8 py-3 text-lg font-bold" pulseColor="#F59E0B">
+                    <PulsatingButton className="px-8 py-3 text-lg font-bold" pulseColor="#EAB308">
                         {t("cta")}
                     </PulsatingButton>
                 </Link>

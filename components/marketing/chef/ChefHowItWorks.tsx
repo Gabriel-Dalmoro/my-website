@@ -41,14 +41,14 @@ export default function ChefHowItWorks() {
 
                 <div className="relative grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8 max-w-5xl mx-auto">
                     {/* Connecting line on desktop */}
-                    <div className="hidden md:block absolute top-10 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-zinc-700 via-amber-500/30 to-zinc-700" />
+                    <div className="hidden md:block absolute top-10 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-zinc-700 via-yellow-500/30 to-zinc-700" />
 
                     {steps.map((step, i) => (
                         <div key={step.number} className="relative flex flex-col items-center text-center">
                             {/* Number badge */}
-                            <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border border-amber-500/30 bg-zinc-900 shadow-[0_0_30px_rgba(245,158,11,0.1)] mb-6">
+                            <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border border-yellow-500/30 bg-zinc-900 shadow-[0_0_30px_rgba(234,179,8,0.1)] mb-6">
                                 <span className="text-3xl">{step.emoji}</span>
-                                <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 text-xs font-black text-black">
+                                <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500 text-xs font-black text-black">
                                     {i + 1}
                                 </span>
                             </div>

@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import ChefHero from "@/components/marketing/chef/ChefHero";
 import ChefSocialProof from "@/components/marketing/chef/ChefSocialProof";
 import ChefProblem from "@/components/marketing/chef/ChefProblem";
-import CulinaryDivider from "@/components/marketing/chef/CulinaryDivider";
 
 const ChefDayInLife = dynamic(() => import("@/components/marketing/chef/ChefDayInLife"));
 const ChefServices = dynamic(() => import("@/components/marketing/chef/ChefServices"));
@@ -33,14 +32,11 @@ export default function ChefLandingPage() {
             <main className="isolate">
                 <ChefHero />
                 <ChefSocialProof />
-                <CulinaryDivider />
                 <ChefDayInLife />
                 <ChefProblem />
                 <ChefServices />
-                <CulinaryDivider />
                 <ChefHowItWorks />
                 <ChefToolsStrip />
-                <CulinaryDivider />
                 <ChefCaseStudy />
                 <ChefTestimonial />
                 <ChefROIEstimator />

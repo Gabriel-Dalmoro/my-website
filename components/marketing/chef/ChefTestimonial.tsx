@@ -10,7 +10,7 @@ export default function ChefTestimonial() {
 
     const body = t.rich("body", {
         bold: (chunks) => (
-            <strong className="text-white font-bold underline decoration-amber-500/60 decoration-2 underline-offset-2">
+            <strong className="text-white font-bold underline decoration-yellow-500/60 decoration-2 underline-offset-2">
                 {chunks}
             </strong>
         ),
@@ -28,7 +28,7 @@ export default function ChefTestimonial() {
                 {/* Handwritten pull quote using Caveat font */}
                 <div className="text-center mb-8">
                     <p
-                        className="text-4xl sm:text-5xl text-amber-400/80"
+                        className="text-4xl sm:text-5xl text-yellow-400/80"
                         style={{ fontFamily: "var(--font-caveat)" }}
                     >
                         &ldquo;520+ hours back.&rdquo;
@@ -36,7 +36,7 @@ export default function ChefTestimonial() {
                 </div>
 
                 <div className="mx-auto max-w-3xl">
-                    <StarBorder as="div" className="w-full rounded-3xl bg-zinc-950 overflow-hidden" color="#F59E0B" speed="4s">
+                    <StarBorder as="div" className="w-full rounded-3xl bg-zinc-950 overflow-hidden" color="#EAB308" speed="4s">
                         <div className="bg-zinc-900 p-8 sm:p-12 rounded-3xl relative">
                             <div className="absolute top-6 left-6 text-zinc-800 pointer-events-none">
                                 <Quote className="w-10 h-10 sm:w-12 sm:h-12 opacity-50" />
@@ -49,7 +49,7 @@ export default function ChefTestimonial() {
 
                                 <figcaption className="mt-8 flex flex-col items-center gap-4">
                                     <div className="flex items-center justify-center gap-x-4">
-                                        <div className="relative h-12 w-12 overflow-hidden rounded-full bg-zinc-800 ring-2 ring-amber-500/20 shrink-0">
+                                        <div className="relative h-12 w-12 overflow-hidden rounded-full bg-zinc-800 ring-2 ring-yellow-500/20 shrink-0">
                                             <Image
                                                 src="/avatar_female.png"
                                                 alt={t("author")}
