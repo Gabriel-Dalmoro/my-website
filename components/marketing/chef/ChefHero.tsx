@@ -14,12 +14,13 @@ export default function ChefHero() {
                 <DotGrid baseColor="#333" style={{}} />
             </div>
 
-            {/* Ambient Glow */}
-            <div className="absolute top-1/2 left-1/2 -z-10 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/10 blur-[120px]"></div>
+            {/* Warm Amber Glow — two overlapping blobs */}
+            <div className="absolute top-1/2 left-1/2 -z-10 h-[350px] w-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/10 blur-[100px]" />
+            <div className="absolute top-1/2 left-1/2 -z-10 h-[250px] w-[350px] -translate-x-[40%] -translate-y-[60%] rounded-full bg-orange-500/8 blur-[80px]" />
 
             <div className="relative z-10 flex flex-col items-center px-6 lg:px-8">
                 {/* Niche badge */}
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-1.5 text-sm font-medium text-yellow-400">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-400">
                     <span>🍽️</span>
                     <span>{t("badge")}</span>
                 </div>
@@ -47,7 +48,7 @@ export default function ChefHero() {
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Link href="/contact">
-                    <PulsatingButton className="px-8 py-3 text-lg font-bold" pulseColor="#EAB308">
+                    <PulsatingButton className="px-8 py-3 text-lg font-bold" pulseColor="#F59E0B">
                         {t("cta")}
                     </PulsatingButton>
                 </Link>

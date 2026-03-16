@@ -509,6 +509,49 @@
             "description": "Book a free 30-minute call. I'll show you exactly what I can handle for you — and how much time you'll get back.",
             "button": "Get your free audit →",
             "note": "No commitment. No tech talk. Just a clear plan."
+        },
+        "DayInLife": {
+            "label": "A Day in Your Life",
+            "headline": "Where does your time actually go?",
+            "beforeTitle": "Before",
+            "afterTitle": "After",
+            "adminBefore": "Admin — emails, invoices, follow-ups",
+            "cookingBefore": "Cooking & prep",
+            "otherBefore": "Everything else",
+            "cookingAfter": "Cooking & prep",
+            "growthAfter": "New clients & growth",
+            "adminAfter": "Admin (handled for you)",
+            "hoursUnit": "h",
+            "note": "That's real time. Your time."
+        },
+        "HowItWorks": {
+            "label": "How It Works",
+            "headline": "Simple. Fast. Done.",
+            "step0title": "We talk",
+            "step0description": "Free 30-minute call. You tell me how you work. No tech knowledge needed.",
+            "step1title": "I build it",
+            "step1description": "I set everything up in 30 days. You don't lift a finger.",
+            "step2title": "You cook",
+            "step2description": "Your systems run on their own. You stay in the kitchen."
+        },
+        "Tools": {
+            "label": "Works with the tools you already use"
+        },
+        "ROI": {
+            "label": "Your Hidden Cost",
+            "headline": "How much is your admin costing you?",
+            "subheadline": "Move the sliders. See your real number.",
+            "eventsLabel": "Events per month",
+            "minutesLabel": "Admin minutes per event",
+            "rateLabel": "Your hourly rate (€)",
+            "hoursUnit": "hours lost per year",
+            "costUnit": "lost per year",
+            "resultNote": "That's what I give back to you.",
+            "cta": "Let's get that time back →"
+        },
+        "Sticky": {
+            "text": "Free 30-min audit for chefs. No commitment.",
+            "button": "Book now →"
         }
     },
     "Footer": {

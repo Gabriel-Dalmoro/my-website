@@ -3,11 +3,17 @@ import dynamic from "next/dynamic";
 import ChefHero from "@/components/marketing/chef/ChefHero";
 import ChefSocialProof from "@/components/marketing/chef/ChefSocialProof";
 import ChefProblem from "@/components/marketing/chef/ChefProblem";
+import CulinaryDivider from "@/components/marketing/chef/CulinaryDivider";
 
+const ChefDayInLife = dynamic(() => import("@/components/marketing/chef/ChefDayInLife"));
 const ChefServices = dynamic(() => import("@/components/marketing/chef/ChefServices"));
+const ChefHowItWorks = dynamic(() => import("@/components/marketing/chef/ChefHowItWorks"));
+const ChefToolsStrip = dynamic(() => import("@/components/marketing/chef/ChefToolsStrip"));
 const ChefCaseStudy = dynamic(() => import("@/components/marketing/chef/ChefCaseStudy"));
 const ChefTestimonial = dynamic(() => import("@/components/marketing/chef/ChefTestimonial"));
+const ChefROIEstimator = dynamic(() => import("@/components/marketing/chef/ChefROIEstimator"));
 const ChefCTA = dynamic(() => import("@/components/marketing/chef/ChefCTA"));
+const ChefStickyCTA = dynamic(() => import("@/components/marketing/chef/ChefStickyCTA"));
 
 export const metadata: Metadata = {
     title: "Automation for Professional Chefs & Caterers | Gabriel Dalmoro",
@@ -27,12 +33,20 @@ export default function ChefLandingPage() {
             <main className="isolate">
                 <ChefHero />
                 <ChefSocialProof />
+                <CulinaryDivider />
+                <ChefDayInLife />
                 <ChefProblem />
                 <ChefServices />
+                <CulinaryDivider />
+                <ChefHowItWorks />
+                <ChefToolsStrip />
+                <CulinaryDivider />
                 <ChefCaseStudy />
                 <ChefTestimonial />
+                <ChefROIEstimator />
                 <ChefCTA />
             </main>
+            <ChefStickyCTA />
         </div>
     );
 }

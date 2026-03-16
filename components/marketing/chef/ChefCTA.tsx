@@ -6,7 +6,9 @@ export default function ChefCTA() {
     const t = useTranslations("Chef.CTA");
 
     return (
-        <div className="py-24 sm:py-32">
+        <div className="relative py-24 sm:py-32 overflow-hidden">
+            {/* Warm amber glow */}
+            <div className="absolute top-1/2 left-1/2 -z-10 h-[400px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/8 blur-[120px]" />
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl text-center">
                     <h2 className="text-5xl sm:text-7xl font-black tracking-tight text-white mb-6 drop-shadow-lg">
@@ -17,7 +19,7 @@ export default function ChefCTA() {
                     </p>
                     <div className="flex items-center justify-center">
                         <Link href="/contact">
-                            <PulsatingButton className="px-8 py-4 text-xl font-bold" pulseColor="#EAB308">
+                            <PulsatingButton className="px-8 py-4 text-xl font-bold" pulseColor="#F59E0B">
                                 {t("button")}
                             </PulsatingButton>
                         </Link>

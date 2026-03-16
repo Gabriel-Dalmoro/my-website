@@ -450,6 +450,49 @@
             "description": "Réservez un appel gratuit de 30 minutes. Je vous montre ce que je peux gérer pour vous — et combien de temps vous allez récupérer.",
             "button": "Obtenir votre audit gratuit →",
             "note": "Sans engagement. Sans jargon. Juste un plan clair."
+        },
+        "DayInLife": {
+            "label": "Votre Journée Type",
+            "headline": "Où passe vraiment votre temps ?",
+            "beforeTitle": "Avant",
+            "afterTitle": "Après",
+            "adminBefore": "Admin — emails, factures, relances",
+            "cookingBefore": "Cuisine & préparation",
+            "otherBefore": "Tout le reste",
+            "cookingAfter": "Cuisine & préparation",
+            "growthAfter": "Nouveaux clients & croissance",
+            "adminAfter": "Admin (géré à votre place)",
+            "hoursUnit": "h",
+            "note": "C'est du vrai temps. Votre temps."
+        },
+        "HowItWorks": {
+            "label": "Comment Ça Marche",
+            "headline": "Simple. Rapide. Réglé.",
+            "step0title": "On parle",
+            "step0description": "Appel gratuit de 30 minutes. Vous me dites comment vous travaillez. Aucune connaissance technique requise.",
+            "step1title": "Je construis",
+            "step1description": "Je mets tout en place en 30 jours. Vous ne faites rien.",
+            "step2title": "Vous cuisinez",
+            "step2description": "Vos systèmes tournent tout seuls. Vous restez en cuisine."
+        },
+        "Tools": {
+            "label": "Compatible avec vos outils actuels"
+        },
+        "ROI": {
+            "label": "Votre Coût Caché",
+            "headline": "Combien vous coûte vraiment votre admin ?",
+            "subheadline": "Bougez les curseurs. Voyez votre vrai chiffre.",
+            "eventsLabel": "Prestations par mois",
+            "minutesLabel": "Minutes d'admin par prestation",
+            "rateLabel": "Votre taux horaire (€)",
+            "hoursUnit": "heures perdues par an",
+            "costUnit": "perdus par an",
+            "resultNote": "C'est ce que je vous rends.",
+            "cta": "Récupérons ce temps →"
+        },
+        "Sticky": {
+            "text": "Audit gratuit de 30 min pour chefs. Sans engagement.",
+            "button": "Réserver →"
         }
     },
     "Footer": {
