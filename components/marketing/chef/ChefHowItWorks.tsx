@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
 const stepNumbers = ["01", "02", "03"];
-const stepEmojis = ["☎️", "🔧", "🍳"];
+const stepEmojis = ["☎️", "🔧", "⭐"];
 
 export default function ChefHowItWorks() {
     const t = useTranslations("Chef.HowItWorks");

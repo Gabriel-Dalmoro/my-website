@@ -439,11 +439,11 @@
     },
     "Chef": {
         "Hero": {
-            "badge": "For Professional Chefs & Caterers",
+            "badge": "For Restaurants & Food Businesses",
             "hook": "Less admin. More cooking.",
             "solution": "I handle your bookings, invoices, and paperwork.",
-            "description": "Save 10+ hours a week on admin. Stay in the kitchen.",
-            "cta": "See how it works for chefs →"
+            "description": "Save 10+ hours a week on admin. Spend that time where it counts — in the kitchen, on the floor, with your team.",
+            "cta": "See how it works for restaurants →"
         },
         "SocialProof": {
             "label": "Real results for Elisa Batch Cooking — Professional Chef",
@@ -456,27 +456,27 @@
         },
         "Problem": {
             "label": "The Problem",
-            "headline": "You cook. But the paperwork never stops.",
-            "subheadline": "Every job comes with a pile of admin. Emails. Invoices. Follow-ups. It takes hours — every single week.",
+            "headline": "You're in the food business. But the paperwork never stops.",
+            "subheadline": "Every day brings a pile of admin. Reservation emails. Invoices. Supplier orders. Staff schedules. It eats up hours — every single week.",
             "pain0emoji": "📨",
-            "pain0": "Back-and-forth emails just to confirm a booking",
+            "pain0": "Reservation and booking emails going back and forth",
             "pain1emoji": "🧾",
-            "pain1": "Typing invoices by hand after every event",
+            "pain1": "Invoices typed by hand after every job or service",
             "pain2emoji": "📋",
-            "pain2": "Clients sending menus and details by text or DM",
+            "pain2": "Supplier orders, menus, and requests handled by text or email",
             "pain3emoji": "📞",
-            "pain3": "Chasing unpaid invoices yourself"
+            "pain3": "Chasing unpaid bills yourself"
         },
         "Services": {
             "label": "The Fix",
-            "headline": "I handle the boring stuff. You focus on cooking.",
-            "subheadline": "Simple systems built for chefs and caterers.",
-            "card0name": "Drowning in booking emails?",
-            "card0description": "Clients book, confirm, and pay online. Your calendar fills itself. No more back-and-forth.",
+            "headline": "I handle the boring stuff. You run the restaurant.",
+            "subheadline": "Simple systems for any food business — restaurant, catering, or private chef.",
+            "card0name": "Drowning in reservation emails?",
+            "card0description": "Guests and clients book, confirm, and pay online. Your calendar fills itself. No more back-and-forth.",
             "card1name": "Writing invoices by hand?",
-            "card1description": "After every job, an invoice goes out on its own. You get paid faster. Zero extra work.",
-            "card2name": "Chasing menus and requests?",
-            "card2description": "Clients fill in their needs online. Dietary needs, guest count, event details — all saved for you."
+            "card1description": "After every service or job, an invoice goes out on its own. You get paid faster. Zero extra work.",
+            "card2name": "Managing menus, orders, and requests?",
+            "card2description": "Guests and clients fill in what they need online. Dietary requirements, table count, event details — all saved and organised for you."
         },
         "CaseStudy": {
             "label": "Case Study",
@@ -499,7 +499,7 @@
             "videoTitle": "Watch how it works"
         },
         "Testimonial": {
-            "headline": "Hear it from a chef",
+            "headline": "Hear it from someone in the industry",
             "body": "Gabriel took over all my admin and paperwork. <bold>It saves me hours every single week.</bold> Everything just works — for me and for my clients. <bold>I recommend him with my eyes closed.</bold>",
             "author": "Elisa Curtelin",
             "role": "Founder, Elisa Batch Cooking"
@@ -515,10 +515,10 @@
             "headline": "Where does your time actually go?",
             "beforeTitle": "Before",
             "afterTitle": "After",
-            "adminBefore": "Admin — emails, invoices, follow-ups",
-            "cookingBefore": "Cooking & prep",
+            "adminBefore": "Admin — emails, invoices, orders, schedules",
+            "cookingBefore": "Service, cooking & prep",
             "otherBefore": "Everything else",
-            "cookingAfter": "Cooking & prep",
+            "cookingAfter": "Service, cooking & prep",
             "growthAfter": "New clients & growth",
             "adminAfter": "Admin (handled for you)",
             "hoursUnit": "h",
@@ -531,8 +531,8 @@
             "step0description": "Free 30-minute call. You tell me how you work. No tech knowledge needed.",
             "step1title": "I build it",
             "step1description": "I set everything up in 30 days. You don't lift a finger.",
-            "step2title": "You cook",
-            "step2description": "Your systems run on their own. You stay in the kitchen."
+            "step2title": "You focus on the food",
+            "step2description": "Your systems run on their own. You focus on the food and your team."
         },
         "Tools": {
             "label": "Works with the tools you already use"
@@ -549,7 +549,7 @@
             "cta": "Let's get that time back →"
         },
         "Sticky": {
-            "text": "Free 30-min audit for chefs. No commitment.",
+            "text": "Free 30-min audit for restaurants & food businesses. No commitment.",
             "button": "Book now →"
         }
     },
