@@ -35,15 +35,15 @@ export default function ChefDayInLife() {
     const t = useTranslations("Chef.DayInLife");
 
     const beforeRows: Row[] = [
-        { emoji: "📋", label: t("adminBefore"),   value: "6h", valueColor: "text-red-400"   },
-        { emoji: "🍳", label: t("cookingBefore"),  value: "3h", valueColor: "text-zinc-500"  },
+        { emoji: "📋", label: t("adminBefore"),   value: "4h", valueColor: "text-red-400"   },
+        { emoji: "🍳", label: t("cookingBefore"),  value: "6h", valueColor: "text-zinc-500"  },
         { emoji: "📈", label: t("growthBefore"),   value: "0h", valueColor: "text-zinc-600", muted: true },
     ];
 
     const afterRows: Row[] = [
         { emoji: "📋", label: t("adminAfter"),    value: "0h", valueColor: "text-zinc-500", muted: true },
-        { emoji: "🍳", label: t("cookingAfter"),  value: "7h", valueColor: "text-green-400" },
-        { emoji: "📈", label: t("growthAfter"),   value: "3h", valueColor: "text-yellow-400" },
+        { emoji: "🍳", label: t("cookingAfter"),  value: "8h", valueColor: "text-green-400" },
+        { emoji: "📈", label: t("growthAfter"),   value: "2h", valueColor: "text-yellow-400" },
     ];
 
     return (
@@ -87,21 +87,7 @@ export default function ChefDayInLife() {
                     </div>
                 </div>
 
-                {/* Savings callout */}
-                <motion.div
-                    className="mt-12 mx-auto max-w-xl text-center"
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                >
-                    <p className="text-2xl sm:text-3xl font-black text-white">
-                        {t("savingsTitle")}
-                    </p>
-                    <p className="text-zinc-500 mt-2 text-sm">{t("savingsNote")}</p>
-                </motion.div>
-
-                <p className="text-center text-sm text-zinc-500 italic mt-6">
+                <p className="text-center text-sm text-zinc-500 italic mt-8">
                     {t("note")}
                 </p>
             </div>

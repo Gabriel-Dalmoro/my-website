@@ -12,7 +12,6 @@ const ChefCaseStudy = dynamic(() => import("@/components/marketing/chef/ChefCase
 const ChefTestimonial = dynamic(() => import("@/components/marketing/chef/ChefTestimonial"));
 const ChefROIEstimator = dynamic(() => import("@/components/marketing/chef/ChefROIEstimator"));
 const ChefCTA = dynamic(() => import("@/components/marketing/chef/ChefCTA"));
-const ChefStickyCTA = dynamic(() => import("@/components/marketing/chef/ChefStickyCTA"));
 
 export const metadata: Metadata = {
     title: "Automation for Professional Chefs & Caterers | Gabriel Dalmoro",
@@ -42,7 +41,6 @@ export default function ChefLandingPage() {
                 <ChefROIEstimator />
                 <ChefCTA />
             </main>
-            <ChefStickyCTA />
         </div>
     );
 }
