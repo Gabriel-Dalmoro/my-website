@@ -233,7 +233,7 @@ export default function WyWDemoPage() {
       
       {/* Toast Notification */}
       {toastMsg && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 bg-[#FACE0D] text-[#453B36] px-6 py-4 rounded-lg shadow-2xl z-50 flex items-center gap-3 font-medium animate-in fade-in slide-in-from-top-4 duration-300 max-w-lg w-full">
+        <div className="fixed top-28 left-1/2 -translate-x-1/2 bg-[#FACE0D] text-[#453B36] px-6 py-4 rounded-xl shadow-2xl z-[999] flex items-center gap-3 font-medium animate-in fade-in slide-in-from-top-4 duration-300 max-w-lg w-full border border-[#453B36]/10">
           <CheckCircle2 className="w-6 h-6 shrink-0" />
           <p className="text-sm leading-snug font-semibold">{toastMsg}</p>
         </div>
