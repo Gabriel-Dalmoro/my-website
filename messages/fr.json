@@ -1,657 +1,776 @@
 {
-    "Hero": {
-        "hook": "Développez Votre Entreprise Sans Recruter.",
-        "solution": "Automatisez vos tâches administratives.",
-        "description": "Je crée des systèmes sur mesure qui gèrent vos tâches répétitives, pour que vous puissiez vous concentrer sur vos clients et vos profits.",
-        "cta": "Réserver une Consultation Gratuite"
-    },
-    "Navigation": {
-        "home": "Accueil",
-        "pricing": "Tarifs",
-        "about": "À Propos",
-        "blog": "Blog",
-        "contact": "Contact",
-        "bookCall": "Réserver un appel"
-    },
-    "SocialProof": {
-        "headline": "La Confiance des Entrepreneurs",
-        "testimonials": {
-            "0": {
-                "body": "Gabriel a transformé notre façon de travailler. Il a tout de suite compris notre business et a créé un système qui nous fait gagner des heures chaque jour. On peut enfin se concentrer sur la croissance.",
-                "author": "Zach Hodder",
-                "role": "CEO, Harpia"
-            },
-            "1": {
-                "body": "J'ai fait appel à Gabriel pour m'aider à monter mon site internet et de toute la partie technique. Gabriel m'a déployé un système entièrement personnalisé, il a su être totalement à l'écoute de ma demande et de mes exigences (très clairement pour lui tout était possible et réalisable). Prenant en charge mon processus manuel actuel et le travail administratif. Ceci me fait gagner des heures entières de travail, ce qui me rend plus disponible pour développer mon entreprise et atteindre plus de clients. Tout est clair et facile à comprendre pour moi et pour mes clients. Le rendu était plus que à la hauteur de mes attentes. Je recommande les yeux fermés Gabriel.",
-                "author": "Elisa Curtelin",
-                "role": "Fondatrice, Elisa Batch Cooking"
-            },
-            "2": {
-                "body": "Les flux de travail automatisés mis en place par Gabriel ont essentiellement doublé la capacité de notre équipe sans embaucher une seule nouvelle personne. Nous pouvons désormais traiter 3 fois plus de prospects sans stress supplémentaire. Tout simplement incroyable.",
-                "author": "Marc Dubois",
-                "role": "PDG, TechFlow"
-            }
-        }
-    },
-    "Problem": {
-        "label": "Le Problème",
-        "headline": "Vous passez trop de temps sur l'administratif.",
-        "subheadline": "La saisie de données, les factures et les emails répétitifs vous ralentissent. Il est temps d'arrêter de faire le 'sale boulot' vous-même."
-    },
-    "Services": {
-        "label": "La Solution",
-        "headline": "Des Systèmes Qui Travaillent Pour Vous",
-        "subheadline": "Je construis des outils qui tournent 24/7 pour gérer vos opérations automatiquement.",
-        "cards": {
-            "recruiting": {
-                "name": "Noyé sous la paperasse ?",
-                "description": "Arrêtez la saisie manuelle. Je crée des systèmes qui gèrent l'agenda, la facturation et le classement automatiquement."
-            },
-            "dashboards": {
-                "name": "Vous ratez des clients ?",
-                "description": "Ne manquez plus aucune opportunité. Mes systèmes répondent aux demandes instantanément et prennent vos RDV, jour et nuit."
-            },
-            "workflows": {
-                "name": "Tableurs illisibles ?",
-                "description": "Arrêtez de deviner. Je rassemble tous vos chiffres importants dans un tableau de bord simple, consultable sur votre téléphone."
-            }
-        }
-    },
-    "FeaturedWork": {
-        "headline": "En Action",
-        "subheadline": "Exemples réels de systèmes créés pour d'autres entreprises.",
-        "projects": {
-            "hiring": {
-                "title": "Assistant Recrutement IA (n8n + GPT-4)",
-                "description": "Un agent autonome qui évalue les CV par rapport aux fiches de poste."
-            },
-            "dashboard": {
-                "title": "Tableau de Bord VisionSort",
-                "description": "Visualisation de données complexes en temps réel sur Next.js."
-            }
-        }
-    },
-    "ClientShowcase": {
-        "industryLabel": "Industrie :",
-        "selection": {
-            "title_new": "Résultats Clients",
-            "subtitle_new": "Transformations Prouvées",
-            "watchStory": "Voir l'Histoire",
-            "title": "Sélectionnez une Démo",
-            "narrativeBridge": "Voici comment nous avons réglé cela pour :",
-            "back": "← Choisir un Autre Focus",
-            "demoComingSoon": "Démo Bientôt Disponible",
-            "videoComingSoon": "Vidéo bientôt disponible",
-            "cards": {
-                "operations": {
-                    "title": "Elisa Batch Cooking"
-                },
-                "marketing": {
-                    "title": "Fit To Excel"
-                },
-                "sales": {
-                    "title": "Smart Client Finder"
-                }
-            }
-        },
+  "Hero": {
+    "hook": "Développez Votre Entreprise Sans Recruter.",
+    "solution": "Automatisez vos tâches administratives.",
+    "description": "Je crée des systèmes sur mesure qui gèrent vos tâches répétitives, pour que vous puissiez vous concentrer sur vos clients et vos profits.",
+    "cta": "Réserver une Consultation Gratuite"
+  },
+  "Navigation": {
+    "home": "Accueil",
+    "pricing": "Tarifs",
+    "about": "À Propos",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookCall": "Réserver un appel"
+  },
+  "SocialProof": {
+    "headline": "La Confiance des Entrepreneurs",
+    "testimonials": {
+      "0": {
+        "body": "Gabriel a transformé notre façon de travailler. Il a tout de suite compris notre business et a créé un système qui nous fait gagner des heures chaque jour. On peut enfin se concentrer sur la croissance.",
+        "author": "Zach Hodder",
+        "role": "CEO, Harpia"
+      },
+      "1": {
+        "body": "J'ai fait appel à Gabriel pour m'aider à monter mon site internet et de toute la partie technique. Gabriel m'a déployé un système entièrement personnalisé, il a su être totalement à l'écoute de ma demande et de mes exigences (très clairement pour lui tout était possible et réalisable). Prenant en charge mon processus manuel actuel et le travail administratif. Ceci me fait gagner des heures entières de travail, ce qui me rend plus disponible pour développer mon entreprise et atteindre plus de clients. Tout est clair et facile à comprendre pour moi et pour mes clients. Le rendu était plus que à la hauteur de mes attentes. Je recommande les yeux fermés Gabriel.",
+        "author": "Elisa Curtelin",
+        "role": "Fondatrice, Elisa Batch Cooking"
+      },
+      "2": {
+        "body": "Les flux de travail automatisés mis en place par Gabriel ont essentiellement doublé la capacité de notre équipe sans embaucher une seule nouvelle personne. Nous pouvons désormais traiter 3 fois plus de prospects sans stress supplémentaire. Tout simplement incroyable.",
+        "author": "Marc Dubois",
+        "role": "PDG, TechFlow"
+      }
+    }
+  },
+  "Problem": {
+    "label": "Le Problème",
+    "headline": "Vous passez trop de temps sur l'administratif.",
+    "subheadline": "La saisie de données, les factures et les emails répétitifs vous ralentissent. Il est temps d'arrêter de faire le 'sale boulot' vous-même."
+  },
+  "Services": {
+    "label": "La Solution",
+    "headline": "Des Systèmes Qui Travaillent Pour Vous",
+    "subheadline": "Je construis des outils qui tournent 24/7 pour gérer vos opérations automatiquement.",
+    "cards": {
+      "recruiting": {
+        "name": "Noyé sous la paperasse ?",
+        "description": "Arrêtez la saisie manuelle. Je crée des systèmes qui gèrent l'agenda, la facturation et le classement automatiquement."
+      },
+      "dashboards": {
+        "name": "Vous ratez des clients ?",
+        "description": "Ne manquez plus aucune opportunité. Mes systèmes répondent aux demandes instantanément et prennent vos RDV, jour et nuit."
+      },
+      "workflows": {
+        "name": "Tableurs illisibles ?",
+        "description": "Arrêtez de deviner. Je rassemble tous vos chiffres importants dans un tableau de bord simple, consultable sur votre téléphone."
+      }
+    }
+  },
+  "FeaturedWork": {
+    "headline": "En Action",
+    "subheadline": "Exemples réels de systèmes créés pour d'autres entreprises.",
+    "projects": {
+      "hiring": {
+        "title": "Assistant Recrutement IA (n8n + GPT-4)",
+        "description": "Un agent autonome qui évalue les CV par rapport aux fiches de poste."
+      },
+      "dashboard": {
+        "title": "Tableau de Bord VisionSort",
+        "description": "Visualisation de données complexes en temps réel sur Next.js."
+      }
+    }
+  },
+  "ClientShowcase": {
+    "industryLabel": "Industrie :",
+    "selection": {
+      "title_new": "Résultats Clients",
+      "subtitle_new": "Transformations Prouvées",
+      "watchStory": "Voir l'Histoire",
+      "title": "Sélectionnez une Démo",
+      "narrativeBridge": "Voici comment nous avons réglé cela pour :",
+      "back": "← Choisir un Autre Focus",
+      "demoComingSoon": "Démo Bientôt Disponible",
+      "videoComingSoon": "Vidéo bientôt disponible",
+      "cards": {
         "operations": {
-            "clientName": "Elisa Batch Cooking",
-            "clientIndustry": "Service de Chef à Domicile",
-            "pain": "Facturation manuelle prenant 10+ heures par semaine.",
-            "outcome": "Opérations commerciales entièrement automatisées.",
-            "impact": {
-                "value": "520+",
-                "label": "Heures Économisées / An"
-            }
+          "title": "Elisa Batch Cooking"
         },
         "marketing": {
-            "clientName": "Fit To Excel",
-            "clientIndustry": "Startup Tech Fitness",
-            "pain": "Présence sur les réseaux sociaux incohérente.",
-            "outcome": "Présence de marque et engagement automatisés.",
-            "impact": {
-                "value": "100+",
-                "label": "Posts Automatisés / Mois"
-            }
+          "title": "Fit To Excel"
         },
         "sales": {
-            "clientName": "Smart Client Finder",
-            "clientIndustry": "Service B2B",
-            "pain": "Prospection manuelle et démarchage à froid.",
-            "outcome": "Séquences de génération de leads automatisées.",
-            "impact": {
-                "value": "50+",
-                "label": "Leads Générés / Jour"
-            }
+          "title": "Smart Client Finder"
         }
+      }
     },
-    "TechStack": {
-        "headline": "L'Automatisation par l'Infrastructure Moderne"
+    "operations": {
+      "clientName": "Elisa Batch Cooking",
+      "clientIndustry": "Service de Chef à Domicile",
+      "pain": "Facturation manuelle prenant 10+ heures par semaine.",
+      "outcome": "Opérations commerciales entièrement automatisées.",
+      "impact": {
+        "value": "520+",
+        "label": "Heures Économisées / An"
+      }
     },
-    "AboutMe": {
-        "headline": "Je Parle Business & Tech",
-        "description": "J'ai été à votre place. En tant qu'ancien entrepreneur devenu codeur, je connais la frustration des processus inefficaces. Je construis des systèmes qui résolvent de vrais problèmes business. Je suis passionné par l'optimisation des processus pour vous rendre votre atout le plus précieux : le temps.",
-        "readMore": "En savoir plus"
+    "marketing": {
+      "clientName": "Fit To Excel",
+      "clientIndustry": "Startup Tech Fitness",
+      "pain": "Présence sur les réseaux sociaux incohérente.",
+      "outcome": "Présence de marque et engagement automatisés.",
+      "impact": {
+        "value": "100+",
+        "label": "Posts Automatisés / Mois"
+      }
     },
-    "GlobalReach": {
-        "headline": "Travail à l'International",
-        "description": "Le business n'a pas de frontières. Je comble les fossés culturels et les fuseaux horaires pour une collaboration fluide en Amérique du Nord, Amérique du Sud et en Europe.",
-        "locations": {
-            "brazil": "Brésil",
-            "canada": "Canada",
-            "france": "France"
-        },
-        "languages": {
-            "en": "Anglais",
-            "pt": "Portugais",
-            "fr": "Français",
-            "es": "Espagnol"
-        },
-        "languages_title": "Je parle et négocie en 4 langues"
+    "sales": {
+      "clientName": "Smart Client Finder",
+      "clientIndustry": "Service B2B",
+      "pain": "Prospection manuelle et démarchage à froid.",
+      "outcome": "Séquences de génération de leads automatisées.",
+      "impact": {
+        "value": "50+",
+        "label": "Leads Générés / Jour"
+      }
+    }
+  },
+  "TechStack": {
+    "headline": "L'Automatisation par l'Infrastructure Moderne"
+  },
+  "AboutMe": {
+    "headline": "Je Parle Business & Tech",
+    "description": "J'ai été à votre place. En tant qu'ancien entrepreneur devenu codeur, je connais la frustration des processus inefficaces. Je construis des systèmes qui résolvent de vrais problèmes business. Je suis passionné par l'optimisation des processus pour vous rendre votre atout le plus précieux : le temps.",
+    "readMore": "En savoir plus"
+  },
+  "GlobalReach": {
+    "headline": "Travail à l'International",
+    "description": "Le business n'a pas de frontières. Je comble les fossés culturels et les fuseaux horaires pour une collaboration fluide en Amérique du Nord, Amérique du Sud et en Europe.",
+    "locations": {
+      "brazil": "Brésil",
+      "canada": "Canada",
+      "france": "France"
     },
-    "Blog": {
-        "title": "Journal & Insights",
-        "description": "L'Automatisation Business rencontre l'Aventure. \nJe partage les systèmes techniques qui font croître les entreprises et les aventures qu'ils financent.",
-        "categories": {
-            "all": "Tous",
-            "business": "Business",
-            "adventure": "Aventure",
-            "journal": "Journal"
+    "languages": {
+      "en": "Anglais",
+      "pt": "Portugais",
+      "fr": "Français",
+      "es": "Espagnol"
+    },
+    "languages_title": "Je parle et négocie en 4 langues"
+  },
+  "Blog": {
+    "title": "Journal & Insights",
+    "description": "L'Automatisation Business rencontre l'Aventure. \nJe partage les systèmes techniques qui font croître les entreprises et les aventures qu'ils financent.",
+    "categories": {
+      "all": "Tous",
+      "business": "Business",
+      "adventure": "Aventure",
+      "journal": "Journal"
+    },
+    "readMore": "Lire la suite",
+    "backToBlog": "Retour au blog",
+    "noPosts": "Aucun article trouvé.",
+    "authorBy": "Par {name}",
+    "hero": {
+      "readStory": "Lire l'article"
+    },
+    "newsletter": {
+      "headline": "Série Newsletter.",
+      "subheadline": "Nous préparons une newsletter à haute valeur ajoutée avec des systèmes et des workflows. Bientôt disponible.",
+      "placeholder": "votre@email.com",
+      "button": "S'abonner",
+      "unsubscribe": "Désinscription à tout moment."
+    },
+    "promo": {
+      "badge": "Audit Offert",
+      "title": "Arrêtez de perdre du temps sur l'admin.",
+      "description": "Laissez-moi construire les systèmes qui travaillent pour vous.",
+      "cta": "Obtenir mon Audit"
+    },
+    "floating": {
+      "cta": "Réserver un Audit"
+    },
+    "details": {
+      "localeWarning": "Cet article est uniquement disponible en {language}. Nous travaillons sur la traduction !"
+    }
+  },
+  "Pricing": {
+    "title": "Investissez dans votre liberté",
+    "guarantee": "Économisez 5+ heures par semaine — ou je travaille gratuitement jusqu'à ce que ce soit le cas",
+    "cards": {
+      "starter": {
+        "badge": "Point d'entrée",
+        "headline": "Libérez 10h/semaine",
+        "price": "2 497 €",
+        "tagline": "The Pilot",
+        "bullets": [
+          "Automatisez votre tâche la plus répétitive.",
+          "Installation complète en 30 jours.",
+          "Documentation claire et simple."
+        ],
+        "note": "Rentabilisé en quelques semaines",
+        "cta": "Commençons maintenant"
+      },
+      "custom": {
+        "headline": "Systèmes sur mesure",
+        "tagline": "Développez votre activité",
+        "price": "À partir de 7 997 €",
+        "description": "Des systèmes sur mesure conçus pour vos besoins spécifiques. Pas de forfaits, pas d'approximations.",
+        "bullets": [
+          "Éliminez les corvées quotidiennes.",
+          "Des systèmes qui travaillent pour vous.",
+          "Plus de résultats avec moins d'effort.",
+          "Intégré à vos outils habituels."
+        ],
+        "cta": "Réserver un audit gratuit"
+      }
+    },
+    "trust": {
+      "gdpr": "100% Sécurisé",
+      "instant": "Résultats Rapides"
+    },
+    "addon": {
+      "title": "Site web sur mesure",
+      "price": "Dès 1 497 €",
+      "price_cta": "Ajouter",
+      "description": "Un site haute performance pour accompagner vos nouveaux systèmes."
+    },
+    "faq": {
+      "headline": "Questions",
+      "questions": {
+        "0": {
+          "q": "Et si quelque chose casse ?",
+          "a": "Tous les forfaits incluent le support. Ensuite, maintenance disponible à 200 €/mois."
         },
-        "readMore": "Lire la suite",
-        "backToBlog": "Retour au blog",
-        "noPosts": "Aucun article trouvé.",
-        "authorBy": "Par {name}",
-        "hero": {
-            "readStory": "Lire l'article"
+        "1": {
+          "q": "Proposez-vous des facilités de paiement ?",
+          "a": "Oui. 40% acompte, 30% intermédiaire, 30% à la livraison."
         },
-        "newsletter": {
-            "headline": "Série Newsletter.",
-            "subheadline": "Nous préparons une newsletter à haute valeur ajoutée avec des systèmes et des workflows. Bientôt disponible.",
-            "placeholder": "votre@email.com",
-            "button": "S'abonner",
-            "unsubscribe": "Désinscription à tout moment."
-        },
-        "promo": {
-            "badge": "Audit Offert",
-            "title": "Arrêtez de perdre du temps sur l'admin.",
-            "description": "Laissez-moi construire les systèmes qui travaillent pour vous.",
-            "cta": "Obtenir mon Audit"
-        },
-        "floating": {
-            "cta": "Réserver un Audit"
-        },
-        "details": {
-            "localeWarning": "Cet article est uniquement disponible en {language}. Nous travaillons sur la traduction !"
+        "2": {
+          "q": "Avec quels outils travaillez-vous ?",
+          "a": "Google, Microsoft, Slack, la plupart des CRM, API. Demandez pour vos outils spécifiques."
         }
+      }
     },
-    "Pricing": {
-        "title": "Investissez dans votre liberté",
-        "guarantee": "Économisez 5+ heures par semaine — ou je travaille gratuitement jusqu'à ce que ce soit le cas",
-        "cards": {
-            "starter": {
-                "badge": "Point d'entrée",
-                "headline": "Libérez 10h/semaine",
-                "price": "2 497 €",
-                "tagline": "The Pilot",
-                "bullets": [
-                    "Automatisez votre tâche la plus répétitive.",
-                    "Installation complète en 30 jours.",
-                    "Documentation claire et simple."
-                ],
-                "note": "Rentabilisé en quelques semaines",
-                "cta": "Commençons maintenant"
-            },
-            "custom": {
-                "headline": "Systèmes sur mesure",
-                "tagline": "Développez votre activité",
-                "price": "À partir de 7 997 €",
-                "description": "Des systèmes sur mesure conçus pour vos besoins spécifiques. Pas de forfaits, pas d'approximations.",
-                "bullets": [
-                    "Éliminez les corvées quotidiennes.",
-                    "Des systèmes qui travaillent pour vous.",
-                    "Plus de résultats avec moins d'effort.",
-                    "Intégré à vos outils habituels."
-                ],
-                "cta": "Réserver un audit gratuit"
-            }
+    "socialProof": {
+      "headline": "Résultats Prouvés",
+      "items": [
+        {
+          "name": "Elisa Batch Cooking",
+          "result": "520+ h/an économisées"
         },
-        "trust": {
-            "gdpr": "100% Sécurisé",
-            "instant": "Résultats Rapides"
+        {
+          "name": "Fit to Excel",
+          "result": "Présence réseaux sociaux automatisée"
         },
-        "addon": {
-            "title": "Site web sur mesure",
-            "price": "Dès 1 497 €",
-            "price_cta": "Ajouter",
-            "description": "Un site haute performance pour accompagner vos nouveaux systèmes."
-        },
-        "faq": {
-            "headline": "Questions",
-            "questions": {
-                "0": {
-                    "q": "Et si quelque chose casse ?",
-                    "a": "Tous les forfaits incluent le support. Ensuite, maintenance disponible à 200 €/mois."
-                },
-                "1": {
-                    "q": "Proposez-vous des facilités de paiement ?",
-                    "a": "Oui. 40% acompte, 30% intermédiaire, 30% à la livraison."
-                },
-                "2": {
-                    "q": "Avec quels outils travaillez-vous ?",
-                    "a": "Google, Microsoft, Slack, la plupart des CRM, API. Demandez pour vos outils spécifiques."
-                }
-            }
-        },
-        "socialProof": {
-            "headline": "Résultats Prouvés",
-            "items": [
-                {
-                    "name": "Elisa Batch Cooking",
-                    "result": "520+ h/an économisées"
-                },
-                {
-                    "name": "Fit to Excel",
-                    "result": "Présence réseaux sociaux automatisée"
-                },
-                {
-                    "name": "Smart Client Finder",
-                    "result": "50+ leads/jour et rédaction email sur mesure"
-                }
-            ]
-        },
-        "finalCta": "Places limitées ce mois-ci – Audit Gratuit →"
-    },
-    "Contact": {
-        "headline": "Voyons combien d'heures je peux vous faire gagner.",
-        "subheadline": "Répondez à quelques questions pour voir si nous sommes faits pour travailler ensemble.",
-        "steps_qualification": "Qualification",
-        "steps_offers": "Choisir l'Offre",
-        "steps_details": "Coordonnées",
-        "field_website_title": "Site Web Professionnel",
-        "field_website": "Ajoutez un site sur mesure connecté à vos nouvelles automatisations.",
-        "field_website_price": "À partir de 1 497 €",
-        "field_problem_label": "Quelle est la tâche manuelle la plus répétitive qui ralentit votre équipe ?",
-        "field_problem_placeholder": "ex: Copier des leads depuis les emails vers Excel...",
-        "field_hours_label": "En moyenne, combien d'heures/semaine passez-vous sur l'administratif ?",
-        "field_hours_placeholder": "Sélectionnez une plage",
-        "field_hours_low": "1-5 heures",
-        "field_hours_medium": "6-10 heures",
-        "field_hours_high": "11-20 heures",
-        "field_hours_critical": "20+ heures",
-        "field_opportunity_label": "Si ce travail était automatisé à 100%, sur quoi vous concentreriez-vous ?",
-        "field_opportunity_placeholder": "ex: Vendre plus, Stratégie, Développement produit...",
-        "field_tools_label": "Quels outils utilisez-vous ? (Sélectionnez tout ce qui s'applique)",
-        "field_tools_google": "Google Workspace / Microsoft 365",
-        "field_tools_invoice": "Logiciel de facturation",
-        "field_tools_crm": "CRM (HubSpot, Salesforce, etc.)",
-        "field_tools_project": "Gestion de projet",
-        "field_tools_other": "Autres systèmes",
-        "field_name_label": "Nom complet",
-        "field_email_label": "Email professionnel",
-        "field_message_label": "Autre chose que je devrais savoir ? (Optionnel)",
-        "planFocus": "Choisissez votre objectif",
-        "websiteFocus": "Besoin d'un site professionnel ?",
-        "websiteDescription": "Ajoutez un site à fort taux de conversion à vos systèmes",
-        "nameFocus": "Quel est votre nom ?",
-        "namePlaceholder": "Tapez votre nom complet...",
-        "emailFocus": "Et votre email ?",
-        "emailPlaceholder": "email@exemple.com",
-        "messageFocus": "Autre chose ?",
-        "messagePlaceholder": "Contexte supplémentaire, objectifs spécifiques ou juste un petit bonjour...",
-        "optional": "Optionnel",
-        "pressToProceed": "ou appuyez sur",
-        "successTitle": "Candidature reçue",
-        "back": "Retour",
-        "next": "Suivante",
-        "submit": "Envoyer ma Candidature",
-        "submitting": "Envoi...",
-        "success": "C'est noté. Je vais examiner vos détails et vous recontacter d'ici 24 heures.",
-        "security": "Traité sur des serveurs sécurisés de l'UE.",
-        "directEmailMessage": "Vous préférez un message direct ? N'hésitez pas à me contacter par email :",
-        "info": {
-            "emailLabel": "Demandes Professionnelles",
-            "email": "gabriel@gabrieldalmoro.com",
-            "locationLabel": "Opérations Globales",
-            "location": "Annecy, France (Travail à Distance & Interculturel)",
-            "socials": "Suivez-moi"
+        {
+          "name": "Smart Client Finder",
+          "result": "50+ leads/jour et rédaction email sur mesure"
         }
+      ]
     },
-    "About": {
-        "headline": "ADN Entrepreneur. Esprit Ingénieur.",
-        "subheadline": "De l'entrepreneuriat manuel à l'échelle automatisée.",
-        "story": {
-            "title": "Pourquoi je fais ça",
-            "p1": "J'ai toujours eu l'âme d'un entrepreneur. Tout a commencé quand j'étais enfant avec l'ouverture de ma propre école d'échecs, puis adolescent en revendant des jouets importés. J'adorais le jeu du business—jusqu'à ce que je lance ma première vraie entreprise.",
-            "p2": "C'est là que la réalité a frappé. Je ne 'construisais' plus ; je me noyais sous la paperasse, la facturation et l'administratif. J'ai vu ce même schéma partout où j'ai travaillé, du secteur du fitness aux entreprises d'aventure en plein air.",
-            "p3": "J'ai refusé d'accepter ça comme une norme. Je me suis tourné vers le génie logiciel, travaillant avec des clients en Amérique du Nord et du Sud. Aujourd'hui, je fusionne l'expertise technique avec ma vision business pour créer les systèmes que j'aurais aimé avoir."
+    "finalCta": "Places limitées ce mois-ci – Audit Gratuit →"
+  },
+  "Contact": {
+    "headline": "Voyons combien d'heures je peux vous faire gagner.",
+    "subheadline": "Répondez à quelques questions pour voir si nous sommes faits pour travailler ensemble.",
+    "steps_qualification": "Qualification",
+    "steps_offers": "Choisir l'Offre",
+    "steps_details": "Coordonnées",
+    "field_website_title": "Site Web Professionnel",
+    "field_website": "Ajoutez un site sur mesure connecté à vos nouvelles automatisations.",
+    "field_website_price": "À partir de 1 497 €",
+    "field_problem_label": "Quelle est la tâche manuelle la plus répétitive qui ralentit votre équipe ?",
+    "field_problem_placeholder": "ex: Copier des leads depuis les emails vers Excel...",
+    "field_hours_label": "En moyenne, combien d'heures/semaine passez-vous sur l'administratif ?",
+    "field_hours_placeholder": "Sélectionnez une plage",
+    "field_hours_low": "1-5 heures",
+    "field_hours_medium": "6-10 heures",
+    "field_hours_high": "11-20 heures",
+    "field_hours_critical": "20+ heures",
+    "field_opportunity_label": "Si ce travail était automatisé à 100%, sur quoi vous concentreriez-vous ?",
+    "field_opportunity_placeholder": "ex: Vendre plus, Stratégie, Développement produit...",
+    "field_tools_label": "Quels outils utilisez-vous ? (Sélectionnez tout ce qui s'applique)",
+    "field_tools_google": "Google Workspace / Microsoft 365",
+    "field_tools_invoice": "Logiciel de facturation",
+    "field_tools_crm": "CRM (HubSpot, Salesforce, etc.)",
+    "field_tools_project": "Gestion de projet",
+    "field_tools_other": "Autres systèmes",
+    "field_name_label": "Nom complet",
+    "field_email_label": "Email professionnel",
+    "field_message_label": "Autre chose que je devrais savoir ? (Optionnel)",
+    "planFocus": "Choisissez votre objectif",
+    "websiteFocus": "Besoin d'un site professionnel ?",
+    "websiteDescription": "Ajoutez un site à fort taux de conversion à vos systèmes",
+    "nameFocus": "Quel est votre nom ?",
+    "namePlaceholder": "Tapez votre nom complet...",
+    "emailFocus": "Et votre email ?",
+    "emailPlaceholder": "email@exemple.com",
+    "messageFocus": "Autre chose ?",
+    "messagePlaceholder": "Contexte supplémentaire, objectifs spécifiques ou juste un petit bonjour...",
+    "optional": "Optionnel",
+    "pressToProceed": "ou appuyez sur",
+    "successTitle": "Candidature reçue",
+    "back": "Retour",
+    "next": "Suivante",
+    "submit": "Envoyer ma Candidature",
+    "submitting": "Envoi...",
+    "success": "C'est noté. Je vais examiner vos détails et vous recontacter d'ici 24 heures.",
+    "security": "Traité sur des serveurs sécurisés de l'UE.",
+    "directEmailMessage": "Vous préférez un message direct ? N'hésitez pas à me contacter par email :",
+    "info": {
+      "emailLabel": "Demandes Professionnelles",
+      "email": "gabriel@gabrieldalmoro.com",
+      "locationLabel": "Opérations Globales",
+      "location": "Annecy, France (Travail à Distance & Interculturel)",
+      "socials": "Suivez-moi"
+    }
+  },
+  "About": {
+    "headline": "ADN Entrepreneur. Esprit Ingénieur.",
+    "subheadline": "De l'entrepreneuriat manuel à l'échelle automatisée.",
+    "story": {
+      "title": "Pourquoi je fais ça",
+      "p1": "J'ai toujours eu l'âme d'un entrepreneur. Tout a commencé quand j'étais enfant avec l'ouverture de ma propre école d'échecs, puis adolescent en revendant des jouets importés. J'adorais le jeu du business—jusqu'à ce que je lance ma première vraie entreprise.",
+      "p2": "C'est là que la réalité a frappé. Je ne 'construisais' plus ; je me noyais sous la paperasse, la facturation et l'administratif. J'ai vu ce même schéma partout où j'ai travaillé, du secteur du fitness aux entreprises d'aventure en plein air.",
+      "p3": "J'ai refusé d'accepter ça comme une norme. Je me suis tourné vers le génie logiciel, travaillant avec des clients en Amérique du Nord et du Sud. Aujourd'hui, je fusionne l'expertise technique avec ma vision business pour créer les systèmes que j'aurais aimé avoir."
+    },
+    "journey": {
+      "title": "Parcours",
+      "steps": {
+        "0": {
+          "year": "2008",
+          "title": "L'Étincelle",
+          "description": "Commerçant né. Ouverture d'une école d'échecs et petites entreprises. Découverte de la passion de bâtir."
         },
-        "journey": {
-            "title": "Parcours",
-            "steps": {
-                "0": {
-                    "year": "2008",
-                    "title": "L'Étincelle",
-                    "description": "Commerçant né. Ouverture d'une école d'échecs et petites entreprises. Découverte de la passion de bâtir."
-                },
-                "1": {
-                    "year": "2018",
-                    "title": "La Réalité",
-                    "description": "Première Boîte & Expérience Terrain. Lancement de ma propre startup. Constat direct : l'admin manuel tue la dynamique."
-                },
-                "2": {
-                    "year": "2021",
-                    "title": "Le Pivot",
-                    "description": "Génie Logiciel. Transition vers la tech. 2 ans à construire des logiciels complexes pour des clients à travers les Amériques."
-                },
-                "3": {
-                    "year": "Aujourd'hui",
-                    "title": "La Fusion",
-                    "description": "Le Pont. Je fusionne vision business et expertise technique pour construire les systèmes automatisés que j'aurais aimé avoir à l'époque."
-                }
-            }
+        "1": {
+          "year": "2018",
+          "title": "La Réalité",
+          "description": "Première Boîte & Expérience Terrain. Lancement de ma propre startup. Constat direct : l'admin manuel tue la dynamique."
         },
-        "values": {
-            "title": "Philosophie",
-            "cards": {
-                "0": {
-                    "title": "Impact",
-                    "description": "Des résultats concrets. Je mesure le succès en heures gagnées et en revenus générés, pas seulement en code propre."
-                },
-                "1": {
-                    "title": "Collaboration",
-                    "description": "Partenaire, pas Prestataire. Je crois profondément au travail d'équipe pour comprendre votre vision spécifique."
-                },
-                "2": {
-                    "title": "Pragmatisme",
-                    "description": "Des solutions qui marchent. La technologie doit servir votre business, et non l'inverse."
-                }
-            }
+        "2": {
+          "year": "2021",
+          "title": "Le Pivot",
+          "description": "Génie Logiciel. Transition vers la tech. 2 ans à construire des logiciels complexes pour des clients à travers les Amériques."
         },
-        "finalCta": {
-            "headline": "Construisons de meilleurs processus ensemble.",
-            "description": "Entreprendre demande des efforts, mais ne devrait pas être freiné par des tâches manuelles inutiles. Arrêtez de subir l'administratif. Automatisons le travail répétitif pour récupérer votre temps et passer à l'échelle.",
-            "button": "Parlons Efficacité"
+        "3": {
+          "year": "Aujourd'hui",
+          "title": "La Fusion",
+          "description": "Le Pont. Je fusionne vision business et expertise technique pour construire les systèmes automatisés que j'aurais aimé avoir à l'époque."
         }
+      }
+    },
+    "values": {
+      "title": "Philosophie",
+      "cards": {
+        "0": {
+          "title": "Impact",
+          "description": "Des résultats concrets. Je mesure le succès en heures gagnées et en revenus générés, pas seulement en code propre."
+        },
+        "1": {
+          "title": "Collaboration",
+          "description": "Partenaire, pas Prestataire. Je crois profondément au travail d'équipe pour comprendre votre vision spécifique."
+        },
+        "2": {
+          "title": "Pragmatisme",
+          "description": "Des solutions qui marchent. La technologie doit servir votre business, et non l'inverse."
+        }
+      }
+    },
+    "finalCta": {
+      "headline": "Construisons de meilleurs processus ensemble.",
+      "description": "Entreprendre demande des efforts, mais ne devrait pas être freiné par des tâches manuelles inutiles. Arrêtez de subir l'administratif. Automatisons le travail répétitif pour récupérer votre temps et passer à l'échelle.",
+      "button": "Parlons Efficacité"
+    }
+  },
+  "CTA": {
+    "headline": "Prêt à récupérer votre temps ?",
+    "button": "Places limitées ce mois-ci – Audit Gratuit →"
+  },
+  "Chef": {
+    "Hero": {
+      "badge": "Pour les Restaurants & Métiers de la Restauration",
+      "hook": "Moins d'admin. Plus de cuisine.",
+      "solution": "Je gère vos réservations, factures et papiers.",
+      "description": "Économisez 10+ heures par semaine sur l'admin. Passez ce temps là où ça compte — en cuisine, en salle, avec votre équipe.",
+      "cta": "Voir comment ça marche pour les restaurants →"
+    },
+    "SocialProof": {
+      "label": "Résultats réels pour Elisa Batch Cooking — Cheffe professionnelle",
+      "stat0value": "520+",
+      "stat0label": "heures économisées par an",
+      "stat1value": "10+",
+      "stat1label": "heures libérées chaque semaine",
+      "stat2value": "100%",
+      "stat2label": "facturation automatisée"
+    },
+    "Problem": {
+      "label": "Le Problème",
+      "headline": "Vous travaillez dans la restauration. Mais les papiers ne s'arrêtent jamais.",
+      "subheadline": "Chaque jour amène une pile d'admin. Emails de réservation. Factures. Commandes fournisseurs. Plannings. Ça prend des heures — chaque semaine.",
+      "pain0emoji": "📨",
+      "pain0": "Emails de réservation dans tous les sens",
+      "pain1emoji": "🧾",
+      "pain1": "Factures tapées à la main après chaque service ou prestation",
+      "pain2emoji": "📋",
+      "pain2": "Commandes fournisseurs, menus et demandes gérés par SMS ou email",
+      "pain3emoji": "📞",
+      "pain3": "Relancer soi-même les impayés"
+    },
+    "Services": {
+      "label": "La Solution",
+      "headline": "Je gère l'ennuyeux. Vous faites tourner le restaurant.",
+      "subheadline": "Des systèmes simples pour tout type de restauration — restaurant, traiteur ou chef privé.",
+      "card0name": "Noyé dans les emails de réservation ?",
+      "card0description": "Clients et convives réservent et paient en ligne. Votre agenda se remplit tout seul. Fini les allers-retours.",
+      "card1name": "Vous tapez vos factures à la main ?",
+      "card1description": "Après chaque service ou prestation, une facture part toute seule. Vous êtes payé plus vite. Zéro effort de votre part.",
+      "card2name": "Vous gérez menus, commandes et demandes ?",
+      "card2description": "Clients et convives remplissent leurs besoins en ligne. Allergies, nombre de couverts, détails — tout est enregistré et organisé pour vous."
+    },
+    "CaseStudy": {
+      "label": "Étude de Cas",
+      "clientName": "Elisa Batch Cooking",
+      "location": "Cheffe professionnelle — Annecy, France",
+      "beforeLabel": "Avant",
+      "before0": "Factures tapées à la main après chaque prestation",
+      "before1": "Réservations par WhatsApp ou email",
+      "before2": "Suivi des paiements dans un tableur",
+      "before3": "10+ heures d'admin par semaine",
+      "afterLabel": "Après",
+      "after0": "Factures envoyées automatiquement",
+      "after1": "Clients qui réservent et paient en ligne",
+      "after2": "Paiements mis à jour tout seuls",
+      "after3": "520+ heures économisées par an",
+      "impactValue": "520+",
+      "impactLabel": "Heures Économisées / An",
+      "impactNote": "Soit 10+ heures récupérées chaque semaine.",
+      "cta": "Voir si je peux faire pareil pour vous",
+      "videoTitle": "Voir comment ça marche"
+    },
+    "Testimonial": {
+      "headline": "Ce qu'une professionnelle de la restauration en dit",
+      "body": "Gabriel a pris en charge tout mon administratif. <bold>Ça me fait gagner des heures chaque semaine.</bold> Tout est simple — pour moi et pour mes clients. <bold>Je le recommande les yeux fermés.</bold>",
+      "author": "Elisa Curtelin",
+      "role": "Fondatrice, Elisa Batch Cooking"
     },
     "CTA": {
-        "headline": "Prêt à récupérer votre temps ?",
-        "button": "Places limitées ce mois-ci – Audit Gratuit →"
+      "headline": "Arrêtez de faire les papiers.",
+      "description": "Réservez un appel gratuit de 30 minutes. Je vous montre ce que je peux gérer pour vous — et combien de temps vous allez récupérer.",
+      "button": "Obtenir votre audit gratuit →",
+      "note": "Sans engagement. Sans jargon. Juste un plan clair."
     },
-    "Chef": {
-        "Hero": {
-            "badge": "Pour les Chefs et Traiteurs",
-            "hook": "Moins d'admin. Plus de cuisine.",
-            "solution": "Je gère vos réservations, factures et papiers.",
-            "description": "Économisez 10+ heures par semaine sur l'admin. Restez dans votre cuisine.",
-            "cta": "Voir comment ça marche pour les chefs →"
-        },
-        "SocialProof": {
-            "label": "Résultats réels pour Elisa Batch Cooking — Cheffe professionnelle",
-            "stat0value": "520+",
-            "stat0label": "heures économisées par an",
-            "stat1value": "10+",
-            "stat1label": "heures libérées chaque semaine",
-            "stat2value": "100%",
-            "stat2label": "facturation automatisée"
-        },
-        "Problem": {
-            "label": "Le Problème",
-            "headline": "Vous cuisinez. Mais les papiers ne s'arrêtent jamais.",
-            "subheadline": "Chaque prestation amène une pile d'admin. Emails. Factures. Relances. Ça prend des heures — chaque semaine.",
-            "pain0emoji": "📨",
-            "pain0": "Des emails dans tous les sens juste pour confirmer une date",
-            "pain1emoji": "🧾",
-            "pain1": "Taper les factures à la main après chaque prestation",
-            "pain2emoji": "📋",
-            "pain2": "Les clients qui envoient leurs besoins par SMS ou DM",
-            "pain3emoji": "📞",
-            "pain3": "Relancer soi-même les factures impayées"
-        },
-        "Services": {
-            "label": "La Solution",
-            "headline": "Je gère l'ennuyeux. Vous cuisinez.",
-            "subheadline": "Des systèmes simples faits pour les chefs et traiteurs.",
-            "card0name": "Noyé dans les emails de réservation ?",
-            "card0description": "Les clients réservent et paient en ligne. Votre agenda se remplit tout seul. Fini les allers-retours.",
-            "card1name": "Vous tapez vos factures à la main ?",
-            "card1description": "Après chaque prestation, une facture part toute seule. Vous êtes payé plus vite. Zéro effort de votre part.",
-            "card2name": "Vous courez après les demandes de menus ?",
-            "card2description": "Les clients remplissent leurs besoins en ligne. Allergies, nombre de personnes, détails — tout est enregistré pour vous."
-        },
-        "CaseStudy": {
-            "label": "Étude de Cas",
-            "clientName": "Elisa Batch Cooking",
-            "location": "Cheffe professionnelle — Annecy, France",
-            "beforeLabel": "Avant",
-            "before0": "Factures tapées à la main après chaque prestation",
-            "before1": "Réservations par WhatsApp ou email",
-            "before2": "Suivi des paiements dans un tableur",
-            "before3": "10+ heures d'admin par semaine",
-            "afterLabel": "Après",
-            "after0": "Factures envoyées automatiquement",
-            "after1": "Clients qui réservent et paient en ligne",
-            "after2": "Paiements mis à jour tout seuls",
-            "after3": "520+ heures économisées par an",
-            "impactValue": "520+",
-            "impactLabel": "Heures Économisées / An",
-            "impactNote": "Soit 10+ heures récupérées chaque semaine.",
-            "cta": "Voir si je peux faire pareil pour vous",
-            "videoTitle": "Voir comment ça marche"
-        },
-        "Testimonial": {
-            "headline": "Ce qu'une cheffe en dit",
-            "body": "Gabriel a pris en charge tout mon administratif. <bold>Ça me fait gagner des heures chaque semaine.</bold> Tout est simple — pour moi et pour mes clients. <bold>Je le recommande les yeux fermés.</bold>",
-            "author": "Elisa Curtelin",
-            "role": "Fondatrice, Elisa Batch Cooking"
-        },
-        "CTA": {
-            "headline": "Arrêtez de faire les papiers.",
-            "description": "Réservez un appel gratuit de 30 minutes. Je vous montre ce que je peux gérer pour vous — et combien de temps vous allez récupérer.",
-            "button": "Obtenir votre audit gratuit →",
-            "note": "Sans engagement. Sans jargon. Juste un plan clair."
-        },
-        "DayInLife": {
-            "label": "Votre Journée Type",
-            "headline": "Où passe vraiment votre temps ?",
-            "beforeTitle": "Avant",
-            "afterTitle": "Après",
-            "adminBefore": "Admin — emails, factures, relances",
-            "cookingBefore": "Cuisine & préparation",
-            "otherBefore": "Tout le reste",
-            "cookingAfter": "Cuisine & préparation",
-            "growthAfter": "Nouveaux clients & croissance",
-            "adminAfter": "Admin (géré à votre place)",
-            "hoursUnit": "h",
-            "note": "C'est du vrai temps. Votre temps."
-        },
-        "HowItWorks": {
-            "label": "Comment Ça Marche",
-            "headline": "Simple. Rapide. Réglé.",
-            "step0title": "On parle",
-            "step0description": "Appel gratuit de 30 minutes. Vous me dites comment vous travaillez. Aucune connaissance technique requise.",
-            "step1title": "Je construis",
-            "step1description": "Je mets tout en place en 30 jours. Vous ne faites rien.",
-            "step2title": "Vous cuisinez",
-            "step2description": "Vos systèmes tournent tout seuls. Vous restez en cuisine."
-        },
-        "Tools": {
-            "label": "Compatible avec vos outils actuels"
-        },
-        "ROI": {
-            "label": "Votre Coût Caché",
-            "headline": "Combien vous coûte vraiment votre admin ?",
-            "subheadline": "Bougez les curseurs. Voyez votre vrai chiffre.",
-            "weeklyHoursLabel": "Heures d'admin par semaine",
-            "rateLabel": "Votre taux horaire (€)",
-            "hoursUnit": "heures perdues par an",
-            "costUnit": "perdus par an",
-            "resultNote": "C'est ce que je vous rends.",
-            "cta": "Récupérons ce temps →"
-        },
-        "Sticky": {
-            "text": "Audit gratuit de 30 min pour chefs. Sans engagement.",
-            "button": "Réserver →"
-        }
+    "DayInLife": {
+      "label": "Avant & Après",
+      "headline": "Où passe vraiment votre temps ?",
+      "beforeTitle": "Sans automatisation",
+      "afterTitle": "Avec automatisation",
+      "adminBefore": "Admin — emails, factures, planning",
+      "cookingBefore": "Cuisine, service & préparation",
+      "growthBefore": "Trouver de nouveaux clients",
+      "adminAfter": "Admin (géré à votre place)",
+      "cookingAfter": "Cuisine, service & préparation",
+      "growthAfter": "Nouveaux clients & développement",
+      "beforeStat": "6 heures par jour. Perdues.",
+      "afterStat": "6 heures retrouvées. Chaque jour.",
+      "savingsTitle": "6 heures économisées. Chaque jour.",
+      "savingsNote": "30 heures par semaine. Plus de 1 500 heures par an.",
+      "note": "Basé sur une vraie cliente. Vos résultats peuvent varier."
     },
-    "Footer": {
-        "rights": "Tous droits réservés.",
-        "legal": "Mentions Légales",
-        "terms": "CGV"
+    "HowItWorks": {
+      "label": "Comment Ça Marche",
+      "headline": "Simple. Rapide. Réglé.",
+      "step0title": "On parle",
+      "step0description": "Appel gratuit de 30 minutes. Vous me dites comment vous travaillez. Aucune connaissance technique requise.",
+      "step1title": "Je construis",
+      "step1description": "Je mets tout en place en 30 jours. Vous ne faites rien.",
+      "step2title": "Vous vous concentrez",
+      "step2description": "Vos systèmes tournent tout seuls. Vous vous concentrez sur la nourriture et votre équipe."
     },
-    "Legal": {
-        "title": "Mentions Légales & Politique de Confidentialité",
-        "metaDescription": "Mentions légales et politique de confidentialité de gabrieldalmoro.com — conforme au RGPD.",
-        "backHome": "Retour à l'accueil",
-        "lastUpdated": "Dernière mise à jour",
-        "lastUpdatedDate": "6 mars 2026",
-        "viewTerms": "Conditions Générales de Vente →",
-        "footerNote": "Cette politique a été mise à jour le 6 mars 2026. Pour toute question, contactez gabriel@gabrieldalmoro.com.",
-        "sections": {
-            "identity": {
-                "title": "Identification du Site",
-                "site": "Site Web",
-                "email": "Email de contact",
-                "location": "Localisation",
-                "status": "Statut juridique",
-                "statusValue": "Travailleur autonome, enregistré en Alberta, Canada"
-            },
-            "dataController": {
-                "title": "Responsable du traitement",
-                "content": "Gabriel Dalmoro est un travailleur autonome enregistré en Alberta, Canada, et opère depuis Annecy, France. Il est le seul responsable du traitement des données personnelles collectées via ce site. Vous pouvez le contacter à gabriel@gabrieldalmoro.com."
-            },
-            "dataCollected": {
-                "title": "Données collectées",
-                "intro": "Nous collectons uniquement les données personnelles que vous nous fournissez volontairement via le formulaire de contact du site. Il peut s'agir de :",
-                "items": [
-                    "Votre nom et prénom",
-                    "Votre adresse email professionnelle",
-                    "Des informations sur votre entreprise et ses besoins (outils utilisés, temps passé sur les tâches administratives)",
-                    "Tout message complémentaire que vous fournissez volontairement"
-                ]
-            },
-            "purpose": {
-                "title": "Finalités & Base légale",
-                "intro": "Vos données personnelles sont traitées aux fins suivantes, sur les bases légales correspondantes :",
-                "items": [
-                    "Répondre à votre demande de contact — Intérêt légitime (Art. 6(1)(f) RGPD)",
-                    "Évaluer la possibilité d'une collaboration commerciale — Intérêt légitime (Art. 6(1)(f) RGPD)",
-                    "Envoyer un devis ou une proposition — Mesures précontractuelles (Art. 6(1)(b) RGPD)"
-                ]
-            },
-            "retention": {
-                "title": "Durée de conservation",
-                "content": "Vos données sont conservées au maximum 3 ans à compter de votre dernier contact, conformément aux meilleures pratiques RGPD et au droit applicable en matière de protection des données. En l'absence de relation commerciale établie, les données de contact sont supprimées dans les 12 mois suivant votre premier message. Vous pouvez demander leur suppression à tout moment."
-            },
-            "sharing": {
-                "title": "Partage des données & Tiers",
-                "intro": "Vos données ne sont jamais vendues. Elles peuvent être partagées uniquement avec les services tiers strictement nécessaires au fonctionnement du site :",
-                "items": [
-                    "Vercel (hébergement) — États-Unis, encadré par des Clauses Contractuelles Types",
-                    "Google Workspace (communication par email) — États-Unis, encadré par des Clauses Contractuelles Types"
-                ],
-                "note": "Tous les prestataires tiers sont sélectionnés pour leur conformité au RGPD et leur fiabilité. Aucune donnée n'est transférée vers des pays tiers sans garanties appropriées."
-            },
-            "rights": {
-                "title": "Vos droits au titre du RGPD",
-                "intro": "Conformément au Règlement Général sur la Protection des Données (UE 2016/679), vous disposez des droits suivants :",
-                "items": [
-                    "Droit d'accès — demander une copie des données vous concernant",
-                    "Droit de rectification — demander la correction de données inexactes",
-                    "Droit à l'effacement — demander la suppression de vos données ('droit à l'oubli')",
-                    "Droit à la limitation du traitement — demander à limiter l'utilisation de vos données",
-                    "Droit à la portabilité — demander vos données dans un format portable",
-                    "Droit d'opposition — vous opposer au traitement fondé sur un intérêt légitime",
-                    "Droit de retrait du consentement — lorsque le traitement est fondé sur votre consentement"
-                ],
-                "exercise": "Pour exercer l'un de ces droits, contactez directement le responsable du traitement :"
-            },
-            "cookies": {
-                "title": "Cookies & Analytiques",
-                "content": "Ce site utilise Vercel Analytics et Speed Insights pour un suivi de performance anonyme et agrégé. Aucune donnée personnelle n'est collectée via ces outils. Microsoft Clarity est utilisé pour une analyse anonyme des sessions afin d'améliorer l'expérience utilisateur. Aucun cookie nécessitant un consentement n'est utilisé. Vous pouvez bloquer les outils d'analyse via les paramètres de votre navigateur."
-            },
-            "hosting": {
-                "title": "Hébergement",
-                "content": "Ce site est hébergé par Vercel Inc. Vercel traite les données conformément aux Clauses Contractuelles Types de l'UE pour assurer la conformité RGPD des transferts internationaux de données."
-            },
-            "complaints": {
-                "title": "Réclamations & Autorité de contrôle",
-                "content": "Si vous estimez que vos droits en matière de protection des données n'ont pas été respectés, vous avez le droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés), autorité de contrôle compétente pour la France :"
-            }
-        }
+    "Tools": {
+      "label": "Compatible avec vos outils actuels"
     },
-    "Terms": {
-        "title": "Conditions Générales de Vente",
-        "metaDescription": "Conditions générales régissant les prestations de services freelance de Gabriel Dalmoro.",
-        "badge": "Contrat de Prestation",
-        "backHome": "Retour à l'accueil",
-        "lastUpdated": "Dernière mise à jour",
-        "lastUpdatedDate": "6 mars 2026",
-        "viewLegal": "Mentions Légales & Confidentialité →",
-        "footerNote": "Ces CGV sont régies par le droit de la province d'Alberta, Canada. Dernière mise à jour : 6 mars 2026.",
-        "intro": "Les présentes Conditions Générales de Vente régissent la fourniture des services freelance d'automatisation, d'ingénierie logicielle et services connexes par Gabriel Dalmoro (\"le Prestataire\") à ses clients (\"le Client\"). En faisant appel aux services du Prestataire, vous acceptez d'être lié(e) par ces conditions.",
-        "sections": {
-            "services": {
-                "title": "Services proposés",
-                "content": "Gabriel Dalmoro propose des services d'automatisation business, d'ingénierie logicielle sur mesure, de conception de workflows, d'intégration de systèmes et de services digitaux connexes, à titre freelance. Le périmètre spécifique, les livrables, les délais et les tarifs de chaque mission sont convenus par écrit avant le début des travaux (via devis, proposition ou cahier des charges)."
-            },
-            "acceptance": {
-                "title": "Acceptation des conditions",
-                "content": "Ces conditions s'appliquent à toutes les missions de service, sauf accord écrit distinct. En signant un devis, en versant un acompte ou en donnant instruction de commencer les travaux, le Client accepte l'intégralité de ces conditions. En cas de désaccord, veuillez ne pas recourir aux services."
-            },
-            "obligations": {
-                "title": "Obligations du Client",
-                "intro": "Pour assurer le bon déroulement de la mission, le Client s'engage à :",
-                "items": [
-                    "Fournir dans les délais des informations exactes et complètes ainsi que les accès aux systèmes nécessaires",
-                    "Désigner un interlocuteur chargé de fournir des retours et des validations dans les délais convenus",
-                    "Respecter le calendrier de paiement convenu",
-                    "Ne pas demander de modifications hors périmètre sans bon de commande écrit complémentaire"
-                ]
-            },
-            "payment": {
-                "title": "Tarifs & Paiement",
-                "content": "Tous les prix sont exprimés en Euros (€) hors taxes applicables. Les conditions de paiement sont les suivantes :",
-                "items": [
-                    "Un acompte (généralement 40 %) est dû avant le début des travaux",
-                    "Un paiement intermédiaire (généralement 30 %) est dû à la livraison du jalon",
-                    "Le solde (généralement 30 %) est dû à la livraison finale",
-                    "Les factures sont payables sous 14 jours à compter de leur émission",
-                    "Les retards de paiement donnent lieu à des intérêts au taux de 2 % par mois (24 % par an), composés mensuellement, conformément au droit applicable en Alberta"
-                ]
-            },
-            "ip": {
-                "title": "Propriété intellectuelle",
-                "content": "Après paiement intégral, le Client bénéficie d'une licence complète pour utiliser l'ensemble des livrables créés pour lui. Le Prestataire conserve le droit d'utiliser les connaissances générales, techniques et méthodologies. Le Prestataire conserve tous droits sur les outils, bibliothèques et frameworks préexistants utilisés. Le Prestataire pourra mentionner la mission dans son portfolio, sauf demande expresse de confidentialité du Client par écrit."
-            },
-            "confidentiality": {
-                "title": "Confidentialité",
-                "content": "Les deux parties s'engagent à maintenir la confidentialité de toute information commerciale sensible échangée dans le cadre de la mission. Le Prestataire ne divulguera pas les données du Client, ses processus propriétaires ou ses secrets commerciaux à des tiers. Cette obligation survit à la fin de la mission."
-            },
-            "guarantee": {
-                "title": "Garantie de résultats",
-                "content": "Pour les projets d'automatisation éligibles, Gabriel Dalmoro garantit que le système livré permettra au Client d'économiser au minimum 5 heures par semaine, mesurées par rapport à la situation initiale du Client avant la mission. Si ce résultat n'est pas atteint dans les 60 jours suivant la livraison, sans faute du Client, le Prestataire continuera à améliorer et optimiser le système sans frais supplémentaires jusqu'à ce que la garantie soit satisfaite. Cette garantie s'applique uniquement au périmètre d'automatisation convenu et requiert que l'environnement et les processus du Client restent substantiellement inchangés."
-            },
-            "liability": {
-                "title": "Limitation de responsabilité",
-                "content": "La responsabilité totale du Prestataire pour toute réclamation relative à une mission ne pourra excéder le montant total des honoraires versés par le Client pour cette mission. Le Prestataire n'est pas responsable des dommages indirects, consécutifs ou accidentels, y compris la perte de clientèle, la perte de données ou le manque à gagner. Le Prestataire n'est pas responsable des défaillances causées par des services tiers, l'infrastructure du Client ou des modifications de l'environnement du Client."
-            },
-            "termination": {
-                "title": "Résiliation",
-                "content": "L'une ou l'autre des parties peut mettre fin à une mission moyennant un préavis écrit de 14 jours. En cas de résiliation, le Client sera facturé pour l'ensemble des travaux réalisés jusqu'à la date de résiliation. Les acomptes ne sont pas remboursables, sauf si le Prestataire n'a pas commencé les travaux convenus. Le Prestataire peut résilier immédiatement en cas de défaut de paiement supérieur à 30 jours ou de manquement grave aux présentes conditions."
-            },
-            "law": {
-                "title": "Droit applicable & Juridiction",
-                "content": "Les présentes CGV sont régies par le droit de la province d'Alberta et les lois fédérales applicables du Canada, sans égard aux règles de conflit de lois. En cas de litige ne pouvant être résolu à l'amiable, les parties se soumettent à la compétence exclusive des tribunaux de l'Alberta, Canada. Nonobstant ce qui précède, les clients basés dans l'Union européenne conservent l'ensemble des droits obligatoires prévus par leur droit local de protection des consommateurs, auxquels les présentes CGV ne sauraient déroger."
-            },
-            "modifications": {
-                "title": "Modifications",
-                "content": "Le Prestataire se réserve le droit de modifier les présentes CGV à tout moment. La version en vigueur au moment du début d'une mission régit cette mission spécifique. Les clients sont invités à consulter ces conditions avant de conclure un nouvel accord."
-            },
-            "contact": {
-                "title": "Contact",
-                "content": "Pour toute question relative aux présentes Conditions Générales de Vente, veuillez contacter :"
-            }
-        }
+    "ROI": {
+      "label": "Votre Coût Caché",
+      "headline": "Combien vous coûte vraiment votre admin ?",
+      "subheadline": "Bougez les curseurs. Voyez votre vrai chiffre.",
+      "weeklyHoursLabel": "Heures d'admin par semaine",
+      "rateLabel": "Votre taux horaire (€)",
+      "hoursUnit": "heures perdues par an",
+      "costUnit": "perdus par an",
+      "resultNote": "C'est ce que je vous rends.",
+      "cta": "Récupérons ce temps →"
+    },
+    "Sticky": {
+      "text": "Audit gratuit de 30 min pour la restauration. Sans engagement.",
+      "button": "Réserver →"
     }
+  },
+  "Fitness": {
+    "Hero": {
+      "badge": "Pour les Coachs, Salles de Sport & Studios Fitness",
+      "hook": "Moins d'admin. Plus de coaching.",
+      "solution": "J'automatise vos réservations, paiements et suivis clients.",
+      "description": "Économisez 10+ heures par semaine sur la gestion. Passez ce temps avec vos clients — pas sur la paperasse.",
+      "cta": "Voir comment ça marche pour les coachs →"
+    },
+    "SocialProof": {
+      "label": "Résultats réels pour des professionnels du fitness",
+      "stat0value": "480+",
+      "stat0label": "heures économisées par an",
+      "stat1value": "12+",
+      "stat1label": "heures libérées chaque semaine",
+      "stat2value": "100%",
+      "stat2label": "planification automatisée"
+    },
+    "Problem": {
+      "label": "Le Problème",
+      "headline": "Vous travaillez dans le fitness. Mais l'admin bouffe vos journées.",
+      "subheadline": "Messages clients, plannings, relances de paiements, formulaires — ça ne s'arrête jamais. Chaque heure sur l'admin, c'est une heure de moins avec vos clients.",
+      "pain0emoji": "📆",
+      "pain0": "Messages de planning dans tous les sens pour caler les séances",
+      "pain1emoji": "💳",
+      "pain1": "Relancer les paiements en retard et suivre qui vous doit quoi",
+      "pain2emoji": "📋",
+      "pain2": "Envoyer les formulaires d'inscription manuellement et attendre les retours",
+      "pain3emoji": "📱",
+      "pain3": "Relancer à la main les absents et les nouveaux prospects"
+    },
+    "Services": {
+      "label": "La Solution",
+      "headline": "Je gère l'admin. Vous gérez le coaching.",
+      "subheadline": "Des systèmes automatisés pour les coachs sportifs, salles de sport, studios yoga et pilates.",
+      "card0name": "Noyé dans les demandes de réservation ?",
+      "card0description": "Vos clients réservent et paient leurs séances en ligne. Votre planning se remplit tout seul. Fini les DMs et SMS.",
+      "card1name": "Vous relancez les paiements ?",
+      "card1description": "Après chaque séance ou forfait, les factures partent automatiquement et les paiements se suivent tout seuls. Vous êtes payé à temps, à chaque fois.",
+      "card2name": "Formulaires d'entrée et suivi client ?",
+      "card2description": "Les nouveaux clients remplissent leurs antécédents et objectifs en ligne. Des check-ins automatiques les gardent engagés — et vous informé."
+    },
+    "DayInLife": {
+      "label": "Votre Journée Type",
+      "headline": "Où passe vraiment votre temps ?",
+      "beforeTitle": "Avant",
+      "afterTitle": "Après",
+      "adminBefore": "Admin — messages, paiements, formulaires, relances",
+      "coachingBefore": "Coaching & séances d'entraînement",
+      "otherBefore": "Tout le reste",
+      "coachingAfter": "Coaching & séances d'entraînement",
+      "growthAfter": "Nouveaux clients & croissance",
+      "adminAfter": "Admin (géré à votre place)",
+      "hoursUnit": "h",
+      "note": "C'est du vrai temps. Votre temps."
+    },
+    "HowItWorks": {
+      "label": "Comment Ça Marche",
+      "headline": "Simple. Rapide. Réglé.",
+      "step0title": "On parle",
+      "step0description": "Appel gratuit de 30 minutes. Vous me parlez de vos séances et de ce qui vous freine.",
+      "step1title": "Je construis",
+      "step1description": "Je mets en place vos systèmes de réservation, paiement et suivi en 30 jours. Vous ne faites rien.",
+      "step2title": "Vous coachez",
+      "step2description": "Vos systèmes tournent tout seuls. Vous vous concentrez sur vos clients et la croissance de votre activité."
+    },
+    "Tools": {
+      "label": "Compatible avec vos outils actuels"
+    },
+    "Results": {
+      "label": "Résultats Concrets",
+      "headline": "Ce que les pros du fitness récupèrent vraiment",
+      "location": "Coach Sportif & Gérant de Salle",
+      "beforeLabel": "Avant",
+      "before0": "Planning des séances par DM et SMS",
+      "before1": "Relancer les paiements chaque mois",
+      "before2": "Envoyer les formulaires d'inscription manuellement",
+      "before3": "10+ heures d'admin chaque semaine",
+      "afterLabel": "Après",
+      "after0": "Clients qui réservent et paient en ligne",
+      "after1": "Factures et relances qui partent toutes seules",
+      "after2": "Formulaires automatisés dès le premier jour",
+      "after3": "480+ heures libérées par an",
+      "impactValue": "480+",
+      "impactLabel": "Heures Libérées par An",
+      "impactNote": "Soit 12+ heures récupérées chaque semaine.",
+      "cta": "Voir si je peux faire pareil pour vous"
+    },
+    "Testimonial": {
+      "headline": "Ce qu'un pro du fitness en dit",
+      "pullQuote": "480+ heures récupérées.",
+      "body": "Gabriel a automatisé toute ma gestion de réservations et paiements. <bold>Je récupère 12 heures par semaine.</bold> Mes clients ont une meilleure expérience, et je ne pense plus à la planification. <bold>Meilleure décision pour mon business.</bold>",
+      "author": "Zach M.",
+      "role": "Coach Sportif & Gérant de Salle"
+    },
+    "ROI": {
+      "label": "Votre Coût Caché",
+      "headline": "Combien vous coûte vraiment votre admin ?",
+      "subheadline": "Bougez les curseurs. Voyez votre vrai chiffre.",
+      "weeklyHoursLabel": "Heures d'admin par semaine",
+      "rateLabel": "Votre taux horaire (€)",
+      "hoursUnit": "heures perdues par an",
+      "costUnit": "perdus par an",
+      "resultNote": "C'est ce que je vous rends.",
+      "cta": "Récupérons ce temps →"
+    },
+    "CTA": {
+      "headline": "Arrêtez de courir après les clients. Coachez.",
+      "description": "Réservez un appel gratuit de 30 minutes. Je vous montre ce que je peux automatiser — et combien d'heures vous allez récupérer.",
+      "button": "Obtenir votre audit gratuit →",
+      "note": "Sans engagement. Sans jargon. Juste un plan clair."
+    },
+    "Sticky": {
+      "text": "Audit gratuit de 30 min pour les coachs et salles de sport. Sans engagement.",
+      "button": "Réserver →"
+    }
+  },
+  "Footer": {
+    "rights": "Tous droits réservés.",
+    "legal": "Mentions Légales",
+    "terms": "CGV"
+  },
+  "Legal": {
+    "title": "Mentions Légales & Politique de Confidentialité",
+    "metaDescription": "Mentions légales et politique de confidentialité de gabrieldalmoro.com — conforme au RGPD.",
+    "backHome": "Retour à l'accueil",
+    "lastUpdated": "Dernière mise à jour",
+    "lastUpdatedDate": "6 mars 2026",
+    "viewTerms": "Conditions Générales de Vente →",
+    "footerNote": "Cette politique a été mise à jour le 6 mars 2026. Pour toute question, contactez gabriel@gabrieldalmoro.com.",
+    "sections": {
+      "identity": {
+        "title": "Identification du Site",
+        "site": "Site Web",
+        "email": "Email de contact",
+        "location": "Localisation",
+        "status": "Statut juridique",
+        "statusValue": "Travailleur autonome, enregistré en Alberta, Canada"
+      },
+      "dataController": {
+        "title": "Responsable du traitement",
+        "content": "Gabriel Dalmoro est un travailleur autonome enregistré en Alberta, Canada, et opère depuis Annecy, France. Il est le seul responsable du traitement des données personnelles collectées via ce site. Vous pouvez le contacter à gabriel@gabrieldalmoro.com."
+      },
+      "dataCollected": {
+        "title": "Données collectées",
+        "intro": "Nous collectons uniquement les données personnelles que vous nous fournissez volontairement via le formulaire de contact du site. Il peut s'agir de :",
+        "items": [
+          "Votre nom et prénom",
+          "Votre adresse email professionnelle",
+          "Des informations sur votre entreprise et ses besoins (outils utilisés, temps passé sur les tâches administratives)",
+          "Tout message complémentaire que vous fournissez volontairement"
+        ]
+      },
+      "purpose": {
+        "title": "Finalités & Base légale",
+        "intro": "Vos données personnelles sont traitées aux fins suivantes, sur les bases légales correspondantes :",
+        "items": [
+          "Répondre à votre demande de contact — Intérêt légitime (Art. 6(1)(f) RGPD)",
+          "Évaluer la possibilité d'une collaboration commerciale — Intérêt légitime (Art. 6(1)(f) RGPD)",
+          "Envoyer un devis ou une proposition — Mesures précontractuelles (Art. 6(1)(b) RGPD)"
+        ]
+      },
+      "retention": {
+        "title": "Durée de conservation",
+        "content": "Vos données sont conservées au maximum 3 ans à compter de votre dernier contact, conformément aux meilleures pratiques RGPD et au droit applicable en matière de protection des données. En l'absence de relation commerciale établie, les données de contact sont supprimées dans les 12 mois suivant votre premier message. Vous pouvez demander leur suppression à tout moment."
+      },
+      "sharing": {
+        "title": "Partage des données & Tiers",
+        "intro": "Vos données ne sont jamais vendues. Elles peuvent être partagées uniquement avec les services tiers strictement nécessaires au fonctionnement du site :",
+        "items": [
+          "Vercel (hébergement) — États-Unis, encadré par des Clauses Contractuelles Types",
+          "Google Workspace (communication par email) — États-Unis, encadré par des Clauses Contractuelles Types"
+        ],
+        "note": "Tous les prestataires tiers sont sélectionnés pour leur conformité au RGPD et leur fiabilité. Aucune donnée n'est transférée vers des pays tiers sans garanties appropriées."
+      },
+      "rights": {
+        "title": "Vos droits au titre du RGPD",
+        "intro": "Conformément au Règlement Général sur la Protection des Données (UE 2016/679), vous disposez des droits suivants :",
+        "items": [
+          "Droit d'accès — demander une copie des données vous concernant",
+          "Droit de rectification — demander la correction de données inexactes",
+          "Droit à l'effacement — demander la suppression de vos données ('droit à l'oubli')",
+          "Droit à la limitation du traitement — demander à limiter l'utilisation de vos données",
+          "Droit à la portabilité — demander vos données dans un format portable",
+          "Droit d'opposition — vous opposer au traitement fondé sur un intérêt légitime",
+          "Droit de retrait du consentement — lorsque le traitement est fondé sur votre consentement"
+        ],
+        "exercise": "Pour exercer l'un de ces droits, contactez directement le responsable du traitement :"
+      },
+      "cookies": {
+        "title": "Cookies & Analytiques",
+        "content": "Ce site utilise Vercel Analytics et Speed Insights pour un suivi de performance anonyme et agrégé. Aucune donnée personnelle n'est collectée via ces outils. Microsoft Clarity est utilisé pour une analyse anonyme des sessions afin d'améliorer l'expérience utilisateur. Aucun cookie nécessitant un consentement n'est utilisé. Vous pouvez bloquer les outils d'analyse via les paramètres de votre navigateur."
+      },
+      "hosting": {
+        "title": "Hébergement",
+        "content": "Ce site est hébergé par Vercel Inc. Vercel traite les données conformément aux Clauses Contractuelles Types de l'UE pour assurer la conformité RGPD des transferts internationaux de données."
+      },
+      "complaints": {
+        "title": "Réclamations & Autorité de contrôle",
+        "content": "Si vous estimez que vos droits en matière de protection des données n'ont pas été respectés, vous avez le droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés), autorité de contrôle compétente pour la France :"
+      }
+    }
+  },
+  "Terms": {
+    "title": "Conditions Générales de Vente",
+    "metaDescription": "Conditions générales régissant les prestations de services freelance de Gabriel Dalmoro.",
+    "badge": "Contrat de Prestation",
+    "backHome": "Retour à l'accueil",
+    "lastUpdated": "Dernière mise à jour",
+    "lastUpdatedDate": "6 mars 2026",
+    "viewLegal": "Mentions Légales & Confidentialité →",
+    "footerNote": "Ces CGV sont régies par le droit de la province d'Alberta, Canada. Dernière mise à jour : 6 mars 2026.",
+    "intro": "Les présentes Conditions Générales de Vente régissent la fourniture des services freelance d'automatisation, d'ingénierie logicielle et services connexes par Gabriel Dalmoro (\"le Prestataire\") à ses clients (\"le Client\"). En faisant appel aux services du Prestataire, vous acceptez d'être lié(e) par ces conditions.",
+    "sections": {
+      "services": {
+        "title": "Services proposés",
+        "content": "Gabriel Dalmoro propose des services d'automatisation business, d'ingénierie logicielle sur mesure, de conception de workflows, d'intégration de systèmes et de services digitaux connexes, à titre freelance. Le périmètre spécifique, les livrables, les délais et les tarifs de chaque mission sont convenus par écrit avant le début des travaux (via devis, proposition ou cahier des charges)."
+      },
+      "acceptance": {
+        "title": "Acceptation des conditions",
+        "content": "Ces conditions s'appliquent à toutes les missions de service, sauf accord écrit distinct. En signant un devis, en versant un acompte ou en donnant instruction de commencer les travaux, le Client accepte l'intégralité de ces conditions. En cas de désaccord, veuillez ne pas recourir aux services."
+      },
+      "obligations": {
+        "title": "Obligations du Client",
+        "intro": "Pour assurer le bon déroulement de la mission, le Client s'engage à :",
+        "items": [
+          "Fournir dans les délais des informations exactes et complètes ainsi que les accès aux systèmes nécessaires",
+          "Désigner un interlocuteur chargé de fournir des retours et des validations dans les délais convenus",
+          "Respecter le calendrier de paiement convenu",
+          "Ne pas demander de modifications hors périmètre sans bon de commande écrit complémentaire"
+        ]
+      },
+      "payment": {
+        "title": "Tarifs & Paiement",
+        "content": "Tous les prix sont exprimés en Euros (€) hors taxes applicables. Les conditions de paiement sont les suivantes :",
+        "items": [
+          "Un acompte (généralement 40 %) est dû avant le début des travaux",
+          "Un paiement intermédiaire (généralement 30 %) est dû à la livraison du jalon",
+          "Le solde (généralement 30 %) est dû à la livraison finale",
+          "Les factures sont payables sous 14 jours à compter de leur émission",
+          "Les retards de paiement donnent lieu à des intérêts au taux de 2 % par mois (24 % par an), composés mensuellement, conformément au droit applicable en Alberta"
+        ]
+      },
+      "ip": {
+        "title": "Propriété intellectuelle",
+        "content": "Après paiement intégral, le Client bénéficie d'une licence complète pour utiliser l'ensemble des livrables créés pour lui. Le Prestataire conserve le droit d'utiliser les connaissances générales, techniques et méthodologies. Le Prestataire conserve tous droits sur les outils, bibliothèques et frameworks préexistants utilisés. Le Prestataire pourra mentionner la mission dans son portfolio, sauf demande expresse de confidentialité du Client par écrit."
+      },
+      "confidentiality": {
+        "title": "Confidentialité",
+        "content": "Les deux parties s'engagent à maintenir la confidentialité de toute information commerciale sensible échangée dans le cadre de la mission. Le Prestataire ne divulguera pas les données du Client, ses processus propriétaires ou ses secrets commerciaux à des tiers. Cette obligation survit à la fin de la mission."
+      },
+      "guarantee": {
+        "title": "Garantie de résultats",
+        "content": "Pour les projets d'automatisation éligibles, Gabriel Dalmoro garantit que le système livré permettra au Client d'économiser au minimum 5 heures par semaine, mesurées par rapport à la situation initiale du Client avant la mission. Si ce résultat n'est pas atteint dans les 60 jours suivant la livraison, sans faute du Client, le Prestataire continuera à améliorer et optimiser le système sans frais supplémentaires jusqu'à ce que la garantie soit satisfaite. Cette garantie s'applique uniquement au périmètre d'automatisation convenu et requiert que l'environnement et les processus du Client restent substantiellement inchangés."
+      },
+      "liability": {
+        "title": "Limitation de responsabilité",
+        "content": "La responsabilité totale du Prestataire pour toute réclamation relative à une mission ne pourra excéder le montant total des honoraires versés par le Client pour cette mission. Le Prestataire n'est pas responsable des dommages indirects, consécutifs ou accidentels, y compris la perte de clientèle, la perte de données ou le manque à gagner. Le Prestataire n'est pas responsable des défaillances causées par des services tiers, l'infrastructure du Client ou des modifications de l'environnement du Client."
+      },
+      "termination": {
+        "title": "Résiliation",
+        "content": "L'une ou l'autre des parties peut mettre fin à une mission moyennant un préavis écrit de 14 jours. En cas de résiliation, le Client sera facturé pour l'ensemble des travaux réalisés jusqu'à la date de résiliation. Les acomptes ne sont pas remboursables, sauf si le Prestataire n'a pas commencé les travaux convenus. Le Prestataire peut résilier immédiatement en cas de défaut de paiement supérieur à 30 jours ou de manquement grave aux présentes conditions."
+      },
+      "law": {
+        "title": "Droit applicable & Juridiction",
+        "content": "Les présentes CGV sont régies par le droit de la province d'Alberta et les lois fédérales applicables du Canada, sans égard aux règles de conflit de lois. En cas de litige ne pouvant être résolu à l'amiable, les parties se soumettent à la compétence exclusive des tribunaux de l'Alberta, Canada. Nonobstant ce qui précède, les clients basés dans l'Union européenne conservent l'ensemble des droits obligatoires prévus par leur droit local de protection des consommateurs, auxquels les présentes CGV ne sauraient déroger."
+      },
+      "modifications": {
+        "title": "Modifications",
+        "content": "Le Prestataire se réserve le droit de modifier les présentes CGV à tout moment. La version en vigueur au moment du début d'une mission régit cette mission spécifique. Les clients sont invités à consulter ces conditions avant de conclure un nouvel accord."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "Pour toute question relative aux présentes Conditions Générales de Vente, veuillez contacter :"
+      }
+    }
+  }
 }

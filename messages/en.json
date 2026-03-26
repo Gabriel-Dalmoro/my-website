@@ -1,716 +1,835 @@
 {
-    "Hero": {
-        "hook": "Less admin. More impact.",
-        "solution": "I build automated systems for businesses.",
-        "description": "Save 10+ hours a week by automating the busywork that's slowing you down.",
-        "cta": "Let's see if automation can help"
-    },
-    "Navigation": {
-        "home": "Home",
-        "pricing": "Pricing",
-        "about": "About",
-        "blog": "Blog",
-        "contact": "Contact",
-        "bookCall": "Book a Call"
-    },
-    "SocialProof": {
-        "headline": "520+ hours saved per year for clients",
-        "testimonials": {
-            "0": {
-                "body": "Gabriel transformed how we work. He understood our business immediately and built a system that saves us hours every single day. We can finally focus on growth instead of just keeping up.",
-                "author": "Zach Hodder",
-                "role": "CEO, Harpia"
-            },
-            "1": {
-                "body": "I reached out to Gabriel to help me set up my website and handle all the technical aspects. Gabriel deployed a fully personalized system for me, and he was completely attentive to my requests and requirements (for him, everything was clearly possible and achievable). He took charge of my current manual processes and administrative work. This saves me hours of work, making me more available to grow my business and reach more clients. Everything is clear and easy for me and my clients to understand. The result was more than up to my expectations. I recommend Gabriel with my eyes closed.",
-                "author": "Elisa Curtelin",
-                "role": "Founder, Elisa Batch Cooking"
-            },
-            "2": {
-                "body": "The automated workflows Gabriel implemented essentially doubled our team's capacity without hiring a single new person. We can now process 3x the volume of leads with zero added stress. Simply incredible.",
-                "author": "Marc Dubois",
-                "role": "CEO, TechFlow"
-            }
-        }
-    },
-    "Problem": {
-        "label": "The Problem",
-        "headline": "You're stuck in manual work.",
-        "subheadline": "Repetitive admin is slowing your business down. It's time to stop doing the busywork yourself."
-    },
-    "Services": {
-        "label": "The Solution",
-        "headline": "From manual work to automated results",
-        "subheadline": "I build automated systems that handle the busywork for you.",
-        "cards": {
-            "recruiting": {
-                "name": "Spending hours on admin?",
-                "description": "I build automated systems that handle your scheduling, invoicing, and paperwork."
-            },
-            "dashboards": {
-                "name": "Losing track of leads?",
-                "description": "I build systems that respond to inquiries and book meetings for you, day or night."
-            },
-            "workflows": {
-                "name": "Managing messy spreadsheets?",
-                "description": "I build dashboards that show your business numbers in real-time on any device."
-            }
-        }
-    },
-    "FeaturedWork": {
-        "headline": "See It In Action",
-        "subheadline": "Real examples of automated systems I've built.",
-        "projects": {
-            "hiring": {
-                "title": "AI Hiring Assistant",
-                "description": "A system that automatically scores resumes against job descriptions."
-            },
-            "dashboard": {
-                "title": "Business Dashboard",
-                "description": "Real-time visualization of key business metrics."
-            }
-        }
-    },
-    "ClientShowcase": {
-        "industryLabel": "Industry:",
-        "selection": {
-            "title_new": "Client Results",
-            "subtitle_new": "520+ hours saved per year for clients",
-            "watchStory": "Watch Story",
-            "title": "Choose an area to automate",
-            "narrativeBridge": "How I helped:",
-            "back": "← Back",
-            "demoComingSoon": "Coming Soon",
-            "videoComingSoon": "Video coming soon",
-            "cards": {
-                "operations": {
-                    "title": "Operations"
-                },
-                "marketing": {
-                    "title": "Marketing"
-                },
-                "sales": {
-                    "title": "Sales"
-                }
-            }
-        },
+  "Hero": {
+    "hook": "Less admin. More impact.",
+    "solution": "I build automated systems for businesses.",
+    "description": "Save 10+ hours a week by automating the busywork that's slowing you down.",
+    "cta": "Let's see if automation can help"
+  },
+  "Navigation": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookCall": "Book a Call"
+  },
+  "SocialProof": {
+    "headline": "520+ hours saved per year for clients",
+    "testimonials": {
+      "0": {
+        "body": "Gabriel transformed how we work. He understood our business immediately and built a system that saves us hours every single day. We can finally focus on growth instead of just keeping up.",
+        "author": "Zach Hodder",
+        "role": "CEO, Harpia"
+      },
+      "1": {
+        "body": "I reached out to Gabriel to help me set up my website and handle all the technical aspects. Gabriel deployed a fully personalized system for me, and he was completely attentive to my requests and requirements (for him, everything was clearly possible and achievable). He took charge of my current manual processes and administrative work. This saves me hours of work, making me more available to grow my business and reach more clients. Everything is clear and easy for me and my clients to understand. The result was more than up to my expectations. I recommend Gabriel with my eyes closed.",
+        "author": "Elisa Curtelin",
+        "role": "Founder, Elisa Batch Cooking"
+      },
+      "2": {
+        "body": "The automated workflows Gabriel implemented essentially doubled our team's capacity without hiring a single new person. We can now process 3x the volume of leads with zero added stress. Simply incredible.",
+        "author": "Marc Dubois",
+        "role": "CEO, TechFlow"
+      }
+    }
+  },
+  "Problem": {
+    "label": "The Problem",
+    "headline": "You're stuck in manual work.",
+    "subheadline": "Repetitive admin is slowing your business down. It's time to stop doing the busywork yourself."
+  },
+  "Services": {
+    "label": "The Solution",
+    "headline": "From manual work to automated results",
+    "subheadline": "I build automated systems that handle the busywork for you.",
+    "cards": {
+      "recruiting": {
+        "name": "Spending hours on admin?",
+        "description": "I build automated systems that handle your scheduling, invoicing, and paperwork."
+      },
+      "dashboards": {
+        "name": "Losing track of leads?",
+        "description": "I build systems that respond to inquiries and book meetings for you, day or night."
+      },
+      "workflows": {
+        "name": "Managing messy spreadsheets?",
+        "description": "I build dashboards that show your business numbers in real-time on any device."
+      }
+    }
+  },
+  "FeaturedWork": {
+    "headline": "See It In Action",
+    "subheadline": "Real examples of automated systems I've built.",
+    "projects": {
+      "hiring": {
+        "title": "AI Hiring Assistant",
+        "description": "A system that automatically scores resumes against job descriptions."
+      },
+      "dashboard": {
+        "title": "Business Dashboard",
+        "description": "Real-time visualization of key business metrics."
+      }
+    }
+  },
+  "ClientShowcase": {
+    "industryLabel": "Industry:",
+    "selection": {
+      "title_new": "Client Results",
+      "subtitle_new": "520+ hours saved per year for clients",
+      "watchStory": "Watch Story",
+      "title": "Choose an area to automate",
+      "narrativeBridge": "How I helped:",
+      "back": "← Back",
+      "demoComingSoon": "Coming Soon",
+      "videoComingSoon": "Video coming soon",
+      "cards": {
         "operations": {
-            "tab": "Operations",
-            "caseStudyLabel": "Case Study",
-            "clientName": "Elisa Batch Cooking",
-            "clientIndustry": "Professional Chef Service",
-            "videoTitle": "Saving 520+ Hours Every Year",
-            "pain": "Manual invoicing was taking 10+ hours per week.",
-            "outcome": "A business that runs on autopilot.",
-            "logic": "I didn't just build a website; I built a system that works for you.",
-            "impact": {
-                "value": "520+",
-                "label": "Hours Saved Per Year"
-            },
-            "manualWorkTitle": "The manual work I automated",
-            "automations": [
-                {
-                    "manual": "Typing invoices by hand",
-                    "automated": "Instant invoicing"
-                },
-                {
-                    "manual": "Booking new clients",
-                    "automated": "Automatic scheduling"
-                }
-            ],
-            "cta": "See if I can help you",
-            "valueHammer": "Save 10+ hours a week, starting month one"
+          "title": "Operations"
         },
         "marketing": {
-            "tab": "Marketing",
-            "caseStudyLabel": "Case Study",
-            "clientName": "Fit To Excel",
-            "clientIndustry": "Fitness Brand",
-            "videoTitle": "Growth on Autopilot",
-            "pain": "Marketing was a constant manual chore.",
-            "outcome": "A brand that stays active without the manual effort.",
-            "logic": "Your marketing should be an asset, not an errand.",
-            "impact": {
-                "value": "520+",
-                "label": "Hours Saved Per Year"
-            },
-            "manualWorkTitle": "The manual work I automated",
-            "automations": [
-                {
-                    "manual": "Creating posts manually",
-                    "automated": "One-click generation"
-                },
-                {
-                    "manual": "Posting to every platform",
-                    "automated": "Automatic distribution"
-                }
-            ],
-            "cta": "Let's automate your brand",
-            "valueHammer": "Save 10+ hours a week, starting month one"
+          "title": "Marketing"
         },
         "sales": {
-            "tab": "Sales",
-            "caseStudyLabel": "Case Study",
-            "clientName": "Smart Client Finder",
-            "clientIndustry": "Business Growth",
-            "videoTitle": "More Leads, Less Work",
-            "pain": "Spending hours every day searching for leads.",
-            "outcome": "A steady stream of qualified opportunities.",
-            "logic": "I turn manual outreach into a predictable system.",
-            "impact": {
-                "value": "10x",
-                "label": "More Pipeline"
-            },
-            "manualWorkTitle": "The manual work I automated",
-            "automations": [
-                {
-                    "manual": "Searching for new clients",
-                    "automated": "Smart finder system"
-                },
-                {
-                    "manual": "Qualifying every lead",
-                    "automated": "Automated scoring"
-                },
-                {
-                    "manual": "Sending follow-up emails",
-                    "automated": "Automated outreach"
-                },
-                {
-                    "manual": "Gathering prospect info",
-                    "automated": "Instant insights"
-                }
-            ],
-            "cta": "Start your audit",
-            "valueHammer": "Save 10+ hours a week, starting month one"
+          "title": "Sales"
         }
+      }
     },
-    "TechStack": {
-        "headline": "The technology that powers your systems"
-    },
-    "AboutMe": {
-        "headline": "Former entrepreneur. Now I build the systems I wish I had.",
-        "description": "I've been in your shoes. I know the frustration of being buried in admin when you should be growing your business. I build automated systems that give you back your time.",
-        "readMore": "My story"
-    },
-    "GlobalReach": {
-        "headline": "Serving business owners worldwide",
-        "description": "I help founders across Europe and the Americas eliminate manual work and scale their impact.",
-        "locations": {
-            "brazil": "Brazil",
-            "canada": "Canada",
-            "france": "France"
+    "operations": {
+      "tab": "Operations",
+      "caseStudyLabel": "Case Study",
+      "clientName": "Elisa Batch Cooking",
+      "clientIndustry": "Professional Chef Service",
+      "videoTitle": "Saving 520+ Hours Every Year",
+      "pain": "Manual invoicing was taking 10+ hours per week.",
+      "outcome": "A business that runs on autopilot.",
+      "logic": "I didn't just build a website; I built a system that works for you.",
+      "impact": {
+        "value": "520+",
+        "label": "Hours Saved Per Year"
+      },
+      "manualWorkTitle": "The manual work I automated",
+      "automations": [
+        {
+          "manual": "Typing invoices by hand",
+          "automated": "Instant invoicing"
         },
-        "languages": {
-            "en": "English",
-            "pt": "Portuguese",
-            "fr": "French",
-            "es": "Spanish"
-        },
-        "languages_title": "I speak & work in 4 languages"
-    },
-    "Pricing": {
-        "title": "Invest in your freedom",
-        "guarantee": "Save 5+ hours per week — or I work free until you do",
-        "cards": {
-            "starter": {
-                "badge": "Entry Point",
-                "headline": "Reclaim 10 hours/week",
-                "price": "€2,497",
-                "tagline": "The Pilot",
-                "bullets": [
-                    "Fix your most repetitive task.",
-                    "Fully set up in 30 days.",
-                    "Clear, simple documentation."
-                ],
-                "note": "Pays for itself in weeks",
-                "cta": "Let's get started"
-            },
-            "custom": {
-                "headline": "Custom Systems",
-                "tagline": "Scale your business",
-                "price": "Starting at €7,997",
-                "description": "Bespoke systems built for your specific needs. No packages, no guesswork.",
-                "bullets": [
-                    "Eliminate daily busywork.",
-                    "Systems that work while you sleep.",
-                    "Higher output with less effort.",
-                    "Integrated with the tools you already use."
-                ],
-                "cta": "Book a free audit"
-            }
-        },
-        "trust": {
-            "gdpr": "Secure & Private",
-            "instant": "Fast Results"
-        },
-        "addon": {
-            "title": "Custom Website",
-            "price": "From €1,497",
-            "price_cta": "Add",
-            "description": "A high-converting site to support your new automated systems."
-        },
-        "faq": {
-            "headline": "Questions",
-            "questions": {
-                "0": {
-                    "q": "What if something breaks?",
-                    "a": "All packages include support. After that, maintenance options are available to keep everything running smoothly."
-                },
-                "1": {
-                    "q": "Do you offer payment plans?",
-                    "a": "Yes. Most projects are split into upfront, midpoint, and completion payments."
-                },
-                "2": {
-                    "q": "What tools do you work with?",
-                    "a": "Google, Microsoft, Slack, most CRMs, and custom APIs. I build for the tools you already use."
-                }
-            }
-        },
-        "socialProof": {
-            "headline": "Proven Results",
-            "items": [
-                {
-                    "name": "Elisa Batch Cooking",
-                    "result": "520+ hours saved/year"
-                },
-                {
-                    "name": "Fit to Excel",
-                    "result": "Automated weekly brand presence"
-                },
-                {
-                    "name": "Smart Client Finder",
-                    "result": "Automated lead discovery"
-                }
-            ]
-        },
-        "finalCta": "Book a free audit to see how much time you can save →"
-    },
-    "Contact": {
-        "headline": "Let's find out how many hours I can save you.",
-        "subheadline": "Answer a few questions to see if we're a good fit.",
-        "steps_qualification": "Your Business",
-        "steps_offers": "Your Needs",
-        "steps_details": "Contact info",
-        "field_website_title": "Professional Website",
-        "field_website": "Add a custom site connected to your new automations.",
-        "field_website_price": "Starting at €1,497",
-        "field_problem_label": "What is the repetitive task slowing you down?",
-        "field_problem_placeholder": "e.g. Invoicing, lead entry, scheduling...",
-        "field_hours_label": "How many hours per week do you spend on admin?",
-        "field_hours_placeholder": "Select range",
-        "field_hours_low": "1-5 hours",
-        "field_hours_medium": "6-10 hours",
-        "field_hours_high": "11-20 hours",
-        "field_hours_critical": "20+ hours",
-        "field_opportunity_label": "What would you focus on if this was automated?",
-        "field_opportunity_placeholder": "e.g. Strategy, closing deals, family...",
-        "field_tools_label": "Which tools do you use? (Select all that apply)",
-        "field_tools_google": "Google Workspace / Microsoft 365",
-        "field_tools_invoice": "Invoicing Software",
-        "field_tools_crm": "CRM (HubSpot, Salesforce, etc.)",
-        "field_tools_project": "Project Management",
-        "field_tools_other": "Other systems",
-        "field_name_label": "Full Name",
-        "field_email_label": "Business Email",
-        "field_message_label": "Anything else I should know? (Optional)",
-        "planFocus": "Choose your focus",
-        "websiteFocus": "Need a professional site?",
-        "websiteDescription": "Add a high-converting website to your systems",
-        "nameFocus": "What's your name?",
-        "namePlaceholder": "Type your full name...",
-        "emailFocus": "And your email?",
-        "emailPlaceholder": "email@example.com",
-        "messageFocus": "Anything else?",
-        "messagePlaceholder": "Additional context, specific goals, or just a quick hello...",
-        "optional": "Optional",
-        "pressToProceed": "or press",
-        "successTitle": "Application Received",
-        "back": "Back",
-        "next": "Next",
-        "submit": "Send request",
-        "submitting": "Sending...",
-        "success": "Got it. I'll review your details and get back to you within 24 hours.",
-        "security": "Processed on secure EU servers.",
-        "directEmailMessage": "Prefer a direct message? Feel free to connect and email me:"
-    },
-    "info": {
-        "emailLabel": "Email",
-        "email": "gabriel@gabrieldalmoro.com",
-        "locationLabel": "Location",
-        "location": "Annecy, France (Working globally)",
-        "socials": "Follow Me"
-    },
-    "About": {
-        "headline": "Former Entrepreneur. Software Engineer.",
-        "subheadline": "I build the systems I wish I had when I was in your shoes.",
-        "story": {
-            "title": "From manual work to automated results",
-            "p1": "I've always loved building businesses. From a childhood chess school to scaling ventures as a teenager, the game of entrepreneurship was my passion.",
-            "p2": "But as my businesses grew, I hit a wall. I wasn't growing anymore—I was stuck doing paperwork, managing invoices, and chasing admin. I saw this everywhere, from the fitness industry to outdoor startups. Founders were being slowed down by their own success because their systems couldn't keep up.",
-            "p3": "I decided to fix it. I became a software engineer to master the tools that scale companies. Today, I don't just write code; I build automated systems for businesses so owners can stop doing busywork and start making an impact. I build the systems I wish I had when I was starting out."
-        },
-        "journey": {
-            "title": "The Path",
-            "steps": {
-                "0": {
-                    "year": "2008",
-                    "title": "Early Ventures",
-                    "description": "Started my first small businesses and learned the value of building from scratch."
-                },
-                "1": {
-                    "year": "2018",
-                    "title": "The Admin Wall",
-                    "description": "Experienced firsthand how repetitive manual work stops a growing business in its tracks."
-                },
-                "2": {
-                    "year": "2021",
-                    "title": "Engineering Mastery",
-                    "description": "Spent years building software for international clients to understand how to scale operations with tech."
-                },
-                "3": {
-                    "year": "Today",
-                    "title": "Full Automation",
-                    "description": "Merging business experience with engineering to help owners reclaim their time."
-                }
-            }
-        },
-        "values": {
-            "title": "Philosophy",
-            "cards": {
-                "0": {
-                    "title": "Impact",
-                    "description": "I measure success by the hours you save and the growth you achieve."
-                },
-                "1": {
-                    "title": "Partnership",
-                    "description": "I work directly with you as a partner to understand your business, not as a vendor."
-                },
-                "2": {
-                    "title": "Results",
-                    "description": "Technology is only useful if it solves a real problem and saves you time."
-                }
-            }
-        },
-        "finalCta": {
-            "headline": "Let's get your time back.",
-            "description": "Stop doing the work that a system should be doing for you. Let's see if we can automate your admin so you can focus on growth.",
-            "button": "Let's see if I can help"
+        {
+          "manual": "Booking new clients",
+          "automated": "Automatic scheduling"
         }
+      ],
+      "cta": "See if I can help you",
+      "valueHammer": "Save 10+ hours a week, starting month one"
+    },
+    "marketing": {
+      "tab": "Marketing",
+      "caseStudyLabel": "Case Study",
+      "clientName": "Fit To Excel",
+      "clientIndustry": "Fitness Brand",
+      "videoTitle": "Growth on Autopilot",
+      "pain": "Marketing was a constant manual chore.",
+      "outcome": "A brand that stays active without the manual effort.",
+      "logic": "Your marketing should be an asset, not an errand.",
+      "impact": {
+        "value": "520+",
+        "label": "Hours Saved Per Year"
+      },
+      "manualWorkTitle": "The manual work I automated",
+      "automations": [
+        {
+          "manual": "Creating posts manually",
+          "automated": "One-click generation"
+        },
+        {
+          "manual": "Posting to every platform",
+          "automated": "Automatic distribution"
+        }
+      ],
+      "cta": "Let's automate your brand",
+      "valueHammer": "Save 10+ hours a week, starting month one"
+    },
+    "sales": {
+      "tab": "Sales",
+      "caseStudyLabel": "Case Study",
+      "clientName": "Smart Client Finder",
+      "clientIndustry": "Business Growth",
+      "videoTitle": "More Leads, Less Work",
+      "pain": "Spending hours every day searching for leads.",
+      "outcome": "A steady stream of qualified opportunities.",
+      "logic": "I turn manual outreach into a predictable system.",
+      "impact": {
+        "value": "10x",
+        "label": "More Pipeline"
+      },
+      "manualWorkTitle": "The manual work I automated",
+      "automations": [
+        {
+          "manual": "Searching for new clients",
+          "automated": "Smart finder system"
+        },
+        {
+          "manual": "Qualifying every lead",
+          "automated": "Automated scoring"
+        },
+        {
+          "manual": "Sending follow-up emails",
+          "automated": "Automated outreach"
+        },
+        {
+          "manual": "Gathering prospect info",
+          "automated": "Instant insights"
+        }
+      ],
+      "cta": "Start your audit",
+      "valueHammer": "Save 10+ hours a week, starting month one"
+    }
+  },
+  "TechStack": {
+    "headline": "The technology that powers your systems"
+  },
+  "AboutMe": {
+    "headline": "Former entrepreneur. Now I build the systems I wish I had.",
+    "description": "I've been in your shoes. I know the frustration of being buried in admin when you should be growing your business. I build automated systems that give you back your time.",
+    "readMore": "My story"
+  },
+  "GlobalReach": {
+    "headline": "Serving business owners worldwide",
+    "description": "I help founders across Europe and the Americas eliminate manual work and scale their impact.",
+    "locations": {
+      "brazil": "Brazil",
+      "canada": "Canada",
+      "france": "France"
+    },
+    "languages": {
+      "en": "English",
+      "pt": "Portuguese",
+      "fr": "French",
+      "es": "Spanish"
+    },
+    "languages_title": "I speak & work in 4 languages"
+  },
+  "Pricing": {
+    "title": "Invest in your freedom",
+    "guarantee": "Save 5+ hours per week — or I work free until you do",
+    "cards": {
+      "starter": {
+        "badge": "Entry Point",
+        "headline": "Reclaim 10 hours/week",
+        "price": "€2,497",
+        "tagline": "The Pilot",
+        "bullets": [
+          "Fix your most repetitive task.",
+          "Fully set up in 30 days.",
+          "Clear, simple documentation."
+        ],
+        "note": "Pays for itself in weeks",
+        "cta": "Let's get started"
+      },
+      "custom": {
+        "headline": "Custom Systems",
+        "tagline": "Scale your business",
+        "price": "Starting at €7,997",
+        "description": "Bespoke systems built for your specific needs. No packages, no guesswork.",
+        "bullets": [
+          "Eliminate daily busywork.",
+          "Systems that work while you sleep.",
+          "Higher output with less effort.",
+          "Integrated with the tools you already use."
+        ],
+        "cta": "Book a free audit"
+      }
+    },
+    "trust": {
+      "gdpr": "Secure & Private",
+      "instant": "Fast Results"
+    },
+    "addon": {
+      "title": "Custom Website",
+      "price": "From €1,497",
+      "price_cta": "Add",
+      "description": "A high-converting site to support your new automated systems."
+    },
+    "faq": {
+      "headline": "Questions",
+      "questions": {
+        "0": {
+          "q": "What if something breaks?",
+          "a": "All packages include support. After that, maintenance options are available to keep everything running smoothly."
+        },
+        "1": {
+          "q": "Do you offer payment plans?",
+          "a": "Yes. Most projects are split into upfront, midpoint, and completion payments."
+        },
+        "2": {
+          "q": "What tools do you work with?",
+          "a": "Google, Microsoft, Slack, most CRMs, and custom APIs. I build for the tools you already use."
+        }
+      }
+    },
+    "socialProof": {
+      "headline": "Proven Results",
+      "items": [
+        {
+          "name": "Elisa Batch Cooking",
+          "result": "520+ hours saved/year"
+        },
+        {
+          "name": "Fit to Excel",
+          "result": "Automated weekly brand presence"
+        },
+        {
+          "name": "Smart Client Finder",
+          "result": "Automated lead discovery"
+        }
+      ]
+    },
+    "finalCta": "Book a free audit to see how much time you can save →"
+  },
+  "Contact": {
+    "headline": "Let's find out how many hours I can save you.",
+    "subheadline": "Answer a few questions to see if we're a good fit.",
+    "steps_qualification": "Your Business",
+    "steps_offers": "Your Needs",
+    "steps_details": "Contact info",
+    "field_website_title": "Professional Website",
+    "field_website": "Add a custom site connected to your new automations.",
+    "field_website_price": "Starting at €1,497",
+    "field_problem_label": "What is the repetitive task slowing you down?",
+    "field_problem_placeholder": "e.g. Invoicing, lead entry, scheduling...",
+    "field_hours_label": "How many hours per week do you spend on admin?",
+    "field_hours_placeholder": "Select range",
+    "field_hours_low": "1-5 hours",
+    "field_hours_medium": "6-10 hours",
+    "field_hours_high": "11-20 hours",
+    "field_hours_critical": "20+ hours",
+    "field_opportunity_label": "What would you focus on if this was automated?",
+    "field_opportunity_placeholder": "e.g. Strategy, closing deals, family...",
+    "field_tools_label": "Which tools do you use? (Select all that apply)",
+    "field_tools_google": "Google Workspace / Microsoft 365",
+    "field_tools_invoice": "Invoicing Software",
+    "field_tools_crm": "CRM (HubSpot, Salesforce, etc.)",
+    "field_tools_project": "Project Management",
+    "field_tools_other": "Other systems",
+    "field_name_label": "Full Name",
+    "field_email_label": "Business Email",
+    "field_message_label": "Anything else I should know? (Optional)",
+    "planFocus": "Choose your focus",
+    "websiteFocus": "Need a professional site?",
+    "websiteDescription": "Add a high-converting website to your systems",
+    "nameFocus": "What's your name?",
+    "namePlaceholder": "Type your full name...",
+    "emailFocus": "And your email?",
+    "emailPlaceholder": "email@example.com",
+    "messageFocus": "Anything else?",
+    "messagePlaceholder": "Additional context, specific goals, or just a quick hello...",
+    "optional": "Optional",
+    "pressToProceed": "or press",
+    "successTitle": "Application Received",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Send request",
+    "submitting": "Sending...",
+    "success": "Got it. I'll review your details and get back to you within 24 hours.",
+    "security": "Processed on secure EU servers.",
+    "directEmailMessage": "Prefer a direct message? Feel free to connect and email me:"
+  },
+  "info": {
+    "emailLabel": "Email",
+    "email": "gabriel@gabrieldalmoro.com",
+    "locationLabel": "Location",
+    "location": "Annecy, France (Working globally)",
+    "socials": "Follow Me"
+  },
+  "About": {
+    "headline": "Former Entrepreneur. Software Engineer.",
+    "subheadline": "I build the systems I wish I had when I was in your shoes.",
+    "story": {
+      "title": "From manual work to automated results",
+      "p1": "I've always loved building businesses. From a childhood chess school to scaling ventures as a teenager, the game of entrepreneurship was my passion.",
+      "p2": "But as my businesses grew, I hit a wall. I wasn't growing anymore—I was stuck doing paperwork, managing invoices, and chasing admin. I saw this everywhere, from the fitness industry to outdoor startups. Founders were being slowed down by their own success because their systems couldn't keep up.",
+      "p3": "I decided to fix it. I became a software engineer to master the tools that scale companies. Today, I don't just write code; I build automated systems for businesses so owners can stop doing busywork and start making an impact. I build the systems I wish I had when I was starting out."
+    },
+    "journey": {
+      "title": "The Path",
+      "steps": {
+        "0": {
+          "year": "2008",
+          "title": "Early Ventures",
+          "description": "Started my first small businesses and learned the value of building from scratch."
+        },
+        "1": {
+          "year": "2018",
+          "title": "The Admin Wall",
+          "description": "Experienced firsthand how repetitive manual work stops a growing business in its tracks."
+        },
+        "2": {
+          "year": "2021",
+          "title": "Engineering Mastery",
+          "description": "Spent years building software for international clients to understand how to scale operations with tech."
+        },
+        "3": {
+          "year": "Today",
+          "title": "Full Automation",
+          "description": "Merging business experience with engineering to help owners reclaim their time."
+        }
+      }
+    },
+    "values": {
+      "title": "Philosophy",
+      "cards": {
+        "0": {
+          "title": "Impact",
+          "description": "I measure success by the hours you save and the growth you achieve."
+        },
+        "1": {
+          "title": "Partnership",
+          "description": "I work directly with you as a partner to understand your business, not as a vendor."
+        },
+        "2": {
+          "title": "Results",
+          "description": "Technology is only useful if it solves a real problem and saves you time."
+        }
+      }
+    },
+    "finalCta": {
+      "headline": "Let's get your time back.",
+      "description": "Stop doing the work that a system should be doing for you. Let's see if we can automate your admin so you can focus on growth.",
+      "button": "Let's see if I can help"
+    }
+  },
+  "CTA": {
+    "headline": "Ready to save 10+ hours a week?",
+    "button": "Book your free audit →"
+  },
+  "Blog": {
+    "title": "Writing & Insights",
+    "description": "Sharing the systems and automations that help businesses scale.",
+    "categories": {
+      "all": "All",
+      "business": "Business",
+      "adventure": "Adventure",
+      "journal": "Journal"
+    },
+    "readMore": "Read more",
+    "backToBlog": "Back to Blog",
+    "noPosts": "No posts found.",
+    "authorBy": "By {name}",
+    "hero": {
+      "readStory": "Read full story"
+    },
+    "newsletter": {
+      "headline": "The Automation Series",
+      "subheadline": "I'm building a series of guides on business systems. Join the list to get them first.",
+      "placeholder": "your@email.com",
+      "button": "Subscribe",
+      "unsubscribe": "Unsubscribe at any time."
+    },
+    "promo": {
+      "badge": "Free Audit",
+      "title": "Stop wasting time on admin.",
+      "description": "I'll build the systems that do the work for you.",
+      "cta": "Get your audit"
+    },
+    "floating": {
+      "cta": "Book Audit"
+    },
+    "details": {
+      "localeWarning": "This post is only available in {language}. We're working on the translation!"
+    }
+  },
+  "Chef": {
+    "Hero": {
+      "badge": "For Restaurants & Food Businesses",
+      "hook": "Less admin. More cooking.",
+      "solution": "I handle your bookings, invoices, and paperwork.",
+      "description": "Save 10+ hours a week on admin. Spend that time where it counts — in the kitchen, on the floor, with your team.",
+      "cta": "See how it works for restaurants →"
+    },
+    "SocialProof": {
+      "label": "Real results for Elisa Batch Cooking — Professional Chef",
+      "stat0value": "520+",
+      "stat0label": "hours saved per year",
+      "stat1value": "10+",
+      "stat1label": "hours freed up every week",
+      "stat2value": "100%",
+      "stat2label": "automated invoicing"
+    },
+    "Problem": {
+      "label": "The Problem",
+      "headline": "You're in the food business. But the paperwork never stops.",
+      "subheadline": "Every day brings a pile of admin. Reservation emails. Invoices. Supplier orders. Staff schedules. It eats up hours — every single week.",
+      "pain0emoji": "📨",
+      "pain0": "Reservation and booking emails going back and forth",
+      "pain1emoji": "🧾",
+      "pain1": "Invoices typed by hand after every job or service",
+      "pain2emoji": "📋",
+      "pain2": "Supplier orders, menus, and requests handled by text or email",
+      "pain3emoji": "📞",
+      "pain3": "Chasing unpaid bills yourself"
+    },
+    "Services": {
+      "label": "The Fix",
+      "headline": "I handle the boring stuff. You run the restaurant.",
+      "subheadline": "Simple systems for any food business — restaurant, catering, or private chef.",
+      "card0name": "Drowning in reservation emails?",
+      "card0description": "Guests and clients book, confirm, and pay online. Your calendar fills itself. No more back-and-forth.",
+      "card1name": "Writing invoices by hand?",
+      "card1description": "After every service or job, an invoice goes out on its own. You get paid faster. Zero extra work.",
+      "card2name": "Managing menus, orders, and requests?",
+      "card2description": "Guests and clients fill in what they need online. Dietary requirements, table count, event details — all saved and organised for you."
+    },
+    "CaseStudy": {
+      "label": "Case Study",
+      "clientName": "Elisa Batch Cooking",
+      "location": "Professional Chef — Annecy, France",
+      "beforeLabel": "Before",
+      "before0": "Typing invoices by hand after each job",
+      "before1": "Clients booking by WhatsApp or email",
+      "before2": "Tracking payments in a spreadsheet",
+      "before3": "10+ hours of admin every week",
+      "afterLabel": "After",
+      "after0": "Invoices go out on their own",
+      "after1": "Clients book and pay online",
+      "after2": "Payments update themselves",
+      "after3": "520+ hours saved per year",
+      "impactValue": "520+",
+      "impactLabel": "Hours Saved Per Year",
+      "impactNote": "That's 10+ hours back every single week.",
+      "cta": "See if I can do the same for you",
+      "videoTitle": "Watch how it works"
+    },
+    "Testimonial": {
+      "headline": "Hear it from someone in the industry",
+      "body": "Gabriel took over all my admin and paperwork. <bold>It saves me hours every single week.</bold> Everything just works — for me and for my clients. <bold>I recommend him with my eyes closed.</bold>",
+      "author": "Elisa Curtelin",
+      "role": "Founder, Elisa Batch Cooking"
     },
     "CTA": {
-        "headline": "Ready to save 10+ hours a week?",
-        "button": "Book your free audit →"
+      "headline": "Stop doing the paperwork.",
+      "description": "Book a free 30-minute call. I'll show you exactly what I can handle for you — and how much time you'll get back.",
+      "button": "Get your free audit →",
+      "note": "No commitment. No tech talk. Just a clear plan."
     },
-    "Blog": {
-        "title": "Writing & Insights",
-        "description": "Sharing the systems and automations that help businesses scale.",
-        "categories": {
-            "all": "All",
-            "business": "Business",
-            "adventure": "Adventure",
-            "journal": "Journal"
-        },
-        "readMore": "Read more",
-        "backToBlog": "Back to Blog",
-        "noPosts": "No posts found.",
-        "authorBy": "By {name}",
-        "hero": {
-            "readStory": "Read full story"
-        },
-        "newsletter": {
-            "headline": "The Automation Series",
-            "subheadline": "I'm building a series of guides on business systems. Join the list to get them first.",
-            "placeholder": "your@email.com",
-            "button": "Subscribe",
-            "unsubscribe": "Unsubscribe at any time."
-        },
-        "promo": {
-            "badge": "Free Audit",
-            "title": "Stop wasting time on admin.",
-            "description": "I'll build the systems that do the work for you.",
-            "cta": "Get your audit"
-        },
-        "floating": {
-            "cta": "Book Audit"
-        },
-        "details": {
-            "localeWarning": "This post is only available in {language}. We're working on the translation!"
-        }
+    "DayInLife": {
+      "label": "Before & After",
+      "headline": "Where does your time go?",
+      "beforeTitle": "Without automation",
+      "afterTitle": "With automation",
+      "adminBefore": "Admin — emails, invoices, scheduling",
+      "cookingBefore": "Cooking, service & prep",
+      "growthBefore": "Getting new clients",
+      "adminAfter": "Admin (handled for you)",
+      "cookingAfter": "Cooking, service & prep",
+      "growthAfter": "Getting new clients & growing",
+      "beforeStat": "6 hours every day. Gone.",
+      "afterStat": "6 hours back. Every single day.",
+      "savingsTitle": "That's 6 hours saved. Every day.",
+      "savingsNote": "30 hours a week. Over 1,500 hours a year.",
+      "note": "Based on a real client. Your numbers may vary."
     },
-    "Chef": {
-        "Hero": {
-            "badge": "For Professional Chefs & Caterers",
-            "hook": "Less admin. More cooking.",
-            "solution": "I handle your bookings, invoices, and paperwork.",
-            "description": "Save 10+ hours a week on admin. Stay in the kitchen.",
-            "cta": "See how it works for chefs →"
-        },
-        "SocialProof": {
-            "label": "Real results for Elisa Batch Cooking — Professional Chef",
-            "stat0value": "520+",
-            "stat0label": "hours saved per year",
-            "stat1value": "10+",
-            "stat1label": "hours freed up every week",
-            "stat2value": "100%",
-            "stat2label": "automated invoicing"
-        },
-        "Problem": {
-            "label": "The Problem",
-            "headline": "You cook. But the paperwork never stops.",
-            "subheadline": "Every job comes with a pile of admin. Emails. Invoices. Follow-ups. It takes hours — every single week.",
-            "pain0emoji": "📨",
-            "pain0": "Back-and-forth emails just to confirm a booking",
-            "pain1emoji": "🧾",
-            "pain1": "Typing invoices by hand after every event",
-            "pain2emoji": "📋",
-            "pain2": "Clients sending menus and details by text or DM",
-            "pain3emoji": "📞",
-            "pain3": "Chasing unpaid invoices yourself"
-        },
-        "Services": {
-            "label": "The Fix",
-            "headline": "I handle the boring stuff. You focus on cooking.",
-            "subheadline": "Simple systems built for chefs and caterers.",
-            "card0name": "Drowning in booking emails?",
-            "card0description": "Clients book, confirm, and pay online. Your calendar fills itself. No more back-and-forth.",
-            "card1name": "Writing invoices by hand?",
-            "card1description": "After every job, an invoice goes out on its own. You get paid faster. Zero extra work.",
-            "card2name": "Chasing menus and requests?",
-            "card2description": "Clients fill in their needs online. Dietary needs, guest count, event details — all saved for you."
-        },
-        "CaseStudy": {
-            "label": "Case Study",
-            "clientName": "Elisa Batch Cooking",
-            "location": "Professional Chef — Annecy, France",
-            "beforeLabel": "Before",
-            "before0": "Typing invoices by hand after each job",
-            "before1": "Clients booking by WhatsApp or email",
-            "before2": "Tracking payments in a spreadsheet",
-            "before3": "10+ hours of admin every week",
-            "afterLabel": "After",
-            "after0": "Invoices go out on their own",
-            "after1": "Clients book and pay online",
-            "after2": "Payments update themselves",
-            "after3": "520+ hours saved per year",
-            "impactValue": "520+",
-            "impactLabel": "Hours Saved Per Year",
-            "impactNote": "That's 10+ hours back every single week.",
-            "cta": "See if I can do the same for you",
-            "videoTitle": "Watch how it works"
-        },
-        "Testimonial": {
-            "headline": "Hear it from a chef",
-            "body": "Gabriel took over all my admin and paperwork. <bold>It saves me hours every single week.</bold> Everything just works — for me and for my clients. <bold>I recommend him with my eyes closed.</bold>",
-            "author": "Elisa Curtelin",
-            "role": "Founder, Elisa Batch Cooking"
-        },
-        "CTA": {
-            "headline": "Stop doing the paperwork.",
-            "description": "Book a free 30-minute call. I'll show you exactly what I can handle for you — and how much time you'll get back.",
-            "button": "Get your free audit →",
-            "note": "No commitment. No tech talk. Just a clear plan."
-        },
-        "DayInLife": {
-            "label": "A Day in Your Life",
-            "headline": "Where does your time actually go?",
-            "beforeTitle": "Before",
-            "afterTitle": "After",
-            "adminBefore": "Admin — emails, invoices, follow-ups",
-            "cookingBefore": "Cooking & prep",
-            "otherBefore": "Everything else",
-            "cookingAfter": "Cooking & prep",
-            "growthAfter": "New clients & growth",
-            "adminAfter": "Admin (handled for you)",
-            "hoursUnit": "h",
-            "note": "That's real time. Your time."
-        },
-        "HowItWorks": {
-            "label": "How It Works",
-            "headline": "Simple. Fast. Done.",
-            "step0title": "We talk",
-            "step0description": "Free 30-minute call. You tell me how you work. No tech knowledge needed.",
-            "step1title": "I build it",
-            "step1description": "I set everything up in 30 days. You don't lift a finger.",
-            "step2title": "You cook",
-            "step2description": "Your systems run on their own. You stay in the kitchen."
-        },
-        "Tools": {
-            "label": "Works with the tools you already use"
-        },
-        "ROI": {
-            "label": "Your Hidden Cost",
-            "headline": "How much is your admin costing you?",
-            "subheadline": "Move the sliders. See your real number.",
-            "weeklyHoursLabel": "Hours of admin per week",
-            "rateLabel": "Your hourly rate (€)",
-            "hoursUnit": "hours lost per year",
-            "costUnit": "lost per year",
-            "resultNote": "That's what I give back to you.",
-            "cta": "Let's get that time back →"
-        },
-        "Sticky": {
-            "text": "Free 30-min audit for chefs. No commitment.",
-            "button": "Book now →"
-        }
+    "HowItWorks": {
+      "label": "How It Works",
+      "headline": "Simple. Fast. Done.",
+      "step0title": "We talk",
+      "step0description": "Free 30-minute call. You tell me how you work. No tech knowledge needed.",
+      "step1title": "I build it",
+      "step1description": "I set everything up in 30 days. You don't lift a finger.",
+      "step2title": "You focus on the food",
+      "step2description": "Your systems run on their own. You focus on the food and your team."
     },
-    "Footer": {
-        "rights": "All rights reserved.",
-        "legal": "Legal Notice",
-        "terms": "Terms & Conditions"
+    "Tools": {
+      "label": "Works with the tools you already use"
     },
-    "Legal": {
-        "title": "Legal Notice & Privacy Policy",
-        "metaDescription": "Legal notice and privacy policy for gabrieldalmoro.com — GDPR compliant.",
-        "backHome": "Back to Home",
-        "lastUpdated": "Last updated",
-        "lastUpdatedDate": "March 6, 2026",
-        "viewTerms": "Terms & Conditions →",
-        "footerNote": "This policy was last updated on March 6, 2026. For any questions, contact gabriel@gabrieldalmoro.com.",
-        "sections": {
-            "identity": {
-                "title": "Site Identity",
-                "site": "Website",
-                "email": "Contact Email",
-                "location": "Location",
-                "status": "Legal Status",
-                "statusValue": "Sole Proprietor, registered in Alberta, Canada"
-            },
-            "dataController": {
-                "title": "Data Controller",
-                "content": "Gabriel Dalmoro is a sole proprietor registered in Alberta, Canada, currently operating from Annecy, France. He is the sole data controller for all personal data collected through this website. You can contact the data controller at gabriel@gabrieldalmoro.com."
-            },
-            "dataCollected": {
-                "title": "Data Collected",
-                "intro": "We only collect personal data that you provide voluntarily through the contact form on this website. This may include:",
-                "items": [
-                    "Your full name",
-                    "Your professional email address",
-                    "Information about your business and its needs (e.g., tools used, time spent on admin tasks)",
-                    "Any additional message you provide voluntarily"
-                ]
-            },
-            "purpose": {
-                "title": "Purpose & Legal Basis",
-                "intro": "Your personal data is processed for the following purposes, on the following legal bases:",
-                "items": [
-                    "Responding to your enquiry — Legitimate interest (Art. 6(1)(f) GDPR)",
-                    "Evaluating if a business collaboration is possible — Legitimate interest (Art. 6(1)(f) GDPR)",
-                    "Sending a proposal or quote — Pre-contractual measures (Art. 6(1)(b) GDPR)"
-                ]
-            },
-            "retention": {
-                "title": "Data Retention",
-                "content": "Your data is retained for a maximum of 3 years from your last contact, in line with GDPR best practices and applicable data protection law. If no business relationship is established, contact data is deleted within 12 months of your initial message. You may request deletion at any time."
-            },
-            "sharing": {
-                "title": "Data Sharing & Third Parties",
-                "intro": "Your data is never sold. It may be shared only with the following third-party services strictly necessary for operating this website:",
-                "items": [
-                    "Vercel (hosting) — USA, covered by Standard Contractual Clauses",
-                    "Google Workspace (email communication) — USA, covered by Standard Contractual Clauses"
-                ],
-                "note": "All third-party providers are selected for their GDPR compliance and reliability. No data is transferred to third countries without appropriate safeguards."
-            },
-            "rights": {
-                "title": "Your Rights Under GDPR",
-                "intro": "Under the General Data Protection Regulation (EU 2016/679), you have the following rights:",
-                "items": [
-                    "Right of access — request a copy of the data held about you",
-                    "Right to rectification — request correction of inaccurate data",
-                    "Right to erasure — request deletion of your data ('right to be forgotten')",
-                    "Right to restriction — request we limit how we use your data",
-                    "Right to data portability — request your data in a portable format",
-                    "Right to object — object to processing based on legitimate interests",
-                    "Right to withdraw consent — where processing is based on consent"
-                ],
-                "exercise": "To exercise any of these rights, contact the data controller directly:"
-            },
-            "cookies": {
-                "title": "Cookies & Analytics",
-                "content": "This website uses Vercel Analytics and Speed Insights for anonymous, aggregated performance monitoring. No personal data is collected through these tools. Microsoft Clarity is used for anonymous session analysis to improve user experience. No cookies requiring consent are used. You may block analytics via your browser settings."
-            },
-            "hosting": {
-                "title": "Hosting",
-                "content": "This website is hosted by Vercel Inc. Vercel processes data in accordance with EU Standard Contractual Clauses to ensure GDPR compliance for international data transfers."
-            },
-            "complaints": {
-                "title": "Complaints & Supervisory Authority",
-                "content": "If you believe your data protection rights have been violated, you have the right to lodge a complaint with the French data protection authority (CNIL), the competent supervisory authority for France:"
-            }
-        }
+    "ROI": {
+      "label": "Your Hidden Cost",
+      "headline": "How much is your admin costing you?",
+      "subheadline": "Move the sliders. See your real number.",
+      "weeklyHoursLabel": "Hours of admin per week",
+      "rateLabel": "Your hourly rate (€)",
+      "hoursUnit": "hours lost per year",
+      "costUnit": "lost per year",
+      "resultNote": "That's what I give back to you.",
+      "cta": "Let's get that time back →"
     },
-    "Terms": {
-        "title": "Terms & Conditions",
-        "metaDescription": "Terms and conditions governing the freelance services provided by Gabriel Dalmoro.",
-        "badge": "Service Agreement",
-        "backHome": "Back to Home",
-        "lastUpdated": "Last updated",
-        "lastUpdatedDate": "March 6, 2026",
-        "viewLegal": "Legal Notice & Privacy Policy →",
-        "footerNote": "These terms are governed by the laws of the Province of Alberta, Canada. Last updated: March 6, 2026.",
-        "intro": "These Terms & Conditions govern the provision of freelance automation, software engineering, and related services by Gabriel Dalmoro (\"the Service Provider\") to clients (\"the Client\"). By engaging the Service Provider's services, you agree to be bound by these terms.",
-        "sections": {
-            "services": {
-                "title": "Services Provided",
-                "content": "Gabriel Dalmoro offers business automation, custom software engineering, workflow design, system integration, and related digital services on a freelance basis. The specific scope, deliverables, timelines, and pricing for each engagement are agreed upon in writing prior to commencement of work (via proposal, quote, or statement of work)."
-            },
-            "acceptance": {
-                "title": "Acceptance of Terms",
-                "content": "These terms apply to all service engagements unless a separate written agreement is in place. By signing a proposal, paying a deposit, or instructing work to begin, the Client accepts these terms in full. If you do not agree, do not engage the services."
-            },
-            "obligations": {
-                "title": "Client Obligations",
-                "intro": "To ensure a successful engagement, the Client agrees to:",
-                "items": [
-                    "Provide timely, accurate, and complete information and access to systems required for the work",
-                    "Designate a point of contact to provide feedback and approvals within agreed timeframes",
-                    "Respect the agreed payment schedule",
-                    "Not request changes outside the agreed scope without a written change order"
-                ]
-            },
-            "payment": {
-                "title": "Pricing & Payment",
-                "content": "All prices are quoted in Euros (€) and are exclusive of any applicable VAT. Payment terms are as follows:",
-                "items": [
-                    "A deposit (typically 40%) is due before work begins",
-                    "A midpoint payment (typically 30%) is due upon milestone delivery",
-                    "The final payment (typically 30%) is due upon project completion",
-                    "Invoices are due within 14 days of issue",
-                    "Late payments will accrue interest at 2% per month (24% per annum), compounded monthly, as permitted under Alberta law"
-                ]
-            },
-            "ip": {
-                "title": "Intellectual Property",
-                "content": "Upon receipt of full payment, the Client receives a full license to use all custom deliverables created for them. The Service Provider retains the right to use general knowledge, techniques, and methodologies. The Service Provider retains all rights to pre-existing tools, libraries, and frameworks used in the work. The Service Provider may mention the engagement in their portfolio unless the Client requests confidentiality in writing."
-            },
-            "confidentiality": {
-                "title": "Confidentiality",
-                "content": "Both parties agree to maintain the confidentiality of any sensitive business information shared during the engagement. The Service Provider will not disclose Client data, proprietary processes, or trade secrets to third parties. This obligation survives the end of the engagement."
-            },
-            "guarantee": {
-                "title": "Results Guarantee",
-                "content": "For eligible automation projects, Gabriel Dalmoro guarantees that the delivered system will save the Client a minimum of 5 hours per week, as measured against the Client's baseline prior to the engagement. If this outcome is not achieved within 60 days of delivery through no fault of the Client, the Service Provider will continue to improve and optimise the system at no additional charge until the guarantee is met. This guarantee applies only to the agreed scope of automation and requires that the Client's environment and processes remain substantially unchanged."
-            },
-            "liability": {
-                "title": "Limitation of Liability",
-                "content": "The Service Provider's total liability for any claim arising from an engagement shall not exceed the total fees paid by the Client for that engagement. The Service Provider is not liable for indirect, consequential, or incidental damages, including loss of business, loss of data, or lost profits. The Service Provider is not responsible for failures caused by third-party services, client infrastructure, or changes in the client's environment."
-            },
-            "termination": {
-                "title": "Termination",
-                "content": "Either party may terminate an engagement by providing 14 days' written notice. In the event of termination, the Client will be invoiced for all work completed up to the date of termination. Deposits are non-refundable unless the Service Provider fails to commence the agreed work. The Service Provider may terminate immediately in the event of non-payment exceeding 30 days or a material breach of these terms."
-            },
-            "law": {
-                "title": "Governing Law & Jurisdiction",
-                "content": "These Terms are governed by the laws of the Province of Alberta and the applicable federal laws of Canada, without regard to conflict of law principles. In the event of a dispute that cannot be resolved amicably, the parties submit to the exclusive jurisdiction of the courts of Alberta, Canada. Notwithstanding the foregoing, clients based in the European Union retain all mandatory rights under their applicable local consumer protection law, which these Terms do not seek to override."
-            },
-            "modifications": {
-                "title": "Modifications",
-                "content": "The Service Provider reserves the right to update these Terms at any time. The version in effect at the time of an engagement's commencement governs that specific engagement. Clients are encouraged to review these terms before entering into a new agreement."
-            },
-            "contact": {
-                "title": "Contact",
-                "content": "For any questions regarding these Terms & Conditions, please contact:"
-            }
-        }
+    "Sticky": {
+      "text": "Free 30-min audit for restaurants & food businesses. No commitment.",
+      "button": "Book now →"
     }
+  },
+  "Fitness": {
+    "Hero": {
+      "badge": "For Gyms, Trainers & Fitness Studios",
+      "hook": "Less admin. More coaching.",
+      "solution": "I automate your bookings, payments, and client follow-ups.",
+      "description": "Save 10+ hours a week on scheduling and admin. Spend that time on your clients — not on paperwork.",
+      "cta": "See how it works for fitness pros →"
+    },
+    "SocialProof": {
+      "label": "Real results for fitness professionals",
+      "stat0value": "480+",
+      "stat0label": "hours saved per year",
+      "stat1value": "12+",
+      "stat1label": "hours freed up every week",
+      "stat2value": "100%",
+      "stat2label": "automated scheduling"
+    },
+    "Problem": {
+      "label": "The Problem",
+      "headline": "You're in the fitness business. But admin eats your day.",
+      "subheadline": "New client messages, class schedules, payment reminders, intake forms — it never stops. Every hour on admin is an hour not coaching.",
+      "pain0emoji": "📆",
+      "pain0": "Back-and-forth scheduling messages for sessions and classes",
+      "pain1emoji": "💳",
+      "pain1": "Chasing late payments and tracking who owes you",
+      "pain2emoji": "📋",
+      "pain2": "Sending intake forms manually and waiting for replies",
+      "pain3emoji": "📱",
+      "pain3": "Following up with no-shows and new leads by hand"
+    },
+    "Services": {
+      "label": "The Fix",
+      "headline": "I handle the admin. You handle the coaching.",
+      "subheadline": "Automated systems built for personal trainers, gym owners, yoga studios, and pilates instructors.",
+      "card0name": "Drowning in booking requests?",
+      "card0description": "Clients book, confirm, and pay for sessions online. Your calendar fills itself. No more DMs and texts to schedule.",
+      "card1name": "Chasing payments?",
+      "card1description": "After every session or package, invoices go out automatically and payments track themselves. You get paid on time, every time.",
+      "card2name": "Intake forms and client check-ins?",
+      "card2description": "New clients fill in their health history and goals online. Automated check-ins keep them engaged — and you updated."
+    },
+    "DayInLife": {
+      "label": "A Day in Your Life",
+      "headline": "Where does your time actually go?",
+      "beforeTitle": "Before",
+      "afterTitle": "After",
+      "adminBefore": "Admin — messages, payments, forms, reminders",
+      "coachingBefore": "Coaching & training sessions",
+      "otherBefore": "Everything else",
+      "coachingAfter": "Coaching & training sessions",
+      "growthAfter": "New clients & business growth",
+      "adminAfter": "Admin (handled for you)",
+      "hoursUnit": "h",
+      "note": "That's real time. Your time."
+    },
+    "HowItWorks": {
+      "label": "How It Works",
+      "headline": "Simple. Fast. Done.",
+      "step0title": "We talk",
+      "step0description": "Free 30-minute call. You tell me how you run your sessions and what's slowing you down.",
+      "step1title": "I build it",
+      "step1description": "I set up your booking, payment, and client systems in 30 days. You don't lift a finger.",
+      "step2title": "You coach",
+      "step2description": "Your systems run on their own. You focus on training clients and growing your business."
+    },
+    "Tools": {
+      "label": "Works with the tools you already use"
+    },
+    "Results": {
+      "label": "Real Results",
+      "headline": "What fitness pros actually get back",
+      "location": "Personal Trainer & Studio Owner",
+      "beforeLabel": "Before",
+      "before0": "Scheduling sessions by DM and text",
+      "before1": "Chasing payments every month",
+      "before2": "Sending intake forms manually",
+      "before3": "10+ hours of admin every week",
+      "afterLabel": "After",
+      "after0": "Clients book and pay online",
+      "after1": "Invoices and reminders run on their own",
+      "after2": "Intake forms automated from day one",
+      "after3": "480+ hours freed up per year",
+      "impactValue": "480+",
+      "impactLabel": "Hours Freed Per Year",
+      "impactNote": "That's 12+ hours back every single week.",
+      "cta": "See if I can do the same for you"
+    },
+    "Testimonial": {
+      "headline": "Hear it from someone in the industry",
+      "pullQuote": "480+ hours back.",
+      "body": "Gabriel automated all my booking and payment admin. <bold>I get 12 hours back every week.</bold> My clients have a smoother experience, and I don't think about scheduling anymore. <bold>Best decision I made for my business.</bold>",
+      "author": "Zach M.",
+      "role": "Personal Trainer & Gym Owner"
+    },
+    "ROI": {
+      "label": "Your Hidden Cost",
+      "headline": "How much is your admin costing you?",
+      "subheadline": "Move the sliders. See your real number.",
+      "weeklyHoursLabel": "Hours of admin per week",
+      "rateLabel": "Your hourly rate (€)",
+      "hoursUnit": "hours lost per year",
+      "costUnit": "lost per year",
+      "resultNote": "That's what I give back to you.",
+      "cta": "Let's get that time back →"
+    },
+    "CTA": {
+      "headline": "Stop chasing clients. Start coaching.",
+      "description": "Book a free 30-minute call. I'll show you exactly what I can automate — and how many hours you'll get back.",
+      "button": "Get your free audit →",
+      "note": "No commitment. No tech talk. Just a clear plan."
+    },
+    "Sticky": {
+      "text": "Free 30-min audit for gyms & fitness pros. No commitment.",
+      "button": "Book now →"
+    }
+  },
+  "Footer": {
+    "rights": "All rights reserved.",
+    "legal": "Legal Notice",
+    "terms": "Terms & Conditions"
+  },
+  "Legal": {
+    "title": "Legal Notice & Privacy Policy",
+    "metaDescription": "Legal notice and privacy policy for gabrieldalmoro.com — GDPR compliant.",
+    "backHome": "Back to Home",
+    "lastUpdated": "Last updated",
+    "lastUpdatedDate": "March 6, 2026",
+    "viewTerms": "Terms & Conditions →",
+    "footerNote": "This policy was last updated on March 6, 2026. For any questions, contact gabriel@gabrieldalmoro.com.",
+    "sections": {
+      "identity": {
+        "title": "Site Identity",
+        "site": "Website",
+        "email": "Contact Email",
+        "location": "Location",
+        "status": "Legal Status",
+        "statusValue": "Sole Proprietor, registered in Alberta, Canada"
+      },
+      "dataController": {
+        "title": "Data Controller",
+        "content": "Gabriel Dalmoro is a sole proprietor registered in Alberta, Canada, currently operating from Annecy, France. He is the sole data controller for all personal data collected through this website. You can contact the data controller at gabriel@gabrieldalmoro.com."
+      },
+      "dataCollected": {
+        "title": "Data Collected",
+        "intro": "We only collect personal data that you provide voluntarily through the contact form on this website. This may include:",
+        "items": [
+          "Your full name",
+          "Your professional email address",
+          "Information about your business and its needs (e.g., tools used, time spent on admin tasks)",
+          "Any additional message you provide voluntarily"
+        ]
+      },
+      "purpose": {
+        "title": "Purpose & Legal Basis",
+        "intro": "Your personal data is processed for the following purposes, on the following legal bases:",
+        "items": [
+          "Responding to your enquiry — Legitimate interest (Art. 6(1)(f) GDPR)",
+          "Evaluating if a business collaboration is possible — Legitimate interest (Art. 6(1)(f) GDPR)",
+          "Sending a proposal or quote — Pre-contractual measures (Art. 6(1)(b) GDPR)"
+        ]
+      },
+      "retention": {
+        "title": "Data Retention",
+        "content": "Your data is retained for a maximum of 3 years from your last contact, in line with GDPR best practices and applicable data protection law. If no business relationship is established, contact data is deleted within 12 months of your initial message. You may request deletion at any time."
+      },
+      "sharing": {
+        "title": "Data Sharing & Third Parties",
+        "intro": "Your data is never sold. It may be shared only with the following third-party services strictly necessary for operating this website:",
+        "items": [
+          "Vercel (hosting) — USA, covered by Standard Contractual Clauses",
+          "Google Workspace (email communication) — USA, covered by Standard Contractual Clauses"
+        ],
+        "note": "All third-party providers are selected for their GDPR compliance and reliability. No data is transferred to third countries without appropriate safeguards."
+      },
+      "rights": {
+        "title": "Your Rights Under GDPR",
+        "intro": "Under the General Data Protection Regulation (EU 2016/679), you have the following rights:",
+        "items": [
+          "Right of access — request a copy of the data held about you",
+          "Right to rectification — request correction of inaccurate data",
+          "Right to erasure — request deletion of your data ('right to be forgotten')",
+          "Right to restriction — request we limit how we use your data",
+          "Right to data portability — request your data in a portable format",
+          "Right to object — object to processing based on legitimate interests",
+          "Right to withdraw consent — where processing is based on consent"
+        ],
+        "exercise": "To exercise any of these rights, contact the data controller directly:"
+      },
+      "cookies": {
+        "title": "Cookies & Analytics",
+        "content": "This website uses Vercel Analytics and Speed Insights for anonymous, aggregated performance monitoring. No personal data is collected through these tools. Microsoft Clarity is used for anonymous session analysis to improve user experience. No cookies requiring consent are used. You may block analytics via your browser settings."
+      },
+      "hosting": {
+        "title": "Hosting",
+        "content": "This website is hosted by Vercel Inc. Vercel processes data in accordance with EU Standard Contractual Clauses to ensure GDPR compliance for international data transfers."
+      },
+      "complaints": {
+        "title": "Complaints & Supervisory Authority",
+        "content": "If you believe your data protection rights have been violated, you have the right to lodge a complaint with the French data protection authority (CNIL), the competent supervisory authority for France:"
+      }
+    }
+  },
+  "Terms": {
+    "title": "Terms & Conditions",
+    "metaDescription": "Terms and conditions governing the freelance services provided by Gabriel Dalmoro.",
+    "badge": "Service Agreement",
+    "backHome": "Back to Home",
+    "lastUpdated": "Last updated",
+    "lastUpdatedDate": "March 6, 2026",
+    "viewLegal": "Legal Notice & Privacy Policy →",
+    "footerNote": "These terms are governed by the laws of the Province of Alberta, Canada. Last updated: March 6, 2026.",
+    "intro": "These Terms & Conditions govern the provision of freelance automation, software engineering, and related services by Gabriel Dalmoro (\"the Service Provider\") to clients (\"the Client\"). By engaging the Service Provider's services, you agree to be bound by these terms.",
+    "sections": {
+      "services": {
+        "title": "Services Provided",
+        "content": "Gabriel Dalmoro offers business automation, custom software engineering, workflow design, system integration, and related digital services on a freelance basis. The specific scope, deliverables, timelines, and pricing for each engagement are agreed upon in writing prior to commencement of work (via proposal, quote, or statement of work)."
+      },
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "These terms apply to all service engagements unless a separate written agreement is in place. By signing a proposal, paying a deposit, or instructing work to begin, the Client accepts these terms in full. If you do not agree, do not engage the services."
+      },
+      "obligations": {
+        "title": "Client Obligations",
+        "intro": "To ensure a successful engagement, the Client agrees to:",
+        "items": [
+          "Provide timely, accurate, and complete information and access to systems required for the work",
+          "Designate a point of contact to provide feedback and approvals within agreed timeframes",
+          "Respect the agreed payment schedule",
+          "Not request changes outside the agreed scope without a written change order"
+        ]
+      },
+      "payment": {
+        "title": "Pricing & Payment",
+        "content": "All prices are quoted in Euros (€) and are exclusive of any applicable VAT. Payment terms are as follows:",
+        "items": [
+          "A deposit (typically 40%) is due before work begins",
+          "A midpoint payment (typically 30%) is due upon milestone delivery",
+          "The final payment (typically 30%) is due upon project completion",
+          "Invoices are due within 14 days of issue",
+          "Late payments will accrue interest at 2% per month (24% per annum), compounded monthly, as permitted under Alberta law"
+        ]
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "content": "Upon receipt of full payment, the Client receives a full license to use all custom deliverables created for them. The Service Provider retains the right to use general knowledge, techniques, and methodologies. The Service Provider retains all rights to pre-existing tools, libraries, and frameworks used in the work. The Service Provider may mention the engagement in their portfolio unless the Client requests confidentiality in writing."
+      },
+      "confidentiality": {
+        "title": "Confidentiality",
+        "content": "Both parties agree to maintain the confidentiality of any sensitive business information shared during the engagement. The Service Provider will not disclose Client data, proprietary processes, or trade secrets to third parties. This obligation survives the end of the engagement."
+      },
+      "guarantee": {
+        "title": "Results Guarantee",
+        "content": "For eligible automation projects, Gabriel Dalmoro guarantees that the delivered system will save the Client a minimum of 5 hours per week, as measured against the Client's baseline prior to the engagement. If this outcome is not achieved within 60 days of delivery through no fault of the Client, the Service Provider will continue to improve and optimise the system at no additional charge until the guarantee is met. This guarantee applies only to the agreed scope of automation and requires that the Client's environment and processes remain substantially unchanged."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "The Service Provider's total liability for any claim arising from an engagement shall not exceed the total fees paid by the Client for that engagement. The Service Provider is not liable for indirect, consequential, or incidental damages, including loss of business, loss of data, or lost profits. The Service Provider is not responsible for failures caused by third-party services, client infrastructure, or changes in the client's environment."
+      },
+      "termination": {
+        "title": "Termination",
+        "content": "Either party may terminate an engagement by providing 14 days' written notice. In the event of termination, the Client will be invoiced for all work completed up to the date of termination. Deposits are non-refundable unless the Service Provider fails to commence the agreed work. The Service Provider may terminate immediately in the event of non-payment exceeding 30 days or a material breach of these terms."
+      },
+      "law": {
+        "title": "Governing Law & Jurisdiction",
+        "content": "These Terms are governed by the laws of the Province of Alberta and the applicable federal laws of Canada, without regard to conflict of law principles. In the event of a dispute that cannot be resolved amicably, the parties submit to the exclusive jurisdiction of the courts of Alberta, Canada. Notwithstanding the foregoing, clients based in the European Union retain all mandatory rights under their applicable local consumer protection law, which these Terms do not seek to override."
+      },
+      "modifications": {
+        "title": "Modifications",
+        "content": "The Service Provider reserves the right to update these Terms at any time. The version in effect at the time of an engagement's commencement governs that specific engagement. Clients are encouraged to review these terms before entering into a new agreement."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "For any questions regarding these Terms & Conditions, please contact:"
+      }
+    }
+  }
 }
