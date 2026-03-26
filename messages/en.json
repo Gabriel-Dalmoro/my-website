@@ -437,6 +437,122 @@
             "localeWarning": "This post is only available in {language}. We're working on the translation!"
         }
     },
+    "Chef": {
+        "Hero": {
+            "badge": "For Professional Chefs & Caterers",
+            "hook": "Less admin. More cooking.",
+            "solution": "I handle your bookings, invoices, and paperwork.",
+            "description": "Save 10+ hours a week on admin. Stay in the kitchen.",
+            "cta": "See how it works for chefs →"
+        },
+        "SocialProof": {
+            "label": "Real results for Elisa Batch Cooking — Professional Chef",
+            "stat0value": "520+",
+            "stat0label": "hours saved per year",
+            "stat1value": "10+",
+            "stat1label": "hours freed up every week",
+            "stat2value": "100%",
+            "stat2label": "automated invoicing"
+        },
+        "Problem": {
+            "label": "The Problem",
+            "headline": "You cook. But the paperwork never stops.",
+            "subheadline": "Every job comes with a pile of admin. Emails. Invoices. Follow-ups. It takes hours — every single week.",
+            "pain0emoji": "📨",
+            "pain0": "Back-and-forth emails just to confirm a booking",
+            "pain1emoji": "🧾",
+            "pain1": "Typing invoices by hand after every event",
+            "pain2emoji": "📋",
+            "pain2": "Clients sending menus and details by text or DM",
+            "pain3emoji": "📞",
+            "pain3": "Chasing unpaid invoices yourself"
+        },
+        "Services": {
+            "label": "The Fix",
+            "headline": "I handle the boring stuff. You focus on cooking.",
+            "subheadline": "Simple systems built for chefs and caterers.",
+            "card0name": "Drowning in booking emails?",
+            "card0description": "Clients book, confirm, and pay online. Your calendar fills itself. No more back-and-forth.",
+            "card1name": "Writing invoices by hand?",
+            "card1description": "After every job, an invoice goes out on its own. You get paid faster. Zero extra work.",
+            "card2name": "Chasing menus and requests?",
+            "card2description": "Clients fill in their needs online. Dietary needs, guest count, event details — all saved for you."
+        },
+        "CaseStudy": {
+            "label": "Case Study",
+            "clientName": "Elisa Batch Cooking",
+            "location": "Professional Chef — Annecy, France",
+            "beforeLabel": "Before",
+            "before0": "Typing invoices by hand after each job",
+            "before1": "Clients booking by WhatsApp or email",
+            "before2": "Tracking payments in a spreadsheet",
+            "before3": "10+ hours of admin every week",
+            "afterLabel": "After",
+            "after0": "Invoices go out on their own",
+            "after1": "Clients book and pay online",
+            "after2": "Payments update themselves",
+            "after3": "520+ hours saved per year",
+            "impactValue": "520+",
+            "impactLabel": "Hours Saved Per Year",
+            "impactNote": "That's 10+ hours back every single week.",
+            "cta": "See if I can do the same for you",
+            "videoTitle": "Watch how it works"
+        },
+        "Testimonial": {
+            "headline": "Hear it from a chef",
+            "body": "Gabriel took over all my admin and paperwork. <bold>It saves me hours every single week.</bold> Everything just works — for me and for my clients. <bold>I recommend him with my eyes closed.</bold>",
+            "author": "Elisa Curtelin",
+            "role": "Founder, Elisa Batch Cooking"
+        },
+        "CTA": {
+            "headline": "Stop doing the paperwork.",
+            "description": "Book a free 30-minute call. I'll show you exactly what I can handle for you — and how much time you'll get back.",
+            "button": "Get your free audit →",
+            "note": "No commitment. No tech talk. Just a clear plan."
+        },
+        "DayInLife": {
+            "label": "A Day in Your Life",
+            "headline": "Where does your time actually go?",
+            "beforeTitle": "Before",
+            "afterTitle": "After",
+            "adminBefore": "Admin — emails, invoices, follow-ups",
+            "cookingBefore": "Cooking & prep",
+            "otherBefore": "Everything else",
+            "cookingAfter": "Cooking & prep",
+            "growthAfter": "New clients & growth",
+            "adminAfter": "Admin (handled for you)",
+            "hoursUnit": "h",
+            "note": "That's real time. Your time."
+        },
+        "HowItWorks": {
+            "label": "How It Works",
+            "headline": "Simple. Fast. Done.",
+            "step0title": "We talk",
+            "step0description": "Free 30-minute call. You tell me how you work. No tech knowledge needed.",
+            "step1title": "I build it",
+            "step1description": "I set everything up in 30 days. You don't lift a finger.",
+            "step2title": "You cook",
+            "step2description": "Your systems run on their own. You stay in the kitchen."
+        },
+        "Tools": {
+            "label": "Works with the tools you already use"
+        },
+        "ROI": {
+            "label": "Your Hidden Cost",
+            "headline": "How much is your admin costing you?",
+            "subheadline": "Move the sliders. See your real number.",
+            "weeklyHoursLabel": "Hours of admin per week",
+            "rateLabel": "Your hourly rate (€)",
+            "hoursUnit": "hours lost per year",
+            "costUnit": "lost per year",
+            "resultNote": "That's what I give back to you.",
+            "cta": "Let's get that time back →"
+        },
+        "Sticky": {
+            "text": "Free 30-min audit for chefs. No commitment.",
+            "button": "Book now →"
+        }
+    },
     "Footer": {
         "rights": "All rights reserved.",
         "legal": "Legal Notice",
