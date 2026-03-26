@@ -621,50 +621,7 @@ export default function WyWDemoPage() {
             </div>
           )}
 
-          {/* Bottom Overview Blocks */}
-          {(status === 'idle' || status === 'error' || status === 'success') && (
-            <div className="bg-[#F5F0E8] border border-[#CBBEAA] rounded-2xl flex flex-col max-w-4xl mx-auto shadow-sm mt-4">
-              <div className="bg-[#453B36] text-white px-6 py-4 flex items-center justify-between border-b border-[#453B36] rounded-t-2xl">
-                <div className="flex items-center gap-2 text-sm uppercase tracking-wider font-semibold text-[#CBBEAA]">
-                  <Settings className="w-4 h-4 text-[#FACE0D]" />
-                  Aperçu de la suite du processus
-                </div>
-                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#CBBEAA]/50">
-                  <span className="w-2 h-2 rounded-full bg-[#FACE0D] animate-pulse"></span>
-                  Google Sheets WYW
-                </div>
-              </div>
-              
-              <div className="p-6 md:p-8 flex-1 bg-white rounded-b-2xl">
-                <p className="text-sm text-[#453B36]/70 leading-relaxed mb-6 font-serif-brand italic">
-                  En production, chaque référence extraite par l'IA sera soumise automatiquement à votre feuille de calcul existante. Le système y joindra vos propres formules.
-                </p>
-                
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="bg-[#F5F0E8]/50 p-4 rounded-xl border border-[#CBBEAA]/50 opacity-90">
-                    <Box className="w-5 h-5 text-[#c4952a] mb-2" />
-                    <h4 className="text-xs font-bold mb-1">Contrat</h4>
-                    <p className="text-[10px] text-[#453B36]/60 leading-tight">Tier, conditions</p>
-                  </div>
-                  <div className="bg-[#F5F0E8]/50 p-4 rounded-xl border border-[#CBBEAA]/50 opacity-90">
-                    <Wine className="w-5 h-5 text-[#c4952a] mb-2" />
-                    <h4 className="text-xs font-bold mb-1">Catégorie</h4>
-                    <p className="text-[10px] text-[#453B36]/60 leading-tight">Appellation prestige</p>
-                  </div>
-                  <div className="bg-[#F5F0E8]/50 p-4 rounded-xl border border-[#CBBEAA]/50 opacity-90">
-                    <Euro className="w-5 h-5 text-[#c4952a] mb-2" />
-                    <h4 className="text-xs font-bold mb-1">Prix unitaire</h4>
-                    <p className="text-[10px] text-[#453B36]/60 leading-tight">Tranches de prix</p>
-                  </div>
-                  <div className="bg-[#F5F0E8]/50 p-4 rounded-xl border border-[#CBBEAA]/50 opacity-90">
-                    <Calendar className="w-5 h-5 text-[#c4952a] mb-2" />
-                    <h4 className="text-xs font-bold mb-1">Millésime</h4>
-                    <p className="text-[10px] text-[#453B36]/60 leading-tight">Rareté, cote marché</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+
         </div>
       </main>
 
