@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Upload, ChevronRight, Check, X, CheckCircle2, FileOutput, Settings, Box, Wine, Euro, Calendar, Sparkles, ArrowRight, Minus, Plus, ExternalLink } from 'lucide-react';
+import { Upload, ChevronRight, Check, X, CheckCircle2, FileOutput, Settings, Box, Wine, Euro, Calendar, Sparkles, ArrowRight, Minus, Plus, ExternalLink, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 
 type ExtractStatus = 'idle' | 'uploading' | 'processing' | 'success' | 'error';
@@ -387,18 +387,29 @@ export default function WyWDemoPage() {
             </div>
           ) : status === 'processing' ? (
             <div className="bg-white rounded-2xl p-16 shadow-xl border border-[#453B36]/10 text-center mx-auto w-full max-w-2xl animate-in zoom-in-95 duration-500">
-              <div className="inline-flex p-5 rounded-full bg-[#c4952a]/10 mb-8 border border-[#c4952a]/20 align-middle">
-                <Sparkles className="w-12 h-12 animate-pulse text-[#c4952a]" />
+              <div className="relative inline-flex mb-8 align-middle w-28 h-28 items-center justify-center">
+                {/* Outer rotating dashed ring */}
+                <div className="absolute inset-0 rounded-full border-[3px] border-dashed border-[#c4952a]/40 animate-[spin_4s_linear_infinite]"></div>
+                <div className="absolute inset-2 rounded-full border-2 border-transparent border-t-[#c4952a] animate-spin"></div>
+                {/* Inner bouncing Sparkles */}
+                <div className="p-5 rounded-full bg-[#c4952a]/10 shadow-inner">
+                  <Sparkles className="w-10 h-10 animate-pulse text-[#c4952a]" />
+                </div>
               </div>
               <h2 className="text-4xl font-serif-brand font-light mb-4 text-[#453B36]">La logique de Gabriel explore la cave...</h2>
               <p className="text-lg text-[#453B36]/80 mb-10 font-serif-brand italic">...pour simplifier la vie de Sabrina.</p>
               
               <div className="bg-[#F5F0E8] text-[#453B36] text-left p-8 rounded-xl font-mono text-sm max-h-56 overflow-y-auto space-y-3 shadow-inner border border-[#CBBEAA]/40">
                 {logMessages.map((log, i) => (
-                  <div key={i} className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-                    <span className="text-[#c4952a] font-bold opacity-80 mr-3">›</span>{log}
+                  <div key={i} className="animate-in fade-in slide-in-from-bottom-2 duration-300 flex items-start gap-3">
+                    <span className="text-[#c4952a] font-bold opacity-80 shrink-0">›</span>
+                    <span>{log}</span>
                   </div>
                 ))}
+                <div className="flex items-center gap-3 pt-2 opacity-60">
+                  <Loader2 className="w-4 h-4 animate-spin text-[#c4952a] shrink-0" />
+                  <span className="animate-pulse">Analyse de la structure complexe par l'IA...</span>
+                </div>
               </div>
             </div>
           ) : (
