@@ -183,31 +183,31 @@ export default function WyWDemoPage() {
       )}
 
       {/* Header */}
-      <header className="border-b border-[#453B36]/10 pt-8 pb-6 px-6 relative z-10 bg-[#FFFFFF] shadow-sm">
+      <header className="border-b border-[#453B36]/10 py-5 px-6 sticky top-0 z-[100] bg-[#FBF9F5]/95 backdrop-blur-md shadow-sm transition-all">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-6">
-            <Image 
+          <div className="flex items-center gap-5">
+            <img 
               src="/demo/logo-wine-you-want.svg" 
               alt="Wine You Want" 
-              width={100} 
-              height={35} 
-              className="object-contain"
+              className="h-10 sm:h-12 w-auto object-contain"
             />
-            <X className="w-3 h-3 text-[#453B36]/30" strokeWidth={3} />
+            <X className="w-3 h-3 text-[#453B36]/30 shrink-0" strokeWidth={3} />
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded overflow-hidden border border-[#453B36]/10 shadow-sm relative shrink-0">
-                <Image 
-                  src="/favicon.png" 
-                  alt="Gabriel Dalmoro Company Logo" 
-                  fill
-                  className="object-contain"
-                />
-              </div>
+              <img 
+                src="/favicon.png" 
+                alt="Gabriel Dalmoro Company Logo" 
+                className="h-10 sm:h-12 w-auto rounded object-contain shrink-0"
+              />
               <span className="font-serif-brand text-2xl tracking-wide hidden sm:block text-[#453B36] font-medium leading-none mt-1">Gabriel Dalmoro</span>
             </div>
           </div>
-          <div className="text-xs font-semibold tracking-widest uppercase border border-[#CBBEAA]/50 px-4 py-2 rounded-full bg-[#CBBEAA]/10 text-[#453B36]">
-            Projet Pilote DEMO
+          <div className="flex items-center gap-5">
+            <a href="/fr/chef" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold tracking-widest uppercase hover:text-[#c4952a] transition-colors text-[#453B36]/60 underline decoration-[#CBBEAA] underline-offset-4">
+              Visiter le site principal
+            </a>
+            <div className="text-xs font-semibold tracking-widest uppercase border border-[#CBBEAA]/50 px-4 py-2 rounded-full bg-[#CBBEAA]/10 text-[#453B36]">
+              Projet Pilote DEMO
+            </div>
           </div>
         </div>
       </header>
@@ -220,12 +220,11 @@ export default function WyWDemoPage() {
             style={{ backgroundImage: `url('/demo/bg-perso-x2.webp')` }}
           />
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center text-[#453B36] top-10">
-            <h1 className="text-5xl md:text-7xl mb-4 tracking-tight max-w-4xl leading-tight font-serif-brand font-light drop-shadow-sm">
-              Moins d'administratif.<br/>
-              <span className="italic font-medium text-[#c4952a]">Plus d'impact.</span>
+            <h1 className="text-5xl md:text-7xl mb-4 tracking-tight max-w-4xl leading-tight font-serif-brand font-bold drop-shadow-sm uppercase">
+              Projet Pilote DEMO
             </h1>
-            <p className="text-lg md:text-2xl font-light max-w-2xl text-[#453B36]/90 mt-2 font-serif-brand">
-              Du PDF vers Google Sheets en quelques secondes.
+            <p className="text-xl md:text-3xl font-light max-w-2xl text-[#c4952a] mt-2 font-serif-brand italic">
+              Moins d’admin. Plus d’impact.
             </p>
           </div>
         </div>
@@ -502,14 +501,20 @@ export default function WyWDemoPage() {
 
       {/* Footer */}
       <footer className="py-12 border-t border-[#453B36]/10 bg-white">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-4 text-center">
-          <div className="flex items-center gap-3">
-             <Image src="/demo/logo-wine-you-want.svg" alt="W" width={80} height={25} className="object-contain opacity-50 grayscale" />
-             <Image src="/favicon.png" alt="G" width={20} height={20} className="rounded-sm opacity-60 grayscale filter" />
+        <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-5 text-center">
+          <div className="flex items-center gap-4">
+             <img src="/demo/logo-wine-you-want.svg" alt="Wine You Want" className="h-8 w-auto object-contain opacity-50 grayscale" />
+             <X className="w-3 h-3 text-[#453B36]/30 shrink-0" strokeWidth={3} />
+             <img src="/favicon.png" alt="Gabriel Dalmoro" className="h-8 w-auto rounded-sm opacity-60 grayscale filter bg-white" />
           </div>
-          <p className="text-[#453B36]/40 text-xs tracking-wider uppercase font-semibold">
-            Un projet pilote d'automatisation sur mesure
-          </p>
+          <div className="flex flex-col gap-2 items-center">
+            <p className="text-[#453B36]/40 text-xs tracking-wider uppercase font-semibold">
+              Un projet pilote d'automatisation sur mesure
+            </p>
+            <a href="/fr/chef" target="_blank" rel="noopener noreferrer" className="text-[#c4952a]/70 hover:text-[#c4952a] text-[10px] tracking-wider uppercase font-bold transition-colors">
+              Visiter le site principal
+            </a>
+          </div>
         </div>
       </footer>
     </div>
