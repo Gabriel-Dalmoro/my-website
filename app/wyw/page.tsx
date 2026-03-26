@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
-import { Upload, ChevronRight, Check, X, CheckCircle2, FileOutput, Settings, Box, Wine, Euro, Calendar, Sparkles, ArrowRight } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Upload, ChevronRight, Check, X, CheckCircle2, FileOutput, Settings, Box, Wine, Euro, Calendar, Sparkles, ArrowRight, Minus, Plus, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 type ExtractStatus = 'idle' | 'uploading' | 'processing' | 'success' | 'error';
@@ -24,6 +24,19 @@ export default function WyWDemoPage() {
   const [data, setData] = useState<{ agent: string; references: RefRow[] } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [toastMsg, setToastMsg] = useState('');
+  
+  // Pain Quantifier States
+  const [devisParMois, setDevisParMois] = useState<number>(8);
+  const [tauxHoraire, setTauxHoraire] = useState<number>(35);
+
+  const [isExpired, setIsExpired] = useState(false);
+
+  useEffect(() => {
+    // Soft expiry check
+    if (new Date() > new Date('2026-04-18T23:59:59')) {
+      setIsExpired(true);
+    }
+  }, []);
 
   const addLog = (msg: string) => {
     setLogMessages((prev) => [...prev, msg]);
@@ -141,7 +154,7 @@ export default function WyWDemoPage() {
         await navigator.clipboard.writeText(tsv);
       }
       
-      setToastMsg('Données copiées. Dans la version finale, ces données seront automatiquement synchronisées sur votre Google Drive partagé dès votre validation.');
+      setToastMsg('Données copiées ! Collez simplement (Cmd+V / Ctrl+V) dans la nouvelle feuille.');
       setTimeout(() => setToastMsg(''), 8000);
       window.open('https://sheets.new', '_blank');
     } catch (err) {
@@ -167,8 +180,52 @@ export default function WyWDemoPage() {
     return false;
   };
 
+  const formatTime = (totalMinutes: number) => {
+    if (totalMinutes < 60) return `${Math.round(totalMinutes)} min`;
+    const hours = Math.floor(totalMinutes / 60);
+    const mins = Math.round(totalMinutes % 60);
+    if (mins === 0) return `${hours} h`;
+    return `${hours} h ${mins} min`;
+  };
+
+  if (isExpired) {
+    return (
+      <div className="min-h-screen bg-[#453B36] text-[#CBBEAA] font-sans selection:bg-[#FACE0D] selection:text-[#453B36] flex flex-col justify-between">
+        <style dangerouslySetInnerHTML={{__html: `
+          @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+          .font-serif-brand { font-family: 'Cormorant Garamond', serif; }
+        `}} />
+        <header className="py-8 px-6 border-b border-[#CBBEAA]/10">
+          <div className="max-w-6xl mx-auto flex items-center justify-center gap-6">
+            <img src="/demo/logo-wine-you-want.svg" className="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-80" alt="Wine You Want" />
+            <X className="w-4 h-4 text-[#CBBEAA]/30" strokeWidth={3} />
+            <img src="/favicon.png" className="h-10 sm:h-12 w-auto rounded object-contain opacity-90" alt="Gabriel Dalmoro Company Logo" />
+          </div>
+        </header>
+
+        <main className="flex-1 flex flex-col items-center justify-center px-6 text-center">
+          <p className="text-xl md:text-2xl font-serif-brand font-light mb-8 max-w-xl mx-auto text-[#F5F0E8]">
+            Cette démonstration n'est plus disponible en ligne.
+          </p>
+          <div className="text-base text-[#CBBEAA]/80 font-serif-brand italic flex flex-col items-center gap-1">
+            <span>Pour en savoir plus sur ce projet, contactez Gabriel Dalmoro.</span>
+            <a href="mailto:gabriel@gabrieldalmoro.com" className="text-[#FACE0D] hover:underline hover:text-white transition-colors mt-2 not-italic tracking-wider text-sm font-sans font-semibold">gabriel@gabrieldalmoro.com</a>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  // Calculations for Pain Quantifier
+  const numReferences = data?.references.length || 0;
+  const timePerLine = 3.5;
+  const timeForDevisMins = numReferences * timePerLine;
+  const monthlyTimeLostHours = (timeForDevisMins * devisParMois) / 60;
+  const annualTimeLostHours = monthlyTimeLostHours * 12;
+  const annualCostEuros = annualTimeLostHours * tauxHoraire;
+
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#453B36] font-sans selection:bg-[#FACE0D] selection:text-[#453B36]">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#453B36] font-sans selection:bg-[#FACE0D] selection:text-[#453B36] flex flex-col">
       <style dangerouslySetInnerHTML={{__html: `
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
         .font-serif-brand { font-family: 'Cormorant Garamond', serif; }
@@ -178,7 +235,7 @@ export default function WyWDemoPage() {
       {toastMsg && (
         <div className="fixed top-6 left-1/2 -translate-x-1/2 bg-[#FACE0D] text-[#453B36] px-6 py-4 rounded-lg shadow-2xl z-50 flex items-center gap-3 font-medium animate-in fade-in slide-in-from-top-4 duration-300 max-w-lg w-full">
           <CheckCircle2 className="w-6 h-6 shrink-0" />
-          <p className="text-sm leading-snug">{toastMsg}</p>
+          <p className="text-sm leading-snug font-semibold">{toastMsg}</p>
         </div>
       )}
 
@@ -212,7 +269,7 @@ export default function WyWDemoPage() {
         </div>
       </header>
 
-      <main className="pb-20 bg-[#FFFFFF]">
+      <main className="flex-1 bg-[#FFFFFF]">
         {/* Dynamic Image Hero Header */}
         <div className="relative w-full overflow-hidden bg-white">
           <div 
@@ -355,20 +412,25 @@ export default function WyWDemoPage() {
                       <CheckCircle2 className="w-8 h-8 text-[#4A7A4A]" />
                       Données Structurées
                     </h2>
-                    <p className="text-[#453B36]/70 text-lg font-serif-brand">Fournisseur analysé : <strong className="text-[#453B36] font-semibold">{data?.agent}</strong> ({data?.references.length} références trouvées)</p>
+                    <p className="text-[#453B36]/70 text-lg font-serif-brand">Fournisseur analysé : <strong className="text-[#453B36] font-semibold">{data?.agent}</strong> ({numReferences} références trouvées)</p>
                   </div>
-                  <div className="flex gap-4">
-                    <button onClick={() => { setFile(null); setStatus('idle'); }} className="px-6 py-3 border border-[#453B36]/20 bg-white hover:bg-[#F5F0E8] rounded-lg font-medium flex items-center gap-2 transition-colors shadow-sm">
-                      Recommencer
-                    </button>
-                    <button onClick={handleExport} className="px-8 py-3 bg-[#453B36] text-white hover:bg-[#4A7A4A] hover:text-white font-semibold rounded-lg flex items-center gap-2 shadow-lg hover:-translate-y-1 transition-all">
-                      <FileOutput className="w-5 h-5" /> Copier & Ouvrir Sheets
-                    </button>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex gap-4">
+                      <button onClick={() => { setFile(null); setStatus('idle'); setData(null); }} className="px-6 py-3 border border-[#453B36]/20 bg-white hover:bg-[#F5F0E8] rounded-lg font-medium flex items-center gap-2 transition-colors shadow-sm">
+                        Recommencer
+                      </button>
+                      <button onClick={handleExport} className="px-8 py-3 bg-[#453B36] text-white hover:bg-[#4A7A4A] hover:text-white font-semibold rounded-lg flex items-center gap-2 shadow-lg hover:-translate-y-1 transition-all">
+                        <FileOutput className="w-5 h-5" /> Copier & Ouvrir Sheets
+                      </button>
+                    </div>
+                    <p className="text-[11px] text-[#453B36]/60 text-right pr-2">
+                      Collez simplement (Cmd+V) une fois la feuille ouverte.
+                    </p>
                   </div>
                 </div>
 
                 {/* Editable Table */}
-                <div className="rounded-xl overflow-hidden border border-[#CBBEAA]/80 bg-white">
+                <div className="rounded-xl overflow-hidden border border-[#CBBEAA]/80 bg-white mb-10">
                   <div className="p-4 bg-[#F5F0E8] border-b border-[#CBBEAA]/80 flex items-center gap-4">
                     <div className="bg-[#c4952a] w-3 h-3 rounded-full animate-pulse shadow-sm"></div>
                     <p className="text-[#453B36] font-medium tracking-wide text-sm uppercase">Validateur Quantitatif — Corrigez simplement un champ pour l'enregistrer.</p>
@@ -448,6 +510,113 @@ export default function WyWDemoPage() {
                     </table>
                   </div>
                 </div>
+
+                {/* PAIN QUANTIFIER BLOCK */}
+                <div className="bg-[#F5F0E8] rounded-2xl p-8 border border-[#CBBEAA]/50 shadow-inner mt-12 mb-8 relative">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#453B36] text-[#CBBEAA] px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-md flex items-center gap-2">
+                    <Sparkles className="w-3 h-3 text-[#FACE0D]" />
+                    Analyse d'Impact
+                  </div>
+                  
+                  <h3 className="text-3xl font-serif-brand font-light text-[#453B36] text-center mb-8 mt-2">Ce que ce devis représente en temps</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                    {/* Left: Stats for this quote & Settings */}
+                    <div className="space-y-6">
+                      <div className="bg-white/60 p-5 rounded-xl border border-[#CBBEAA]/40 flex justify-between items-center">
+                        <div>
+                          <p className="text-xs uppercase tracking-wider text-[#453B36]/60 font-semibold">Temps moyen / ligne</p>
+                          <p className="text-[10px] text-[#453B36]/40">Fixé selon la moyenne métier</p>
+                        </div>
+                        <div className="text-xl font-bold font-serif-brand text-[#453B36]">3.5 min</div>
+                      </div>
+
+                      <div className="bg-white/60 p-5 rounded-xl border border-[#CBBEAA]/40 flex justify-between items-center">
+                        <div>
+                          <p className="text-xs uppercase tracking-wider text-[#453B36]/60 font-semibold">Temps pour ce devis</p>
+                          <p className="text-[10px] text-[#453B36]/40">{numReferences} références lues</p>
+                        </div>
+                        <div className="text-xl font-bold font-serif-brand text-[#453B36]">{formatTime(timeForDevisMins)}</div>
+                      </div>
+
+                      <div className="bg-white p-5 rounded-xl border border-[#CBBEAA] shadow-sm transform transition-all focus-within:ring-2 ring-[#c4952a]/20">
+                        <label className="text-xs uppercase tracking-wider text-[#453B36]/80 font-bold block mb-3">Devis traités par mois</label>
+                        <div className="flex items-center gap-4">
+                          <button onClick={() => setDevisParMois(Math.max(1, devisParMois - 1))} className="w-8 h-8 rounded-full bg-[#F5F0E8] text-[#453B36] flex items-center justify-center hover:bg-[#c4952a]/20 transition-colors border border-[#CBBEAA]/50">
+                            <Minus className="w-4 h-4" />
+                          </button>
+                          <input 
+                            type="number" 
+                            className="text-2xl font-bold font-serif-brand text-[#453B36] w-16 text-center outline-none bg-transparent"
+                            value={devisParMois}
+                            onChange={(e) => setDevisParMois(parseInt(e.target.value) || 0)}
+                          />
+                          <button onClick={() => setDevisParMois(devisParMois + 1)} className="w-8 h-8 rounded-full bg-[#F5F0E8] text-[#453B36] flex items-center justify-center hover:bg-[#c4952a]/20 transition-colors border border-[#CBBEAA]/50">
+                            <Plus className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="bg-white p-5 rounded-xl border border-[#CBBEAA] shadow-sm transform transition-all focus-within:ring-2 ring-[#c4952a]/20">
+                        <label className="text-xs uppercase tracking-wider text-[#453B36]/80 font-bold block mb-3 flex items-center justify-between">
+                          <span>Valeur de votre temps</span>
+                          <span className="text-[#453B36]/40">€/heure</span>
+                        </label>
+                        <div className="flex items-center gap-3">
+                          <input 
+                            type="number" 
+                            className="text-2xl font-bold font-serif-brand text-[#453B36] w-20 px-3 py-1 bg-[#F5F0E8] rounded-md outline-none focus:ring-1 ring-[#c4952a]"
+                            value={tauxHoraire}
+                            onChange={(e) => setTauxHoraire(parseInt(e.target.value) || 0)}
+                          />
+                          <span className="text-xl font-bold font-serif-brand text-[#453B36]">€</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right: The Pain Value */}
+                    <div className="bg-white rounded-2xl border border-[#CBBEAA]/80 shadow-md p-8 flex flex-col justify-center text-center">
+                      <div className="mb-6 pb-6 border-b border-[#CBBEAA]/30">
+                        <p className="text-sm uppercase tracking-widest text-[#453B36]/60 font-semibold mb-2">Temps Administratif Annuel</p>
+                        <p className="text-4xl font-serif-brand font-bold text-[#453B36]">{Math.round(annualTimeLostHours)} <span className="text-xl text-[#453B36]/60 font-light">heures perdues</span></p>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm uppercase tracking-widest text-[#c4952a] font-bold mb-2">Coût Annuel Invisible</p>
+                        <p className="text-7xl font-serif-brand font-bold text-[#453B36] drop-shadow-sm leading-none bg-gradient-to-br from-[#453B36] to-[#60554f] bg-clip-text text-transparent">
+                          {Math.round(annualCostEuros).toLocaleString('fr-FR')} <span className="text-4xl font-light">€</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* REFRAME SECTION */}
+                <div className="max-w-2xl mx-auto space-y-4 text-[15px] font-medium text-[#453B36]/70 leading-relaxed mb-16 pl-4 border-l-2 border-[#c4952a]/30">
+                  <p className="flex items-start gap-4 transition-all hover:text-[#453B36]">
+                    <span className="text-xl">🍷</span> <span>Préparer votre dossier MOF — sans les dimanches soir sur Excel.</span>
+                  </p>
+                  <p className="flex items-start gap-4 transition-all hover:text-[#453B36]">
+                    <span className="text-xl">📅</span> <span>Coordonner plus d'événements privés — sans que ça déborde sur votre service.</span>
+                  </p>
+                  <p className="flex items-start gap-4 transition-all hover:text-[#453B36]">
+                    <span className="text-xl">🧠</span> <span>Être pleinement présente en salle — pas dans votre boîte mail.</span>
+                  </p>
+                </div>
+
+                {/* CALENDLY CTA */}
+                <div className="text-center bg-[#FBF9F5] p-10 rounded-2xl border border-[#CBBEAA]/40 mb-4 shadow-sm">
+                  <h4 className="text-2xl font-serif-brand font-semibold text-[#453B36] mb-6">Vous voulez voir comment ça s'intègre dans vos Google Sheets ?</h4>
+                  <a 
+                    href="https://calendly.com/ghdalmoro/30-minute-fr" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#453B36] text-[#CBBEAA] hover:bg-[#FACE0D] hover:text-[#453B36] font-bold tracking-wider uppercase text-sm px-10 py-5 rounded-xl transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    Réserver 30 minutes <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+
               </div>
             </div>
           )}
@@ -517,6 +686,13 @@ export default function WyWDemoPage() {
           </div>
         </div>
       </footer>
+      
+      {/* Exclusivity Notice */}
+      <div className="bg-[#FFFFFF] text-center pb-6">
+        <p className="text-[10px] text-[#453B36]/40 italic max-w-xl mx-auto px-4">
+          Cette démonstration est mise à disposition à titre exclusif pour WineYouWant dans le cadre d'une présentation commerciale.
+        </p>
+      </div>
     </div>
   );
 }
