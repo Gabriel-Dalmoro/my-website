@@ -123,9 +123,9 @@ export default function LanternDemoPage() {
       '',
       `Prepared for: Lantern Clinic;;;`,
       `Exported: ${new Date().toLocaleDateString()};;;`
-    ].join('\\n');
+    ].join('\n');
 
-    const blob = new Blob(['\\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.setAttribute("href", url);
