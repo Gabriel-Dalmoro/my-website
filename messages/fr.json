@@ -613,6 +613,123 @@
       "button": "Réserver →"
     }
   },
+  "Clinic": {
+    "Hero": {
+      "badge": "Pour les Cliniques Médicales & Professionnels de Santé",
+      "hook": "Moins d'admin. Plus de soins.",
+      "solution": "J'automatise vos réservations, formulaires et suivis patients.",
+      "description": "Économisez 8+ heures par semaine sur la gestion et la paperasse. Passez ce temps là où ça compte vraiment — avec vos patients.",
+      "cta": "Voir comment ça marche pour les cliniques →"
+    },
+    "SocialProof": {
+      "label": "Résultats réels pour des professionnels de santé",
+      "stat0value": "600+",
+      "stat0label": "heures économisées par an",
+      "stat1value": "12+",
+      "stat1label": "heures libérées chaque semaine",
+      "stat2value": "100%",
+      "stat2label": "rappels de rendez-vous automatisés"
+    },
+    "Problem": {
+      "label": "Le Problème",
+      "headline": "Vous travaillez dans la santé. Mais l'admin bouffe vos journées.",
+      "subheadline": "Appels pour planifier les rendez-vous, formulaires papier, facturation manuelle, suivis oubliés — chaque heure perdue en admin, c'est une heure de moins avec vos patients.",
+      "pain0emoji": "📞",
+      "pain0": "Appels dans tous les sens juste pour prendre ou déplacer un rendez-vous",
+      "pain1emoji": "📄",
+      "pain1": "Formulaires d'entrée papier remplis à la main et ressaisis dans votre système",
+      "pain2emoji": "🔔",
+      "pain2": "Absences parce que les rappels sont partis trop tard — ou pas du tout",
+      "pain3emoji": "🧾",
+      "pain3": "Facturation, remboursements et relances de paiements gérés manuellement chaque semaine"
+    },
+    "Services": {
+      "label": "La Solution",
+      "headline": "Je gère l'admin. Vous soignez vos patients.",
+      "subheadline": "Des systèmes automatisés pour les cliniques privées, médecins généralistes, spécialistes, kinés et tout professionnel de santé.",
+      "card0name": "Noyé dans les appels pour les rendez-vous ?",
+      "card0description": "Vos patients réservent, confirment et reprogramment en ligne — 24h/24. Votre agenda se remplit tout seul. Fini les allers-retours téléphoniques.",
+      "card1name": "Formulaires papier et ressaisie manuelle ?",
+      "card1description": "Les patients remplissent leurs formulaires numériques avant leur visite. Les réponses sont enregistrées automatiquement — plus d'impression, plus de transcription, plus de papiers perdus.",
+      "card2name": "Absences et suivis manqués ?",
+      "card2description": "Des rappels automatiques partent par SMS ou email avant chaque rendez-vous. Les messages de suivi sont envoyés au bon moment — sans que vous leviez le petit doigt."
+    },
+    "DayInLife": {
+      "label": "Avant & Après",
+      "headline": "Où passe votre temps ?",
+      "beforeTitle": "Sans automatisation",
+      "afterTitle": "Avec automatisation",
+      "adminBefore": "Admin — appels, formulaires, facturation, rappels",
+      "careBefore": "Consultations & soins patients",
+      "growthBefore": "Nouveaux patients & croissance",
+      "adminAfter": "Admin (géré à votre place)",
+      "careAfter": "Consultations & soins patients",
+      "growthAfter": "Nouveaux patients & croissance",
+      "beforeStat": "3h d'admin, chaque jour.",
+      "afterStat": "0h d'admin — géré à votre place.",
+      "note": "Basé sur des charges de travail typiques en clinique. Résultats variables."
+    },
+    "HowItWorks": {
+      "label": "Comment Ça Marche",
+      "headline": "Simple. Rapide. Réglé.",
+      "step0title": "On parle",
+      "step0description": "Appel gratuit de 30 minutes. Vous me décrivez comment fonctionne votre cabinet. Aucune connaissance technique requise.",
+      "step1title": "Je construis",
+      "step1description": "Je mets en place vos systèmes de réservation, formulaires et rappels en 30 jours. Vous ne faites rien.",
+      "step2title": "Vous soignez vos patients",
+      "step2description": "Vos systèmes tournent tout seuls. Vous vous concentrez sur les soins — pas sur les rendez-vous ou la paperasse."
+    },
+    "Tools": {
+      "label": "Compatible avec vos outils actuels"
+    },
+    "Results": {
+      "label": "Résultats Concrets",
+      "headline": "Ce que les cliniques récupèrent vraiment",
+      "location": "Clinique Privée & Cabinet Médical",
+      "beforeLabel": "Avant",
+      "before0": "Planification des rendez-vous par téléphone, allers-retours",
+      "before1": "Formulaires papier distribués à l'accueil",
+      "before2": "Relancer les absences et les paiements manquants manuellement",
+      "before3": "12+ heures d'admin chaque semaine",
+      "afterLabel": "Après",
+      "after0": "Patients qui réservent et confirment en ligne, 24h/24",
+      "after1": "Formulaires numériques complétés avant chaque visite",
+      "after2": "Rappels automatiques pour réduire significativement les absences",
+      "after3": "600+ heures libérées par an",
+      "impactValue": "600+",
+      "impactLabel": "Heures Libérées par An",
+      "impactNote": "Soit 12+ heures récupérées chaque semaine.",
+      "cta": "Voir si je peux faire pareil pour vous"
+    },
+    "Testimonial": {
+      "headline": "Ce que disent mes clients",
+      "pullQuote": "520+ heures récupérées.",
+      "body": "Gabriel a pris en charge toute mon administration et ma paperasse. <bold>Ça me fait gagner des heures chaque semaine.</bold> Tout fonctionne — pour moi et pour mes clients. <bold>Je le recommande les yeux fermés.</bold>",
+      "author": "Elisa Curtelin",
+      "role": "Fondatrice, Elisa Batch Cooking"
+    },
+    "ROI": {
+      "label": "Votre Coût Caché",
+      "headline": "Combien vous coûte vraiment votre admin ?",
+      "subheadline": "Bougez les curseurs. Voyez votre vrai chiffre.",
+      "weeklyHoursLabel": "Heures d'admin par semaine",
+      "rateLabel": "Votre taux horaire (€)",
+      "hoursUnit": "heures perdues par an",
+      "costUnit": "perdus par an",
+      "resultNote": "C'est ce que je vous rends.",
+      "cta": "Récupérons ce temps →"
+    },
+    "CTA": {
+      "headline": "Arrêtez de faire la paperasse.",
+      "description": "Réservez un appel gratuit de 30 minutes. Je vous montre exactement ce que je peux automatiser pour votre cabinet — et combien d'heures vous allez récupérer.",
+      "button": "Obtenir votre audit gratuit →",
+      "note": "Sans engagement. Sans jargon. Juste un plan clair."
+    },
+    "Sticky": {
+      "text": "Audit gratuit de 30 min pour cliniques & professionnels de santé. Sans engagement.",
+      "button": "Réserver →"
+    }
+  },
   "Footer": {
     "rights": "Tous droits réservés.",
     "legal": "Mentions Légales",
