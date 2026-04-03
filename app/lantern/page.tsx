@@ -300,7 +300,7 @@ export default function LanternDemoPage() {
             <div className="bg-white p-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
                <p className="text-sm text-[#2E3423]/60 italic font-lantern">Calculations update purely in real-time. No data is stored.</p>
                <button onClick={() => generateExport()} className="w-full sm:w-auto justify-center flex items-center gap-3 px-8 py-4 bg-[#FACE0D] text-[#2E3423] hover:bg-[#eab308] border border-[#dca204] rounded-lg font-bold text-[15px] tracking-wide shadow-sm hover:-translate-y-0.5 transition-all">
-                 <Download className="w-5 h-5 text-[#2E3423] opacity-80" /> Download Full Analytics Report (.xlsx)
+                 <Download className="w-5 h-5 text-[#2E3423] opacity-80" /> Save this calculation to Excel
                </button>
             </div>
           </div>

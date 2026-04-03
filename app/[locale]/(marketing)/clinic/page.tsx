@@ -30,8 +30,8 @@ export default function ClinicLandingPage() {
                 <ClinicHero />
                 <ClinicToolsStrip />
                 <ClinicProblem />
-                <ClinicDayInLife />
                 <ClinicServices />
+                <ClinicDayInLife />
                 <ClinicHowItWorks />
                 <ClinicTestimonial />
                 <ClinicROIEstimator />
