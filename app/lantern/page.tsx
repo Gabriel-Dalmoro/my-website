@@ -37,99 +37,42 @@ export default function LanternDemoPage() {
   const annualCost = (parseFloat(annualHours) * hourlyRate).toLocaleString('en-GB');
 
   const exportCSV = (asExcel: boolean = false) => {
+    // We use comma delimiter natively, wrapped securely in double quotes
     const headers = ['Task', 'Times per Week', 'Minutes per Task', 'Weekly Hours'];
     
-    // We compute exact row indices for our math formulas dynamically
+    // Exact row indices for dynamic active math formulas
     const taskCount = tasks.length;
     const summaryStartRow = taskCount + 4; // Headers(1) + Tasks(N) + Empty(1) + SUMMARY(1) + Next line is first summary items
     
-    // Create locale-independent sum query: D2+D3+D4... instead of SUM(D2:D5) so French Excel doesn't break
+    // Create locale-independent sum query: D2+D3+D4...
     const sumQuery = tasks.map((_, i) => `D${i + 2}`).join('+');
 
-    if (asExcel) {
-      // Export Native Excel Layout with Formulas AND STYLING
-      const tableHtml = `
-        <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
-        <head>
-          <meta charset="utf-8">
-          <style>
-            .th-header { background-color: #2E3423; color: #FFFFFF; font-weight: bold; font-family: 'Arial'; text-transform: uppercase; border: 1px solid #000000; padding: 10px; }
-            .td-cell { border: 1px solid #DDDDDD; padding: 6px; font-family: 'Arial'; text-align: center; }
-            .td-cell-left { border: 1px solid #DDDDDD; padding: 6px; font-family: 'Arial'; text-align: left; }
-            .td-calc { border: 1px solid #DDDDDD; padding: 6px; font-family: 'Arial'; text-align: center; font-weight: bold; color: #D4967D; }
-            .sum-header { background-color: #D4967D; color: #FFFFFF; font-weight: bold; font-family: 'Arial'; text-align: center; padding: 8px; font-size: 14px; }
-            .total-cost { background-color: #FACE0D; color: #2E3423; font-weight: bold; font-family: 'Arial'; text-align: center; font-size: 16px; border: 2px solid #2E3423; }
-          </style>
-        </head>
-        <body>
-          <table border="1" style="border-collapse: collapse; width: 100%;">
-            <thead>
-              <tr>${headers.map(h => `<th class="th-header">${h}</th>`).join('')}</tr>
-            </thead>
-            <tbody>
-              ${tasks.map((t, i) => {
-                const r = i + 2;
-                return `<tr>
-                  <td class="td-cell-left">${t.name}</td>
-                  <td class="td-cell">${t.timesPerWeek}</td>
-                  <td class="td-cell">${t.minutesPerTask}</td>
-                  <td class="td-calc" x:fmla="=B${r}*C${r}/60">${(t.timesPerWeek * t.minutesPerTask / 60).toFixed(2)}</td>
-                </tr>`;
-              }).join('')}
-              <tr><td colspan="4"></td></tr>
-              <tr><td colspan="4" class="sum-header">SUMMARY & IMPACT ANALYSIS</td></tr>
-              
-              <tr><td colspan="3" class="td-cell-left" style="font-weight: bold;">Weekly Hours Lost</td><td class="td-calc" x:fmla="=${sumQuery}">${weeklyHours}</td></tr>
-              <tr><td colspan="3" class="td-cell-left">Monthly Hours Lost</td><td class="td-calc" x:fmla="=D${summaryStartRow}*4.33">${monthlyHours}</td></tr>
-              <tr><td colspan="3" class="td-cell-left">Annual Hours Lost</td><td class="td-calc" x:fmla="=D${summaryStartRow}*52">${annualHours}</td></tr>
-              <tr><td colspan="2" class="td-cell-left">Your Hourly Rate (£)</td><td class="td-cell" style="background-color: #FDFBF7; font-weight: bold;">${hourlyRate}</td><td class="td-cell"></td></tr>
-              <tr><td colspan="3" class="total-cost">Annual Cost Unoptimized GBP (£)</td><td class="total-cost" x:fmla="=D${summaryStartRow + 2}*C${summaryStartRow + 3}">${annualCost.replace(/,/g, '')}</td></tr>
-              
-              <tr><td colspan="4"></td></tr>
-              <tr><td colspan="4" style="color: #666666;"><i>Prepared for: Lantern Clinic</i></td></tr>
-              <tr><td colspan="4" style="color: #666666;"><i>Exported: ${new Date().toLocaleDateString()}</i></td></tr>
-            </tbody>
-          </table>
-        </body>
-        </html>
-      `;
-      const blob = new Blob([tableHtml], { type: 'application/vnd.ms-excel' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.setAttribute("href", url);
-      link.setAttribute("download", `Lantern-Clinic-Time-Audit-${new Date().toISOString().split('T')[0]}.xls`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      return;
-    }
-
-    // Export standard European CSV (Semicolon Delimited) with Formulas
     const csvContent = [
-      headers.join(';'),
+      headers.map(h => `"${h}"`).join(','),
       ...tasks.map((t, i) => [
-        t.name.replace(/;/g, '-'), 
+        `"${t.name.replace(/"/g, '""')}"`, 
         t.timesPerWeek, 
         t.minutesPerTask, 
-        `=B${i + 2}*C${i + 2}/60` // Raw formula block natively evaluated by Excel
-      ].join(';')),
+        `"=ROUND(B${i + 2}*C${i + 2}/60, 1)"` // Rounded dynamically calculated cell
+      ].join(',')),
       '',
-      'SUMMARY;;;',
-      `Weekly Hours Lost;;;=${sumQuery}`,
-      `Monthly Hours Lost;;;=D${summaryStartRow}*4.33`,
-      `Annual Hours Lost;;;=D${summaryStartRow}*52`,
-      `Your Hourly Rate (£);;${hourlyRate};`,
-      `Annual Cost GBP (£);;;=D${summaryStartRow + 2}*C${summaryStartRow + 3}`,
+      '"SUMMARY & IMPACT ANALYSIS",,,',
+      `"Weekly Hours Lost",,,"=ROUND(${sumQuery}, 1)"`,
+      `"Monthly Hours Lost",,,"=ROUND(D${summaryStartRow}*4.33, 1)"`,
+      `"Annual Hours Lost",,,"=ROUND(D${summaryStartRow}*52, 1)"`,
+      `"Your Hourly Rate",,"£",${hourlyRate}`,
+      `"Annual Cost Unoptimized",,"£","=ROUND(D${summaryStartRow + 2}*D${summaryStartRow + 3}, 0)"`,
       '',
-      `Prepared for: Lantern Clinic;;;`,
-      `Exported: ${new Date().toLocaleDateString()};;;`
+      `"Prepared for: Lantern Clinic",,,`,
+      `"Exported: ${new Date().toLocaleDateString()}",,,`
     ].join('\n');
 
     const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.setAttribute("href", url);
-    link.setAttribute("download", `Lantern-Clinic-Time-Audit-${new Date().toISOString().split('T')[0]}.csv`);
+    const ext = asExcel ? 'csv' : 'csv'; // We output clean CSV universally handling both intents seamlessly
+    link.setAttribute("download", `Lantern-Clinic-Time-Audit-${new Date().toISOString().split('T')[0]}.${ext}`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
