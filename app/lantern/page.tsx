@@ -176,6 +176,9 @@ export default function LanternDemoPage() {
             </div>
           </div>
           <div className="flex items-center gap-5">
+            <a href="https://gabrieldalmoro.com/en/clinic" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[#2E3423]/70 hover:text-[#2E3423] transition-colors hover:underline underline-offset-4 hidden sm:block">
+              Visit Main Site
+            </a>
             <div className="text-xs font-semibold tracking-widest uppercase border border-[#D4967D]/50 px-4 py-2 rounded-full bg-[#D4967D]/10 text-[#D4967D]">
               Automation Demo
             </div>
@@ -409,7 +412,7 @@ export default function LanternDemoPage() {
             <div className="flex gap-4 mt-2">
               <a href="mailto:gabriel@gabrieldalmoro.com" className="text-[#D4967D] hover:text-[#2E3423] text-sm font-semibold transition-colors">gabriel@gabrieldalmoro.com</a>
               <span className="text-[#2E3423]/20">|</span>
-              <a href="https://gabrieldalmoro.com" target="_blank" rel="noopener noreferrer" className="text-[#D4967D] hover:text-[#2E3423] text-sm font-semibold transition-colors">gabrieldalmoro.com</a>
+              <a href="https://gabrieldalmoro.com/en/clinic" target="_blank" rel="noopener noreferrer" className="text-[#D4967D] hover:text-[#2E3423] text-sm font-semibold transition-colors">Visit Main Site</a>
             </div>
           </div>
         </div>
