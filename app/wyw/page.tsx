@@ -619,7 +619,7 @@ export default function WyWDemoPage() {
                 <div className="text-center bg-[#FBF9F5] p-10 rounded-2xl border border-[#CBBEAA]/40 mb-4 shadow-sm">
                   <h4 className="text-2xl font-serif-brand font-semibold text-[#453B36] mb-6">Vous voulez voir comment ça s'intègre dans vos Google Sheets ?</h4>
                   <a 
-                    href="https://calendly.com/ghdalmoro/30-minute-fr" 
+                    href="https://calendly.com/ghdalmoro/30-minute" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[#453B36] text-[#CBBEAA] hover:bg-[#FACE0D] hover:text-[#453B36] font-bold tracking-wider uppercase text-sm px-10 py-5 rounded-xl transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl"

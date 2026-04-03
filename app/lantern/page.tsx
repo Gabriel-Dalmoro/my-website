@@ -362,12 +362,12 @@ export default function LanternDemoPage() {
               Let's talk specifically about what automation architecture could look like for Lantern Clinic.
             </p>
             <a 
-              href="https://calendly.com/ghdalmoro/20min" 
+              href="https://calendly.com/ghdalmoro/30-minute" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#FACE0D] text-[#2E3423] hover:bg-white hover:text-[#2E3423] font-bold tracking-wider uppercase text-[15px] px-10 py-5 rounded-xl transition-all shadow-xl hover:-translate-y-1 w-full sm:w-auto justify-center"
             >
-              Book a 20-Minute Alignment Call <ExternalLink className="w-5 h-5 ml-2" />
+              Book a 30-Minute Alignment Call <ExternalLink className="w-5 h-5 ml-2" />
             </a>
             <p className="mt-8 text-sm opacity-60">
               No obligation. No pitch. Just a strictly focused conversation about capability and what's technically possible.
