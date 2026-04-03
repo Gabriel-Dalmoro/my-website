@@ -39,28 +39,66 @@ export default function LanternDemoPage() {
   const exportCSV = (asExcel: boolean = false) => {
     const headers = ['Task', 'Times per Week', 'Minutes per Task', 'Weekly Hours'];
     const rows = tasks.map(t => [
-      `"${t.name}"`, 
+      t.name.replace(/;/g, '-'), 
       t.timesPerWeek, 
       t.minutesPerTask, 
       (t.timesPerWeek * t.minutesPerTask / 60).toFixed(2)
     ]);
-    
+
+    if (asExcel) {
+      // Export Native Excel Layout (XML/HTML approach)
+      const tableHtml = `
+        <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+        <head><meta charset="utf-8"></head>
+        <body>
+          <table border="1">
+            <thead>
+              <tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>
+            </thead>
+            <tbody>
+              ${rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}
+              <tr><td colspan="4"></td></tr>
+              <tr><td colspan="4"><b>SUMMARY</b></td></tr>
+              <tr><td colspan="3">Weekly Hours Lost</td><td>${weeklyHours}</td></tr>
+              <tr><td colspan="3">Monthly Hours Lost</td><td>${monthlyHours}</td></tr>
+              <tr><td colspan="3">Annual Hours Lost</td><td>${annualHours}</td></tr>
+              <tr><td colspan="3">Annual Cost GBP (£)</td><td>${annualCost.replace(/,/g, '')}</td></tr>
+              <tr><td colspan="4"></td></tr>
+              <tr><td colspan="4"><i>Prepared for: Lantern Clinic</i></td></tr>
+              <tr><td colspan="4"><i>Prepared by: Gabriel Dalmoro</i></td></tr>
+              <tr><td colspan="4"><i>Exported: ${new Date().toLocaleDateString()}</i></td></tr>
+            </tbody>
+          </table>
+        </body>
+        </html>
+      `;
+      const blob = new Blob([tableHtml], { type: 'application/vnd.ms-excel' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `Lantern-Clinic-Time-Audit-${new Date().toISOString().split('T')[0]}.xls`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      return;
+    }
+
+    // Export standard European CSV (Semicolon Delimited)
     const csvContent = [
-      headers.join(','),
-      ...rows.map(r => r.join(',')),
+      headers.join(';'),
+      ...rows.map(r => r.join(';')),
       '',
-      'SUMMARY,,,',
-      `Weekly Hours Lost,${weeklyHours},,`,
-      `Monthly Hours Lost,${monthlyHours},,`,
-      `Annual Hours Lost,${annualHours},,`,
-      `Annual Cost GBP (£),${annualCost.replace(/,/g, '')},,`,
+      'SUMMARY;;;',
+      `Weekly Hours Lost;${weeklyHours};;`,
+      `Monthly Hours Lost;${monthlyHours};;`,
+      `Annual Hours Lost;${annualHours};;`,
+      `Annual Cost GBP (£);${annualCost.replace(/,/g, '')};;`,
       '',
-      `Prepared for: Lantern Clinic,,`,
-      `Prepared by: Gabriel Dalmoro,,`,
-      `Exported: ${new Date().toLocaleDateString()},,`
+      `Prepared for: Lantern Clinic;;;`,
+      `Prepared by: Gabriel Dalmoro;;;`,
+      `Exported: ${new Date().toLocaleDateString()};;;`
     ].join('\\n');
 
-    // Add BOM for Excel UTF-8 recognition
     const blob = new Blob(['\\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
