@@ -38,35 +38,56 @@ export default function LanternDemoPage() {
 
   const exportCSV = (asExcel: boolean = false) => {
     const headers = ['Task', 'Times per Week', 'Minutes per Task', 'Weekly Hours'];
-    const rows = tasks.map(t => [
-      t.name.replace(/;/g, '-'), 
-      t.timesPerWeek, 
-      t.minutesPerTask, 
-      (t.timesPerWeek * t.minutesPerTask / 60).toFixed(2)
-    ]);
+    
+    // We compute exact row indices for our math formulas dynamically
+    const taskCount = tasks.length;
+    const summaryStartRow = taskCount + 4; // Headers(1) + Tasks(N) + Empty(1) + SUMMARY(1) + Next line is first summary items
+    
+    // Create locale-independent sum query: D2+D3+D4... instead of SUM(D2:D5) so French Excel doesn't break
+    const sumQuery = tasks.map((_, i) => `D${i + 2}`).join('+');
 
     if (asExcel) {
-      // Export Native Excel Layout (XML/HTML approach)
+      // Export Native Excel Layout with Formulas AND STYLING
       const tableHtml = `
         <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
-        <head><meta charset="utf-8"></head>
+        <head>
+          <meta charset="utf-8">
+          <style>
+            .th-header { background-color: #2E3423; color: #FFFFFF; font-weight: bold; font-family: 'Arial'; text-transform: uppercase; border: 1px solid #000000; padding: 10px; }
+            .td-cell { border: 1px solid #DDDDDD; padding: 6px; font-family: 'Arial'; text-align: center; }
+            .td-cell-left { border: 1px solid #DDDDDD; padding: 6px; font-family: 'Arial'; text-align: left; }
+            .td-calc { border: 1px solid #DDDDDD; padding: 6px; font-family: 'Arial'; text-align: center; font-weight: bold; color: #D4967D; }
+            .sum-header { background-color: #D4967D; color: #FFFFFF; font-weight: bold; font-family: 'Arial'; text-align: center; padding: 8px; font-size: 14px; }
+            .total-cost { background-color: #FACE0D; color: #2E3423; font-weight: bold; font-family: 'Arial'; text-align: center; font-size: 16px; border: 2px solid #2E3423; }
+          </style>
+        </head>
         <body>
-          <table border="1">
+          <table border="1" style="border-collapse: collapse; width: 100%;">
             <thead>
-              <tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>
+              <tr>${headers.map(h => `<th class="th-header">${h}</th>`).join('')}</tr>
             </thead>
             <tbody>
-              ${rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}
+              ${tasks.map((t, i) => {
+                const r = i + 2;
+                return `<tr>
+                  <td class="td-cell-left">${t.name}</td>
+                  <td class="td-cell">${t.timesPerWeek}</td>
+                  <td class="td-cell">${t.minutesPerTask}</td>
+                  <td class="td-calc" x:fmla="=B${r}*C${r}/60">${(t.timesPerWeek * t.minutesPerTask / 60).toFixed(2)}</td>
+                </tr>`;
+              }).join('')}
               <tr><td colspan="4"></td></tr>
-              <tr><td colspan="4"><b>SUMMARY</b></td></tr>
-              <tr><td colspan="3">Weekly Hours Lost</td><td>${weeklyHours}</td></tr>
-              <tr><td colspan="3">Monthly Hours Lost</td><td>${monthlyHours}</td></tr>
-              <tr><td colspan="3">Annual Hours Lost</td><td>${annualHours}</td></tr>
-              <tr><td colspan="3">Annual Cost GBP (£)</td><td>${annualCost.replace(/,/g, '')}</td></tr>
+              <tr><td colspan="4" class="sum-header">SUMMARY & IMPACT ANALYSIS</td></tr>
+              
+              <tr><td colspan="3" class="td-cell-left" style="font-weight: bold;">Weekly Hours Lost</td><td class="td-calc" x:fmla="=${sumQuery}">${weeklyHours}</td></tr>
+              <tr><td colspan="3" class="td-cell-left">Monthly Hours Lost</td><td class="td-calc" x:fmla="=D${summaryStartRow}*4.33">${monthlyHours}</td></tr>
+              <tr><td colspan="3" class="td-cell-left">Annual Hours Lost</td><td class="td-calc" x:fmla="=D${summaryStartRow}*52">${annualHours}</td></tr>
+              <tr><td colspan="2" class="td-cell-left">Your Hourly Rate (£)</td><td class="td-cell" style="background-color: #FDFBF7; font-weight: bold;">${hourlyRate}</td><td class="td-cell"></td></tr>
+              <tr><td colspan="3" class="total-cost">Annual Cost Unoptimized GBP (£)</td><td class="total-cost" x:fmla="=D${summaryStartRow + 2}*C${summaryStartRow + 3}">${annualCost.replace(/,/g, '')}</td></tr>
+              
               <tr><td colspan="4"></td></tr>
-              <tr><td colspan="4"><i>Prepared for: Lantern Clinic</i></td></tr>
-              <tr><td colspan="4"><i>Prepared by: Gabriel Dalmoro</i></td></tr>
-              <tr><td colspan="4"><i>Exported: ${new Date().toLocaleDateString()}</i></td></tr>
+              <tr><td colspan="4" style="color: #666666;"><i>Prepared for: Lantern Clinic</i></td></tr>
+              <tr><td colspan="4" style="color: #666666;"><i>Exported: ${new Date().toLocaleDateString()}</i></td></tr>
             </tbody>
           </table>
         </body>
@@ -83,19 +104,24 @@ export default function LanternDemoPage() {
       return;
     }
 
-    // Export standard European CSV (Semicolon Delimited)
+    // Export standard European CSV (Semicolon Delimited) with Formulas
     const csvContent = [
       headers.join(';'),
-      ...rows.map(r => r.join(';')),
+      ...tasks.map((t, i) => [
+        t.name.replace(/;/g, '-'), 
+        t.timesPerWeek, 
+        t.minutesPerTask, 
+        `=B${i + 2}*C${i + 2}/60` // Raw formula block natively evaluated by Excel
+      ].join(';')),
       '',
       'SUMMARY;;;',
-      `Weekly Hours Lost;${weeklyHours};;`,
-      `Monthly Hours Lost;${monthlyHours};;`,
-      `Annual Hours Lost;${annualHours};;`,
-      `Annual Cost GBP (£);${annualCost.replace(/,/g, '')};;`,
+      `Weekly Hours Lost;;;=${sumQuery}`,
+      `Monthly Hours Lost;;;=D${summaryStartRow}*4.33`,
+      `Annual Hours Lost;;;=D${summaryStartRow}*52`,
+      `Your Hourly Rate (£);;${hourlyRate};`,
+      `Annual Cost GBP (£);;;=D${summaryStartRow + 2}*C${summaryStartRow + 3}`,
       '',
       `Prepared for: Lantern Clinic;;;`,
-      `Prepared by: Gabriel Dalmoro;;;`,
       `Exported: ${new Date().toLocaleDateString()};;;`
     ].join('\\n');
 
