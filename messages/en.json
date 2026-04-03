@@ -672,6 +672,123 @@
       "button": "Book now →"
     }
   },
+  "Clinic": {
+    "Hero": {
+      "badge": "For Medical Clinics & Healthcare Practices",
+      "hook": "Less admin. More patient care.",
+      "solution": "I automate your bookings, intake forms, and follow-ups.",
+      "description": "Save 8+ hours a week on scheduling and paperwork. Spend that time where it matters most — with your patients.",
+      "cta": "See how it works for clinics →"
+    },
+    "SocialProof": {
+      "label": "Real results for healthcare professionals",
+      "stat0value": "600+",
+      "stat0label": "hours saved per year",
+      "stat1value": "12+",
+      "stat1label": "hours freed up every week",
+      "stat2value": "100%",
+      "stat2label": "automated appointment reminders"
+    },
+    "Problem": {
+      "label": "The Problem",
+      "headline": "You're in healthcare. But admin is eating your day.",
+      "subheadline": "Phone calls to schedule appointments, paper intake forms, manual billing, missed follow-ups — every hour spent on admin is an hour not spent with patients.",
+      "pain0emoji": "📞",
+      "pain0": "Phone tag just to book or reschedule a single appointment",
+      "pain1emoji": "📄",
+      "pain1": "Paper intake forms filled in by hand and entered into your system manually",
+      "pain2emoji": "🔔",
+      "pain2": "No-shows because reminders were sent late — or not at all",
+      "pain3emoji": "🧾",
+      "pain3": "Billing, insurance claims, and follow-up invoices done by hand every week"
+    },
+    "Services": {
+      "label": "The Fix",
+      "headline": "I handle the admin. You focus on patients.",
+      "subheadline": "Automated systems for private clinics, GPs, specialists, physio practices, and any healthcare business.",
+      "card0name": "Phone tag to book appointments?",
+      "card0description": "Patients book, confirm, and reschedule online — 24/7. Your calendar fills itself. No more back-and-forth calls or missed slots.",
+      "card1name": "Paper intake forms and manual data entry?",
+      "card1description": "Patients complete digital intake forms before their visit. Answers are stored automatically — no printing, no transcribing, no lost paperwork.",
+      "card2name": "No-shows and missed follow-ups?",
+      "card2description": "Automated reminders go out by SMS or email before every appointment. Follow-up messages are sent on schedule — without you lifting a finger."
+    },
+    "DayInLife": {
+      "label": "Before & After",
+      "headline": "Where does your time go?",
+      "beforeTitle": "Without automation",
+      "afterTitle": "With automation",
+      "adminBefore": "Admin — calls, forms, billing, reminders",
+      "careBefore": "Patient consultations & care",
+      "growthBefore": "New patients & growth",
+      "adminAfter": "Admin (handled for you)",
+      "careAfter": "Patient consultations & care",
+      "growthAfter": "New patients & growth",
+      "beforeStat": "3h of admin, every single day.",
+      "afterStat": "0h of admin — handled for you.",
+      "note": "Based on typical clinic workloads. Your results may vary."
+    },
+    "HowItWorks": {
+      "label": "How It Works",
+      "headline": "Simple. Fast. Done.",
+      "step0title": "We talk",
+      "step0description": "Free 30-minute call. You walk me through how your practice works. No tech knowledge needed.",
+      "step1title": "I build it",
+      "step1description": "I set up your booking, intake, and reminder systems in 30 days. You don't lift a finger.",
+      "step2title": "You treat patients",
+      "step2description": "Your systems run on their own. You focus on care — not on chasing appointments or chasing paperwork."
+    },
+    "Tools": {
+      "label": "Works with the tools you already use"
+    },
+    "Results": {
+      "label": "Real Results",
+      "headline": "What clinics and healthcare practices actually get back",
+      "location": "Private Clinic & Healthcare Practice",
+      "beforeLabel": "Before",
+      "before0": "Scheduling appointments by phone, back and forth",
+      "before1": "Handing out paper intake forms at the front desk",
+      "before2": "Chasing no-shows and missed payments manually",
+      "before3": "12+ hours of admin every single week",
+      "afterLabel": "After",
+      "after0": "Patients book and confirm online, 24/7",
+      "after1": "Digital intake forms completed before every visit",
+      "after2": "Automated reminders cut no-show rates significantly",
+      "after3": "600+ hours freed up per year",
+      "impactValue": "600+",
+      "impactLabel": "Hours Freed Per Year",
+      "impactNote": "That's 12+ hours back every single week.",
+      "cta": "See if I can do the same for you"
+    },
+    "Testimonial": {
+      "headline": "Hear it from past clients",
+      "pullQuote": "520+ hours back.",
+      "body": "Gabriel took over all my admin and paperwork. <bold>It saves me hours every single week.</bold> Everything just works — for me and for my clients. <bold>I recommend him with my eyes closed.</bold>",
+      "author": "Elisa Curtelin",
+      "role": "Founder, Elisa Batch Cooking"
+    },
+    "ROI": {
+      "label": "Your Hidden Cost",
+      "headline": "How much is your admin costing you?",
+      "subheadline": "Move the sliders. See your real number.",
+      "weeklyHoursLabel": "Hours of admin per week",
+      "rateLabel": "Your hourly rate (€)",
+      "hoursUnit": "hours lost per year",
+      "costUnit": "lost per year",
+      "resultNote": "That's what I give back to you.",
+      "cta": "Let's get that time back →"
+    },
+    "CTA": {
+      "headline": "Stop doing the paperwork.",
+      "description": "Book a free 30-minute call. I'll map out exactly what I can automate for your practice — and how many hours you'll get back.",
+      "button": "Get your free audit →",
+      "note": "No commitment. No tech talk. Just a clear plan."
+    },
+    "Sticky": {
+      "text": "Free 30-min audit for clinics & healthcare practices. No commitment.",
+      "button": "Book now →"
+    }
+  },
   "Footer": {
     "rights": "All rights reserved.",
     "legal": "Legal Notice",

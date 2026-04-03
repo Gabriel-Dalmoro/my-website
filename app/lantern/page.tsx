@@ -36,46 +36,125 @@ export default function LanternDemoPage() {
   const annualHours = (parseFloat(weeklyHours) * 52).toFixed(1);
   const annualCost = (parseFloat(annualHours) * hourlyRate).toLocaleString('en-GB');
 
-  const exportCSV = (asExcel: boolean = false) => {
-    // We use comma delimiter natively, wrapped securely in double quotes
-    const headers = ['Task', 'Times per Week', 'Minutes per Task', 'Weekly Hours'];
-    
-    // Exact row indices for dynamic active math formulas
-    const taskCount = tasks.length;
-    const summaryStartRow = taskCount + 4; // Headers(1) + Tasks(N) + Empty(1) + SUMMARY(1) + Next line is first summary items
-    
-    // Create locale-independent sum query: D2+D3+D4...
-    const sumQuery = tasks.map((_, i) => `D${i + 2}`).join('+');
+  const generateExport = async () => {
+    try {
+      // Dynamically import to avoid server-side render issues with ExcelJS
+      const ExcelJS = (await import('exceljs')).default || await import('exceljs');
+      const { saveAs } = (await import('file-saver')).default || await import('file-saver');
 
-    const csvContent = [
-      headers.map(h => `"${h}"`).join(','),
-      ...tasks.map((t, i) => [
-        `"${t.name.replace(/"/g, '""')}"`, 
-        t.timesPerWeek, 
-        t.minutesPerTask, 
-        `"=ROUND(B${i + 2}*C${i + 2}/60, 1)"` // Rounded dynamically calculated cell
-      ].join(',')),
-      '',
-      '"SUMMARY & IMPACT ANALYSIS",,,',
-      `"Weekly Hours Lost",,,"=ROUND(${sumQuery}, 1)"`,
-      `"Monthly Hours Lost",,,"=ROUND(D${summaryStartRow}*4.33, 1)"`,
-      `"Annual Hours Lost",,,"=ROUND(D${summaryStartRow}*52, 1)"`,
-      `"Your Hourly Rate",,"£",${hourlyRate}`,
-      `"Annual Cost Unoptimized",,"£","=ROUND(D${summaryStartRow + 2}*D${summaryStartRow + 3}, 0)"`,
-      '',
-      `"Prepared for: Lantern Clinic",,,`,
-      `"Exported: ${new Date().toLocaleDateString()}",,,`
-    ].join('\n');
+      const workbook = new ExcelJS.Workbook();
+      workbook.creator = 'Gabriel Dalmoro';
+      workbook.created = new Date();
+      
+      const sheet = workbook.addWorksheet('Impact Analysis');
 
-    const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.setAttribute("href", url);
-    const ext = asExcel ? 'csv' : 'csv'; // We output clean CSV universally handling both intents seamlessly
-    link.setAttribute("download", `Lantern-Clinic-Time-Audit-${new Date().toISOString().split('T')[0]}.${ext}`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+      // Setup Column Dimensions
+      sheet.columns = [
+        { header: 'Functional Medicine Task', key: 'task', width: 45 },
+        { header: 'Times per Week', key: 'tpw', width: 18 },
+        { header: 'Minutes per Task', key: 'mpt', width: 18 },
+        { header: 'Weekly Hours Lost', key: 'wh', width: 22 },
+      ];
+
+      // Deep Style Header Row
+      const headerRow = sheet.getRow(1);
+      headerRow.font = { name: 'Arial', bold: true, color: { argb: 'FFFFFFFF' }, size: 12 };
+      headerRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF2E3423' } }; // Lantern green
+      headerRow.alignment = { vertical: 'middle', horizontal: 'center' };
+      headerRow.height = 35;
+      
+      // Re-align First Column Title
+      headerRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle', indent: 1 };
+
+      // Map User Task Rows and Inject Excel Math
+      tasks.forEach((t, index) => {
+        const rowNum = index + 2;
+        const row = sheet.addRow({
+          task: t.name,
+          tpw: t.timesPerWeek,
+          mpt: t.minutesPerTask,
+          wh: { formula: `ROUND(B${rowNum}*C${rowNum}/60, 1)`, date1904: false }
+        });
+        
+        row.getCell(1).alignment = { horizontal: 'left', vertical: 'middle', indent: 1 };
+        row.getCell(2).alignment = { horizontal: 'center', vertical: 'middle' };
+        row.getCell(3).alignment = { horizontal: 'center', vertical: 'middle' };
+        row.getCell(4).alignment = { horizontal: 'center', vertical: 'middle' };
+        row.font = { size: 11, name: 'Arial', color: { argb: 'FF2E3423' } };
+        // Highlight active hour drain
+        row.getCell(4).font = { bold: true, color: { argb: 'FFD4967D' } }; 
+      });
+
+      // Inject Borders
+      for (let r = 1; r <= tasks.length + 1; r++) {
+        for (let c = 1; c <= 4; c++) {
+          sheet.getCell(r, c).border = {
+            top: { style: 'thin', color: { argb: 'FFDDDDDD' } },
+            left: { style: 'thin', color: { argb: 'FFDDDDDD' } },
+            bottom: { style: 'thin', color: { argb: 'FFDDDDDD' } },
+            right: { style: 'thin', color: { argb: 'FFDDDDDD' } }
+          };
+        }
+      }
+
+      sheet.addRow([]); 
+
+      // SUMMARY SECTION
+      const sumStart = tasks.length + 3;
+      
+      const titleRow = sheet.addRow(['SUMMARY & IMPACT ANALYSIS', '', '', '']);
+      sheet.mergeCells(`A${sumStart}:D${sumStart}`);
+      titleRow.font = { bold: true, color: { argb: 'FFFFFFFF' }, size: 13, name: 'Arial' };
+      titleRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD4967D' } }; // Terra Cotta
+      titleRow.alignment = { horizontal: 'center', vertical: 'middle' };
+      titleRow.height = 30;
+
+      // Locale-safe cell string execution natively bound to Excel AST
+      const sumQuery = tasks.map((_, i) => `D${i + 2}`).join('+');
+      
+      const wRow = sheet.addRow(['Weekly Hours Lost', '', '', { formula: `ROUND(${sumQuery}, 1)` }]);
+      const mRow = sheet.addRow(['Monthly Hours Lost', '', '', { formula: `ROUND(D${sumStart + 1}*4.33, 1)` }]);
+      const aRow = sheet.addRow(['Annual Hours Lost', '', '', { formula: `ROUND(D${sumStart + 1}*52, 1)` }]);
+      const rateRow = sheet.addRow(['Your Hourly Rate (£)', '', '', hourlyRate]);
+      
+      // Mask strictly identically to UK Sterling with commas natively embedded on MS OS level
+      rateRow.getCell(4).numFmt = '£#,##0.00'; 
+      rateRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFDFBF7' } };
+
+      const costRow = sheet.addRow(['Annual Cost Unoptimized', '', '', { formula: `ROUND(D${sumStart + 3}*D${sumStart + 4}, 0)` }]);
+      costRow.font = { bold: true, color: { argb: 'FF2E3423' }, size: 14 };
+      costRow.getCell(4).numFmt = '£#,##0';
+      costRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFACE0D' } }; // Yellow Callout
+      costRow.height = 40;
+      costRow.alignment = { vertical: 'middle' };
+
+      // Pass down merged alignment grids to specific blocks 
+      [wRow, mRow, aRow, rateRow, costRow].forEach(row => {
+        sheet.mergeCells(`A${row.number}:C${row.number}`);
+        row.getCell(1).alignment = { horizontal: 'right', indent: 1, vertical: 'middle' };
+        row.getCell(1).font = { bold: true, name: 'Arial', color: { argb: 'FF444444' } };
+        row.getCell(4).alignment = { horizontal: 'center', vertical: 'middle' };
+        row.getCell(4).font = row === costRow ? { bold: true, size: 18 } : { bold: true, size: 12 };
+      });
+
+      sheet.addRow([]);
+      sheet.addRow(['Prepared for: Lantern Clinic']);
+      sheet.addRow([`Exported: ${new Date().toLocaleDateString()}`]);
+      sheet.addRow(['Generated natively via gabrieldalmoro.com metrics platform']);
+      
+      sheet.getRow(sheet.rowCount - 2).font = { italic: true, color: { argb: 'FF888888' } };
+      sheet.getRow(sheet.rowCount - 1).font = { italic: true, color: { argb: 'FF888888' } };
+      sheet.getRow(sheet.rowCount).font = { italic: true, color: { argb: 'FFBBBBBB' }, size: 10 };
+
+      // Secure native Buffer cast
+      const buffer = await workbook.xlsx.writeBuffer();
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      saveAs(blob, `Lantern-Clinic-Time-Audit-${new Date().toISOString().split('T')[0]}.xlsx`);
+
+    } catch (e) {
+      console.error('Core Export Engine failure:', e);
+      alert('Export mechanism loading, please execute again in one moment.');
+    }
   };
 
   return (
@@ -220,14 +299,9 @@ export default function LanternDemoPage() {
             {/* Export Buttons */}
             <div className="bg-white p-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
                <p className="text-sm text-[#2E3423]/60 italic font-lantern">Calculations update purely in real-time. No data is stored.</p>
-               <div className="flex gap-3 w-full sm:w-auto">
-                 <button onClick={() => exportCSV(false)} className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-6 py-3 border border-[#2E3423]/20 bg-white hover:bg-[#FDFBF7] rounded-lg font-bold text-sm tracking-wide transition-colors">
-                   <Download className="w-4 h-4 text-[#D4967D]" /> Download as CSV
-                 </button>
-                 <button onClick={() => exportCSV(true)} className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-6 py-3 bg-[#FACE0D] text-[#2E3423] hover:bg-[#eab308] border border-[#dca204] rounded-lg font-bold text-sm tracking-wide shadow-sm hover:-translate-y-0.5 transition-all">
-                   <Download className="w-4 h-4 text-[#2E3423]/80" /> Download as Excel
-                 </button>
-               </div>
+               <button onClick={() => generateExport()} className="w-full sm:w-auto justify-center flex items-center gap-3 px-8 py-4 bg-[#FACE0D] text-[#2E3423] hover:bg-[#eab308] border border-[#dca204] rounded-lg font-bold text-[15px] tracking-wide shadow-sm hover:-translate-y-0.5 transition-all">
+                 <Download className="w-5 h-5 text-[#2E3423] opacity-80" /> Download Full Analytics Report (.xlsx)
+               </button>
             </div>
           </div>
         </div>

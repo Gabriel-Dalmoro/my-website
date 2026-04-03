@@ -1,14 +1,12 @@
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import ClinicHero from "@/components/marketing/clinic/ClinicHero";
-import ClinicSocialProof from "@/components/marketing/clinic/ClinicSocialProof";
+import ClinicToolsStrip from "@/components/marketing/clinic/ClinicToolsStrip";
 import ClinicProblem from "@/components/marketing/clinic/ClinicProblem";
 
 const ClinicDayInLife = dynamic(() => import("@/components/marketing/clinic/ClinicDayInLife"));
 const ClinicServices = dynamic(() => import("@/components/marketing/clinic/ClinicServices"));
 const ClinicHowItWorks = dynamic(() => import("@/components/marketing/clinic/ClinicHowItWorks"));
-const ClinicToolsStrip = dynamic(() => import("@/components/marketing/clinic/ClinicToolsStrip"));
-const ClinicResults = dynamic(() => import("@/components/marketing/clinic/ClinicResults"));
 const ClinicTestimonial = dynamic(() => import("@/components/marketing/clinic/ClinicTestimonial"));
 const ClinicROIEstimator = dynamic(() => import("@/components/marketing/clinic/ClinicROIEstimator"));
 const ClinicCTA = dynamic(() => import("@/components/marketing/clinic/ClinicCTA"));
@@ -30,13 +28,11 @@ export default function ClinicLandingPage() {
         <div className="bg-background text-foreground min-h-screen">
             <main className="isolate">
                 <ClinicHero />
-                <ClinicSocialProof />
-                <ClinicDayInLife />
+                <ClinicToolsStrip />
                 <ClinicProblem />
+                <ClinicDayInLife />
                 <ClinicServices />
                 <ClinicHowItWorks />
-                <ClinicToolsStrip />
-                <ClinicResults />
                 <ClinicTestimonial />
                 <ClinicROIEstimator />
                 <ClinicCTA />
