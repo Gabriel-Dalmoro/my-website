@@ -346,7 +346,7 @@ export default function NayaDemoPage() {
         {/* SECTION 3: CareBit Integration */}
         <div className="max-w-4xl mx-auto px-6 py-24 text-center">
           <div className="mb-10 flex flex-col items-center gap-4">
-            <img src="/demo/carebit-logo.webp" alt="CareBit" className="h-12 w-auto object-contain" />
+            <img src="/demo/carebit-logo.webp" alt="CareBit" className="h-20 w-auto object-contain" />
           </div>
           <h2 className="text-4xl font-naya-heading text-[#392A0D] mb-6">Built around CareBit.</h2>
           <p className="text-lg text-[#392A0D]/70 font-light max-w-3xl mx-auto leading-relaxed mb-4">
