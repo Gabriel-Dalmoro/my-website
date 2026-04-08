@@ -12,10 +12,10 @@ interface Task {
 
 const DEFAULT_TASKS: Task[] = [
   { id: 1, name: 'Sending TMS session appointment reminders', timesPerWeek: 30, minutesPerTask: 3 },
-  { id: 2, name: 'Sending patient intake forms manually', timesPerWeek: 10, minutesPerTask: 5 },
-  { id: 3, name: 'Chasing patients for incomplete intake questionnaires', timesPerWeek: 6, minutesPerTask: 8 },
-  { id: 4, name: 'Sending pre-session TMS preparation instructions', timesPerWeek: 15, minutesPerTask: 5 },
-  { id: 5, name: 'Post-session follow-up emails & outcome tracking', timesPerWeek: 12, minutesPerTask: 10 },
+  { id: 2, name: 'Sending & chasing magnetic safety screening questionnaires', timesPerWeek: 10, minutesPerTask: 8 },
+  { id: 3, name: 'Dispatching patient intake forms & consent documents', timesPerWeek: 10, minutesPerTask: 5 },
+  { id: 4, name: 'Sending pre-session TMS preparation instructions', timesPerWeek: 20, minutesPerTask: 4 },
+  { id: 5, name: 'Post-session follow-up emails & NeuroScore outcome tracking', timesPerWeek: 15, minutesPerTask: 10 },
   { id: 6, name: 'Following up on missed or cancelled sessions', timesPerWeek: 5, minutesPerTask: 10 },
   { id: 7, name: 'Answering repetitive patient questions about TMS', timesPerWeek: 20, minutesPerTask: 4 },
   { id: 8, name: 'Manual data entry & patient record updates in CareBit', timesPerWeek: 12, minutesPerTask: 6 },
@@ -48,7 +48,7 @@ export default function NayaDemoPage() {
       const sheet = workbook.addWorksheet('Impact Analysis');
 
       sheet.columns = [
-        { header: 'TMS Clinic Admin Task', key: 'task', width: 48 },
+        { header: 'Naya Clinic Admin Task', key: 'task', width: 48 },
         { header: 'Times per Week', key: 'tpw', width: 18 },
         { header: 'Minutes per Task', key: 'mpt', width: 18 },
         { header: 'Weekly Hours Lost', key: 'wh', width: 22 },
@@ -212,7 +212,7 @@ export default function NayaDemoPage() {
               <table className="w-full text-left text-sm whitespace-nowrap text-[#392A0D]">
                 <thead>
                   <tr className="bg-[#392A0D]/5 text-[#392A0D]/70 border-b border-[#392A0D]/10 uppercase text-[10px] tracking-wider font-semibold">
-                    <th className="py-5 px-6 font-semibold w-full">TMS Clinic Admin Task</th>
+                    <th className="py-5 px-6 font-semibold w-full">Naya Clinic Admin Task</th>
                     <th className="py-5 px-6 font-semibold text-center w-32 border-l border-[#392A0D]/10">Times per Week</th>
                     <th className="py-5 px-6 font-semibold text-center w-32 border-l border-[#392A0D]/10">Mins per Task</th>
                     <th className="py-5 px-6 font-semibold text-right w-32 border-l border-[#392A0D]/10 text-white bg-[#392A0D]">Weekly Hours</th>
@@ -313,7 +313,7 @@ export default function NayaDemoPage() {
                   <CalendarCheck className="w-6 h-6 text-[#C4975A]" />
                 </div>
                 <h3 className="font-bold text-xl mb-3 font-naya">1. New Patient Booked</h3>
-                <p className="opacity-70 text-sm leading-relaxed">Booking confirmation triggers CareBit record creation, intake questionnaire dispatch, and a welcome email — all without touching a keyboard.</p>
+                <p className="opacity-70 text-sm leading-relaxed">The moment a new patient books, a CareBit record is created and a welcome sequence fires automatically — intake forms, health history, and the magnetic safety screening questionnaire sent and chased without anyone touching a keyboard.</p>
               </div>
 
               <div className="bg-white/5 border border-white/10 p-8 rounded-2xl relative">
@@ -321,16 +321,16 @@ export default function NayaDemoPage() {
                 <div className="w-12 h-12 rounded-full bg-[#E8D5A3]/20 flex items-center justify-center mb-6">
                   <FileText className="w-6 h-6 text-[#E8D5A3]" />
                 </div>
-                <h3 className="font-bold text-xl mb-3 font-naya">2. Intake & Assessment Flow</h3>
-                <p className="opacity-70 text-sm leading-relaxed">Pre-treatment questionnaires, health history forms, and consent documents dispatched and chased automatically — with smart follow-ups for incomplete responses.</p>
+                <h3 className="font-bold text-xl mb-3 font-naya">2. Consent & Pre-Treatment Pack</h3>
+                <p className="opacity-70 text-sm leading-relaxed">Consent documents, treatment expectations, and NeuroScore baseline assessments dispatched before the first session — with smart follow-ups for any incomplete responses. Nothing waits for a human to remember.</p>
               </div>
 
               <div className="bg-white/5 border border-white/10 p-8 rounded-2xl">
                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
                   <BellRing className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-xl mb-3 font-naya">3. Pre-Session TMS Reminders</h3>
-                <p className="opacity-70 text-sm leading-relaxed">24-hour automated notification with personalised TMS preparation instructions — what to avoid, what to bring, what to expect — sent to every patient before every session.</p>
+                <h3 className="font-bold text-xl mb-3 font-naya">3. Session Reminders & Outcome Tracking</h3>
+                <p className="opacity-70 text-sm leading-relaxed">24-hour reminders with personalised TMS prep instructions sent before every session. Post-session, outcome tracking forms dispatch automatically — feeding into NeuroScore progress data without any manual entry.</p>
               </div>
             </div>
 
@@ -350,11 +350,14 @@ export default function NayaDemoPage() {
               <Activity className="w-4 h-4 text-[#C4975A]" /> CareBit
             </div>
           </div>
-          <h2 className="text-4xl font-naya-heading text-[#392A0D] mb-6">Works natively with CareBit.</h2>
-          <p className="text-lg text-[#392A0D]/70 font-light max-w-3xl mx-auto leading-relaxed mb-12">
-            Your CareBit system already handles patient bookings, records, and clinical workflows.
-            Custom automation connects CareBit to your email sequences, automated reminders, outcome-tracking forms, and reporting—
-            <strong className="font-semibold text-[#392A0D]">without changing how your clinical team operates</strong>.
+          <h2 className="text-4xl font-naya-heading text-[#392A0D] mb-6">Built around CareBit.</h2>
+          <p className="text-lg text-[#392A0D]/70 font-light max-w-3xl mx-auto leading-relaxed mb-4">
+            CareBit already handles your bookings, patient records, invoicing, and clinical letters.
+            Custom automation layers on top — connecting CareBit to your email sequences, safety screening flows, outcome-tracking forms, and NeuroScore data —
+            <strong className="font-semibold text-[#392A0D]">without changing how your clinical team operates or replacing any existing tool</strong>.
+          </p>
+          <p className="text-sm text-[#392A0D]/50 font-light max-w-2xl mx-auto mb-12 italic">
+            CareBit doesn't offer a public API — so this is built around CareBit's existing notification system, email triggers, and form workflows, not through a direct integration.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
@@ -362,10 +365,10 @@ export default function NayaDemoPage() {
               <Zap className="w-4 h-4 text-[#C4975A] shrink-0" /> Automated Patient Reminders
             </div>
             <div className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#392A0D]/5 border border-[#392A0D]/10 font-semibold text-sm text-[#392A0D]">
-              <Zap className="w-4 h-4 text-[#C4975A] shrink-0" /> Intake Form Dispatch & Chasing
+              <Zap className="w-4 h-4 text-[#C4975A] shrink-0" /> Safety Screening Dispatch & Chase
             </div>
             <div className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#392A0D]/5 border border-[#392A0D]/10 font-semibold text-sm text-[#392A0D]">
-              <Zap className="w-4 h-4 text-[#C4975A] shrink-0" /> Post-Session Outcome Tracking
+              <Zap className="w-4 h-4 text-[#C4975A] shrink-0" /> NeuroScore Outcome Tracking
             </div>
             <div className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#392A0D]/5 border border-[#392A0D]/10 font-semibold text-sm text-[#392A0D]">
               <Zap className="w-4 h-4 text-[#C4975A] shrink-0" /> Google Calendar Sync
@@ -374,7 +377,7 @@ export default function NayaDemoPage() {
               <Zap className="w-4 h-4 text-[#C4975A] shrink-0" /> Missed Session Follow-ups
             </div>
             <div className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#392A0D]/5 border border-[#392A0D]/10 font-semibold text-sm text-[#392A0D]">
-              <Zap className="w-4 h-4 text-[#C4975A] shrink-0" /> CareBit Record Sync
+              <Zap className="w-4 h-4 text-[#C4975A] shrink-0" /> Intake Form Automation
             </div>
           </div>
         </div>
