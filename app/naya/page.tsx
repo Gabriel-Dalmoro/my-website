@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Download, ArrowRight, X, Clock, Settings, Brain, MessageSquare, Zap, Activity, ExternalLink, CalendarCheck, FileText, BellRing } from 'lucide-react';
+import { Download, ArrowRight, X, Settings, Brain, Zap, ExternalLink, CalendarCheck, FileText, BellRing } from 'lucide-react';
 
 interface Task {
   id: number;
@@ -156,7 +156,7 @@ export default function NayaDemoPage() {
       <header className="border-b border-[#392A0D]/10 py-5 px-6 sticky top-0 z-[100] bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm transition-all">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-6">
-            <img src="/demo/Naya_Logo_black.avif" alt="Naya Clinic" className="h-10 sm:h-12 w-auto object-contain shrink-0" />
+            <img src="/demo/Naya_Logo_black.avif" alt="Naya Clinic" className="h-7 sm:h-9 w-auto object-contain shrink-0" />
             <X className="w-3 h-3 text-[#392A0D]/30 shrink-0" strokeWidth={3} />
             <div className="flex items-center gap-3">
               <img src="/favicon.png" alt="Gabriel Dalmoro" className="h-10 sm:h-12 w-auto rounded object-contain shrink-0" />
@@ -345,10 +345,8 @@ export default function NayaDemoPage() {
 
         {/* SECTION 3: CareBit Integration */}
         <div className="max-w-4xl mx-auto px-6 py-24 text-center">
-          <div className="mb-10 flex flex-col items-center gap-3">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#392A0D]/20 bg-[#392A0D]/5 text-[#392A0D] font-bold tracking-widest text-sm uppercase">
-              <Activity className="w-4 h-4 text-[#C4975A]" /> CareBit
-            </div>
+          <div className="mb-10 flex flex-col items-center gap-4">
+            <img src="/demo/carebit-logo.webp" alt="CareBit" className="h-12 w-auto object-contain" />
           </div>
           <h2 className="text-4xl font-naya-heading text-[#392A0D] mb-6">Built around CareBit.</h2>
           <p className="text-lg text-[#392A0D]/70 font-light max-w-3xl mx-auto leading-relaxed mb-4">
@@ -393,7 +391,7 @@ export default function NayaDemoPage() {
               href="https://calendly.com/ghdalmoro/30-minute"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#E8D5A3] text-[#392A0D] hover:bg-white hover:text-[#392A0D] font-bold tracking-wider uppercase text-[15px] px-10 py-5 rounded-xl transition-all shadow-xl hover:-translate-y-1 w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-2 bg-[#FACE0D] text-[#392A0D] hover:bg-white hover:text-[#392A0D] font-bold tracking-wider uppercase text-[15px] px-10 py-5 rounded-xl transition-all shadow-xl hover:-translate-y-1 w-full sm:w-auto justify-center"
             >
               Book a 30-Minute Alignment Call <ExternalLink className="w-5 h-5 ml-2" />
             </a>
@@ -408,9 +406,9 @@ export default function NayaDemoPage() {
       <footer className="py-12 bg-white border-t border-[#392A0D]/10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-5 text-center">
           <div className="flex items-center gap-4">
-            <img src="/demo/Naya_Logo_black.avif" alt="Naya Clinic" className="h-8 w-auto object-contain opacity-50 grayscale" />
+            <img src="/demo/Naya_Logo_black.avif" alt="Naya Clinic" className="h-7 w-auto object-contain opacity-50 grayscale" />
             <X className="w-3 h-3 text-[#392A0D]/30 shrink-0" strokeWidth={3} />
-            <img src="/favicon.png" alt="Gabriel Dalmoro" className="h-8 w-auto rounded-sm opacity-60 grayscale filter mix-blend-multiply" />
+            <img src="/favicon.png" alt="Gabriel Dalmoro" className="h-12 w-auto rounded-sm opacity-60 grayscale filter mix-blend-multiply" />
           </div>
           <div className="flex flex-col gap-2 items-center mt-4">
             <p className="text-[#392A0D]/80 font-naya font-semibold tracking-wide text-lg">Gabriel Dalmoro</p>
