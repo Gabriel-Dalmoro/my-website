@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Download, X, Zap, ExternalLink, CalendarCheck, FileText, BellRing, Leaf, Link2 } from 'lucide-react';
+import { Download, X, Zap, ExternalLink, CalendarCheck, FileText, BellRing, Link2 } from 'lucide-react';
 
 interface Task {
   id: number;
@@ -156,9 +156,9 @@ export default function AlpineDemoPage() {
       <header className="border-b border-[#1A3024]/10 py-5 px-6 sticky top-0 z-[100] bg-[#F2F7F4]/95 backdrop-blur-md shadow-sm">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2.5">
-              <Leaf className="w-5 h-5 text-[#508A64]" />
-              <span className="font-alpine text-2xl tracking-[0.2em] text-[#1A3024] uppercase">Alpine Massage</span>
+            <div className="flex items-center gap-3">
+              <img src="/demo/alpine-logo.png" alt="Alpine Massage" className="h-10 w-auto object-contain shrink-0" />
+              <span className="font-alpine text-2xl tracking-[0.2em] text-[#1A3024] uppercase hidden sm:block">Alpine Massage</span>
             </div>
             <X className="w-3 h-3 text-[#1A3024]/30 shrink-0" strokeWidth={3} />
             <div className="flex items-center gap-3">
@@ -179,12 +179,15 @@ export default function AlpineDemoPage() {
 
       <main className="flex-1">
         {/* Hero */}
-        <div className="relative w-full overflow-hidden bg-[#1A3024] text-white py-28 px-6">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#508A64]/20 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />
+        <div
+          className="relative w-full overflow-hidden text-white py-28 px-6"
+          style={{ backgroundImage: `url('/demo/alpine-mountain-bg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="absolute inset-0 bg-[#1A3024]/75" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#508A64]/30 via-transparent to-[#1A3024]/40 pointer-events-none" />
           <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10">
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 text-xs font-semibold tracking-widest text-white/70 uppercase mb-10">
-              <Leaf className="w-3.5 h-3.5 text-[#508A64]" /> Massage Therapy · Vancouver, BC
+              Massage Therapy · Vancouver, BC
             </div>
             <h1 className="font-alpine text-5xl md:text-7xl mb-6 tracking-[0.15em] uppercase leading-tight drop-shadow-sm">
               Less Admin.<br className="hidden md:block" /> More Healing.
@@ -399,10 +402,7 @@ export default function AlpineDemoPage() {
       <footer className="py-12 bg-white border-t border-[#1A3024]/10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-5 text-center">
           <div className="flex items-center gap-5">
-            <div className="flex items-center gap-2 opacity-40">
-              <Leaf className="w-4 h-4 text-[#1A3024]" />
-              <span className="font-alpine text-sm tracking-widest text-[#1A3024] uppercase">Alpine Massage</span>
-            </div>
+            <img src="/demo/alpine-logo.png" alt="Alpine Massage" className="h-10 w-auto object-contain opacity-30 grayscale" />
             <X className="w-3 h-3 text-[#1A3024]/30 shrink-0" strokeWidth={3} />
             <img src="/favicon.png" alt="Gabriel Dalmoro" className="h-10 w-auto rounded-sm opacity-60 grayscale filter mix-blend-multiply" />
           </div>
