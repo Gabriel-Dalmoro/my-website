@@ -158,7 +158,7 @@ export default function AlpineDemoPage() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-3">
               <img src="/demo/alpine-logo.png" alt="Alpine Massage" className="h-10 w-auto object-contain shrink-0" />
-              <span className="font-alpine text-2xl tracking-[0.2em] text-[#1A3024] uppercase hidden sm:block">Alpine Massage</span>
+              <span className="font-alpine text-2xl tracking-[0.2em] text-[#1A3024] hidden sm:block">Alpine Massage</span>
             </div>
             <X className="w-3 h-3 text-[#1A3024]/30 shrink-0" strokeWidth={3} />
             <div className="flex items-center gap-3">
