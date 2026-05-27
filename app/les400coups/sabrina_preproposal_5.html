@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les 400 Coups — Concept Numérique</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F8F289;
+    --orange: #F04E1A;
+    --blue: #3A3BCC;
+    --dark: #1A1A1A;
+    --darkgrey: #2E2E2E;
+    --white: #FAFAF5;
+    --font-display: 'Anton', sans-serif;
+    --font-script: 'Caveat', cursive;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--yellow);
+    color: var(--dark);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* ══════════════════════════════
+     VIDEO INTRO SPLASH
+  ══════════════════════════════ */
+  #video-splash {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+
+  #video-splash.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  #intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+
+  .skip-btn {
+    position: absolute;
+    bottom: 36px;
+    right: 28px;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    z-index: 9001;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+  }
+
+  .skip-btn:hover {
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+  }
+
+  /* ══════════════════════════════
+     MAIN CONTENT (hidden until splash gone)
+  ══════════════════════════════ */
+  #main-content {
+    opacity: 0;
+    transition: opacity 0.8s ease 0.2s;
+  }
+
+  #main-content.visible {
+    opacity: 1;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 4px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--orange) 0px, var(--orange) 20px,
+      var(--yellow) 20px, var(--yellow) 40px,
+      var(--blue) 40px, var(--blue) 60px,
+      var(--yellow) 60px, var(--yellow) 80px
+    );
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 48px 80px;
+    position: relative;
+    overflow: hidden;
+    background: var(--yellow);
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-size: clamp(10rem, 22vw, 20rem);
+    color: var(--orange);
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Collab logos */
+  .collab-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 52px;
+    width: 100%;
+  }
+
+  .collab-logo-her {
+    height: 100px;
+    width: auto;
+  }
+
+  .collab-x {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--dark);
+    opacity: 0.35;
+    line-height: 1;
+  }
+
+  .collab-logo-gd {
+    height: 100px;
+    width: auto;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--yellow);
+    font-family: var(--font-script);
+    font-size: 1.05rem;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-script);
+    font-size: 1.9rem;
+    color: var(--blue);
+    line-height: 1;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(4.2rem, 12vw, 10rem);
+    line-height: 0.88;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-script);
+    font-size: 2.2rem;
+    color: var(--blue);
+    line-height: 1;
+    margin-top: 6px;
+    position: relative;
+    width: fit-content;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .hero-subtitle::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: var(--blue);
+    margin-top: 6px;
+    border-radius: 2px;
+    animation: lineGrow 1s ease 0.9s both;
+  }
+
+  .hero-tagline {
+    margin-top: 36px;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--dark);
+    max-width: 460px;
+    line-height: 1.75;
+    animation: fadeUp 1s ease both;
+    text-align: center;
+  }
+
+  .hero-tagline strong { font-weight: 500; }
+
+  .hero-from {
+    margin-top: 48px;
+    animation: fadeUp 1.1s ease both;
+    text-align: center;
+  }
+
+  .hero-from span {
+    display: block;
+    font-family: var(--font-script);
+    font-size: 1rem;
+    color: var(--blue);
+    opacity: 0.65;
+  }
+
+  .hero-from strong {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--dark);
+    letter-spacing: 1px;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 48px; position: relative; }
+
+  .section-label {
+    font-family: var(--font-script);
+    font-size: 1.3rem;
+    color: var(--blue);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 32px;
+  }
+
+  /* ── INTRO ── */
+  .intro { background: var(--dark); color: var(--white); }
+  .intro .section-title { color: var(--yellow); }
+  .intro .section-label { color: rgba(255,255,255,0.45); }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+  }
+
+  .intro-text {
+    font-size: 1.02rem;
+    line-height: 1.82;
+    font-weight: 300;
+    color: rgba(250,250,245,0.82);
+  }
+
+  .intro-text strong { color: var(--yellow); font-weight: 500; }
+
+  .intro-highlight {
+    background: var(--orange);
+    color: var(--white);
+    padding: 48px 40px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+  }
+
+  .intro-highlight::before {
+    content: '🍷';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 7rem;
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .intro-highlight blockquote {
+    font-family: var(--font-script);
+    font-size: 2.2rem;
+    line-height: 1.45;
+    position: relative;
+    z-index: 1;
+  }
+
+  .intro-highlight cite {
+    display: block;
+    margin-top: 18px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.55;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── PILLARS ── */
+  .pillars { background: var(--white); }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .pillar-card {
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .pillar-card:hover { transform: translateY(-4px); }
+  .pillar-card:nth-child(1) { background: var(--orange); color: var(--white); }
+  .pillar-card:nth-child(2) { background: var(--blue); color: var(--yellow); }
+  .pillar-card:nth-child(3) { background: var(--yellow); color: var(--dark); }
+
+  .pillar-num {
+    font-family: var(--font-display);
+    font-size: 5.5rem;
+    line-height: 1;
+    opacity: 0.12;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+  }
+
+  .pillar-icon { font-size: 1.9rem; margin-bottom: 18px; }
+
+  .pillar-title {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+
+  .pillar-subtitle {
+    font-family: var(--font-script);
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+    opacity: 0.82;
+  }
+
+  .pillar-body {
+    font-size: 0.88rem;
+    line-height: 1.72;
+    font-weight: 300;
+    opacity: 0.88;
+  }
+
+  .pillar-body li {
+    margin-bottom: 6px;
+    padding-left: 14px;
+    position: relative;
+    list-style: none;
+  }
+
+  .pillar-body li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-size: 0.72rem;
+  }
+
+  /* ── FEATURES ── */
+  .features { background: var(--yellow); overflow: hidden; }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .feature-card {
+    border: 2px solid var(--dark);
+    padding: 40px 34px;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover { background: var(--dark); color: var(--white); }
+  .feature-card:hover .feature-tag { background: var(--yellow); color: var(--dark); }
+
+  .feature-tag {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-family: var(--font-script);
+    font-size: 0.88rem;
+    padding: 4px 14px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+    transition: all 0.3s ease;
+  }
+
+  .feature-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .feature-body {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .feature-bg-num {
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+    font-family: var(--font-display);
+    font-size: 7rem;
+    opacity: 0.05;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ── TASTING DETAIL ── */
+  .tasting { background: var(--dark); color: var(--white); overflow: hidden; }
+  .tasting .section-title { color: var(--yellow); }
+  .tasting .section-label { color: rgba(255,255,255,0.45); }
+
+  .tasting-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 48px;
+    align-items: center;
+  }
+
+  .tasting-text {
+    font-size: 1rem;
+    line-height: 1.82;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+  }
+
+  .tasting-text strong { color: var(--yellow); font-weight: 500; }
+
+  .tasting-mockup {
+    background: var(--white);
+    color: var(--dark);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  }
+
+  .mockup-header {
+    background: var(--orange);
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mockup-dots { display: flex; gap: 6px; }
+
+  .mockup-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+  }
+
+  .mockup-title {
+    font-family: var(--font-display);
+    color: var(--white);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .mockup-body { padding: 26px 22px; }
+
+  .mockup-step-label {
+    font-family: var(--font-script);
+    font-size: 0.92rem;
+    color: var(--blue);
+    margin-bottom: 5px;
+  }
+
+  .mockup-question {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .mockup-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .mockup-option {
+    border: 2px solid #e0e0e0;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .mockup-option.active {
+    border-color: var(--orange);
+    background: var(--orange);
+    color: var(--white);
+  }
+
+  .mockup-progress { height: 4px; background: #f0f0f0; border-radius: 2px; overflow: hidden; }
+  .mockup-progress-bar { height: 100%; width: 60%; background: var(--orange); border-radius: 2px; }
+  .mockup-progress-label { font-size: 0.7rem; color: #999; margin-top: 5px; }
+
+  /* ── CONTROL PANEL ── */
+  .control { background: var(--blue); color: var(--white); }
+  .control .section-title { color: var(--yellow); }
+  .control .section-label { color: rgba(255,255,255,0.5); }
+
+  .control-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+    align-items: center;
+  }
+
+  .control-text {
+    font-size: 1.02rem;
+    line-height: 1.82;
+    font-weight: 300;
+    color: rgba(255,255,255,0.82);
+  }
+
+  .control-text strong { color: var(--yellow); font-weight: 500; }
+
+  .control-tools { display: flex; flex-direction: column; gap: 12px; }
+
+  .tool-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 4px;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: background 0.2s ease;
+  }
+
+  .tool-item:hover { background: rgba(255,255,255,0.13); }
+  .tool-emoji { font-size: 1.4rem; }
+
+  .tool-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .tool-desc { font-size: 0.8rem; opacity: 0.55; margin-top: 2px; }
+
+  /* ── PODCAST ── */
+  .podcast { background: var(--orange); color: var(--white); overflow: hidden; }
+  .podcast .section-label { color: rgba(255,255,255,0.65); }
+  .podcast .section-title { color: var(--white); }
+
+  .podcast-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+    align-items: start;
+    margin-top: 48px;
+  }
+
+  .podcast-flow { display: flex; flex-direction: column; gap: 0; }
+
+  .flow-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .flow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 44px;
+    width: 2px;
+    height: calc(100% - 8px);
+    background: rgba(255,255,255,0.18);
+  }
+
+  .flow-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.13);
+    border: 2px solid rgba(255,255,255,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .flow-content { padding-bottom: 30px; }
+
+  .flow-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .flow-desc {
+    font-size: 0.86rem;
+    opacity: 0.78;
+    line-height: 1.62;
+    font-weight: 300;
+  }
+
+  .podcast-quote {
+    background: rgba(0,0,0,0.14);
+    padding: 30px;
+    border-left: 4px solid var(--yellow);
+  }
+
+  .podcast-quote p {
+    font-family: var(--font-script);
+    font-size: 1.45rem;
+    line-height: 1.5;
+    color: var(--yellow);
+  }
+
+  .podcast-quote small {
+    display: block;
+    margin-top: 14px;
+    font-size: 0.8rem;
+    opacity: 0.65;
+    font-weight: 300;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--yellow);
+    text-align: center;
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 18vw, 16rem);
+    color: var(--orange);
+    opacity: 0.055;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -4px;
+  }
+
+  .cta-label {
+    font-family: var(--font-script);
+    font-size: 1.5rem;
+    color: var(--blue);
+    margin-bottom: 14px;
+    position: relative;
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 7.5vw, 6.5rem);
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: var(--dark);
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .cta-title span { color: var(--orange); }
+
+  .cta-sub {
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 520px;
+    margin: 24px auto 0;
+    color: var(--dark);
+    font-weight: 300;
+    opacity: 0.82;
+    position: relative;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--dark);
+    color: var(--yellow);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 18px 46px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-top: 36px;
+  }
+
+  .cta-btn:hover { background: var(--orange); transform: translateY(-2px); }
+
+  .cta-whatsapp {
+    display: block;
+    margin-top: 18px;
+    font-family: var(--font-script);
+    font-size: 1.1rem;
+    color: var(--blue);
+    opacity: 0.75;
+    position: relative;
+  }
+
+  .cta-closing {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 2px solid rgba(26,26,26,0.1);
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .cta-closing-text {
+    font-family: var(--font-script);
+    font-size: 1.35rem;
+    color: var(--dark);
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  .cta-closing-sig {
+    display: block;
+    margin-top: 16px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--orange);
+    text-transform: uppercase;
+  }
+
+  /* ── COLLAB BAR (yellow, above footer) ── */
+  .collab-bar {
+    background: var(--yellow);
+    padding: 48px 48px 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .footer-logo-her {
+    height: 110px;
+    width: auto;
+  }
+
+  .footer-x {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    color: var(--dark);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .footer-logo-gd {
+    height: 110px;
+    width: auto;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    padding: 40px 48px 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .footer-note {
+    font-family: var(--font-script);
+    font-size: 2rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.5px;
+  }
+
+  .footer-link {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover { color: rgba(255,255,255,0.5); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes lineGrow {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ── REFINED SCROLL REVEALS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-stagger.active > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-stagger.active > *:nth-child(1) { transition-delay: 0.1s; }
+  .reveal-stagger.active > *:nth-child(2) { transition-delay: 0.2s; }
+  .reveal-stagger.active > *:nth-child(3) { transition-delay: 0.3s; }
+  .reveal-stagger.active > *:nth-child(4) { transition-delay: 0.4s; }
+
+  /* Smooth card hovers */
+  .pillar-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pillar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(26, 26, 26, 0.08);
+  }
+
+  .feature-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(26, 26, 26, 0.08);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    section { padding: 56px 22px; }
+    .hero { padding: 44px 22px 64px; min-height: 100svh; }
+    .hero-bg-text { display: none; }
+    .intro-grid,
+    .pillars-grid,
+    .features-grid,
+    .control-grid,
+    .podcast-inner,
+    .tasting-inner { grid-template-columns: 1fr; gap: 32px; }
+    .pillars-grid { gap: 2px; }
+    .cta { padding: 72px 22px; }
+    footer { padding: 32px 22px 36px; }
+    .collab-bar { padding: 40px 22px 44px; gap: 20px; }
+    .footer-logo-her { height: 88px; }
+    .footer-logo-gd { height: 88px; }
+    .footer-note { font-size: 1.6rem; }
+    .collab-logo-her { height: 52px; }
+    .collab-logo-gd { height: 52px; }
+    .skip-btn { bottom: 24px; right: 18px; }
+    #intro-video { object-fit: contain; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     VIDEO INTRO SPLASH
+══════════════════════════════ -->
+<div id="video-splash">
+  <video id="intro-video" autoplay muted playsinline webkit-playsinline>
+    <source src="winetologo_web.mp4" type="video/mp4">
+  </video>
+  <button class="skip-btn" onclick="dismissSplash()">Passer ↓</button>
+</div>
+
+<!-- ══════════════════════════════
+     MAIN CONTENT
+══════════════════════════════ -->
+<div id="main-content">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">400</div>
+
+  <!-- Collaboration logos -->
+  <div class="collab-logos">
+    <img src="logohd3.jpg" alt="Les 400 Coups" class="collab-logo-her">
+    <span class="collab-x">×</span>
+    <img src="logo_cropped.png" alt="Gabriel Dalmoro" class="collab-logo-gd">
+  </div>
+
+  <div class="hero-badge">✦ Concept numérique — juste pour toi</div>
+  <div class="hero-eyebrow">voici</div>
+  <div class="hero-title">ton lancement<br>digital</div>
+  <div class="hero-subtitle">une esquisse d'idées</div>
+
+  <p class="hero-tagline">
+    Ce document n'est pas un devis — c'est une <strong>première vision</strong> de ce qu'on pourrait construire ensemble, basée sur ce que tu m'as partagé.
+    Avant d'aller plus loin, j'ai envie qu'on se parle pour que je comprenne vraiment ce que tu veux.
+  </p>
+
+  <div class="hero-from">
+    <span>préparé par</span>
+    <strong>Gabriel Dalmoro</strong>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTRO -->
+<section class="intro reveal">
+  <span class="section-label">le contexte</span>
+  <h2 class="section-title">Tu lances<br>quelque chose<br>de beau.</h2>
+
+  <div class="intro-grid">
+    <div>
+      <p class="intro-text">
+        Tu construis une marque autour de ta passion pour le vin —
+        un podcast, un blog, des événements, une offre de services qui te ressemble.
+        <br><br>
+        Le défi, c'est que lancer en solo ça veut dire
+        <strong>faire tourner une machine entière tout seul</strong> :
+        répondre aux demandes, gérer les réservations, publier du contenu, envoyer des factures.
+        <br><br>
+        Ce que je veux t'aider à éviter, c'est de <strong>passer ton énergie sur l'administratif</strong>
+        plutôt que sur ce que tu fais de mieux — transmettre ta passion et faire grandir ton activité.
+        <br><br>
+        L'idée, c'est un système qui gère le busywork tout seul,
+        pour que toi tu aies la liberté de te concentrer sur ce qui compte vraiment.
+      </p>
+    </div>
+
+    <div class="intro-highlight">
+      <blockquote>"Moins d'admin.<br>Plus de vins à faire découvrir."</blockquote>
+      <cite>— la promesse du système</cite>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 3 PILLARS -->
+<section class="pillars">
+  <span class="section-label">la structure possible</span>
+  <h2 class="section-title">Trois piliers.<br>Un seul système.</h2>
+
+  <div class="pillars-grid reveal-stagger">
+
+    <div class="pillar-card">
+      <div class="pillar-num">1</div>
+      <div class="pillar-icon">🌐</div>
+      <div class="pillar-title">La Vitrine</div>
+      <div class="pillar-subtitle">ton site, ta signature</div>
+      <ul class="pillar-body">
+        <li>Design qui correspond à ton univers — bold, vivant, mémorable</li>
+        <li>Rapide sur mobile, parce que tes clients l'ouvrent depuis leur téléphone</li>
+        <li>Pages : Accueil, Services, Podcast, Blog, Contact</li>
+        <li>Formulaire de contact connecté à une alerte directe pour toi</li>
+      </ul>
+    </div>
+
+    <div class="pillar-card">
+      <div class="pillar-num">2</div>
+      <div class="pillar-icon">⚡</div>
+      <div class="pillar-title">L'Assistant</div>
+      <div class="pillar-subtitle">le système qui travaille pour toi</div>
+      <ul class="pillar-body">
+        <li>Une demande arrive → tu reçois une notif propre, le client reçoit une réponse pro</li>
+        <li>Relances automatiques pour les contacts qui n'ont pas donné suite</li>
+        <li>Confirmations et suivis envoyés sans que tu aies à y toucher</li>
+        <li>Récupère des heures de travail manuel chaque semaine</li>
+      </ul>
+    </div>
+
+    <div class="pillar-card">
+      <div class="pillar-num">3</div>
+      <div class="pillar-icon">🎛️</div>
+      <div class="pillar-title">Le Panneau</div>
+      <div class="pillar-subtitle">tu restes maître à bord</div>
+      <ul class="pillar-body">
+        <li>Tu mets à jour tes services, ton agenda, tes tarifs toi-même</li>
+        <li>Tout centralisé dans Notion, que tu utilises déjà et que tu aimes</li>
+        <li>Pas besoin de quelqu'un d'autre pour faire évoluer ton contenu</li>
+        <li>Tu gardes le contrôle complet de ta propre activité</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FEATURES OVERVIEW -->
+<section class="features">
+  <span class="section-label">les idées concrètes</span>
+  <h2 class="section-title">Deux concepts<br>qui changent tout.</h2>
+
+  <div class="features-grid reveal-stagger">
+
+    <div class="feature-card">
+      <div class="feature-tag">✦ concept 01</div>
+      <h3 class="feature-title">Le Planificateur<br>de Dégustation</h3>
+      <p class="feature-body">
+        Un outil interactif sur ton site où tes clients privés ou corporate configurent leur événement eux-mêmes :
+        nombre d'invités, type d'expérience, localisation, budget estimé.
+        <br><br>
+        Résultat : ils reçoivent une estimation sur mesure.
+        Toi, tu reçois un lead qualifié et bien renseigné — sans avoir eu à répondre à cinq messages.
+        <br><br>
+        <strong>Ton assistant commercial qui tourne en permanence.</strong>
+      </p>
+      <div class="feature-bg-num">01</div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-tag">✦ concept 02</div>
+      <h3 class="feature-title">Le Hub<br>Podcast & Blog</h3>
+      <p class="feature-body">
+        Tu dépose ton fichier audio dans un dossier.
+        Le système fait le reste : l'épisode est publié sur le site,
+        un article de blog est généré automatiquement,
+        et tes abonnés reçoivent une notification.
+        <br><br>
+        <strong>Tu crées. Le système publie.</strong>
+        <br><br>
+        Plus d'épisodes, plus de visibilité, sans passer des heures sur la partie technique.
+      </p>
+      <div class="feature-bg-num">02</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TASTING DETAIL (concept 01) -->
+<section class="tasting">
+  <span class="section-label">concept 01 — en détail</span>
+  <h2 class="section-title">Tes clients<br>se qualifient<br>eux-mêmes.</h2>
+
+  <div class="tasting-inner reveal">
+    <div>
+      <p class="tasting-text">
+        Au lieu de répondre à des dizaines de "c'est combien pour un événement ?" —
+        ton site fait le travail à ta place.
+        <br><br>
+        Un client veut organiser une dégustation pour un groupe à Lyon ?
+        Il remplit le planificateur, choisit son expérience,
+        et reçoit une estimation claire.
+        <br><br>
+        <strong>Toi, tu reçois une fiche client complète</strong> — budget, localisation, type d'événement —
+        et tu n'as plus qu'à confirmer.
+        <br><br>
+        C'est la différence entre attendre que les clients te contactent
+        et avoir un système qui les guide vers la réservation.
+      </p>
+    </div>
+
+    <div class="tasting-mockup">
+      <div class="mockup-header">
+        <div class="mockup-dots">
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+        </div>
+        <div class="mockup-title">Planifier mon événement</div>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-step-label">étape 2 sur 4</div>
+        <div class="mockup-question">Quel type d'expérience ?</div>
+        <div class="mockup-options">
+          <div class="mockup-option active">Découverte</div>
+          <div class="mockup-option">Prestige</div>
+          <div class="mockup-option">Accord mets-vins</div>
+          <div class="mockup-option">Sur mesure</div>
+        </div>
+        <div class="mockup-progress">
+          <div class="mockup-progress-bar"></div>
+        </div>
+        <div class="mockup-progress-label">50% complété</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PODCAST DETAIL (concept 02) -->
+<section class="podcast">
+  <span class="section-label">concept 02 — en détail</span>
+  <h2 class="section-title">Tu enregistres.<br>Le reste est automatique.</h2>
+
+  <div class="podcast-inner reveal">
+    <div class="podcast-flow">
+
+      <div class="flow-step">
+        <div class="flow-dot">🎙️</div>
+        <div class="flow-content">
+          <div class="flow-title">Tu enregistres ton épisode</div>
+          <div class="flow-desc">Tu dépose le fichier audio dans ton dossier Notion ou Google Drive. C'est tout ce que tu fais.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-dot">✍️</div>
+        <div class="flow-content">
+          <div class="flow-title">L'article se génère automatiquement</div>
+          <div class="flow-desc">Le système transcrit l'audio et crée un article de blog structuré, prêt à publier — que tu peux relire avant la mise en ligne.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-dot">🌐</div>
+        <div class="flow-content">
+          <div class="flow-title">Le site se met à jour</div>
+          <div class="flow-desc">L'épisode apparaît sur ton site dans ta section podcast. L'article aussi. Tout cohérent, tout bien présenté.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-dot">📬</div>
+        <div class="flow-content">
+          <div class="flow-title">Tes abonnés sont notifiés</div>
+          <div class="flow-desc">Un email part automatiquement à ta liste. Pas de plateforme à ouvrir, pas de campagne à configurer.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="podcast-quote">
+      <p>"Tu crées le contenu. Le système s'occupe du reste."</p>
+      <small>Ce pipeline peut gérer autant d'épisodes que tu veux, sans effort supplémentaire de ta part à chaque fois.</small>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTROL PANEL DETAIL -->
+<section class="control">
+  <span class="section-label">pilier 3 — en détail</span>
+  <h2 class="section-title">Tu contrôles<br>tout.</h2>
+
+  <div class="control-grid reveal">
+    <div>
+      <p class="control-text">
+        Beaucoup de gens lancent leur site et se retrouvent dépendants de quelqu'un
+        dès qu'ils veulent changer un prix ou ajouter une date.
+        <br><br>
+        Ton système, ça ne fonctionnerait pas comme ça.
+        <strong>Notion devient ton tableau de bord.</strong>
+        Tu modifies ce que tu veux, quand tu veux —
+        et le site reflète ces changements automatiquement.
+        <br><br>
+        <strong>Tu reprends le contrôle de ta propre activité.</strong>
+        Pas de dépendance. Pas d'intermédiaire.
+      </p>
+    </div>
+
+    <div class="control-tools">
+      <div class="tool-item">
+        <span class="tool-emoji">📋</span>
+        <div>
+          <div class="tool-name">Notion</div>
+          <div class="tool-desc">Ton CMS — services, contenu, agenda, tout au même endroit</div>
+        </div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-emoji">📊</span>
+        <div>
+          <div class="tool-name">Google Sheets</div>
+          <div class="tool-desc">Suivi des demandes et réservations en temps réel</div>
+        </div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-emoji">📅</span>
+        <div>
+          <div class="tool-name">Google Calendar</div>
+          <div class="tool-desc">Disponibilités synchronisées avec ton site</div>
+        </div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-emoji">⚙️</span>
+        <div>
+          <div class="tool-name">n8n (en coulisses)</div>
+          <div class="tool-desc">Le cerveau qui orchestre tout automatiquement</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta reveal">
+  <div class="cta-bg">PARLONS</div>
+
+  <div class="cta-label">la prochaine étape</div>
+  <h2 class="cta-title">On se parle.<br><span>On construit.</span></h2>
+
+  <p class="cta-sub">
+    Tout ce que tu viens de voir, ce sont des <strong>idées et des possibilités</strong> —
+    pas encore un plan définitif.
+    <br><br>
+    Pour te préparer un vrai devis, j'ai besoin de comprendre exactement ce que tu veux,
+    comment tu travailles au quotidien, et ce qui compte vraiment pour toi dans ton lancement.
+    C'est seulement après cette conversation que je pourrai te dire ce que ça représente
+    comme travail, et construire quelque chose qui te correspond vraiment.
+  </p>
+
+  <a href="https://calendly.com/ghdalmoro/30-minute" class="cta-btn" target="_blank">Réserver notre appel de 30 min</a>
+
+  <span class="cta-whatsapp">
+    Ou si tu préfères, envoie-moi juste un message sur WhatsApp et on trouve un moment ensemble. 😊
+  </span>
+
+  <div class="cta-closing">
+    <p class="cta-closing-text">
+      Honnêtement, rien que de préparer ces idées pour toi m'a donné envie de se lancer —
+      le projet est vraiment excitant, et je sais que tu vas construire quelque chose de beau.
+      J'adorerais travailler avec quelqu'un d'aussi passionné que toi. 🍷
+    </p>
+    <span class="cta-closing-sig">— Gabriel</span>
+  </div>
+</section>
+
+<!-- COLLAB BAR (yellow bg, above footer) -->
+<div class="collab-bar">
+  <img src="logohd3.jpg" alt="Les 400 Coups" class="footer-logo-her">
+  <span class="footer-x">×</span>
+  <img src="logo_cropped.png" alt="Gabriel Dalmoro" class="footer-logo-gd">
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-note">Moins d'admin. Plus d'impact.</div>
+  <a href="https://www.gabrieldalmoro.com/fr/chef" class="footer-link" target="_blank">gabrieldalmoro.com</a>
+</footer>
+
+</div><!-- end #main-content -->
+
+<script>
+  function dismissSplash() {
+    const splash = document.getElementById('video-splash');
+    const main = document.getElementById('main-content');
+    if (splash) splash.classList.add('hidden');
+    if (main) main.classList.add('visible');
+  }
+
+  const video = document.getElementById('intro-video');
+
+  if (video) {
+    // Auto-dismiss when video ends
+    video.addEventListener('ended', dismissSplash);
+
+    // Fallback: if video fails to load or play, dismiss
+    video.addEventListener('error', () => {
+      console.warn('Video failed to load, dismissing splash.');
+      setTimeout(dismissSplash, 500);
+    });
+
+    // Ensure playback starts
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.warn('Autoplay prevented or video failed, dismissing splash.', error);
+        setTimeout(dismissSplash, 600);
+      });
+    }
+  } else {
+    dismissSplash();
+  }
+
+  // Refined Scroll Reveals via Intersection Observer
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+      revealObserver.observe(el);
+    });
+  });
+</script>
+
+</body>
+</html>
