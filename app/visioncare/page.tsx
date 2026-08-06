@@ -18,23 +18,23 @@ import WastedHoursCalculator from "@/components/demo/visioncare/WastedHoursCalcu
 const NOTICED = [
   {
     Icon: Phone,
-    title: "Booking runs on the phone",
-    body: "Your contact page has a message form. To actually book, a patient has to call. Every booking becomes a phone call someone has to answer.",
+    title: "Booking by phone",
+    body: "Your contact page has a message form on it. So my guess is that most bookings still come down to a call someone has to pick up.",
   },
   {
     Icon: MessageSquare,
-    title: "A second line to watch",
-    body: "You run a separate text line for patients. That is a second inbox to keep an eye on all day, on top of the phone.",
+    title: "A second place to check",
+    body: "You list a text line as well as a phone number. If somebody answers that by hand, it is one more inbox to watch all day.",
   },
   {
     Icon: ShieldCheck,
-    title: "Insurance checked one at a time",
-    body: "Insurance is confirmed patient by patient. That is time on hold during clinic hours, when the front desk is needed most.",
+    title: "Insurance one patient at a time",
+    body: "In most clinics your size, insurance is still checked by hand. If that is true here, it quietly eats the morning.",
   },
   {
     Icon: Package,
-    title: "Lens orders tracked by hand",
-    body: "Scleral orders, trial lenses and lab paperwork are followed by hand. Nobody can see where an order stands without calling to ask.",
+    title: "Chasing lens orders",
+    body: "Scleral fittings mean trial lenses and lab orders. I would guess someone keeps track of those by hand, and calls to ask where things are.",
   },
 ];
 
@@ -177,9 +177,9 @@ export default function VisioncareDemoPage() {
               Dr. Shily, here is what the busywork is actually costing you.
             </h1>
             <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed opacity-80 sm:text-xl">
-              I built this page just for your clinic. I looked at how patients
-              have to reach you today, then put real numbers on the time it
-              takes.
+              I built this page just for your clinic. All I have seen is your
+              website, so the numbers below start as a guess. Change any of them
+              and watch what happens.
             </p>
             <p className="text-[11px] font-semibold uppercase tracking-widest text-white/40 sm:text-xs">
               Built for Visioncare Associates. Takes about two minutes.
@@ -191,14 +191,15 @@ export default function VisioncareDemoPage() {
         <section className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20">
           <div className="mb-10 text-center sm:mb-12">
             <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[#4A7C94]">
-              What I noticed
+              An educated guess
             </p>
             <h2 className="font-vc mb-4 text-3xl text-[#16283B] sm:text-4xl">
-              A few things I saw from the outside
+              Where I would bet the time is going
             </h2>
             <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-[#16283B]/65 sm:text-lg">
-              None of this is a problem with how you run the clinic. It is just
-              work that a person has to do by hand today.
+              I have not seen inside your clinic. This is only what I would
+              expect from the outside, after doing this for other small
+              practices. Some of it will be wrong.
             </p>
           </div>
 
@@ -220,6 +221,11 @@ export default function VisioncareDemoPage() {
               </div>
             ))}
           </div>
+
+          <p className="font-vc-italic mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-[#16283B]/55">
+            If I have any of this wrong, tell me. I would rather be corrected
+            than keep guessing.
+          </p>
         </section>
 
         {/* Calculator */}
@@ -230,11 +236,12 @@ export default function VisioncareDemoPage() {
                 The wasted hours
               </p>
               <h2 className="font-vc mb-4 text-3xl text-[#16283B] sm:text-4xl">
-                Move the sliders. See the hours.
+                Put your own numbers in.
               </h2>
               <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-[#16283B]/65 sm:text-lg">
-                This is the time your front desk spends on work that a computer
-                can do. Not time with patients.
+                I have started you off with a guess. Move any slider that looks
+                off. This is only about the work a computer could do, not time
+                with patients.
               </p>
             </div>
 

@@ -194,225 +194,113 @@ export default function WastedHoursCalculator() {
     return () => clearTimeout(timer);
   }, [weeklyHours, yearlyHours, yearlyCost]);
 
+  const weeklyText = animatedWeekly.toFixed(1);
+  const yearlyText = Math.round(animatedYearly).toLocaleString("en-US");
+  const costText = usd(animatedCost);
+
   return (
-    <div className="overflow-hidden rounded-3xl border border-[#16283B]/10 bg-white shadow-xl">
-      {/* Results first, so the number is the first thing he sees on a phone */}
-      <div className="relative overflow-hidden border-b-4 border-[#C3A46B] bg-[#16283B] p-6 text-white sm:p-10">
-        <div className="absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/4 rounded-full bg-white opacity-5 blur-3xl" />
+    <div className="lg:grid lg:grid-cols-5 lg:items-start lg:gap-8">
+      <p aria-live="polite" aria-atomic="true" className="sr-only">
+        {announced}
+      </p>
 
-        <div className="relative z-10">
-          <p className="mb-6 text-center text-[10px] font-bold uppercase tracking-widest text-[#C3A46B]">
-            What the manual work costs
-          </p>
+      {/* Left column: the sliders, then the breakdown */}
+      <div className="flex flex-col gap-6 lg:col-span-3"></div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
-            <div className="rounded-2xl border border-white/10 bg-white/10 p-5 text-center sm:p-6">
-              <div className="mb-2 flex items-center justify-center gap-2">
-                <Clock className="h-3.5 w-3.5 text-[#C3A46B]" />
-                <p className="text-[10px] font-bold uppercase tracking-widest text-[#C3A46B]">
-                  Hours lost per week
-                </p>
-              </div>
+      {/* Right column: the numbers, pinned so they stay in view while dragging */}
+      <div className="sticky bottom-0 z-40 -mx-5 mt-6 sm:-mx-6 lg:bottom-auto lg:top-6 lg:col-span-2 lg:mx-0 lg:mt-0">
+        {/* Compact bar, phone and tablet */}
+        <div className="border-t-4 border-[#C3A46B] bg-[#16283B] px-5 py-4 text-white shadow-[0_-10px_30px_rgba(22,40,59,0.25)] sm:px-6 lg:hidden">
+          <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
+            <div>
+              <p className="mb-1 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-[#C3A46B]">
+                <DollarSign className="h-3 w-3" aria-hidden="true" /> Lost per
+                year
+              </p>
               <p
                 aria-hidden="true"
-                className="font-vc text-4xl font-bold tabular-nums text-white sm:text-5xl"
+                className="font-vc text-[34px] font-bold tabular-nums leading-none text-[#C3A46B]"
               >
-                {animatedWeekly.toFixed(1)}
+                {costText}
               </p>
             </div>
-
-            <div className="rounded-2xl border border-white/10 bg-white/10 p-5 text-center sm:p-6">
-              <div className="mb-2 flex items-center justify-center gap-2">
-                <CalendarDays className="h-3.5 w-3.5 text-[#C3A46B]" />
-                <p className="text-[10px] font-bold uppercase tracking-widest text-[#C3A46B]">
-                  Hours lost per year
-                </p>
-              </div>
+            <div className="shrink-0 space-y-1 text-right">
               <p
                 aria-hidden="true"
-                className="font-vc text-4xl font-bold tabular-nums text-white sm:text-5xl"
+                className="text-sm font-semibold tabular-nums text-white"
               >
-                {Math.round(animatedYearly).toLocaleString("en-US")}
+                {weeklyText}
+                <span className="ml-1 text-[10px] font-medium uppercase tracking-wide text-white/50">
+                  hrs a week
+                </span>
               </p>
-            </div>
-
-            <div className="transform rounded-2xl border border-[#C3A46B] bg-[#C3A46B] p-5 text-center shadow-lg sm:-translate-y-2 sm:p-6">
-              <div className="mb-2 flex items-center justify-center gap-2">
-                <DollarSign className="h-3.5 w-3.5 text-[#16283B]/70" />
-                <p className="text-[10px] font-bold uppercase tracking-widest text-[#16283B]/70">
-                  Dollars lost per year
-                </p>
-              </div>
               <p
                 aria-hidden="true"
-                className="font-vc break-words text-4xl font-bold tabular-nums text-[#16283B] sm:text-5xl"
+                className="text-sm font-semibold tabular-nums text-white"
               >
-                {usd(animatedCost)}
+                {yearlyText}
+                <span className="ml-1 text-[10px] font-medium uppercase tracking-wide text-white/50">
+                  hrs a year
+                </span>
               </p>
             </div>
           </div>
-
-          <p aria-live="polite" aria-atomic="true" className="sr-only">
-            {announced}
-          </p>
-
-          <p className="mt-6 text-center text-[11px] font-medium text-white/50">
-            Based on {WORKING_WEEKS} working weeks a year. Front desk cost of{" "}
-            {usd(hourlyCost)} an hour.
-          </p>
-        </div>
-      </div>
-
-      {/* Biggest time drain */}
-      <div className="border-b border-[#16283B]/10 bg-[#FAF8F4] p-6 sm:p-10">
-        <p className="mb-5 text-[10px] font-bold uppercase tracking-widest text-[#4A7C94]">
-          Your biggest time drain
-        </p>
-        <ul className="flex flex-col gap-4">
-          {breakdown.map((item, index) => {
-            const hours = item.minutes / 60;
-            const width = Math.max(2, (item.minutes / largest) * 100);
-            const isTop = index === 0 && item.minutes > 0;
-            return (
-              <li key={item.key}>
-                <div className="mb-1.5 flex items-center justify-between gap-3">
-                  <span className="flex items-center gap-2 text-[13px] font-medium leading-snug text-[#16283B]/80">
-                    <item.Icon
-                      className={`h-4 w-4 shrink-0 ${isTop ? "text-[#C3A46B]" : "text-[#16283B]/30"}`}
-                      aria-hidden="true"
-                    />
-                    {item.label}
-                  </span>
-                  <span className="shrink-0 text-sm font-bold tabular-nums text-[#16283B]">
-                    {hours.toFixed(1)}
-                    <span className="ml-1 text-[10px] font-semibold uppercase text-[#16283B]/40">
-                      hrs
-                    </span>
-                  </span>
-                </div>
-                <div className="h-2.5 w-full overflow-hidden rounded-full bg-[#16283B]/[0.07]">
-                  <div
-                    className={`h-full rounded-full transition-[width] duration-500 ease-out motion-reduce:transition-none ${
-                      isTop ? "bg-[#C3A46B]" : "bg-[#4A7C94]/40"
-                    }`}
-                    style={{ width: `${width}%` }}
-                  />
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-      {/* Inputs */}
-      <div className="p-6 sm:p-10">
-        <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-[#4A7C94]">
-          Your numbers
-        </p>
-        <p className="mb-6 text-sm leading-relaxed text-[#16283B]/60">
-          Drag any slider to match a normal week at the clinic. The numbers
-          above move with you.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10">
-          <fieldset>
-            <legend className="sr-only">Booking and insurance</legend>
-            <div className="divide-y divide-[#16283B]/[0.07]">
-              <SliderField
-                id="vc-patients"
-                label="Patients seen per week"
-                value={patients}
-                min={20}
-                max={250}
-                unit="patients"
-                onChange={setPatients}
-              />
-              <SliderField
-                id="vc-booking-mins"
-                label="Minutes on the phone per booking or reschedule"
-                value={bookingMins}
-                min={1}
-                max={15}
-                unit="min"
-                onChange={setBookingMins}
-              />
-              <SliderField
-                id="vc-insurance-checks"
-                label="Insurance checks done by hand per week"
-                value={insuranceChecks}
-                min={0}
-                max={100}
-                unit="checks"
-                onChange={setInsuranceChecks}
-              />
-              <SliderField
-                id="vc-insurance-mins"
-                label="Minutes per insurance check"
-                value={insuranceMins}
-                min={2}
-                max={20}
-                unit="min"
-                onChange={setInsuranceMins}
-              />
-            </div>
-          </fieldset>
-
-          <fieldset className="border-t border-[#16283B]/[0.07] md:border-t-0">
-            <legend className="sr-only">Letters, lenses and cost</legend>
-            <div className="divide-y divide-[#16283B]/[0.07]">
-              <SliderField
-                id="vc-letters"
-                label="Referral and co-management letters per week"
-                value={letters}
-                min={0}
-                max={40}
-                unit="letters"
-                onChange={setLetters}
-              />
-              <SliderField
-                id="vc-letter-mins"
-                label="Minutes per letter"
-                value={letterMins}
-                min={5}
-                max={45}
-                unit="min"
-                onChange={setLetterMins}
-              />
-              <SliderField
-                id="vc-lens-orders"
-                label="Specialty lens orders to place and chase per week"
-                value={lensOrders}
-                min={0}
-                max={40}
-                unit="orders"
-                onChange={setLensOrders}
-              />
-              <SliderField
-                id="vc-lens-mins"
-                label="Minutes per lens order"
-                value={lensMins}
-                min={5}
-                max={45}
-                unit="min"
-                onChange={setLensMins}
-              />
-              <SliderField
-                id="vc-hourly-cost"
-                label="Front desk cost per hour in US dollars"
-                value={hourlyCost}
-                min={20}
-                max={60}
-                unit="usd"
-                onChange={setHourlyCost}
-              />
-            </div>
-          </fieldset>
         </div>
 
-        <p className="font-vc mt-8 border-t border-[#16283B]/10 pt-6 text-[15px] text-sm italic leading-relaxed text-[#16283B]/55">
-          These are rough numbers. If they look wrong, tell me and I will fix
-          them. You know your clinic better than any calculator does.
-        </p>
+        {/* Full panel, desktop */}
+        <div className="relative hidden overflow-hidden rounded-3xl border-b-4 border-[#C3A46B] bg-[#16283B] p-7 text-white shadow-xl lg:block">
+          <div className="absolute right-0 top-0 h-52 w-52 -translate-y-1/2 translate-x-1/4 rounded-full bg-white opacity-5 blur-3xl" />
+
+          <div className="relative z-10">
+            <p className="mb-5 text-[10px] font-bold uppercase tracking-widest text-[#C3A46B]">
+              What the manual work costs
+            </p>
+
+            <div className="rounded-2xl bg-[#C3A46B] p-6 text-center shadow-lg">
+              <p className="mb-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#16283B]/70">
+                <DollarSign className="h-3.5 w-3.5" aria-hidden="true" />
+                Dollars lost per year
+              </p>
+              <p
+                aria-hidden="true"
+                className="font-vc text-[44px] font-bold tabular-nums leading-none text-[#16283B]"
+              >
+                {costText}
+              </p>
+            </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="rounded-2xl border border-white/10 bg-white/10 p-4 text-center">
+                <p className="mb-1.5 flex items-center justify-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-[#C3A46B]">
+                  <Clock className="h-3 w-3" aria-hidden="true" /> Hrs a week
+                </p>
+                <p
+                  aria-hidden="true"
+                  className="font-vc text-3xl font-bold tabular-nums leading-none text-white"
+                >
+                  {weeklyText}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/10 p-4 text-center">
+                <p className="mb-1.5 flex items-center justify-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-[#C3A46B]">
+                  <CalendarDays className="h-3 w-3" aria-hidden="true" /> Hrs a
+                  year
+                </p>
+                <p
+                  aria-hidden="true"
+                  className="font-vc text-3xl font-bold tabular-nums leading-none text-white"
+                >
+                  {yearlyText}
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-5 text-center text-[11px] font-medium leading-relaxed text-white/50">
+              Based on {WORKING_WEEKS} working weeks a year. Front desk cost of{" "}
+              {usd(hourlyCost)} an hour.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
