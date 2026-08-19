@@ -11,6 +11,6 @@ export const config = {
     matcher: [
         '/',
         '/(fr|en)/:path*',
-        '/((?!api|wyw|lantern|naya|ojai|rachel-lam|alpine|les400coups|luxury-os|visioncare|_next|studio|.*\\..*).*)'
+        '/((?!api|wyw|lantern|naya|ojai|eva|rachel-lam|alpine|les400coups|luxury-os|visioncare|_next|studio|.*\\..*).*)'
     ]
 };
