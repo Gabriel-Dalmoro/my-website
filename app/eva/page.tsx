@@ -191,25 +191,76 @@ export default function EvaDemoPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <div className="relative w-full overflow-hidden bg-[#003320] text-[#F4F7F4] py-20 px-6">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.15),transparent_50%)] pointer-events-none"></div>
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#002617] via-[#003320] to-[#001c12] text-[#F4F7F4] pt-20 pb-24 px-6 border-b border-[#D4AF37]/20">
+          {/* Ambient Glow Lights */}
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#D4AF37]/15 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="absolute top-1/3 -left-32 w-80 h-80 bg-[#16583A]/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-0 -right-32 w-80 h-80 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none"></div>
           
-          <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/15 text-xs font-semibold tracking-widest text-[#E5C158] uppercase mb-8 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5" /> Eva Clinic · Quinton, Birmingham · Opening 7 Days a Week
+          {/* Subtle Grid Pattern Overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(212,175,55,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(212,175,55,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
+
+          <div className="max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
+            {/* Top Status & Location Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-[#D4AF37]/30 backdrop-blur-md text-xs font-semibold tracking-wider text-[#E5C158] uppercase mb-8 shadow-lg shadow-black/20">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E5C158] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E5C158]"></span>
+              </span>
+              <span>Eva Clinic · Quinton, Birmingham · Launching October 2026</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl mb-6 tracking-tight font-eva-serif drop-shadow-md leading-[1.1]">
-              Intelligent Automation for Private Dentistry & Medical Care
+
+            {/* Main Headline with Gold Gradient Shimmer */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 tracking-tight font-eva-serif drop-shadow-lg leading-[1.12]">
+              Intelligent Practice Automation for{' '}
+              <span className="bg-gradient-to-r from-[#E5C158] via-[#FFF3D1] to-[#D4AF37] bg-clip-text text-transparent italic">
+                Private Dentistry & Medical Care
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl font-light text-[#E5C158] mb-8 font-eva-serif italic max-w-3xl">
-              Engineered exclusively for Eva Clinic's clinical launch and 7-day patient flow.
+
+            <p className="text-lg sm:text-xl font-light text-[#F4F7F4]/85 mb-10 max-w-3xl leading-relaxed font-eva-sans">
+              Built exclusively for Eva Clinic's clinical launch. While your GDC & GMC specialists deliver considered, unhurried consultations, bespoke automation runs your 7-day intake, CBCT/implant prep, and patient retention.
             </p>
-            <p className="text-base sm:text-lg opacity-85 max-w-2xl mx-auto leading-relaxed mb-8 font-light">
-              Your GDC & GMC specialists focus on unhurried, exceptional dental and healthcare consultations. Let tailored automation seamlessly manage intake forms, CBCT/implant prep, multi-language triage, and hygiene recall retention.
-            </p>
-            <div className="inline-flex flex-wrap items-center justify-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-sm font-semibold tracking-wider text-[#FACE0D]">
-              <Settings className="w-4 h-4" /> Works natively with your Practice Management System, WhatsApp & Web Bookings
+
+            {/* Practice Highlights Visual Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-3xl mb-10">
+              <div className="bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#D4AF37]/40 rounded-2xl p-4 text-left backdrop-blur-sm shadow-md">
+                <div className="flex items-center gap-2 text-[#E5C158] text-xs font-bold uppercase tracking-wider mb-1.5">
+                  <CalendarCheck className="w-4 h-4 text-[#E5C158]" /> 7 Days a Week
+                </div>
+                <div className="text-white font-eva-serif font-bold text-lg">09:00 – 19:00</div>
+                <p className="text-white/60 text-xs mt-1">Autonomous booking & instant confirmation</p>
+              </div>
+
+              <div className="bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#D4AF37]/40 rounded-2xl p-4 text-left backdrop-blur-sm shadow-md">
+                <div className="flex items-center gap-2 text-[#E5C158] text-xs font-bold uppercase tracking-wider mb-1.5">
+                  <Sparkles className="w-4 h-4 text-[#E5C158]" /> 5 Languages
+                </div>
+                <div className="text-white font-eva-serif font-bold text-lg">Smart Triage</div>
+                <p className="text-white/60 text-xs mt-1">EN, RO, RU, PT & ES automated routing</p>
+              </div>
+
+              <div className="bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#D4AF37]/40 rounded-2xl p-4 text-left backdrop-blur-sm shadow-md">
+                <div className="flex items-center gap-2 text-[#FACE0D] text-xs font-bold uppercase tracking-wider mb-1.5">
+                  <ShieldCheck className="w-4 h-4 text-[#FACE0D]" /> Clinical Care
+                </div>
+                <div className="text-white font-eva-serif font-bold text-lg">GDC / GMC Ready</div>
+                <p className="text-white/60 text-xs mt-1">CBCT, implant & medical history protocols</p>
+              </div>
+            </div>
+
+            {/* Platform Integration Badge */}
+            <div className="inline-flex flex-wrap items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium tracking-wide text-white/80 backdrop-blur-sm">
+              <span className="text-[#FACE0D] flex items-center gap-1.5 font-semibold">
+                <Settings className="w-3.5 h-3.5 animate-spin-slow duration-[8000ms]" /> Native Integration:
+              </span>
+              <span>Dentally</span>
+              <span className="text-white/30">•</span>
+              <span>Software of Excellence (EXACT)</span>
+              <span className="text-white/30">•</span>
+              <span>WhatsApp Business API</span>
+              <span className="text-white/30">•</span>
+              <span>Online Portals</span>
             </div>
           </div>
         </div>
