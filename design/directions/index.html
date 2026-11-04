@@ -1,0 +1,150 @@
+<title>Gabriel's Three Directions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Archivo:wdth,wght@62..125,900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,750&family=Martian+Mono:wdth,wght@87.5,400&display=swap">
+<style>
+/* Layout: a short brief, then three stacked direction rows: screenshot left, notes right. */
+:root {
+  --bg: #f3f3f0;
+  --surface: #ffffff;
+  --fg: #16191d;
+  --muted: #5d636b;
+  --line: rgba(22, 25, 29, .12);
+  --accent: #2c66ad;
+  --f-ui: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "Martian Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #141619; --surface: #1c1f23; --fg: #eceef0; --muted: #9aa1a9; --line: rgba(236, 238, 240, .12); --accent: #7fb0ec; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #141619; --surface: #1c1f23; --fg: #eceef0; --muted: #9aa1a9; --line: rgba(236, 238, 240, .12); --accent: #7fb0ec; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font: 400 16px/1.6 var(--f-ui);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 64px;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 48px; }
+.eyebrow { font: 400 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+header { display: grid; gap: 16px; max-width: 720px; }
+h1 { margin: 0; font-size: clamp(32px, 5vw, 52px); line-height: 1.04; letter-spacing: -.025em; font-weight: 700; text-wrap: balance; }
+header p { margin: 0; font-size: 18px; color: var(--muted); max-width: 60ch; }
+
+.dir { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 32px; align-items: start; padding-top: 32px; border-top: 1px solid var(--line); }
+.shot { display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); aspect-ratio: 16 / 10; max-width: 100%; position: relative; text-decoration: none; }
+.shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s cubic-bezier(.2,.7,.1,1); }
+.shot:hover img { transform: scale(1.02); }
+.shot .phone { position: absolute; right: 14px; bottom: 14px; width: 22%; aspect-ratio: 390 / 844; max-width: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.3); border: 3px solid #111; background: #111; }
+.shot .phone img { object-position: top; }
+.notes { display: grid; gap: 14px; min-width: 0; }
+.sample { margin: 0; line-height: .95; }
+.s-a { font: italic 300 52px/1 "Newsreader", Georgia, serif; letter-spacing: -.03em; }
+.s-b { font-family: "Archivo", "Arial Narrow", sans-serif; font-weight: 900; font-size: 46px; text-transform: uppercase; font-variation-settings: "wdth" 62; }
+.s-c { font-family: "Bricolage Grotesque", "Avenir Next", sans-serif; font-weight: 750; font-size: 44px; letter-spacing: -.03em; font-variation-settings: "opsz" 96, "wdth" 88; }
+.notes h2 { margin: 0; font-size: 22px; letter-spacing: -.01em; }
+.notes p { margin: 0; color: var(--muted); }
+.swatches { display: flex; gap: 6px; }
+.swatches span { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line); }
+dl { margin: 0; display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 8px 14px; font-size: 15px; }
+dt { font: 400 11px/1.9 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+dd { margin: 0; }
+.open { display: inline-flex; align-items: center; gap: 10px; justify-self: start; margin-top: 4px; padding: 12px 18px; border-radius: 999px; background: var(--fg); color: var(--bg); text-decoration: none; font-weight: 600; }
+.open:hover { background: var(--accent); }
+
+.fix { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-top: 32px; border-top: 1px solid var(--line); }
+.fix h3 { margin: 0 0 8px; font-size: 17px; }
+.fix p { margin: 0; color: var(--muted); font-size: 15px; }
+.ask { padding: 24px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); display: grid; gap: 10px; }
+.ask h2 { margin: 0; font-size: 22px; }
+.ask ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+
+@media (max-width: 820px) {
+  .dir, .fix { grid-template-columns: minmax(0, 1fr); }
+  .s-a { font-size: 44px; } .s-b { font-size: 40px; } .s-c { font-size: 38px; }
+}
+@media (prefers-reduced-motion: reduce) { .shot img { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">gabrieldalmoro.com · redesign · round 1</span>
+    <h1>Three directions. Same you, three different feelings.</h1>
+    <p>Each one is a real page you can scroll. Open them on your phone and your computer. Then tell me what you love and what you hate in each. Mixing is allowed: "A's fonts with C's 3D" is a great answer.</p>
+  </header>
+
+  <section class="dir">
+    <a class="shot" href="a-field-notes.html" aria-label="Open direction A, Field Notes">
+      <img src="thumb-a.jpg" alt="Direction A on desktop: a topographic map with the name Gabriel Dalmoro in large italic serif">
+      <span class="phone"><img src="thumb-a-phone.jpg" alt=""></span>
+    </a>
+    <div class="notes">
+      <span class="eyebrow">Direction A</span>
+      <p class="sample s-a">Field Notes</p>
+      <div class="swatches" aria-label="Palette"><span style="background:#e8ebe3"></span><span style="background:#17222a"></span><span style="background:#a0805f"></span><span style="background:#2c66ad"></span></div>
+      <p>Your site as a topographic map and an explorer's logbook. Calm, precise and grown-up. Move your cursor over the map and it shows the elevation.</p>
+      <dl>
+        <dt>Feels like</dt><dd>An engineer who also climbs mountains</dd>
+        <dt>Best for</dt><dd>Premium clients in Switzerland and Chamonix who want to trust you fast</dd>
+        <dt>Risk</dt><dd>The quietest of the three. Less "wow", more "this person is serious".</dd>
+      </dl>
+      <a class="open" href="a-field-notes.html">Open A</a>
+    </div>
+  </section>
+
+  <section class="dir">
+    <a class="shot" href="b-trailhead.html" aria-label="Open direction B, Trailhead">
+      <img src="thumb-b.jpg" alt="Direction B on desktop: a flat alpine poster with mountains, a yellow sun and the name in huge condensed letters">
+      <span class="phone"><img src="thumb-b-phone.jpg" alt=""></span>
+    </a>
+    <div class="notes">
+      <span class="eyebrow">Direction B</span>
+      <p class="sample s-b">Trailhead</p>
+      <div class="swatches" aria-label="Palette"><span style="background:#22618f"></span><span style="background:#12302a"></span><span style="background:#f6c200"></span><span style="background:#f5f4ee"></span></div>
+      <p>A bold alpine travel poster. Your projects are Swiss hiking signposts. Your yellow stays, but now it means something: it's the trail-sign yellow every hiker in the Alps knows.</p>
+      <dl>
+        <dt>Feels like</dt><dd>A sporty outdoor brand with a builder behind it</dd>
+        <dt>Best for</dt><dd>Being memorable. It also speaks straight to your Alpine clients.</dd>
+        <dt>Risk</dt><dd>Loud. The outdoors could take over from the work if we're not careful.</dd>
+      </dl>
+      <a class="open" href="b-trailhead.html">Open B</a>
+    </div>
+  </section>
+
+  <section class="dir">
+    <a class="shot" href="c-island.html" aria-label="Open direction C, Island">
+      <img src="thumb-c.jpg" alt="Direction C on desktop: a small low-poly 3D island with a toy figure waving, beside a story card">
+      <span class="phone"><img src="thumb-c-phone.jpg" alt=""></span>
+    </a>
+    <div class="notes">
+      <span class="eyebrow">Direction C</span>
+      <p class="sample s-c">Island</p>
+      <div class="swatches" aria-label="Palette"><span style="background:#cfe6ef"></span><span style="background:#2a9da1"></span><span style="background:#ff7759"></span><span style="background:#1c2733"></span></div>
+      <p>Your 3D idea, working. A little world with a desk, a peak, a wave, a reef, a gym mat and a campfire. As you scroll, the figure hops between them and the day goes from dawn to night.</p>
+      <dl>
+        <dt>Feels like</dt><dd>Playful, warm and very you. People will scroll it twice.</dd>
+        <dt>Best for</dt><dd>The "wow, this is a unique website" reaction</dd>
+        <dt>Risk</dt><dd>Heavier to load. The figure is a placeholder made of simple shapes. A real model of you is the next step.</dd>
+      </dl>
+      <a class="open" href="c-island.html">Open C</a>
+    </div>
+  </section>
+
+  <section class="fix" aria-label="What every direction fixes">
+    <div><h3>You, not a template</h3><p>Your work, your story, your languages and your life outside are all on the main site. No more "under construction" side page.</p></div>
+    <div><h3>One idea, one accent</h3><p>No glowing borders and no rainbow of labels. Each direction has one concept and one bold colour.</p></div>
+    <div><h3>Type with a personality</h3><p>Real font pairings and a real size scale, instead of bold Inter on everything.</p></div>
+  </section>
+
+  <section class="ask">
+    <h2>What I need from you</h2>
+    <ol>
+      <li>Your favourite direction, or the mix you want.</li>
+      <li>One thing you love and one thing you hate in each.</li>
+      <li>Your photos: dives, surf, peaks, coding, guitar, training.</li>
+    </ol>
+  </section>
+</div>

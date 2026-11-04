@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A · Field Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Hanken+Grotesk:wght@400;500;600&family=Martian+Mono:wdth,wght@75..112.5,300..600&display=swap">
+<style>
+/* Layout: one map sheet. A neatline frames the page, the hero is a live contour map,
+   and every section sits in a map-margin grid: mono grid reference left, content right. */
+:root {
+  --paper: #e8ebe3;      /* cool topo-sheet paper, slight green bias */
+  --paper-2: #dfe3d8;
+  --ink: #17222a;        /* printing ink, blue-black */
+  --ink-soft: #4a565c;
+  --contour: #a0805f;    /* contour sepia */
+  --glacier: #2c66ad;    /* water / glacier blue: the one accent */
+  --glacier-wash: #c9d9e6;
+  --forest: #47664d;
+  --rule: rgba(23, 34, 42, .22);
+
+  --f-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "Martian Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 17px/1.6 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: max(16px, env(safe-area-inset-top, 0px)) calc(72px + env(safe-area-inset-bottom, 0px));
+}
+img { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--glacier); outline-offset: 3px; }
+
+/* ---------- sheet + neatline ---------- */
+.sheet {
+  max-width: 1280px; margin: 0 auto; position: relative;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink); outline-offset: 5px;
+  background: var(--paper);
+}
+.ticks-x, .ticks-y { position: absolute; pointer-events: none; }
+.ticks-x { left: 0; right: 0; height: 6px; top: -6px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 64px); }
+.ticks-y { top: 0; bottom: 0; width: 6px; left: -6px;
+  background: repeating-linear-gradient(180deg, var(--ink) 0 1px, transparent 1px 64px); }
+
+.mono { font-family: var(--f-mono); font-variation-settings: "wdth" 87.5; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+
+.topbar {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+  padding: 12px 20px; border-bottom: 1px solid var(--ink);
+}
+.topbar nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.topbar a { text-decoration: none; }
+.topbar a:hover { color: var(--glacier); }
+
+/* ---------- hero map ---------- */
+.hero { position: relative; min-height: clamp(560px, 82vh, 780px); overflow: hidden; border-bottom: 1px solid var(--ink); cursor: crosshair; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero-inner {
+  position: relative; z-index: 2; height: 100%;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px;
+  padding: clamp(28px, 5vw, 64px); min-height: inherit; pointer-events: none;
+}
+.hero-inner > * { pointer-events: auto; }
+.name {
+  font-family: var(--f-display); font-style: italic; font-weight: 300;
+  font-size: clamp(64px, 12.5vw, 188px); line-height: .86; letter-spacing: -.035em;
+  margin: 0 0 18px; font-variation-settings: "opsz" 72;
+}
+.name span { display: block; }
+.name span + span { padding-left: .55em; }
+.thesis {
+  max-width: 30ch; font-family: var(--f-display); font-size: clamp(20px, 2.2vw, 27px);
+  line-height: 1.3; margin: 0; font-variation-settings: "opsz" 24;
+  background: color-mix(in srgb, var(--paper) 78%, transparent);
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--paper) 78%, transparent);
+}
+.thesis em { color: var(--glacier); }
+
+.legend {
+  width: min(320px, 100%); background: var(--paper); border: 1px solid var(--ink);
+  padding: 14px 16px 12px; font-size: 14px; line-height: 1.35;
+}
+.legend h2 { margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.legend ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.legend li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; align-items: start; }
+.legend b { font-weight: 600; display: block; }
+.legend small { color: var(--ink-soft); font-size: 13px; }
+.sym { width: 22px; height: 18px; display: grid; place-items: center; }
+
+.readout {
+  position: absolute; z-index: 3; pointer-events: none; opacity: 0; transition: opacity .2s;
+  padding: 4px 7px; background: var(--ink); color: var(--paper); white-space: nowrap;
+}
+.cross-x, .cross-y { position: absolute; z-index: 1; pointer-events: none; opacity: 0; transition: opacity .2s; }
+.cross-x { left: 0; right: 0; height: 0; border-top: 1px dashed var(--glacier); }
+.cross-y { top: 0; bottom: 0; width: 0; border-left: 1px dashed var(--glacier); }
+.hero.live .readout, .hero.live .cross-x, .hero.live .cross-y { opacity: 1; }
+.hint { position: absolute; z-index: 2; top: 16px; right: 20px; color: var(--ink-soft); }
+
+/* ---------- sections in map-margin grid ---------- */
+section.row {
+  display: grid; grid-template-columns: 180px minmax(0, 1fr); border-bottom: 1px solid var(--ink);
+}
+.ref { padding: 28px 20px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; gap: 6px; }
+.ref .grid { font-family: var(--f-display); font-size: 44px; line-height: 1; font-style: italic; font-weight: 300; }
+.body { padding: clamp(28px, 4vw, 56px); min-width: 0; }
+h3.sec {
+  font-family: var(--f-display); font-weight: 400; font-size: clamp(34px, 4.6vw, 60px);
+  line-height: 1.02; letter-spacing: -.02em; margin: 0 0 28px; text-wrap: balance; max-width: 18ch;
+}
+h3.sec em { font-style: italic; color: var(--glacier); }
+
+.builds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); }
+.build { padding: 22px 24px 24px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 8px; align-content: start; }
+.build:nth-child(odd) { border-right: 1px solid var(--rule); }
+.build:nth-child(even) { padding-left: 24px; }
+.build h4 { margin: 0; font: 500 24px/1.15 var(--f-display); }
+.build p { margin: 0; color: var(--ink-soft); max-width: 46ch; }
+.status { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--forest); }
+.status.build-now::before { background: var(--glacier); box-shadow: 0 0 0 4px var(--glacier-wash); }
+.status.past::before { background: transparent; border: 1px solid var(--ink-soft); }
+
+.log-wrap { overflow-x: auto; }
+table.log { width: 100%; border-collapse: collapse; min-width: 520px; }
+.log th { text-align: left; font-weight: 400; padding: 0 12px 10px 0; border-bottom: 1px solid var(--ink); color: var(--ink-soft); }
+.log td { padding: 16px 12px 16px 0; border-bottom: 1px solid var(--rule); vertical-align: baseline; }
+.log td:first-child { font: italic 400 26px/1.1 var(--f-display); white-space: nowrap; }
+.log td.n { font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; }
+.log tr:hover td:first-child { color: var(--glacier); }
+
+.langs { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.lang { display: grid; grid-template-columns: minmax(130px, 220px) minmax(0, 1fr) 120px; gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.lang .w { font: 400 28px/1 var(--f-display); }
+.lang .w i { font-size: 15px; font-style: normal; color: var(--ink-soft); font-family: var(--f-mono); margin-left: 6px; }
+.bar { height: 10px; border: 1px solid var(--ink); position: relative; background:
+  repeating-linear-gradient(90deg, transparent 0 calc(10% - 1px), var(--rule) calc(10% - 1px) 10%); }
+.bar > span { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+.lang.learning .bar > span { background: var(--glacier); }
+.lang.next .w { color: var(--ink-soft); }
+.lang .lvl { text-align: right; }
+
+.offer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--ink); }
+.offer > div { padding: 22px; display: grid; gap: 6px; align-content: start; }
+.offer > div + div { border-left: 1px solid var(--ink); }
+.offer .price { font: 300 44px/1 var(--f-display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.offer p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+.guarantee { margin: 22px 0 0; font: italic 400 22px/1.35 var(--f-display); max-width: 40ch; }
+.cta {
+  display: inline-flex; align-items: center; gap: 12px; margin-top: 26px;
+  background: var(--ink); color: var(--paper); text-decoration: none; padding: 16px 22px;
+  font: 500 16px/1 var(--f-body);
+}
+.cta:hover { background: var(--glacier); }
+.cta svg { transition: transform .2s; }
+.cta:hover svg { transform: translateX(4px); }
+
+footer.sheet-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding: 14px 20px; }
+
+/* scale bar */
+.scalebar { display: inline-grid; grid-template-columns: repeat(4, 28px); height: 6px; border: 1px solid var(--ink); vertical-align: middle; margin-right: 10px; }
+.scalebar span:nth-child(odd) { background: var(--ink); }
+
+/* ---------- direction switcher (mockup chrome) ---------- */
+.switch {
+  position: fixed; z-index: 50; left: 50%; transform: translateX(-50%);
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  display: flex; gap: 2px; padding: 4px; border-radius: 999px; background: #111; color: #eee;
+  font: 500 12px/1 system-ui, sans-serif; box-shadow: 0 6px 24px rgba(0,0,0,.25); max-width: calc(100% - 32px);
+}
+.switch a { padding: 9px 12px; border-radius: 999px; text-decoration: none; white-space: nowrap; }
+.switch a[aria-current] { background: #eee; color: #111; }
+
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: minmax(0, 1fr); align-items: start; align-content: end; }
+  section.row { grid-template-columns: minmax(0, 1fr); }
+  .ref { flex-direction: row; align-items: baseline; gap: 14px; border-right: 0; border-bottom: 1px solid var(--rule); padding: 16px 20px; }
+  .ref .grid { font-size: 32px; }
+  .builds { grid-template-columns: minmax(0, 1fr); }
+  .build:nth-child(odd) { border-right: 0; }
+  .build:nth-child(even) { padding-left: 0; }
+  .offer { grid-template-columns: minmax(0, 1fr); }
+  .offer > div + div { border-left: 0; border-top: 1px solid var(--ink); }
+  .lang { grid-template-columns: minmax(0, 1fr) 96px; }
+  .lang .bar { grid-column: 1 / -1; grid-row: 2; }
+  .hint { display: none; }
+}
+@media (max-width: 480px) {
+  .name span + span { padding-left: .3em; }
+  .topbar nav { gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <span class="ticks-x" aria-hidden="true"></span><span class="ticks-y" aria-hidden="true"></span>
+
+  <header class="topbar mono">
+    <span>Sheet 01 · Gabriel Dalmoro · Field notes</span>
+    <nav aria-label="Sections">
+      <a href="#now">Building</a><a href="#log">Logbook</a><a href="#lang">Languages</a><a href="#work">Work with me</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="hero">
+    <canvas id="topo" aria-hidden="true"></canvas>
+    <div class="cross-x" id="cx"></div><div class="cross-y" id="cy"></div>
+    <div class="readout mono" id="readout">Elev — m</div>
+    <span class="hint mono">Move your cursor across the map</span>
+
+    <div class="hero-inner">
+      <div>
+        <h1 class="name"><span>Gabriel</span><span>Dalmoro</span></h1>
+        <p class="thesis">I build software that gives people their time back. <em>Then I go outside.</em></p>
+      </div>
+      <aside class="legend" aria-label="Legend">
+        <h2 class="mono">Legend</h2>
+        <ul>
+          <li><span class="sym"><svg width="16" height="14" viewBox="0 0 16 14"><path d="M8 1 15 13H1z" fill="#17222a"/></svg></span><span><b>Peaks</b><small>Canadian mountains, the Andes</small></span></li>
+          <li><span class="sym"><svg width="20" height="12" viewBox="0 0 20 12"><path d="M1 4q4.5-4 9 0t9 0M1 10q4.5-4 9 0t9 0" fill="none" stroke="#2c66ad" stroke-width="1.6"/></svg></span><span><b>Waves</b><small>Up to 3 m, Brazil</small></span></li>
+          <li><span class="sym"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#2c66ad" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="#2c66ad"/></svg></span><span><b>Dives</b><small>Indonesia</small></span></li>
+          <li><span class="sym"><svg width="14" height="14" viewBox="0 0 14 14"><rect x="1" y="1" width="12" height="12" fill="#47664d"/></svg></span><span><b>Things built</b><small>Automations, websites, a SaaS in progress</small></span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <section class="row" id="now">
+    <div class="ref"><span class="grid">B2</span><span class="mono">Currently building</span></div>
+    <div class="body">
+      <h3 class="sec">A few projects, <em>one way of working.</em></h3>
+      <div class="builds">
+        <article class="build">
+          <span class="status build-now mono">In build · 2026</span>
+          <h4>Software for private chefs in France</h4>
+          <p>A SaaS app shaped by the chefs I already build automations for. More on this soon.</p>
+        </article>
+        <article class="build">
+          <span class="status mono">Running</span>
+          <h4>The automation studio</h4>
+          <p>Less admin, more impact. I build systems that save founders 10+ hours a week. n8n is the brain. Python does the tricky parts.</p>
+        </article>
+        <article class="build">
+          <span class="status mono">Shipped</span>
+          <h4>Sites for people I love</h4>
+          <p>My girlfriend's website, with automations built in. A portfolio site for my mother-in-law. Small projects, done with care.</p>
+        </article>
+        <article class="build">
+          <span class="status past mono">Before all this</span>
+          <h4>Three years as a full-stack developer</h4>
+          <p>Back when we wrote every line by hand. It's why my automations don't break when you look at them.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="row" id="log">
+    <div class="ref"><span class="grid">C3</span><span class="mono">Logbook</span></div>
+    <div class="body">
+      <h3 class="sec">Away from the desk, <em>I go up, out and under.</em></h3>
+      <div class="log-wrap">
+        <table class="log">
+          <thead><tr><th class="mono">Where</th><th class="mono">What</th><th class="mono">Note</th></tr></thead>
+          <tbody>
+            <tr><td>Indonesia</td><td>Scuba diving</td><td class="n">Reefs, from below</td></tr>
+            <tr><td>Brazil</td><td>Surfing</td><td class="n">Waves up to 3 m</td></tr>
+            <tr><td>The Andes</td><td>Climbing</td><td class="n">High peaks, thin air</td></tr>
+            <tr><td>Canada</td><td>Hiking the peaks</td><td class="n">Where I grew up</td></tr>
+            <tr><td>Every day</td><td>Training</td><td class="n">Son of a personal trainer</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="row" id="lang">
+    <div class="ref"><span class="grid">D4</span><span class="mono">Languages</span></div>
+    <div class="body">
+      <h3 class="sec">Four languages. <em>Two on the way.</em></h3>
+      <div class="langs">
+        <div class="lang"><span class="w">Português <i>PT</i></span><span class="bar"><span style="width:100%"></span></span><span class="lvl mono">Native</span></div>
+        <div class="lang"><span class="w">English <i>EN</i></span><span class="bar"><span style="width:100%"></span></span><span class="lvl mono">Fluent</span></div>
+        <div class="lang"><span class="w">Español <i>ES</i></span><span class="bar"><span style="width:90%"></span></span><span class="lvl mono">Fluent</span></div>
+        <div class="lang"><span class="w">Français <i>FR</i></span><span class="bar"><span style="width:95%"></span></span><span class="lvl mono">Fluent · home</span></div>
+        <div class="lang learning"><span class="w">Deutsch <i>DE</i></span><span class="bar"><span style="width:12%"></span></span><span class="lvl mono">Learning now</span></div>
+        <div class="lang next"><span class="w">Italiano <i>IT</i></span><span class="bar"><span style="width:0%"></span></span><span class="lvl mono">Up next</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row" id="work">
+    <div class="ref"><span class="grid">E5</span><span class="mono">Work with me</span></div>
+    <div class="body">
+      <h3 class="sec">Less admin. <em>More impact.</em></h3>
+      <div class="offer">
+        <div><span class="mono">Free audit</span><span class="price">€0</span><p>30 minutes. We find the work that's eating your week.</p></div>
+        <div><span class="mono">The pilot</span><span class="price">€2,497</span><p>One system, built and running in 30 days.</p></div>
+        <div><span class="mono">Custom</span><span class="price">€7,997+</span><p>A full department, automated end to end.</p></div>
+      </div>
+      <p class="guarantee">If I don't save you at least 5 hours a week, I keep working for free until I do.</p>
+      <a class="cta" href="#work">Book a free audit
+        <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+    </div>
+  </section>
+
+  <footer class="sheet-foot mono">
+    <span><span class="scalebar" aria-hidden="true"><span></span><span></span><span></span><span></span></span>Drawn in France</span>
+    <span>Contour interval: one good question</span>
+  </footer>
+</div>
+
+<nav class="switch" aria-label="Design directions">
+  <a href="index.html">Overview</a>
+  <a href="a-field-notes.html" aria-current="page">A · Field Notes</a>
+  <a href="b-trailhead.html">B</a>
+  <a href="c-island.html">C</a>
+</nav>
+
+<script>
+(() => {
+  const hero = document.getElementById('hero');
+  const cv = document.getElementById('topo');
+  const ctx = cv.getContext('2d');
+  const readout = document.getElementById('readout');
+  const cx = document.getElementById('cx'), cy = document.getElementById('cy');
+
+  // seeded value noise
+  let seed = 7;
+  const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+  const P = 256, perm = new Uint8Array(P * 2), vals = new Float32Array(P);
+  for (let i = 0; i < P; i++) { perm[i] = i; vals[i] = rand(); }
+  for (let i = P - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [perm[i], perm[j]] = [perm[j], perm[i]]; }
+  for (let i = 0; i < P; i++) perm[i + P] = perm[i];
+  const fade = t => t * t * (3 - 2 * t);
+  const lattice = (x, y) => vals[perm[(x & 255) + perm[y & 255]]];
+  function noise(x, y) {
+    const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    const a = lattice(xi, yi), b = lattice(xi + 1, yi), c = lattice(xi, yi + 1), d = lattice(xi + 1, yi + 1);
+    const u = fade(xf), v = fade(yf);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  }
+  function fbm(x, y) { let s = 0, amp = .5, f = 1; for (let o = 0; o < 5; o++) { s += amp * noise(x * f, y * f); amp *= .5; f *= 2.03; } return s; }
+
+  let W = 0, H = 0, field = null, gw = 0, gh = 0, step = 6, peak = { x: 0, y: 0 };
+  function elev(px, py) {
+    // a massif on the right, foothills elsewhere
+    const nx = px / 260, ny = py / 260;
+    let e = fbm(nx + 3.1, ny + 7.4) * .9;
+    const dx = (px - W * .74) / (Math.max(W, 700) * .26), dy = (py - H * .36) / (H * .42);
+    e += .62 * Math.exp(-(dx * dx + dy * dy));
+    const dx2 = (px - W * .2) / (W * .22), dy2 = (py - H * .2) / (H * .3);
+    e += .18 * Math.exp(-(dx2 * dx2 + dy2 * dy2));
+    return e;
+  }
+
+  function draw() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const r = hero.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    step = W < 600 ? 5 : 6;
+    gw = Math.ceil(W / step) + 1; gh = Math.ceil(H / step) + 1;
+    field = new Float32Array(gw * gh);
+    let mn = 1e9, mx = -1e9, pk = 0;
+    for (let j = 0; j < gh; j++) for (let i = 0; i < gw; i++) {
+      const v = elev(i * step, j * step); field[j * gw + i] = v;
+      if (v < mn) mn = v; if (v > mx) { mx = v; pk = j * gw + i; }
+    }
+    for (let k = 0; k < field.length; k++) field[k] = (field[k] - mn) / (mx - mn);
+    peak = { x: (pk % gw) * step, y: Math.floor(pk / gw) * step };
+
+    // lakes: soft wash below threshold
+    const lake = document.createElement('canvas'); lake.width = gw; lake.height = gh;
+    const lc = lake.getContext('2d'), img = lc.createImageData(gw, gh);
+    for (let k = 0; k < field.length; k++) {
+      const a = field[k] < .12 ? 1 : field[k] < .14 ? (.14 - field[k]) / .02 : 0;
+      img.data[k * 4] = 201; img.data[k * 4 + 1] = 217; img.data[k * 4 + 2] = 230; img.data[k * 4 + 3] = a * 255;
+    }
+    lc.putImageData(img, 0, 0);
+    ctx.imageSmoothingEnabled = true; ctx.drawImage(lake, 0, 0, gw * step, gh * step);
+
+    // contours via marching squares
+    const levels = 26;
+    for (let L = 1; L < levels; L++) {
+      const t = L / levels, index = L % 5 === 0, shore = L === 3;
+      ctx.beginPath();
+      for (let j = 0; j < gh - 1; j++) for (let i = 0; i < gw - 1; i++) {
+        const a = field[j * gw + i], b = field[j * gw + i + 1], c = field[(j + 1) * gw + i + 1], d = field[(j + 1) * gw + i];
+        const idx = (a > t ? 8 : 0) | (b > t ? 4 : 0) | (c > t ? 2 : 0) | (d > t ? 1 : 0);
+        if (idx === 0 || idx === 15) continue;
+        const x = i * step, y = j * step;
+        const top = [x + step * (t - a) / (b - a), y], right = [x + step, y + step * (t - b) / (c - b)];
+        const bot = [x + step * (t - d) / (c - d), y + step], left = [x, y + step * (t - a) / (d - a)];
+        const seg = (p, q) => { ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); };
+        switch (idx) {
+          case 1: case 14: seg(left, bot); break;
+          case 2: case 13: seg(bot, right); break;
+          case 3: case 12: seg(left, right); break;
+          case 4: case 11: seg(top, right); break;
+          case 5: seg(left, top); seg(bot, right); break;
+          case 6: case 9: seg(top, bot); break;
+          case 7: case 8: seg(left, top); break;
+          case 10: seg(top, right); seg(left, bot); break;
+        }
+      }
+      ctx.strokeStyle = shore ? '#2c66ad' : '#a0805f';
+      ctx.globalAlpha = shore ? .75 : index ? .85 : .45;
+      ctx.lineWidth = shore ? 1.2 : index ? 1.25 : .7;
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // grid
+    ctx.strokeStyle = 'rgba(23,34,42,.12)'; ctx.lineWidth = 1; ctx.beginPath();
+    for (let x = 128; x < W; x += 128) { ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); }
+    for (let y = 128; y < H; y += 128) { ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); }
+    ctx.stroke();
+
+    // summit marker
+    ctx.fillStyle = '#17222a';
+    ctx.beginPath(); ctx.moveTo(peak.x, peak.y - 7); ctx.lineTo(peak.x + 6, peak.y + 4); ctx.lineTo(peak.x - 6, peak.y + 4); ctx.closePath(); ctx.fill();
+    ctx.font = '500 11px "Martian Mono", ui-monospace, monospace';
+    ctx.fillText(toM(1) + ' m', peak.x + 10, peak.y + 4);
+  }
+  const toM = v => Math.round(320 + v * 4380).toLocaleString('en-US');
+
+  function sample(px, py) {
+    if (!field) return 0;
+    const i = Math.min(gw - 1, Math.max(0, Math.round(px / step))), j = Math.min(gh - 1, Math.max(0, Math.round(py / step)));
+    return field[j * gw + i];
+  }
+  function move(e) {
+    const r = hero.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    hero.classList.add('live');
+    cx.style.top = y + 'px'; cy.style.left = x + 'px';
+    readout.textContent = 'Elev ' + toM(sample(x, y)) + ' m';
+    const flip = x > W - 150;
+    readout.style.left = (flip ? x - 12 - readout.offsetWidth : x + 12) + 'px';
+    readout.style.top = (y + 12) + 'px';
+  }
+  hero.addEventListener('pointermove', move);
+  hero.addEventListener('pointerdown', move);
+  hero.addEventListener('pointerleave', () => hero.classList.remove('live'));
+
+  let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(draw, 120); });
+  draw();
+  if (document.fonts) document.fonts.ready.then(draw);
+})();
+</script>
+</body>
+</html>

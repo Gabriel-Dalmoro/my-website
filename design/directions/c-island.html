@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>C · Island</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a fixed 3D stage fills the screen. Story cards scroll over it, one per hour of
+   "a day with Gabriel". Desktop: cards on the left, scene framed right. Phone: cards low, scene high. */
+:root {
+  --sky: #cfe6ef;
+  --card: #fffdf8;
+  --ink: #1c2733;
+  --ink-soft: #536170;
+  --coral: #ff7759;      /* his shirt, the buttons: one warm accent */
+  --sea: #2a9da1;
+  --line: rgba(28, 39, 51, .14);
+
+  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --f-mono: "DM Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--sky); color: var(--ink); font: 400 17px/1.55 var(--f-display); font-variation-settings: "opsz" 14; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+#gl { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100lvh; display: block; z-index: 0; }
+body.no-gl { background: linear-gradient(180deg, #cfe6ef, #9fd0e6 60%, #2a9da1); }
+
+.top {
+  position: fixed; z-index: 20; top: 0; left: 0; right: 0;
+  padding: max(14px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; pointer-events: none;
+}
+.top > * { pointer-events: auto; }
+.brand { font-weight: 800; font-size: 18px; letter-spacing: -.01em; text-decoration: none; background: var(--card); padding: 8px 14px; border-radius: 999px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 15px;
+  background: var(--coral); color: #2a0f06; padding: 11px 18px; border-radius: 999px; border: 0;
+  transition: transform .2s cubic-bezier(.2,.7,.1,1);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+
+main { position: relative; z-index: 10; }
+.chapter {
+  min-height: 100vh; min-height: 100svh; display: flex; align-items: center;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 90px;
+}
+.card {
+  width: min(440px, 100%); margin-left: clamp(0px, 5vw, 72px);
+  background: var(--card); border-radius: 6px; padding: 26px 26px 24px;
+  box-shadow: 0 1px 0 var(--line), 0 18px 50px -20px rgba(28,39,51,.35);
+  display: grid; gap: 12px;
+}
+.stamp { display: flex; gap: 12px; align-items: baseline; font: 500 12px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.stamp b { color: var(--ink); font-weight: 500; font-size: 13px; }
+.card h2 { margin: 0; font-weight: 750; font-size: clamp(32px, 3.6vw, 48px); line-height: .98; letter-spacing: -.025em; font-variation-settings: "opsz" 96, "wdth" 88; text-wrap: balance; }
+.card h2 em { font-style: normal; color: var(--coral); }
+.card p { margin: 0; color: #36424f; max-width: 40ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 12px/1 var(--f-mono); padding: 7px 9px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); }
+.chip.on { background: var(--ink); color: var(--card); box-shadow: none; }
+.chip.learn { box-shadow: inset 0 0 0 1.5px var(--coral); color: #b6432a; }
+.chip.next { opacity: .55; border: 1px dashed var(--ink-soft); box-shadow: none; }
+.note { font: 400 11px/1.4 var(--f-mono); color: var(--ink-soft); padding-top: 10px; border-top: 1px solid var(--line); }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.prices { font: 400 13px/1.5 var(--f-mono); color: var(--ink-soft); }
+.scroll-hint { font: 500 12px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; display: inline-flex; gap: 8px; align-items: center; color: var(--ink-soft); }
+.scroll-hint i { display: inline-block; width: 1px; height: 22px; background: var(--ink-soft); animation: drip 1.6s ease-in-out infinite; transform-origin: top; }
+@keyframes drip { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+.rail {
+  position: fixed; z-index: 15; right: max(16px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%);
+  display: grid; gap: 4px; list-style: none; margin: 0; padding: 0;
+}
+.rail button {
+  all: unset; cursor: pointer; display: flex; align-items: center; justify-content: flex-end; gap: 10px;
+  font: 500 11px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); padding: 6px 0;
+}
+.rail button span { opacity: 0; transform: translateX(6px); transition: .25s; background: var(--card); padding: 5px 7px; border-radius: 4px; }
+.rail button::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--card); box-shadow: 0 0 0 1px rgba(28,39,51,.35); transition: .25s; }
+.rail button[aria-current="step"]::after { background: var(--coral); transform: scale(1.4); }
+.rail button[aria-current="step"] span, .rail button:hover span, .rail button:focus-visible span { opacity: 1; transform: none; }
+
+.switch {
+  position: fixed; z-index: 50; left: 50%; transform: translateX(-50%);
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  display: flex; gap: 2px; padding: 4px; border-radius: 999px; background: #111; color: #eee;
+  font: 500 12px/1 system-ui, sans-serif; box-shadow: 0 6px 24px rgba(0,0,0,.25); max-width: calc(100% - 32px);
+}
+.switch a { padding: 9px 12px; border-radius: 999px; text-decoration: none; white-space: nowrap; }
+.switch a[aria-current] { background: #eee; color: #111; }
+
+@media (max-width: 900px) {
+  .chapter { align-items: flex-end; padding-block: 90px 76px; }
+  .card { margin: 0 auto; padding: 20px 20px 18px; gap: 10px; }
+  .card h2 { font-size: clamp(28px, 8vw, 36px); }
+  .card p { font-size: 16px; }
+  .scroll-hint { display: none; }
+  .rail { top: auto; bottom: auto; top: calc(70px + env(safe-area-inset-top, 0px)); transform: none; display: flex; gap: 6px; }
+  .rail button span { display: none; }
+  .rail button { padding: 4px 0; }
+  .btn { padding: 10px 15px; font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .scroll-hint i { animation: none; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<header class="top">
+  <a class="brand" href="#c0">Gabriel Dalmoro</a>
+  <a class="btn" href="#c7">Book a call</a>
+</header>
+
+<ol class="rail" id="rail" aria-label="Chapters"></ol>
+
+<main id="story">
+  <section class="chapter" id="c0" data-label="06:30 Hello">
+    <div class="card">
+      <div class="stamp"><b>06:30</b><span>Hello</span></div>
+      <h2>Hi, I'm Gabriel. <em>Come spend a day with me.</em></h2>
+      <p>I build software that saves people time, then I spend mine outside. Born in Brazil, raised in Canada, living in France.</p>
+      <span class="scroll-hint"><i></i>Scroll</span>
+      <p class="note">Prototype. The little guy is a placeholder made of simple shapes. The real one would look like me.</p>
+    </div>
+  </section>
+  <section class="chapter" id="c1" data-label="08:00 Code">
+    <div class="card">
+      <div class="stamp"><b>08:00</b><span>Code</span></div>
+      <h2>Mornings are for <em>building.</em></h2>
+      <p>Three years as a full-stack developer. Today I run an automation studio and I'm building a SaaS for private chefs in France.</p>
+      <div class="chips"><span class="chip">n8n</span><span class="chip">Python</span><span class="chip">Next.js</span></div>
+    </div>
+  </section>
+  <section class="chapter" id="c2" data-label="11:00 Peaks">
+    <div class="card">
+      <div class="stamp"><b>11:00</b><span>Peaks</span></div>
+      <h2>Then I go <em>up.</em></h2>
+      <p>I grew up hiking peaks in the Canadian mountains, and later climbed in the Andes. Long days, big views, sore legs.</p>
+    </div>
+  </section>
+  <section class="chapter" id="c3" data-label="14:00 Waves">
+    <div class="card">
+      <div class="stamp"><b>14:00</b><span>Waves</span></div>
+      <h2>Born in Brazil. <em>Of course I surf.</em></h2>
+      <p>My biggest wave so far: 3 meters.</p>
+    </div>
+  </section>
+  <section class="chapter" id="c4" data-label="15:30 Reef">
+    <div class="card">
+      <div class="stamp"><b>15:30</b><span>Reef</span></div>
+      <h2>Sometimes I go <em>under.</em></h2>
+      <p>Scuba diving in Indonesia. No phone, no inbox, just fish.</p>
+    </div>
+  </section>
+  <section class="chapter" id="c5" data-label="17:30 Training">
+    <div class="card">
+      <div class="stamp"><b>17:30</b><span>Training</span></div>
+      <h2>Son of a <em>personal trainer.</em></h2>
+      <p>Training is part of every day. It's how I keep up with everything else.</p>
+    </div>
+  </section>
+  <section class="chapter" id="c6" data-label="21:00 Fire">
+    <div class="card">
+      <div class="stamp"><b>21:00</b><span>Fire</span></div>
+      <h2>Guitar, a fire, and <em>a new language.</em></h2>
+      <p>I speak four languages and I'm learning a fifth. I can't stop learning new things.</p>
+      <div class="chips">
+        <span class="chip on">Português</span><span class="chip on">English</span><span class="chip on">Español</span><span class="chip on">Français</span>
+        <span class="chip learn">Deutsch · learning</span><span class="chip next">Italiano · next</span>
+      </div>
+    </div>
+  </section>
+  <section class="chapter" id="c7" data-label="22:00 Tomorrow">
+    <div class="card">
+      <div class="stamp"><b>22:00</b><span>Tomorrow</span></div>
+      <h2>Tomorrow, let's give you <em>your time back.</em></h2>
+      <p>Less admin. More impact. I build systems that save founders 10+ hours a week. If I don't save you at least 5, I work for free until I do.</p>
+      <div class="row"><a class="btn" href="#c7">Book a free audit</a><a class="btn ghost" href="#c7">See pricing</a></div>
+      <p class="prices">Pilot €2,497 · Custom from €7,997</p>
+    </div>
+  </section>
+</main>
+
+<nav class="switch" aria-label="Design directions">
+  <a href="index.html">Overview</a>
+  <a href="a-field-notes.html">A</a>
+  <a href="b-trailhead.html">B</a>
+  <a href="c-island.html" aria-current="page">C · Island</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+<script>
+(() => {
+  const chapters = [...document.querySelectorAll('.chapter')];
+  const N = chapters.length;
+  const rail = document.getElementById('rail');
+  const railBtns = chapters.map((c, i) => {
+    const li = document.createElement('li'); const b = document.createElement('button');
+    b.type = 'button'; b.innerHTML = '<span>' + c.dataset.label + '</span>'; b.setAttribute('aria-label', c.dataset.label);
+    b.addEventListener('click', () => c.scrollIntoView({ behavior: 'smooth' }));
+    li.appendChild(b); rail.appendChild(li); return b;
+  });
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!window.THREE) { document.body.classList.add('no-gl'); return; }
+  THREE.ColorManagement.legacyMode = false;
+  const canvas = document.getElementById('gl');
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); } catch (e) { document.body.classList.add('no-gl'); return; }
+  const mobile = Math.min(innerWidth, innerHeight) < 700;
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, mobile ? 1.75 : 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, 1, .1, 400);
+  scene.background = new THREE.Color('#cfe6ef');
+  scene.fog = new THREE.Fog(0xcfe6ef, 45, 140);
+
+  const hemi = new THREE.HemisphereLight(0xffffff, 0x8f7f60, .8);
+  const sun = new THREE.DirectionalLight(0xffffff, 1);
+  sun.position.set(14, 26, 12); sun.castShadow = true;
+  sun.shadow.mapSize.set(mobile ? 1024 : 2048, mobile ? 1024 : 2048);
+  Object.assign(sun.shadow.camera, { left: -18, right: 18, top: 18, bottom: -18, near: 1, far: 70 });
+  sun.shadow.bias = -.0008;
+  scene.add(hemi, sun, sun.target);
+
+  const M = (c, o = {}) => new THREE.MeshStandardMaterial(Object.assign({ color: c, flatShading: true, roughness: .9, metalness: 0 }, o));
+  const add = (geo, m, x = 0, y = 0, z = 0, parent = scene) => { const me = new THREE.Mesh(geo, m); me.position.set(x, y, z); me.castShadow = me.receiveShadow = true; parent.add(me); return me; };
+  let seed = 3; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+  // ---------- island ----------
+  add(new THREE.CylinderGeometry(9.3, 10.6, 7.3, 30), M('#e6cc98'), 0, -3.65, 0);
+  add(new THREE.CylinderGeometry(8.2, 8.5, .25, 30), M('#86b56d'), 0, -.1, 0);
+  // mountain
+  const mg = new THREE.CylinderGeometry(.7, 4, 6.5, 7, 3);
+  const mp = mg.attributes.position;
+  for (let i = 0; i < mp.count; i++) { const y = mp.getY(i); if (y > -3.2 && y < 3.2) { mp.setX(i, mp.getX(i) + (rnd() - .5) * .5); mp.setZ(i, mp.getZ(i) + (rnd() - .5) * .5); } }
+  mg.computeVertexNormals();
+  add(mg, M('#8e9b8a'), 3.5, 3.25, -3.5);
+  add(new THREE.CylinderGeometry(.74, 1.95, 2, 7), M('#f6f7f4'), 3.5, 5.5, -3.5);
+  const pole = add(new THREE.CylinderGeometry(.03, .03, 1.5, 6), M('#5a4a3a'), 4.05, 7.25, -3.35);
+  const flagShape = new THREE.Shape(); flagShape.moveTo(0, 0); flagShape.lineTo(.7, -.22); flagShape.lineTo(0, -.44);
+  const flag = add(new THREE.ShapeGeometry(flagShape), M('#ff7759', { side: THREE.DoubleSide }), 4.05, 7.98, -3.35);
+  // trees + rocks
+  [[-6, -1, 1], [-6.6, 1.6, .8], [-1, -6.6, 1.1], [1.6, -7, .9], [6.9, 2, 1], [5.6, 4.6, .8], [-3, 6.6, .9], [-7, 4, 1.1], [-4.6, -5.4, .9], [7.4, -1, .8]].forEach(([x, z, s]) => {
+    add(new THREE.CylinderGeometry(.1 * s, .14 * s, .6 * s, 6), M('#7a5a3c'), x, .3 * s, z);
+    add(new THREE.ConeGeometry(.75 * s, 1.4 * s, 7), M('#3f7d4e'), x, 1.15 * s, z);
+    add(new THREE.ConeGeometry(.55 * s, 1.1 * s, 7), M('#4d9160'), x, 1.75 * s, z);
+  });
+  [[-1.5, 2.5, .35], [2.4, 2.2, .25], [-5.5, -3, .4], [6.5, -4.5, .45]].forEach(([x, z, s]) => add(new THREE.DodecahedronGeometry(s), M('#a2a69c'), x, s * .5, z));
+
+  // ---------- desk ----------
+  const wood = M('#b98552'), dark = M('#2b3440');
+  add(new THREE.BoxGeometry(.75, .06, 1.4), wood, -3.25, .74, 2);
+  [[-3.55, 1.4], [-3.55, 2.6], [-2.95, 1.4], [-2.95, 2.6]].forEach(([x, z]) => add(new THREE.BoxGeometry(.05, .72, .05), wood, x, .36, z));
+  add(new THREE.BoxGeometry(.06, .5, .82), dark, -3.0, 1.08, 2);
+  add(new THREE.BoxGeometry(.06, .2, .06), dark, -3.0, .82, 2);
+  const scr = document.createElement('canvas'); scr.width = 256; scr.height = 160;
+  const sctx = scr.getContext('2d'); const screenTex = new THREE.CanvasTexture(scr); screenTex.encoding = THREE.sRGBEncoding;
+  let codeLines = Array.from({ length: 12 }, () => [Math.floor(rnd() * 4) * 14, 30 + rnd() * 140, Math.floor(rnd() * 4)]);
+  function paintScreen() {
+    sctx.fillStyle = '#16202b'; sctx.fillRect(0, 0, 256, 160);
+    const cols = ['#7dd3c0', '#ff9f80', '#f6d365', '#c7d2de'];
+    codeLines.forEach(([ind, w, c], i) => { sctx.fillStyle = cols[c]; sctx.fillRect(14 + ind, 12 + i * 12, w, 6); });
+    screenTex.needsUpdate = true;
+  }
+  paintScreen();
+  const screen = new THREE.Mesh(new THREE.PlaneGeometry(.74, .44), new THREE.MeshBasicMaterial({ map: screenTex }));
+  screen.position.set(-3.035, 1.08, 2); screen.rotation.y = -Math.PI / 2; scene.add(screen);
+  add(new THREE.BoxGeometry(.22, .02, .5), M('#d9dde3'), -3.4, .78, 2);
+  add(new THREE.CylinderGeometry(.05, .045, .11, 10), M('#ff7759'), -3.3, .82, 2.5);
+  add(new THREE.BoxGeometry(.5, .06, .5), M('#3a6f7a'), -4.05, .46, 2);
+  add(new THREE.BoxGeometry(.06, .6, .5), M('#3a6f7a'), -4.3, .78, 2);
+  add(new THREE.CylinderGeometry(.04, .04, .44, 6), dark, -4.05, .22, 2);
+
+  // ---------- training mat ----------
+  add(new THREE.BoxGeometry(1.4, .03, 2.2), M('#334155'), -2, .015, -3);
+
+  // ---------- campfire ----------
+  for (let i = 0; i < 5; i++) { const l = add(new THREE.CylinderGeometry(.07, .07, .7, 6), M('#6b4a2e'), 1 + Math.cos(i * 1.26) * .2, .1, 5 + Math.sin(i * 1.26) * .2); l.rotation.set(Math.PI / 2.6, i * 1.26, 0); }
+  for (let i = 0; i < 9; i++) add(new THREE.DodecahedronGeometry(.13), M('#8d8f88'), 1 + Math.cos(i * .7) * .55, .06, 5 + Math.sin(i * .7) * .55);
+  const flames = [['#ff7a2f', .26, .7], ['#ffb02e', .18, .52], ['#ffe08a', .1, .34]].map(([c, r, h]) => {
+    const f = new THREE.Mesh(new THREE.ConeGeometry(r, h, 6), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .92 }));
+    f.position.set(1, .12 + h / 2, 5); scene.add(f); return f;
+  });
+  const fireLight = new THREE.PointLight(0xff9a4a, 0, 9, 1.6); fireLight.position.set(1, .9, 5); scene.add(fireLight);
+  const log = add(new THREE.CylinderGeometry(.22, .22, 1.5, 8), M('#7a5434'), -.35, .22, 5); log.rotation.x = Math.PI / 2;
+
+  // ---------- sea + seafloor ----------
+  const SEA = -.35;
+  const seaGeo = new THREE.PlaneGeometry(170, 170, mobile ? 70 : 100, mobile ? 70 : 100); seaGeo.rotateX(-Math.PI / 2);
+  const sea = new THREE.Mesh(seaGeo, M('#2a9da1', { transparent: true, opacity: .8, roughness: .35, side: THREE.DoubleSide }));
+  sea.position.y = SEA; sea.receiveShadow = true; scene.add(sea);
+  const seaPos = seaGeo.attributes.position;
+  function seaH(x, z, t) {
+    let h = Math.sin(x * .32 + t * .9) * .14 + Math.cos(z * .27 + t * 1.2) * .12;
+    const dx = x - 13, dz = z - 4; h += 1.25 * Math.exp(-(dx * dx * .12 + dz * dz * .05)) * (.75 + .25 * Math.sin(t * .9));
+    return h;
+  }
+  const floorGeo = new THREE.PlaneGeometry(170, 170, 40, 40); floorGeo.rotateX(-Math.PI / 2);
+  const fp = floorGeo.attributes.position; for (let i = 0; i < fp.count; i++) fp.setY(i, (rnd() - .5) * .5);
+  floorGeo.computeVertexNormals();
+  add(floorGeo, M('#c9b07c'), 0, -7.3, 0);
+  // reef
+  const reefC = new THREE.Vector3(12, -7.2, -8);
+  const coralCols = ['#ff7759', '#ffb347', '#c06cd8', '#3fbfa8', '#f25f8a'];
+  for (let i = 0; i < 26; i++) {
+    const a = rnd() * Math.PI * 2, r = 1 + rnd() * 3.6, c = M(coralCols[i % 5]);
+    const x = reefC.x + Math.cos(a) * r, z = reefC.z + Math.sin(a) * r;
+    const kind = i % 3;
+    if (kind === 0) add(new THREE.ConeGeometry(.25 + rnd() * .2, .8 + rnd() * 1.2, 6), c, x, -6.9, z);
+    else if (kind === 1) add(new THREE.SphereGeometry(.3 + rnd() * .35, 7, 5), c, x, -7.0, z);
+    else { const t = add(new THREE.TorusGeometry(.35, .12, 5, 8), c, x, -6.7, z); t.rotation.set(rnd() * 2, rnd() * 2, 0); }
+  }
+  const weeds = [];
+  for (let i = 0; i < 14; i++) { const w = add(new THREE.BoxGeometry(.08, 1.6 + rnd(), .08), M('#4f9a5a'), reefC.x - 4 + rnd() * 8, -6.4, reefC.z - 4 + rnd() * 8); weeds.push([w, rnd() * 6]); }
+  const fish = [];
+  for (let i = 0; i < 10; i++) {
+    const g = new THREE.Group(); const col = M(i % 2 ? '#ffcf3f' : '#ff7759');
+    const b = new THREE.Mesh(new THREE.ConeGeometry(.12, .42, 6), col); b.rotation.x = Math.PI / 2; g.add(b);
+    const tail = new THREE.Mesh(new THREE.ConeGeometry(.1, .16, 4), col); tail.rotation.x = -Math.PI / 2; tail.position.z = -.27; g.add(tail);
+    scene.add(g); fish.push([g, 1.6 + rnd() * 2.4, rnd() * 6, -3.2 - rnd() * 3, .3 + rnd() * .4]);
+  }
+  // surfboard
+  const board = new THREE.Group(); scene.add(board);
+  const bm = new THREE.Mesh(new THREE.SphereGeometry(1, 18, 8), M('#fffdf8', { roughness: .5 })); bm.scale.set(1.15, .05, .3); bm.castShadow = true; board.add(bm);
+  const stripe = new THREE.Mesh(new THREE.BoxGeometry(2.1, .02, .05), M('#ff7759')); stripe.position.y = .045; board.add(stripe);
+
+  // stars
+  const sg = new THREE.BufferGeometry(); const sp = [];
+  for (let i = 0; i < 500; i++) { const a = rnd() * Math.PI * 2, e = .08 + rnd() * 1.4; sp.push(Math.cos(a) * Math.cos(e) * 160, Math.sin(e) * 160, Math.sin(a) * Math.cos(e) * 160); }
+  sg.setAttribute('position', new THREE.Float32BufferAttribute(sp, 3));
+  const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 2, sizeAttenuation: false, transparent: true, opacity: 0, fog: false });
+  scene.add(new THREE.Points(sg, starMat));
+
+  // ---------- the figure ----------
+  const skin = M('#e2ad8b'), shirt = M('#ff7759'), shorts = M('#22324a'), hair = M('#3a2a1f'), shoe = M('#f4f4f2'), black = M('#141414');
+  const cap = (r, l) => new THREE.CapsuleGeometry(r, l, 4, 8);
+  const root = new THREE.Group(); root.rotation.order = 'YXZ'; scene.add(root);
+  const hips = new THREE.Group(); root.add(hips);
+  const torso = new THREE.Group(); hips.add(torso);
+  add(cap(.2, .36), shirt, 0, .34, 0, torso);
+  const headG = new THREE.Group(); headG.position.y = .76; torso.add(headG);
+  add(new THREE.SphereGeometry(.17, 14, 10), skin, 0, .1, 0, headG);
+  const hairM = add(new THREE.SphereGeometry(.178, 14, 8, 0, Math.PI * 2, 0, Math.PI * .5), hair, 0, .12, -.012, headG); hairM.rotation.x = -.25;
+  add(new THREE.SphereGeometry(.022, 6, 5), black, .06, .12, .155, headG);
+  add(new THREE.SphereGeometry(.022, 6, 5), black, -.06, .12, .155, headG);
+  const beard = add(new THREE.SphereGeometry(.165, 12, 6, 0, Math.PI * 2, Math.PI * .58, Math.PI * .3), hair, 0, .1, .012, headG); beard.scale.set(1, 1, 1.02);
+  const mask = add(new THREE.BoxGeometry(.24, .09, .06), M('#1d4e89', { roughness: .2 }), 0, .13, .16, headG);
+  const tank = add(new THREE.CylinderGeometry(.1, .1, .5, 10), M('#ffcf3f'), 0, .38, -.25, torso);
+  function limb(parent, x, y, upperMat, r1, r2) {
+    const j = new THREE.Group(); j.position.set(x, y, 0); parent.add(j);
+    add(cap(r1, .2), upperMat, 0, -.16, 0, j);
+    const k = new THREE.Group(); k.position.y = -.33; j.add(k);
+    add(cap(r2, .2), skin, 0, -.15, 0, k);
+    const end = new THREE.Group(); end.position.y = -.31; k.add(end);
+    return [j, k, end];
+  }
+  const [lS, lE, lHand] = limb(torso, .27, .58, shirt, .068, .058);
+  const [rS, rE, rHand] = limb(torso, -.27, .58, shirt, .068, .058);
+  add(new THREE.SphereGeometry(.068, 8, 6), skin, 0, 0, 0, lHand); add(new THREE.SphereGeometry(.068, 8, 6), skin, 0, 0, 0, rHand);
+  function leg(x) {
+    const j = new THREE.Group(); j.position.set(x, 0, 0); hips.add(j);
+    add(cap(.088, .26), shorts, 0, -.21, 0, j);
+    const k = new THREE.Group(); k.position.y = -.45; j.add(k);
+    add(cap(.072, .28), skin, 0, -.2, 0, k);
+    add(new THREE.BoxGeometry(.12, .07, .24), shoe, 0, -.44, .05, k);
+    return [j, k];
+  }
+  const [lH, lK] = leg(.11), [rH, rK] = leg(-.11);
+  // props on the body
+  const kettle = new THREE.Group(); rHand.add(kettle); kettle.position.set(.12, -.14, 0);
+  add(new THREE.SphereGeometry(.15, 10, 8), M('#20262e', { roughness: .6 }), 0, -.08, 0, kettle);
+  const kh = add(new THREE.TorusGeometry(.09, .025, 6, 12), M('#20262e'), 0, .07, 0, kettle);
+  const guitar = new THREE.Group(); torso.add(guitar); guitar.position.set(.02, .2, .27); guitar.rotation.set(0, 0, .45);
+  const gw = M('#c98a4b', { roughness: .6 });
+  [[.19, -.1], [.15, .14]].forEach(([r, y]) => { const c = add(new THREE.CylinderGeometry(r, r, .09, 14), gw, -.05, y, 0, guitar); c.rotation.x = Math.PI / 2; });
+  const hole = add(new THREE.CylinderGeometry(.05, .05, .1, 10), black, -.05, .05, .005, guitar); hole.rotation.x = Math.PI / 2;
+  add(new THREE.BoxGeometry(.06, .62, .04), M('#5a3a22'), -.05, .55, 0, guitar);
+
+  // ---------- poses ----------
+  const BASE = { lift: 0, pitch: 0, roll: 0, torsoX: 0, headX: 0, lSx: 0, lSz: .1, lEx: 0, rSx: 0, rSz: -.1, rEx: 0, lHx: 0, lHz: 0, lKx: 0, rHx: 0, rHz: 0, rKx: 0 };
+  const P = {
+    wave: t => ({ rSz: -2.55 + Math.sin(t * 6) * .25, rEx: -.35, lSz: .12, headX: -.05 }),
+    sit: t => ({ lift: -.42, lHx: -1.5, rHx: -1.5, lKx: 1.5, rKx: 1.5, torsoX: .08, headX: .14 + Math.sin(t * 1.3) * .03,
+      lSx: -.45, rSx: -.45, lSz: .05, rSz: -.05, lEx: -1.05 + Math.sin(t * 18) * .07, rEx: -1.05 + Math.cos(t * 17) * .07 }),
+    summit: t => ({ rSx: -2.85, rSz: -.18 + Math.sin(t * 2) * .06, rEx: -.1, lSz: .28, lEx: -.25, torsoX: -.06, headX: -.15, lHz: .08, rHz: -.08 }),
+    surf: t => ({ lift: -.16 + Math.sin(t * 1.3) * .03, lHx: -.3, rHx: -.3, lHz: .3, rHz: -.3, lKx: .65, rKx: .65, torsoX: .22, roll: Math.sin(t * 1.3) * .08,
+      lSz: 1.25 + Math.sin(t * 1.3) * .1, rSz: -1.25 + Math.sin(t * 1.3) * .1, lSx: -.15, rSx: .1, headX: .05 }),
+    swim: t => ({ pitch: 1.45, lSx: -2.95, rSx: -2.95, lSz: .1, rSz: -.1, headX: -.55, lHx: Math.sin(t * 7) * .35, rHx: -Math.sin(t * 7) * .35, lKx: .2, rKx: .2 }),
+    swing: t => { const k = (Math.sin(t * 3.2) + 1) / 2, d = 1 - k;
+      return { lSx: -.15 - 1.45 * k, rSx: -.15 - 1.45 * k, lSz: -.3, rSz: .3, torsoX: .55 * d, lHx: -.25 - .5 * d, rHx: -.25 - .5 * d, lKx: .35 + .1 * d, rKx: .35 + .1 * d, lHz: .15, rHz: -.15, lift: -.06 - .06 * d }; },
+    guitar: t => ({ lift: -.45, lHx: -1.45, rHx: -1.45, lKx: 1.5, rKx: 1.5, torsoX: .1, headX: .25, rSx: -.55, rSz: -.15, rEx: -1.2 + Math.sin(t * 9) * .18, lSx: -1.0, lSz: .55, lEx: -.9 }),
+    fly: () => ({ lSx: -.3, rSx: -.3, lSz: 2.5, rSz: -2.5, lHx: -.5, rHx: -.1, lKx: .7, rKx: .3, torsoX: -.1 })
+  };
+  const pose = (k, t) => Object.assign({}, BASE, P[k](t));
+  const mix = (a, b, w) => { const o = {}; for (const k in BASE) o[k] = a[k] + (b[k] - a[k]) * w; return o; };
+  function applyPose(p) {
+    hips.position.y = .95 + p.lift; torso.rotation.x = p.torsoX; headG.rotation.x = p.headX;
+    lS.rotation.set(p.lSx, 0, p.lSz); rS.rotation.set(p.rSx, 0, p.rSz); lE.rotation.x = p.lEx; rE.rotation.x = p.rEx;
+    lH.rotation.set(p.lHx, 0, p.lHz); rH.rotation.set(p.rHx, 0, p.rHz); lK.rotation.x = p.lKx; rK.rotation.x = p.rKx;
+    root.rotation.x = p.pitch; root.rotation.z = p.roll;
+  }
+
+  // ---------- stations: one per chapter ----------
+  const V = (x, y, z) => new THREE.Vector3(x, y, z);
+  const S = [
+    { pose: 'wave',   fig: V(0, 0, .6),      yaw: .55,  cam: V(14, 11, 18),    look: V(1, 1.6, 0),    sky: '#f2d6bf', sunI: .75, sunC: '#ffd9b0' },
+    { pose: 'sit',    fig: V(-4, 0, 2),      yaw: Math.PI / 2, cam: V(-1.5, 2.2, 5.3), look: V(-3.6, .95, 2), sky: '#cfe6ef', sunI: 1.0, sunC: '#ffffff' },
+    { pose: 'summit', fig: V(3.5, 6.5, -3.5), yaw: .65, cam: V(7.7, 8.4, 1.6),  look: V(3.5, 7.2, -3.5), sky: '#a9d4ec', sunI: 1.15, sunC: '#ffffff' },
+    { pose: 'surf',   fig: V(13, 0, 4),      yaw: 0,    cam: V(9.2, 2.6, 10.4), look: V(13, 1.1, 4),   sky: '#9fd0e6', sunI: 1.1, sunC: '#fff6e8' },
+    { pose: 'swim',   fig: V(12, -4.3, -8),  yaw: -2.27, cam: V(8.4, -3.5, -3.6), look: V(12, -4.5, -8), sky: '#9fd0e6', sunI: 1.0, sunC: '#fff6e8' },
+    { pose: 'swing',  fig: V(-2, 0, -3),     yaw: .65,  cam: V(1.3, 1.9, 1.5), look: V(-2, 1.0, -3),   sky: '#f0c49b', sunI: .8, sunC: '#ffc58a' },
+    { pose: 'guitar', fig: V(-.35, 0, 5),    yaw: Math.PI / 2, cam: V(2.7, 1.9, 8.7), look: V(.4, .85, 5), sky: '#1f2a44', sunI: .12, sunC: '#8aa0ff' },
+    { pose: 'wave',   fig: V(0, 0, .6),      yaw: .55,  cam: V(17, 13.5, 22),  look: V(1, 1.2, 0),    sky: '#172238', sunI: .1, sunC: '#8aa0ff' }
+  ].map(s => Object.assign(s, { skyC: new THREE.Color(s.sky), sunCol: new THREE.Color(s.sunC) }));
+
+  const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+  const lerpAng = (a, b, w) => { let d = ((b - a + Math.PI) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2) - Math.PI; return a + d * w; };
+  const tmp = new THREE.Vector3(), look = new THREE.Vector3(), skyCol = new THREE.Color(), sunCol = new THREE.Color();
+  const underwater = new THREE.Color('#1c6f7d');
+
+  // ---------- sizing ----------
+  let W = 0, Hh = 0;
+  function resize() {
+    W = innerWidth; Hh = innerHeight;
+    renderer.setSize(W, Hh, false);
+    camera.aspect = W / Hh;
+    if (W > 900) camera.setViewOffset(W, Hh, -W * .16, 0, W, Hh);
+    else camera.setViewOffset(W, Hh, 0, Hh * .17, W, Hh);
+    camera.fov = W / Hh < .8 ? 52 : 40;
+    camera.updateProjectionMatrix();
+  }
+  addEventListener('resize', resize); resize();
+
+  // ---------- scroll ----------
+  let pTarget = 0, pCur = 0;
+  function readScroll() {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    pTarget = max > 0 ? Math.min(N - 1, Math.max(0, scrollY / max * (N - 1))) : 0;
+  }
+  addEventListener('scroll', readScroll, { passive: true }); readScroll(); pCur = pTarget;
+
+  // ---------- loop ----------
+  const clock = new THREE.Clock(); let lastScreen = 0, active = -1;
+  function frame() {
+    const dt = Math.min(clock.getDelta(), .05), t = reduce ? 0 : clock.elapsedTime;
+    pCur = reduce ? pTarget : pCur + (pTarget - pCur) * Math.min(1, dt * 4.5);
+    const i = Math.min(N - 2, Math.floor(pCur)), f = pCur - i, e = smooth(.18, .82, f);
+    const A = S[i], B = S[i + 1];
+    const near = e < .5 ? i : i + 1;
+    if (near !== active) { active = near; railBtns.forEach((b, k) => k === near ? b.setAttribute('aria-current', 'step') : b.removeAttribute('aria-current')); }
+
+    // sea
+    for (let k = 0; k < seaPos.count; k++) seaPos.setY(k, seaH(seaPos.getX(k), seaPos.getZ(k), t));
+    seaPos.needsUpdate = true; seaGeo.computeVertexNormals();
+    const bh = seaH(13, 4, t) + SEA;
+    board.position.set(13, bh + .04, 4);
+    board.rotation.set((seaH(13, 4.6, t) - seaH(13, 3.4, t)) * -.6, 0, (seaH(13.8, 4, t) - seaH(12.2, 4, t)) * .4);
+    S[3].fig.y = bh + .08;
+
+    // figure position: hop between stations
+    const arc = Math.sin(Math.PI * e) * (1.6 + A.fig.distanceTo(B.fig) * .12);
+    root.position.lerpVectors(A.fig, B.fig, e); root.position.y += arc;
+    root.rotation.y = lerpAng(A.yaw, B.yaw, e);
+    const flyW = Math.sin(Math.PI * e) * .85;
+    applyPose(mix(mix(pose(A.pose, t), pose(B.pose, t), e), pose('fly', t), flyW));
+    if (near === 3) root.rotation.z += board.rotation.z * .6;
+
+    // props
+    kettle.visible = near === 5; guitar.visible = near === 6; tank.visible = mask.visible = near === 4;
+
+    // camera
+    camera.position.lerpVectors(A.cam, B.cam, e); camera.position.y += Math.sin(Math.PI * e) * 3;
+    look.lerpVectors(A.look, B.look, e); camera.lookAt(look);
+
+    // light + sky
+    skyCol.copy(A.skyC).lerp(B.skyC, e); sunCol.copy(A.sunCol).lerp(B.sunCol, e);
+    const sunI = A.sunI + (B.sunI - A.sunI) * e, night = 1 - Math.min(1, sunI / .7);
+    sun.intensity = sunI; sun.color.copy(sunCol); hemi.intensity = .25 + .55 * (1 - night);
+    const flick = .85 + Math.sin(t * 13) * .08 + Math.sin(t * 7.3) * .07;
+    fireLight.intensity = night * 2.6 * flick;
+    flames.forEach((fl, k) => { fl.scale.set(1, flick + k * .05, 1); fl.rotation.y = t * (1 + k); });
+    starMat.opacity = night;
+    if (camera.position.y < SEA - .05) { scene.background = underwater; scene.fog.color.copy(underwater); scene.fog.near = 1; scene.fog.far = 24; }
+    else { scene.background = skyCol; scene.fog.color.copy(skyCol); scene.fog.near = 45; scene.fog.far = 140; }
+
+    // ambient life
+    flag.rotation.y = Math.sin(t * 3) * .25;
+    weeds.forEach(([w, ph]) => { w.rotation.z = Math.sin(t * 1.2 + ph) * .18; });
+    fish.forEach(([g, r, ph, y, sp]) => { const a = t * sp + ph; g.position.set(reefC.x + Math.cos(a) * r, y + Math.sin(a * 2) * .2, reefC.z + Math.sin(a) * r); g.rotation.y = -a; });
+    if (near === 1 && t - lastScreen > .35) { lastScreen = t; codeLines.shift(); codeLines.push([Math.floor(rnd() * 4) * 14, 30 + rnd() * 150, Math.floor(rnd() * 4)]); paintScreen(); }
+
+    renderer.render(scene, camera);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
