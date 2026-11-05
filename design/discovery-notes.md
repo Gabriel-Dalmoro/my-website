@@ -21,8 +21,8 @@ Running record of what we've learned. Updated as answers come in.
 - Italian: next (zero for now)
 
 ## Projects to show
-- Girlfriend's website (live, with automations built in)
-- Mother-in-law's portfolio site
+- Elisa Batch Cooking — elisabatchcooking.com (girlfriend; private chef in Annecy; live, with automations)
+- Sabrina Carlier — sabrinacarlier.fr (mother-in-law; sommelière, radio, trainer, Lyon)
 - Lantern Clinic: first automation client (real work, not the demo page)
 - Chef SaaS (later, once ready)
 - NOT the clinic demo pages
@@ -52,10 +52,27 @@ Running record of what we've learned. Updated as answers come in.
 - Photo palette: alpine blue, snow white, Atlantic-forest green, turquoise sea, golden-hour light.
 - New facet: snowboarding (Rockies and the Alps).
 
+## Three words
+creative · adventurous · multipotentialite
+
+## Photos received (batch 3)
+11. Piano + Telecaster at home
+12. Acoustic guitar on the porch, cowboy hat
+13. Telecaster, glasses, gold chain
+14. Gym mirror selfie
+15. Machu Picchu selfie
+
+Photos are saved in design/photos/ (permission given).
+
+## From the journals (kept out of the repo)
+- Writes by hand (Supernote) and in Notion; mixes PT/EN/ES.
+- Entry format: date + place header; "Aprendizados" (lessons) after each stretch; monthly retros.
+- Signature divider drawn between entries: —— // ——
+- Systems thinker in life: habit tiers, ideal-day schedule, budgets, pros/cons lists.
+- 260-day route: Calgary → Colombia → Ecuador → Peru → Bolivia → Chile → Brazil → Annecy.
+- Career thesis (Dec 2024): tech + people/communication + money.
+- Learned salsa and Spanish on the road (handwritten grammar notes).
+- Private content (relationships, substances, family conflict, money) stays off the site.
+
 ## Still open
-- Three words someone should use to describe Gabriel after 30 seconds
-- Three websites he loves, and why
-- 3D figure style: ink line drawing, paper/clay miniature, or clean white model
-- Links/details: girlfriend's site, mother-in-law's portfolio, Lantern Clinic work (what was built, results, can we name them)
-- Journal PDF (incoming)
-- Permission to store photos in the repo
+See design/brief.md, section 7.
