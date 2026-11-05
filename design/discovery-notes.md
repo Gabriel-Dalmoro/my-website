@@ -91,3 +91,15 @@ Photos are saved in design/photos/ (permission given).
 ## Still open
 - Lantern Clinic details (what was built, results, OK to name?).
 - Avatar style sign-off.
+
+## Round 3
+- Feedback: balance journal (paper, handwriting) with atlas (map, route). Use the // divider more.
+  Map should be the main stage for the route; draw the route on scroll; 3D character on top.
+  Smoother 3D (no pixel steps), better animation. Mum gave him music; dad gave him training.
+  Route order: Brazil → Calgary → South America → France. Add a short "what this site is" note.
+  Languages: flags / real paper. Footer: "bênção." on its own centered line.
+  Brand must last: explore type, colour and paper; be able to switch between options.
+- Built: design/prototype/round3.html (Design lab: 6 type systems, 6 palettes, 4 papers, 7 presets).
+- Handwriting sheet received (vector export used: clean ink layer).
+  Font "Gabriel Hand" built from it: design/handwriting/font/ (102 glyphs, no "&" or "¡").
+  Phrase crops in design/prototype/assets/hand/g/.
