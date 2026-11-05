@@ -74,5 +74,20 @@ Photos are saved in design/photos/ (permission given).
 - Learned salsa and Spanish on the road (handwritten grammar notes).
 - Private journal content stays off the site. The journal shapes tone and structure only.
 
+## Round 2 answers
+- Biggest wave: 2.3 m (Santinho, Florianópolis).
+- Extra project to show: FITtoExcel (fittoexcel.com), fitness-tech startup Gabriel is helping his dad launch in Canada.
+- Chef SaaS grew out of automating Elisa's business; they build it together. OK to say publicly.
+- Do NOT name the city he lives in. Say "France".
+- Faith: small touches only, never front and center.
+- Diving: leave out for now.
+- Handwriting: Gabriel will fill in the sample sheet (design/handwriting/handwriting-sheet.pdf).
+
+## Round 2 prototype
+- design/prototype/index.html (standalone page, not wired into Next.js yet).
+- Handwriting crops from the journal: place names, the // divider, Spanish notes, a blessing line.
+- 3D: layered-paper topographic model; little Gabriel moves through 9 scenes.
+
 ## Still open
-See design/brief.md, section 7.
+- Lantern Clinic details (what was built, results, OK to name?).
+- Avatar style sign-off.

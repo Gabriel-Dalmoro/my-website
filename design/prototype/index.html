@@ -1,0 +1,1241 @@
+<title>Gabriel Dalmoro Field Notes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Hanken+Grotesk:wght@400;500;600&family=Martian+Mono:wdth,wght@75..100,400..500&family=Reenie+Beanie&display=swap">
+<style>
+/* Layout: an explorer's field journal laid over a topographic sheet.
+   Fixed paper + contour ground; one 3D "layered paper" model that rides with the hero and
+   returns, sticky, for the route chapters. Solid paper sections slide over it for the work. */
+:root {
+  --paper: #eceee6;
+  --paper-2: #e2e5db;
+  --paper-3: #d7dbcf;
+  --sheet: #f7f8f3;
+  --ink: #17222a;
+  --ink-2: #3c4950;
+  --ink-3: #6a757a;
+  --rule: rgba(23, 34, 42, .16);
+  --contour: #a88a68;
+  --glacier: #2d64a8;
+  --glacier-wash: #d3e0ea;
+  --sun: #d38a2e;
+
+  --f-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "Martian Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --f-hand: "Reenie Beanie", "Bradley Hand", "Segoe Print", cursive;
+
+  --gut: max(20px, env(safe-area-inset-left, 0px));
+  --gut-r: max(20px, env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.62 var(--f-body); overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--glacier); outline-offset: 3px; }
+::selection { background: var(--glacier-wash); }
+
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: var(--gut); padding-right: var(--gut-r); }
+.mono { font-family: var(--f-mono); font-variation-settings: "wdth" 88; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
+.hand { font-family: var(--f-hand); color: var(--glacier); line-height: 1; text-transform: none; letter-spacing: 0; }
+.serif { font-family: var(--f-display); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(42px, 5.6vw, 76px); line-height: .98; letter-spacing: -.025em; font-variation-settings: "opsz" 72; }
+h2 em, h3 em { font-style: italic; }
+p { margin: 0; }
+
+/* ---------- ground layers ---------- */
+#paperbg { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
+#gl { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; opacity: 0; transition: opacity .5s ease; will-change: transform; }
+#gl.on { opacity: 1; }
+main, header.bar, footer { position: relative; z-index: 2; }
+.solid { background: var(--paper); }
+.band { background: var(--paper-2); }
+
+/* ---------- header ---------- */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+header.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 25; transition: background .3s, box-shadow .3s; }
+header.bar.scrolled { background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--rule); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 64px; }
+.sig { font: italic 400 23px/1 var(--f-display); text-decoration: none; letter-spacing: -.01em; white-space: nowrap; }
+.bar nav { display: flex; align-items: center; gap: 26px; }
+.bar nav a { text-decoration: none; }
+.bar nav a.navlink:hover { color: var(--glacier); }
+.btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 500 15px/1 var(--f-body); padding: 13px 18px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer; transition: background .2s, color .2s; }
+.btn:hover { background: var(--glacier); border-color: var(--glacier); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn svg { transition: transform .2s; }
+.btn:hover svg { transform: translateX(3px); }
+.bar .btn { padding: 10px 14px; font-size: 14px; }
+
+/* ---------- hero ---------- */
+.hero { pointer-events: none; }
+.hero a, .hero button, .hero .def { pointer-events: auto; }
+.hero .wrap { min-height: min(calc(100svh - 64px), 900px); display: grid; grid-template-rows: 1fr auto; }
+.hero-text { align-self: center; max-width: 620px; padding-block: 40px 32px; display: grid; gap: 26px; }
+.kicker { display: flex; gap: 18px; flex-wrap: wrap; color: var(--ink-3); }
+.kicker span:first-child { color: var(--ink); }
+h1.name { font-style: italic; font-weight: 300; font-size: clamp(74px, 10.6vw, 168px); line-height: .84; letter-spacing: -.04em; font-variation-settings: "opsz" 72; margin-left: -.04em; }
+h1.name span { display: block; }
+h1.name span + span { padding-left: .62em; }
+.lead { font: 400 clamp(21px, 1.9vw, 27px)/1.32 var(--f-display); max-width: 26ch; font-variation-settings: "opsz" 24; }
+.def { border-left: 2px solid var(--ink); padding: 2px 0 2px 16px; max-width: 46ch; font-size: 16px; color: var(--ink-2); }
+.def b { font: italic 500 21px/1.2 var(--f-display); color: var(--ink); }
+.def .mono { color: var(--ink-3); margin-left: 6px; }
+.def i { font-family: var(--f-display); font-size: 18px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.facts div { padding: 14px 16px 18px 0; display: grid; gap: 4px; }
+.facts div + div { padding-left: 16px; border-left: 1px solid var(--rule); }
+.facts .mono { color: var(--ink-3); }
+.facts b { font: italic 400 22px/1.15 var(--f-display); }
+.tapnote { position: fixed; z-index: 3; pointer-events: none; font-size: 34px; white-space: nowrap; transform: rotate(-4deg); display: flex; align-items: center; gap: 4px; opacity: 0; transition: opacity .4s; }
+.tapnote.on { opacity: 1; }
+.bubble { position: fixed; z-index: 16; pointer-events: none; font: 400 38px/1 var(--f-hand); color: var(--ink); background: var(--sheet); border: 1.5px solid var(--ink); border-radius: 20px; padding: 6px 16px 4px; transform: translate(-50%, -100%) scale(.6); opacity: 0; transition: opacity .2s, transform .25s cubic-bezier(.2, .8, .2, 1.3); white-space: nowrap; }
+.bubble.on { opacity: 1; transform: translate(-50%, -100%) scale(1); }
+.bubble::after { content: ""; position: absolute; left: 50%; bottom: -9px; width: 14px; height: 14px; background: var(--sheet); border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); transform: translateX(-50%) rotate(45deg); }
+.bubble small { font: 400 10px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-left: 6px; }
+
+/* ---------- divider ---------- */
+.divider { display: flex; justify-content: center; padding-block: 54px; }
+.divider img { width: min(420px, 70%); opacity: .85; }
+
+/* ---------- entry headings ---------- */
+.entry-head { display: grid; gap: 14px; margin-bottom: 44px; }
+.entry-head .mono { color: var(--ink-3); display: flex; gap: 14px; flex-wrap: wrap; }
+.entry-head .mono b { color: var(--ink); font-weight: 500; }
+.entry-head p.intro { max-width: 54ch; font-size: 18px; color: var(--ink-2); }
+
+/* ---------- now ---------- */
+.now { padding-block: 24px 110px; }
+.now-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 72px; align-items: start; }
+.now figure { margin: 0; display: grid; gap: 10px; }
+.now figure img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; filter: saturate(.92); }
+figcaption { color: var(--ink-3); }
+.rows { border-bottom: 1px solid var(--rule); }
+.rows .row { display: grid; grid-template-columns: 124px minmax(0, 1fr); gap: 20px; padding: 20px 0; border-top: 1px solid var(--rule); align-items: baseline; }
+.rows .row .mono { color: var(--ink-3); }
+.rows .row p { font: 400 clamp(20px, 1.9vw, 25px)/1.3 var(--f-display); }
+.rows .row p a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.rows .row.quiet p { font-style: italic; color: var(--ink-2); }
+
+/* ---------- work ---------- */
+.work { padding-block: 110px 120px; }
+.plate { margin: 0; display: grid; gap: 12px; }
+.plate .frame { border: 1px solid var(--ink); outline: 1px solid var(--rule); outline-offset: 7px; background: var(--sheet); overflow: hidden; aspect-ratio: 16 / 10; max-width: 100%; }
+.plate .frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 1.2s cubic-bezier(.2, .7, .1, 1); }
+.plate:hover .frame img { transform: scale(1.025); }
+.proj { display: grid; gap: 14px; align-content: start; }
+.proj .tag { display: flex; gap: 10px; flex-wrap: wrap; color: var(--ink-3); }
+.proj .tag b { color: var(--ink); font-weight: 500; }
+.proj h3 { font-size: clamp(32px, 3.4vw, 46px); line-height: 1; letter-spacing: -.02em; }
+.proj p { color: var(--ink-2); max-width: 44ch; }
+.proj .visit { font: 500 15px/1 var(--f-body); text-decoration: none; border-bottom: 1px solid var(--ink); justify-self: start; padding-bottom: 3px; }
+.proj .visit:hover { color: var(--glacier); border-color: var(--glacier); }
+.feature { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: center; }
+.turn { display: flex; justify-content: flex-end; padding: 18px 8% 8px 0; }
+.turn .hand { font-size: 38px; display: flex; align-items: flex-end; gap: 8px; }
+.chef { margin-left: auto; width: min(780px, 100%); background: var(--ink); color: var(--paper); padding: clamp(26px, 4vw, 44px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 40px; align-items: start; position: relative; }
+.chef .tag { color: rgba(236, 238, 230, .65); }
+.chef .tag b { color: var(--paper); }
+.chef h3 { font-size: clamp(32px, 3.6vw, 50px); line-height: 1; }
+.chef p { color: rgba(236, 238, 230, .82); max-width: 46ch; }
+.pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(236, 238, 230, .4); padding: 8px 12px; white-space: nowrap; }
+.pill i { width: 8px; height: 8px; border-radius: 50%; background: #7fd0a1; box-shadow: 0 0 0 0 rgba(127, 208, 161, .6); animation: ping 2s infinite; }
+@keyframes ping { 70% { box-shadow: 0 0 0 9px rgba(127, 208, 161, 0); } 100% { box-shadow: 0 0 0 0 rgba(127, 208, 161, 0); } }
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; margin-top: 110px; }
+.duo > article { display: grid; gap: 26px; align-content: start; }
+.logrow { margin-top: 90px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 90px minmax(0, 4fr) minmax(0, 5fr) auto; gap: 24px; padding: 24px 0; align-items: baseline; }
+.logrow h3 { font-size: 30px; }
+.logrow p { color: var(--ink-2); }
+.logrow .soon { color: var(--ink-3); }
+
+/* ---------- hire band ---------- */
+.hire { background: var(--ink); color: var(--paper); padding-block: 96px; position: relative; overflow: hidden; }
+.hire-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 72px; align-items: start; }
+.hire .mono { color: rgba(236, 238, 230, .6); }
+.hire h2 { margin: 14px 0 22px; }
+.hire h2 em { color: #9cc0e8; }
+.hire p.sub { color: rgba(236, 238, 230, .8); max-width: 40ch; font-size: 18px; }
+.offers { border-top: 1px solid rgba(236, 238, 230, .35); }
+.offers div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 20px; padding: 18px 0; border-bottom: 1px solid rgba(236, 238, 230, .18); }
+.offers b { font: 400 24px/1.1 var(--f-display); }
+.offers .price { font: 300 30px/1 var(--f-display); font-variant-numeric: tabular-nums; text-align: right; }
+.offers span.d { grid-column: 1 / -1; color: rgba(236, 238, 230, .7); font-size: 15px; }
+.guarantee { font: italic 400 23px/1.35 var(--f-display); margin: 28px 0 26px; max-width: 34ch; }
+.hire .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.hire .btn:hover { background: #9cc0e8; border-color: #9cc0e8; }
+
+/* ---------- route overview ---------- */
+.route { padding-block: 110px 40px; }
+.route-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 56px; align-items: end; margin-bottom: 36px; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.stats div { padding: 12px 12px 0 0; display: grid; gap: 2px; }
+.stats b { font: 300 46px/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.stats span { color: var(--ink-3); }
+.mapfig { margin: 0; position: relative; border: 1px solid var(--ink); outline: 1px solid var(--rule); outline-offset: 7px; background: var(--sheet); }
+.mapfig svg { display: block; width: 100%; height: auto; }
+.mapfig .legend { position: absolute; left: 16px; bottom: 14px; background: var(--sheet); border: 1px solid var(--rule); padding: 10px 12px; display: grid; gap: 6px; }
+.legend div { display: flex; align-items: center; gap: 10px; color: var(--ink-2); }
+.legend svg { width: 30px; height: 8px; }
+.mapnote { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 22px; color: var(--ink-3); }
+.mapnote .hand { font-size: 34px; }
+svg .land { fill: #dfe3d6; stroke: rgba(23, 34, 42, .38); stroke-width: .6; }
+svg .grat { fill: none; stroke: rgba(23, 34, 42, .09); stroke-width: .7; stroke-dasharray: 2 4; }
+svg .trip { fill: none; stroke: var(--glacier); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+svg .flight { fill: none; stroke: var(--ink); stroke-width: 1.1; stroke-dasharray: 3 5; opacity: .75; }
+svg .dot { fill: var(--sheet); stroke: var(--ink); stroke-width: 1.4; }
+svg .dot.small { fill: var(--glacier); stroke: none; }
+svg .leader { stroke: rgba(23, 34, 42, .45); stroke-width: .8; fill: none; }
+svg .mlabel { font: 500 10px var(--f-mono); letter-spacing: .08em; fill: var(--ink); }
+svg .mlabel.soft { fill: var(--ink-3); }
+
+/* ---------- chapters ---------- */
+.chapters { pointer-events: none; }
+.ch { min-height: 128vh; display: flex; align-items: center; padding-block: 12vh; }
+.ch .card { pointer-events: auto; width: min(440px, 100%); margin-left: max(var(--gut), calc((100vw - 1280px) / 2 + 20px)); background: var(--paper); border: 1px solid var(--rule); box-shadow: 0 30px 70px -36px rgba(23, 34, 42, .45); padding: 26px 26px 22px; display: grid; gap: 14px; }
+.card .place { height: 40px; width: auto; max-width: 100%; object-fit: contain; object-position: left; }
+.card .place.tall { height: 64px; }
+.card .meta { display: flex; justify-content: space-between; gap: 10px; color: var(--ink-3); border-top: 1px solid var(--rule); padding-top: 10px; }
+.card h3 { font-size: clamp(30px, 3vw, 40px); line-height: 1; letter-spacing: -.02em; }
+.card p { color: var(--ink-2); }
+.card figure { margin: 4px 0 0; display: grid; gap: 8px; }
+.card figure img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+.card .jump { justify-self: start; }
+.inset { position: fixed; right: max(20px, env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); width: 280px; z-index: 14; background: var(--sheet); border: 1px solid var(--ink); padding: 10px 12px 8px; opacity: 0; transform: translateY(10px); transition: opacity .4s, transform .4s; pointer-events: none; display: grid; gap: 6px; }
+.inset.on { opacity: 1; transform: none; }
+.inset .top { display: flex; justify-content: space-between; color: var(--ink-3); }
+.inset .top b { color: var(--ink); font-weight: 500; }
+.inset svg { width: 100%; height: auto; display: block; }
+.inset .here { fill: var(--glacier); }
+.inset .ring { fill: none; stroke: var(--glacier); stroke-width: 1.2; transform-box: fill-box; transform-origin: center; animation: ring 1.8s infinite; }
+@keyframes ring { from { transform: scale(.6); opacity: 1; } to { transform: scale(2.4); opacity: 0; } }
+
+/* ---------- languages ---------- */
+.langs { padding-block: 120px; }
+.lang-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: start; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-left: 1px solid var(--rule); }
+.tile { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 22px 20px 20px; display: grid; gap: 10px; min-width: 0; }
+.tile .g { font: italic 300 clamp(40px, 4.4vw, 62px)/1 var(--f-display); letter-spacing: -.02em; }
+.tile .n { display: flex; justify-content: space-between; gap: 8px; color: var(--ink-3); flex-wrap: wrap; }
+.tile .n b { color: var(--ink); font-weight: 500; }
+.pips { display: flex; gap: 4px; }
+.pips i { height: 4px; flex: 1; background: var(--rule); }
+.pips i.on { background: var(--ink); }
+.tile.learning .pips i.on { background: var(--glacier); }
+.tile.learning .g { color: var(--glacier); }
+.tile.next .g { color: var(--ink-3); }
+.notes { margin: 0; background: #fff; border: 1px solid var(--rule); box-shadow: 0 24px 60px -34px rgba(23, 34, 42, .4); padding: 26px 26px 18px; display: grid; gap: 20px; }
+.notes img.e { height: 46px; width: auto; }
+.notes figcaption { border-top: 1px solid var(--rule); padding-top: 10px; }
+
+/* ---------- contact ---------- */
+.hello { padding-block: 120px 110px; }
+.hello-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 72px; align-items: start; }
+.hello h2 { font-size: clamp(56px, 8vw, 120px); font-style: italic; font-weight: 300; }
+.hello .intro { font-size: 19px; color: var(--ink-2); max-width: 36ch; margin-top: 18px; }
+.hello .automated { margin-top: 30px; display: grid; gap: 8px; max-width: 40ch; color: var(--ink-2); }
+.hello .automated .hand { font-size: 36px; }
+form { display: grid; gap: 18px; }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 12px; }
+legend { padding: 0; margin-bottom: 4px; color: var(--ink-3); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips label { position: relative; }
+.chips input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.chips span { display: inline-block; padding: 10px 14px; border: 1px solid var(--rule); font-size: 15px; background: var(--paper); transition: background .2s, color .2s, border-color .2s; cursor: pointer; }
+.chips input:checked + span { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chips input:focus-visible + span { outline: 2px solid var(--glacier); outline-offset: 2px; }
+.field { display: grid; gap: 6px; }
+.field label { color: var(--ink-3); }
+.field input, .field textarea { font: 400 18px/1.4 var(--f-body); color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid var(--ink); padding: 8px 0; border-radius: 0; resize: vertical; }
+.field input:focus, .field textarea:focus { outline: none; border-bottom: 2px solid var(--glacier); padding-bottom: 7px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.sent { display: none; border: 1px solid var(--ink); background: var(--sheet); padding: 16px 18px; }
+.sent.on { display: block; }
+
+/* ---------- footer ---------- */
+footer { background: var(--paper-2); padding-block: 40px 30px; }
+.foot-grid { display: grid; gap: 26px; justify-items: center; text-align: center; }
+.foot-grid .bless img { width: min(560px, 90%); margin: 0 auto; opacity: .85; }
+.foot-grid .bless .mono { color: var(--ink-3); margin-top: 8px; display: block; }
+.foot-row { width: 100%; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; border-top: 1px solid var(--rule); padding-top: 18px; color: var(--ink-3); }
+.foot-row nav { display: flex; gap: 18px; }
+.foot-row a { text-decoration: none; }
+.foot-row a:hover { color: var(--ink); }
+.proto { position: fixed; left: max(14px, env(safe-area-inset-left, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 40; background: var(--ink); color: var(--paper); padding: 8px 12px; font: 500 10px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .bar nav .navlink { display: none; }
+  .now-grid, .feature, .hire-grid, .route-head, .lang-grid, .hello-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .duo { grid-template-columns: minmax(0, 1fr); gap: 80px; margin-top: 80px; }
+  .logrow { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .now figure { max-width: 420px; }
+  .inset { display: none; }
+  .chef { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .hero .wrap { min-height: auto; }
+  .hero-text { padding-top: 46svh; gap: 20px; }
+  h1.name { font-size: clamp(64px, 19vw, 96px); }
+  h1.name span + span { padding-left: .4em; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 8px; }
+  .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .facts div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .two { grid-template-columns: minmax(0, 1fr); }
+  .ch { min-height: 118svh; align-items: flex-start; padding-block: 50svh 10svh; }
+  .ch .card { margin: 0 auto; padding: 20px 20px 18px; gap: 12px; }
+  .card figure img { aspect-ratio: 16 / 10; }
+  .card .place { height: 32px; }
+  .card .place.tall { height: 52px; }
+  .mapfig .legend { position: static; border: 0; border-top: 1px solid var(--rule); }
+  .stats b { font-size: 36px; }
+  .turn { padding-right: 0; }
+  .divider { padding-block: 40px; }
+  .proto { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pill i, .inset .ring { animation: none; }
+  .plate .frame img, .btn svg { transition: none; }
+}
+</style>
+
+<canvas id="paperbg" aria-hidden="true"></canvas>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="tapnote hand" id="tapnote" aria-hidden="true">tap me, I speak 4 languages
+  <svg width="54" height="30" viewBox="0 0 54 30" fill="none"><path d="M2 8c14 12 30 14 46 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M40 9l9 7-11 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<div class="bubble" id="bubble" aria-live="polite"></div>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="sig" href="#top">Gabriel Dalmoro</a>
+    <nav aria-label="Main">
+      <a class="navlink mono" href="#now">Now</a>
+      <a class="navlink mono" href="#work">Work</a>
+      <a class="navlink mono" href="#route">Route</a>
+      <a class="navlink mono" href="#languages">Languages</a>
+      <a class="btn" href="#hire">Work with me</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <div class="kicker mono"><span>Field notes · Vol. 01</span><span>Updated Nov 2026</span><span>Prototype · round 2</span></div>
+        <h1 class="name"><span>Gabriel</span><span>Dalmoro</span></h1>
+        <p class="lead">I build automations, websites and software that give people their time back. Then I go outside.</p>
+        <p class="def"><b>mul·ti·po·ten·tial·ite</b><span class="mono">noun</span><br>A person with many interests and many crafts. <i>See also:</i> builder, surfer, climber, forever student.</p>
+        <div class="ctas">
+          <a class="btn" href="#work">See what I've built
+            <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          <a class="btn ghost" href="#hire">Work with me</a>
+        </div>
+      </div>
+      <div class="facts">
+        <div><span class="mono">Born</span><b>Brasil</b></div>
+        <div><span class="mono">Grew up</span><b>Canada, 13 years</b></div>
+        <div><span class="mono">Crossed</span><b>South America, 260 days</b></div>
+        <div><span class="mono">Now</span><b>France</b></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="solid">
+    <div class="divider"><img src="assets/hand/divider.png" alt=""></div>
+
+    <section class="now" id="now">
+      <div class="wrap now-grid">
+        <div>
+          <div class="entry-head">
+            <div class="mono"><b>Entry 002</b><span>Now</span><span>Updated 5 Nov 2026</span></div>
+            <h2>Right <em>now</em></h2>
+          </div>
+          <figure>
+            <img src="assets/photos/work-helping-at-laptop.jpg" alt="Gabriel at a laptop, working through something with a colleague" loading="lazy">
+            <figcaption class="mono">Fig. 2 · Mid-session, fixing something together</figcaption>
+          </figure>
+        </div>
+        <div class="rows">
+          <div class="row"><span class="mono">Building</span><p>A SaaS for private chefs in France, with Elisa.</p></div>
+          <div class="row"><span class="mono">Running</span><p>My automation studio. Less admin, more impact for busy founders.</p></div>
+          <div class="row"><span class="mono">Helping</span><p>My dad launch <a href="https://fittoexcel.com/" target="_blank" rel="noopener">FITtoExcel</a>, a fitness-tech startup, in Canada.</p></div>
+          <div class="row"><span class="mono">Learning</span><p>German. Very much a beginner. Italian is next.</p></div>
+          <div class="row"><span class="mono">Training</span><p>Most mornings. Snowboarding most winter weekends.</p></div>
+          <div class="row quiet"><span class="mono">Grateful</span><p>For family, faith, and every new day.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="work band" id="work">
+    <div class="wrap">
+      <div class="entry-head">
+        <div class="mono"><b>Entry 003</b><span>Work</span></div>
+        <h2>Things I've <em>built</em></h2>
+        <p class="intro">I spent three years as a full-stack developer, back when we wrote every line by hand. Today I build automations, websites and software, for clients and for people I love.</p>
+      </div>
+
+      <div class="feature">
+        <figure class="plate">
+          <a class="frame" href="https://elisabatchcooking.com" target="_blank" rel="noopener"><img src="assets/shots/elisa.jpg" alt="Elisa Batch Cooking website home page" loading="lazy"></a>
+          <figcaption class="mono">Fig. 3 · elisabatchcooking.com</figcaption>
+        </figure>
+        <div class="proj">
+          <div class="tag mono"><b>01</b><span>Website + automations</span><span>Live</span></div>
+          <h3>Elisa Batch <em>Cooking</em></h3>
+          <p>Elisa is a private chef. I built her website and wired the automations right into it, so she spends her time cooking instead of doing admin.</p>
+          <a class="visit" href="https://elisabatchcooking.com" target="_blank" rel="noopener">Visit the site ↗</a>
+        </div>
+      </div>
+
+      <div class="turn"><span class="hand">…which turned into this
+        <svg width="40" height="46" viewBox="0 0 40 46" fill="none" aria-hidden="true"><path d="M6 2c10 8 18 20 20 38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 33l9 9 7-11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+
+      <article class="chef">
+        <div class="proj">
+          <div class="tag mono"><b>02</b><span>SaaS</span><span>With Elisa</span></div>
+          <h3>Software for <em>private chefs</em></h3>
+          <p>Automating one chef's business showed us what every private chef in France is missing. So now we're building it, together.</p>
+        </div>
+        <span class="pill mono"><i></i>In build · 2026</span>
+      </article>
+
+      <div class="duo">
+        <article>
+          <figure class="plate">
+            <a class="frame" href="https://www.sabrinacarlier.fr/" target="_blank" rel="noopener"><img src="assets/shots/sabrina.jpg" alt="Sabrina Carlier website home page" loading="lazy"></a>
+            <figcaption class="mono">Fig. 4 · sabrinacarlier.fr</figcaption>
+          </figure>
+          <div class="proj">
+            <div class="tag mono"><b>03</b><span>Portfolio site</span><span>Live</span></div>
+            <h3>Sabrina <em>Carlier</em></h3>
+            <p>A bold, editorial website for a sommelière, radio host and trainer in Lyon. Big type and a lot of personality, like her.</p>
+            <a class="visit" href="https://www.sabrinacarlier.fr/" target="_blank" rel="noopener">Visit the site ↗</a>
+          </div>
+        </article>
+        <article>
+          <figure class="plate">
+            <a class="frame" href="https://fittoexcel.com/" target="_blank" rel="noopener"><img src="assets/shots/fittoexcel.jpg" alt="FITtoExcel website home page" loading="lazy"></a>
+            <figcaption class="mono">Fig. 5 · fittoexcel.com</figcaption>
+          </figure>
+          <div class="proj">
+            <div class="tag mono"><b>04</b><span>Startup</span><span>Canada</span></div>
+            <h3>FIT<em>to</em>Excel</h3>
+            <p>A fitness and tech startup I'm helping my dad launch in Canada. It uses science to show each person their real fitness potential.</p>
+            <a class="visit" href="https://fittoexcel.com/" target="_blank" rel="noopener">Visit the site ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="logrow">
+        <span class="mono">05</span>
+        <h3>Lantern <em>Clinic</em></h3>
+        <p>My first automation client, and where the studio began.</p>
+        <span class="mono soon">Case study soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="hire" id="hire">
+    <div class="wrap hire-grid">
+      <div>
+        <span class="mono">For founders</span>
+        <h2>Less admin. <em>More impact.</em></h2>
+        <p class="sub">I build systems that save busy founders 10+ hours a week, starting in month one. n8n is the brain. Python does the tricky parts.</p>
+      </div>
+      <div>
+        <div class="offers">
+          <div><b>Free audit</b><span class="price">€0</span><span class="d">30 minutes to find what's eating your week.</span></div>
+          <div><b>The Pilot</b><span class="price">€2,497</span><span class="d">One system, built and running in 30 days.</span></div>
+          <div><b>Custom</b><span class="price">from €7,997</span><span class="d">A whole department, automated.</span></div>
+        </div>
+        <p class="guarantee">If I don't save you at least 5 hours a week, I keep working for free until I do.</p>
+        <a class="btn" href="#hello">Book a free audit
+          <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="route solid" id="route">
+    <div class="wrap">
+      <div class="route-head">
+        <div class="entry-head" style="margin-bottom:0">
+          <div class="mono"><b>Entry 004</b><span>The route</span></div>
+          <h2>The long way <em>round</em></h2>
+          <p class="intro">Born in Brazil. Thirteen years in Canada. Then 260 days overland through South America, before landing in France.</p>
+        </div>
+        <div class="stats">
+          <div><b>7</b><span class="mono">Countries</span></div>
+          <div><b>260</b><span class="mono">Days</span></div>
+          <div><b>1</b><span class="mono">Backpack, too heavy</span></div>
+        </div>
+      </div>
+      <figure class="mapfig">
+        <svg id="routeMap" viewBox="0 0 1200 640" role="img" aria-label="Map of Gabriel's route from Brazil to Canada, across South America, and on to France"></svg>
+        <div class="legend mono">
+          <div><svg viewBox="0 0 30 8"><path d="M1 4h28" stroke="#2d64a8" stroke-width="2.4" stroke-linecap="round"/></svg>Overland, 2024–25</div>
+          <div><svg viewBox="0 0 30 8"><path d="M1 4h28" stroke="#17222a" stroke-width="1.1" stroke-dasharray="3 5"/></svg>Moves and flights</div>
+          <div><svg viewBox="0 0 30 8"><circle cx="15" cy="4" r="3" fill="#f7f8f3" stroke="#17222a" stroke-width="1.4"/></svg>Journal entry</div>
+        </div>
+      </figure>
+      <div class="mapnote mono"><span>Place names written by hand, in my travel journal</span><span class="hand">scroll on, little me will show you ↓</span></div>
+    </div>
+  </section>
+
+  <section class="chapters" id="chapters" aria-label="The route, chapter by chapter">
+    <div class="ch" data-scene="1">
+      <article class="card">
+        <img class="place" src="assets/hand/calgary.png" alt="Calgary, Canada (handwritten)">
+        <div class="meta mono"><span>Canada · 13 years</span><span>51.4°N 116.2°W</span></div>
+        <h3>I grew up in the <em>mountains</em></h3>
+        <p>We moved from Brazil to Canada, and for 13 years the Rockies were my weekend plan. If there was a peak, I wanted to stand on it.</p>
+        <figure><img src="assets/photos/hike-canadian-rockies-summit.jpg" alt="Gabriel on a summit in the Canadian Rockies, sweeping his arm toward the view" loading="lazy"><figcaption class="mono">The arm sweep is a tradition</figcaption></figure>
+      </article>
+    </div>
+    <div class="ch" data-scene="2">
+      <article class="card">
+        <div class="meta mono"><span>Canada · winter</span><span>Lake Louise</span></div>
+        <h3>Winters meant <em>snowboarding</em></h3>
+        <p>Cold lifts, short days, first chair whenever I could get it. I still ride every winter, now in the Alps.</p>
+        <figure><img src="assets/photos/snowboard-canadian-rockies.jpg" alt="Gabriel snowboarding with the Rockies behind him" loading="lazy"><figcaption class="mono">Selfie stick, full speed</figcaption></figure>
+      </article>
+    </div>
+    <div class="ch" data-scene="3">
+      <article class="card">
+        <div class="meta mono"><span>Every day</span><span>Training</span></div>
+        <h3>Son of a <em>personal trainer</em></h3>
+        <p>In my family, training isn't a hobby. It's part of the day, like breakfast. Today I'm also helping my dad launch FITtoExcel, his fitness-tech startup.</p>
+        <figure><img src="assets/photos/training-gym.jpg" alt="Gabriel in the gym, smiling" loading="lazy" style="object-position:50% 30%"><figcaption class="mono">Post-workout, still smiling</figcaption></figure>
+      </article>
+    </div>
+    <div class="ch" data-scene="4">
+      <article class="card">
+        <div class="meta mono"><span>Home</span><span>After dark</span></div>
+        <h3>Music at the end of the <em>day</em></h3>
+        <p>An acoustic on the porch, a Telecaster at home, a piano when there's one around. Never perfect. Always fun.</p>
+        <figure><img src="assets/photos/music-acoustic-porch.jpg" alt="Gabriel playing acoustic guitar on a porch surrounded by flowers" loading="lazy" style="object-position:50% 62%"><figcaption class="mono">Porch sessions</figcaption></figure>
+      </article>
+    </div>
+    <div class="ch" data-scene="5">
+      <article class="card">
+        <img class="place" src="assets/hand/chicama.png" alt="Chicama, Peru (handwritten)">
+        <div class="meta mono"><span>Peru → Brazil</span><span>7.7°S 79.4°W</span></div>
+        <h3>Back to the <em>sea</em></h3>
+        <p>In 2024 I left Canada with my best friend and a very heavy backpack. After half my life far from the ocean, I went looking for waves. I rode the longest wave in the world in Chicama, Peru. My biggest one yet: 2.3 m, in Florianópolis.</p>
+        <figure><img src="assets/photos/surf-golden-hour-cliffs.jpg" alt="Gabriel surfing a green wave at golden hour with cliffs behind" loading="lazy"><figcaption class="mono">Very focused</figcaption></figure>
+      </article>
+    </div>
+    <div class="ch" data-scene="6">
+      <article class="card">
+        <img class="place tall" src="assets/hand/huayhuash.png" alt="Huayhuash Trek, day 1: up 4265 m, 10 km (handwritten)">
+        <div class="meta mono"><span>Cordillera Huayhuash, Peru</span><span>10.3°S 76.9°W</span></div>
+        <h3>Then I went <em>up</em></h3>
+        <p>We trekked for days through the Huayhuash, above 4,000 m, past turquoise lakes. Day one topped out at 4,265 m. I wrote it down, obviously.</p>
+      </article>
+    </div>
+    <div class="ch" data-scene="7">
+      <article class="card">
+        <img class="place tall" src="assets/hand/machu-picchu.png" alt="Aguas Calientes, Machu Picchu, Peru (handwritten)">
+        <div class="meta mono"><span>Peru · Bolivia · Chile</span><span>13.2°S 72.5°W</span></div>
+        <h3>Every place taught me <em>something</em></h3>
+        <p>Walking through walls built over 500 years ago. Then salt flats in Bolivia, the Atacama desert, salsa classes and Spanish homework in La Paz.</p>
+        <figure><img src="assets/photos/travel-machu-picchu.jpg" alt="Gabriel smiling in front of Machu Picchu" loading="lazy"><figcaption class="mono">Machu Picchu, in the clouds</figcaption></figure>
+      </article>
+    </div>
+    <div class="ch" data-scene="8">
+      <article class="card">
+        <div class="meta mono"><span>Now</span><span>France</span></div>
+        <h3>Now I build from <em>France</em></h3>
+        <p>Weekends in the Alps, weekdays at the desk. Brazil, Canada and the whole road come with me.</p>
+        <figure><img src="assets/photos/snowboard-alps-valley.jpg" alt="A snowboarder with arms wide above a snowy Alpine valley" loading="lazy" style="object-position:50% 55%"><figcaption class="mono">The Alps, arms wide</figcaption></figure>
+        <a class="btn jump" href="#hello">Say hello
+          <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      </article>
+    </div>
+  </section>
+
+  <section class="langs solid" id="languages">
+    <div class="wrap">
+      <div class="entry-head">
+        <div class="mono"><b>Entry 005</b><span>Languages</span></div>
+        <h2>Four languages. <em>Two on the way.</em></h2>
+        <p class="intro">Languages are my favourite way to get to know a place. I take notes by hand, like these from a Spanish class in La Paz.</p>
+      </div>
+      <div class="lang-grid">
+        <div class="tiles">
+          <div class="tile"><span class="g">Olá</span><div class="n mono"><b>Português</b><span>Native</span></div><div class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+          <div class="tile"><span class="g">Hello</span><div class="n mono"><b>English</b><span>Native</span></div><div class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+          <div class="tile"><span class="g">Hola</span><div class="n mono"><b>Español</b><span>Professional</span></div><div class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+          <div class="tile"><span class="g">Bonjour</span><div class="n mono"><b>Français</b><span>Professional</span></div><div class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+          <div class="tile learning"><span class="g">Hallo</span><div class="n mono"><b>Deutsch</b><span>Learning now</span></div><div class="pips"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="tile next"><span class="g">Ciao</span><div class="n mono"><b>Italiano</b><span>Up next</span></div><div class="pips"><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <figure class="notes">
+          <img class="e" src="assets/hand/espanol.png" alt="Español (handwritten)">
+          <img src="assets/hand/hay-esta.png" alt="Handwritten Spanish grammar notes on hay and está" loading="lazy">
+          <img src="assets/hand/preterito.png" alt="Handwritten notes on the Spanish pretérito perfecto" loading="lazy">
+          <figcaption class="mono">From my journal · La Paz, December 2024</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="hello band" id="hello">
+    <div class="wrap hello-grid">
+      <div>
+        <div class="entry-head" style="margin-bottom:0">
+          <div class="mono"><b>Entry 006</b><span>Contact</span></div>
+          <h2>Say hello.</h2>
+        </div>
+        <p class="intro">Tell me what brought you here. I read every message myself.</p>
+        <div class="automated">
+          <span class="hand">p.s. this form is automated</span>
+          <p>It runs on n8n. Your message lands in my inbox already sorted by topic, which is exactly the kind of thing I build for clients.</p>
+        </div>
+      </div>
+      <form id="helloForm" novalidate>
+        <fieldset>
+          <legend class="mono">I'm here to</legend>
+          <div class="chips">
+            <label><input type="radio" name="why" id="why-work" value="work" checked><span>Work together</span></label>
+            <label><input type="radio" name="why" id="why-collab" value="collab"><span>Collaborate</span></label>
+            <label><input type="radio" name="why" id="why-hire" value="hire"><span>Hire you</span></label>
+            <label><input type="radio" name="why" id="why-brand" value="brand"><span>Brand partnership</span></label>
+            <label><input type="radio" name="why" id="why-hi" value="hi"><span>Just say hi</span></label>
+          </div>
+        </fieldset>
+        <div class="two">
+          <div class="field"><label class="mono" for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label class="mono" for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        </div>
+        <div class="field"><label class="mono" for="f-msg">Message</label><textarea id="f-msg" name="msg" rows="4"></textarea></div>
+        <div><button class="btn" type="submit">Send
+          <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button></div>
+        <p class="sent" id="sent" role="status">This is a prototype, so nothing was sent. On the real site, this goes straight to me.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="bless">
+      <img src="assets/hand/blessing.png" alt="Não esqueça do fato que cada dia é uma bênção (handwritten)">
+      <span class="mono">Don't forget: every day is a blessing</span>
+    </div>
+    <div class="foot-row mono">
+      <span>© 2026 Gabriel Dalmoro · Made between the mountains and the sea</span>
+      <nav aria-label="Social"><a href="https://linkedin.com/in/gabrieldalmoro" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/gabrieldalmoro" target="_blank" rel="noopener">GitHub</a><a href="#top">Back to top ↑</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script>
+(() => {
+'use strict';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
+const debounce = (f, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => f(...a), ms); }; };
+
+/* ---------- seeded value noise ---------- */
+function makeNoise(seed) {
+  let s = seed; const rand = () => ((s = (s * 16807) % 2147483647) - 1) / 2147483646;
+  const perm = new Uint8Array(512), vals = new Float32Array(256);
+  for (let i = 0; i < 256; i++) { perm[i] = i; vals[i] = rand(); }
+  for (let i = 255; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [perm[i], perm[j]] = [perm[j], perm[i]]; }
+  for (let i = 0; i < 256; i++) perm[i + 256] = perm[i];
+  const lat = (x, y) => vals[perm[(x & 255) + perm[y & 255]]];
+  const f = t => t * t * (3 - 2 * t);
+  const n = (x, y) => { const xi = Math.floor(x), yi = Math.floor(y), u = f(x - xi), v = f(y - yi);
+    const a = lat(xi, yi), b = lat(xi + 1, yi), c = lat(xi, yi + 1), d = lat(xi + 1, yi + 1);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v; };
+  return (x, y, o = 4) => { let t = 0, amp = .5, fr = 1; for (let k = 0; k < o; k++) { t += amp * n(x * fr, y * fr); amp *= .5; fr *= 2.03; } return t; };
+}
+const fbm = makeNoise(11), fbm2 = makeNoise(29);
+
+/* ---------- fixed paper + contour ground ---------- */
+(function paperGround() {
+  const cv = document.getElementById('paperbg'), ctx = cv.getContext('2d');
+  function draw() {
+    const dpr = Math.min(devicePixelRatio || 1, 2), W = innerWidth, H = innerHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = '#eceee6'; ctx.fillRect(0, 0, W, H);
+    const st = 8, gw = Math.ceil(W / st) + 1, gh = Math.ceil(H / st) + 1, F = new Float32Array(gw * gh);
+    for (let j = 0; j < gh; j++) for (let i = 0; i < gw; i++) F[j * gw + i] = fbm(i * st / 340 + 3, j * st / 340 + 7, 5);
+    const lv = 22;
+    for (let L = 1; L < lv; L++) {
+      const t = .2 + L / lv * .6; ctx.beginPath();
+      for (let j = 0; j < gh - 1; j++) for (let i = 0; i < gw - 1; i++) {
+        const a = F[j * gw + i], b = F[j * gw + i + 1], c = F[(j + 1) * gw + i + 1], d = F[(j + 1) * gw + i];
+        const id = (a > t ? 8 : 0) | (b > t ? 4 : 0) | (c > t ? 2 : 0) | (d > t ? 1 : 0); if (!id || id === 15) continue;
+        const x = i * st, y = j * st, T = [x + st * (t - a) / (b - a), y], R = [x + st, y + st * (t - b) / (c - b)], B = [x + st * (t - d) / (c - d), y + st], Lf = [x, y + st * (t - a) / (d - a)];
+        const s = (p, q) => { ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); };
+        switch (id) { case 1: case 14: s(Lf, B); break; case 2: case 13: s(B, R); break; case 3: case 12: s(Lf, R); break; case 4: case 11: s(T, R); break;
+          case 5: s(Lf, T); s(B, R); break; case 6: case 9: s(T, B); break; case 7: case 8: s(Lf, T); break; case 10: s(T, R); s(Lf, B); break; }
+      }
+      ctx.strokeStyle = L % 5 === 0 ? 'rgba(168,138,104,.32)' : 'rgba(168,138,104,.16)'; ctx.lineWidth = L % 5 === 0 ? 1 : .7; ctx.stroke();
+    }
+  }
+  draw(); addEventListener('resize', debounce(draw, 200));
+})();
+
+/* ---------- header shadow ---------- */
+const bar = document.getElementById('bar');
+addEventListener('scroll', () => bar.classList.toggle('scrolled', scrollY > 10), { passive: true });
+
+/* ---------- contact form (prototype) ---------- */
+document.getElementById('helloForm').addEventListener('submit', e => { e.preventDefault(); document.getElementById('sent').classList.add('on'); });
+
+/* =========================================================
+   MAPS
+   ========================================================= */
+const HAND = {"260-dias":[269,62],"atacama":[553,108],"buenos-aires":[493,169],"calgary":[523,157],"chicama":[385,103],"cusco":[324,100],"florianopolis":[478,124],"la-paz":[442,105],"machu-picchu":[543,145],"montanita":[463,110],"rio":[580,102],"uyuni":[361,163]};
+const P = {
+  brasil: [-51.2, -30.0], calgary: [-114.07, 51.05], bogota: [-74.07, 4.71], sangil: [-73.13, 6.56], montanita: [-80.75, -1.83],
+  mancora: [-81.05, -4.1], chicama: [-79.44, -7.7], huanchaco: [-79.12, -8.08], huaraz: [-77.53, -9.53], huayhuash: [-76.9, -10.27],
+  lima: [-77.04, -12.05], cusco: [-71.97, -13.53], machu: [-72.54, -13.16], copacabana: [-69.09, -16.17], lapaz: [-68.15, -16.5],
+  uyuni: [-66.83, -20.13], atacama: [-68.2, -22.91], vina: [-71.55, -33.02], santiago: [-70.65, -33.45], baires: [-58.38, -34.6],
+  ubatuba: [-45.07, -23.43], rio: [-43.17, -22.9], floripa: [-48.55, -27.6], portoalegre: [-51.2, -30.03], france: [4.8, 45.8], rockies: [-116.2, 51.4]
+};
+const TRIP = ['bogota', 'sangil', 'bogota', 'montanita', 'mancora', 'chicama', 'huanchaco', 'huaraz', 'huayhuash', 'lima', 'cusco', 'machu', 'copacabana', 'lapaz', 'uyuni', 'atacama', 'vina', 'santiago', 'baires', 'ubatuba', 'rio', 'floripa', 'portoalegre'];
+const LABELS = { // key: [hand, dx, dy, height, align]
+  calgary: ['calgary', 14, -34, 30, 'start'], montanita: ['montanita', -16, -16, 22, 'end'], chicama: ['chicama', -16, 4, 22, 'end'],
+  machu: ['machu-picchu', -30, 26, 30, 'end'], lapaz: ['la-paz', 16, -26, 22, 'start'], uyuni: ['uyuni', 18, 2, 32, 'start'],
+  atacama: ['atacama', -18, 18, 22, 'end'], baires: ['buenos-aires', -18, 26, 30, 'end'], rio: ['rio', 16, -24, 22, 'start'], floripa: ['florianopolis', 20, 4, 24, 'start']
+};
+const LABELS_NARROW = {
+  calgary: ['calgary', 10, -34, 34, 'start'], chicama: ['chicama', -14, 0, 26, 'end'], machu: ['machu-picchu', -20, 22, 34, 'end'],
+  lapaz: ['la-paz', 14, -30, 26, 'start'], atacama: ['atacama', -16, 18, 26, 'end'], rio: ['rio', -10, -46, 26, 'end'], floripa: ['florianopolis', 12, 10, 28, 'start']
+};
+let routeGeo = null, insetProj = null;
+
+function routeSVG(land, W, H, ext, rot, opts) {
+  const proj = d3.geoNaturalEarth1().rotate([rot, 0]).fitExtent([[opts.pad, opts.pad], [W - opts.pad, H - opts.pad]], { type: 'MultiPoint', coordinates: ext });
+  const path = d3.geoPath(proj);
+  const ll = k => P[k], pt = k => proj(P[k]);
+  let s = `<defs><clipPath id="clip-${opts.id}"><rect width="${W}" height="${H}"/></clipPath></defs><g clip-path="url(#clip-${opts.id})">`;
+  s += `<path class="grat" d="${path(d3.geoGraticule().step([20, 20])())}"/>`;
+  s += `<path class="land" d="${path(land)}"/>`;
+  const flights = [['brasil', 'calgary'], ['calgary', 'bogota'], ['portoalegre', 'calgary'], ['calgary', 'france']];
+  flights.forEach(([a, b], i) => { s += `<path class="flight" data-f="${i}" d="${path({ type: 'LineString', coordinates: [ll(a), ll(b)] })}"/>`; });
+  s += `<path class="trip" id="trip-${opts.id}" d="${path({ type: 'LineString', coordinates: TRIP.map(ll) })}"/>`;
+  if (opts.labels) {
+    const L = opts.narrow ? LABELS_NARROW : LABELS;
+    TRIP.forEach(k => { if (!L[k]) { const [x, y] = pt(k); s += `<circle class="dot small" cx="${x}" cy="${y}" r="2.2"/>`; } });
+    for (const k in L) {
+      const [hand, dx, dy, h, al] = L[k], [x, y] = pt(k), d = HAND[hand], w = h * d[0] / d[1];
+      const lx = al === 'end' ? x + dx - w : x + dx, ly = y + dy - h / 2;
+      const ax = al === 'end' ? x + dx : x + dx, ay = y + dy;
+      s += `<path class="leader" d="M${x} ${y}L${ax} ${ay}"/>`;
+      s += `<image href="assets/hand/${hand}.png" x="${lx}" y="${ly}" width="${w}" height="${h}"/>`;
+      s += `<circle class="dot" cx="${x}" cy="${y}" r="4"/>`;
+    }
+    const [bx, by] = pt('brasil'); s += `<circle class="dot" cx="${bx}" cy="${by}" r="5.5" style="fill:#17222a"/><text class="mlabel" x="${bx + 14}" y="${by + 34}">BORN · BRASIL</text>`;
+    const [fx, fy] = pt('france');
+    if (fx < W - 10) s += `<circle class="dot" cx="${fx}" cy="${fy}" r="5.5" style="fill:#2d64a8;stroke:#17222a"/><text class="mlabel" x="${fx - 8}" y="${fy - 14}" text-anchor="end">NOW · FRANCE</text>`;
+    else s += `<text class="mlabel" x="${W - 18}" y="${opts.narrow ? 120 : fy}" text-anchor="end">FRANCE →</text>`;
+    const at = opts.narrow ? proj([-42, -40]) : proj([-34, 6]);
+    const dw = opts.narrow ? 120 : 150, dh = dw * 62 / 269;
+    s += `<image href="assets/hand/260-dias.png" x="${at[0] - dw / 2}" y="${at[1] - dh / 2}" width="${dw}" height="${dh}"/><text class="mlabel soft" x="${at[0]}" y="${at[1] + dh / 2 + 16}" text-anchor="middle">(260 DAYS!!)</text>`;
+    const cx = W - 46, cy = 56; // compass
+    s += `<g transform="translate(${cx} ${cy})"><circle r="20" fill="none" stroke="#17222a" stroke-width=".8"/><path d="M0 -26L5 0L0 6L-5 0Z" fill="#17222a"/><path d="M0 26L5 0L-5 0Z" fill="none" stroke="#17222a" stroke-width=".8"/><text class="mlabel" y="-32" text-anchor="middle">N</text></g>`;
+  }
+  s += `</g>`;
+  return { s, proj };
+}
+
+async function initMaps() {
+  if (!window.d3 || !window.topojson) return;
+  let topo; try { topo = await (await fetch('assets/data/countries-110m.json')).json(); } catch (e) { return; }
+  const land = topojson.feature(topo, topo.objects.countries);
+  const svg = document.getElementById('routeMap');
+  let narrowNow = null;
+  function overview() {
+    const narrow = innerWidth < 760; if (narrow === narrowNow) return; narrowNow = narrow;
+    const W = narrow ? 600 : 1200, H = narrow ? 900 : 640;
+    const ext = narrow ? [[-118, 54], [-36, 54], [-118, -40], [-36, -40]] : [[-126, 57], [12, 57], [-126, -40], [12, -40]];
+    const r = routeSVG(land, W, H, ext, narrow ? 76 : 57, { pad: 20, labels: true, narrow, id: 'big' });
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.innerHTML = r.s;
+    routeGeo = { trip: svg.querySelector('.trip'), flights: [...svg.querySelectorAll('.flight')] };
+    routeGeo.len = routeGeo.trip.getTotalLength();
+    routeGeo.trip.style.strokeDasharray = routeGeo.len; updateRouteDraw();
+  }
+  overview(); addEventListener('resize', debounce(overview, 200));
+  const inset = document.getElementById('insetMap');
+  const r2 = routeSVG(land, 280, 170, [[-126, 57], [12, 57], [-126, -40], [12, -40]], 57, { pad: 6, labels: false, id: 'mini' });
+  inset.innerHTML = r2.s + `<g id="here"><circle class="ring" r="6"/><circle class="here" r="3.5"/></g>`;
+  insetProj = r2.proj; moveInset(currentChapter, true);
+}
+function updateRouteDraw() {
+  if (!routeGeo) return;
+  const r = document.getElementById('routeMap').getBoundingClientRect();
+  const p = reduce ? 1 : clamp((innerHeight * .85 - r.top) / (r.height * .9));
+  routeGeo.trip.style.strokeDashoffset = routeGeo.len * (1 - smooth(.25, 1, p));
+  routeGeo.flights.forEach((f, i) => { f.style.opacity = p > [0, .2, .9, .95][i] ? .75 : 0; f.style.transition = 'opacity .6s'; });
+}
+addEventListener('scroll', updateRouteDraw, { passive: true });
+
+/* inset map */
+const insetEl = document.createElement('div');
+insetEl.className = 'inset'; insetEl.setAttribute('aria-hidden', 'true');
+insetEl.innerHTML = '<div class="top mono"><b id="insetName">Canada</b><span>You are here</span></div><svg id="insetMap" viewBox="0 0 280 170"></svg>';
+document.body.appendChild(insetEl);
+const CH_LL = [null, 'rockies', 'rockies', 'calgary', 'calgary', 'chicama', 'huayhuash', 'machu', 'france'];
+const CH_NAME = ['', 'Canadian Rockies', 'Lake Louise', 'Calgary', 'Canada', 'Chicama, Peru', 'Huayhuash, Peru', 'Machu Picchu, Peru', 'France'];
+let currentChapter = 1, insetPos = null;
+function moveInset(i, snap) {
+  currentChapter = i; document.getElementById('insetName').textContent = CH_NAME[i];
+  if (!insetProj) return;
+  const target = insetProj(P[CH_LL[i]]);
+  if (!insetPos || snap) insetPos = target.slice();
+  insetPos.target = target;
+}
+function tickInset() {
+  if (!insetPos || !insetPos.target) return;
+  insetPos[0] += (insetPos.target[0] - insetPos[0]) * .12; insetPos[1] += (insetPos.target[1] - insetPos[1]) * .12;
+  const g = document.getElementById('here'); if (g) g.setAttribute('transform', `translate(${insetPos[0]} ${insetPos[1]})`);
+}
+initMaps();
+
+/* =========================================================
+   3D: layered paper model + little Gabriel
+   ========================================================= */
+const canvas = document.getElementById('gl');
+const tapnote = document.getElementById('tapnote');
+const bubble = document.getElementById('bubble');
+const hero = document.getElementById('hero');
+const chapterEls = [...document.querySelectorAll('.ch')];
+let gl = null;
+try { if (window.THREE) gl = initGL(); } catch (e) { console.warn('3D disabled', e); gl = null; }
+
+function initGL() {
+  const THREE = window.THREE;
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  const small = Math.min(innerWidth, innerHeight) < 700;
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, small ? 1.75 : 2));
+  renderer.setClearColor(0x000000, 0);
+  THREE.ColorManagement.legacyMode = false;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(28, 1, .1, 200);
+
+  const hemi = new THREE.HemisphereLight(0xffffff, 0xcbbd9f, .55);
+  const sun = new THREE.DirectionalLight(0xffffff, .72); sun.position.set(-6, 12, 8);
+  const fire = new THREE.PointLight(0xff9a4a, 0, 4, 1.5);
+  scene.add(hemi, sun, fire);
+
+  const R = 4, N = 200, LEVELS = 16, HSCALE = 2.7, SIZE = 8.4;
+  const hex = h => { const n = parseInt(h.slice(1), 16); return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255]; };
+  const INK = hex('#17222a');
+  const fall = (x, z) => 1 - smooth(.8, .97, Math.hypot(x, z) / R);
+  const BASE_H = 1.5 / LEVELS;
+  const FH = (i, x, z) => BASE_H + (clamp(SC[i].h(x, z)) - BASE_H) * fall(x, z);
+  const g2 = (x, z, cx, cz, s) => Math.exp(-((x - cx) ** 2 + (z - cz) ** 2) / s);
+
+  /* ----- scene definitions ----- */
+  const flat = (x, z, seed) => { const nz = seed ? fbm2 : fbm;
+    let h = .075 + .34 * Math.max(0, nz(x * .32 + 1, z * .32 + 2) - .42) + .36 * g2(x, z, -1.8, -1.5, 2.2) + .2 * g2(x, z, 2.1, -1.3, 1.3);
+    h -= .065 * g2(x, z, 1.7, 1.4, .55) + .05 * g2(x, z, -2.2, 1.2, .35);
+    const k = smooth(.9, 1.7, Math.hypot(x, z - .3)); return .08 * (1 - k) + h * k; };
+  const surfZ = x => -.45 + .55 * Math.sin(x * .45);
+  const SC = [
+    { key: 'desk', h: (x, z) => flat(x, z, 0),
+      water: '#bcd3e2', stops: [[0, '#e6e9df'], [.4, '#dbe1d0'], [1, '#c9cfb6']], fig: [0, .25], yaw: .55, pose: 'type', cam: [.55, .5, 22] },
+    { key: 'summit', h: (x, z) => { const d = g2(x, z, .7, -.5, 3.4); return Math.min(.93, .07 + .9 * d + .2 * g2(x, z, -.9, -1.2, 1.6) * (.6 + fbm(x, z)) + .09 * fbm(x * .9 + 4, z * .9)); },
+      water: '#b9d0de', stops: [[0, '#dfe5d2'], [.3, '#bccaa5'], [.55, '#a9ab9d'], [.74, '#d2d5cf'], [.8, '#f7f8f5'], [1, '#ffffff']], fig: [.7, -.5], yaw: .25, pose: 'summit', cam: [.2, .42, 26] },
+    { key: 'snow', h: (x, z) => .1 + .62 * smooth(-3.4, 3.2, -z) + .06 * fbm(x * .8, z * .8 + 3) + .12 * g2(x, z, -1.6, -1.6, 2.5),
+      water: '#dfe7ee', stops: [[0, '#eef2f4'], [1, '#ffffff']], fig: [.4, .55], yaw: -Math.PI / 2, pose: 'ride', cam: [-.75, .36, 25] },
+    { key: 'train', h: (x, z) => flat(x, z, 1),
+      water: '#c4d6e3', stops: [[0, '#e8e7dc'], [1, '#cfcab6']], fig: [0, .2], yaw: .85, pose: 'swing', cam: [.85, .45, 25] },
+    { key: 'guitar', h: (x, z) => .07 + .3 * g2(x, z, -1.4, -1.6, 3.2) + .05 * fbm(x * .7, z * .7 + 8),
+      water: '#9fb6c9', stops: [[0, '#dfe1cd'], [.6, '#c5c9aa'], [1, '#aeb38f']], fig: [.1, .35], yaw: 1.15, pose: 'strum', cam: [1.3, .42, 24], dusk: 1 },
+    { key: 'surf', h: (x, z) => { const d = z - surfZ(x), prof = d > 0 ? Math.exp(-d * d / .08) : Math.exp(-d * d / .55);
+        return .085 + .7 * prof * smooth(-4.3, 1.9, x) * (1 + .1 * fbm(x * 1.4, z)) + .045 * (fbm(x * 1.6, z * 1.6 + 5) - .5); },
+      water: '#2f8e9b', stops: [[0, '#47a7af'], [.25, '#62bcbd'], [.5, '#a4ddd6'], [.68, '#e7f6f2'], [1, '#ffffff']], fig: [.55, surfZ(.55) + .36], yaw: 0, pose: 'surf', cam: [.12, .3, 23] },
+    { key: 'andes', h: (x, z) => { let h = .08 + .05 * fbm(x, z);
+        [[-1.3, -1.4, .92, 1.1], [.7, -1.9, .8, .9], [1.9, -.5, .66, .8], [-2.2, .3, .55, .7]].forEach(([cx, cz, a, s]) => { h = Math.max(h, a * g2(x, z, cx, cz, s) * (.85 + .3 * fbm(x * 2, z * 2))); });
+        return h * smooth(.6, 1.5, Math.hypot(x - .6, z - .9)) + .02; },
+      water: '#79c3bd', stops: [[0, '#dcd5ba'], [.3, '#c6b48f'], [.55, '#a39a8c'], [.72, '#cdcdc8'], [.78, '#f6f7f4'], [1, '#ffffff']], fig: [-.4, .5], yaw: -.55, pose: 'hips', cam: [-.55, .42, 26] },
+    { key: 'terraces', h: (x, z) => .04 + .58 * g2(x, z, .3, .3, 5.2) + .92 * g2(x, z, -1.4, -1.6, .55) + .04 * fbm(x, z),
+      water: '#b4cdd6', stops: [[0, '#d2dbb2'], [.45, '#a9c387'], [.75, '#7ea46a'], [1, '#5f7f52']], fig: [1.25, 1.05], yaw: .8, pose: 'sweep', cam: [.8, .42, 26] },
+    { key: 'final', h: (x, z) => { const r = Math.hypot(x, z), a = Math.atan2(z, x); const ring = smooth(1.9, 3.0, r) * smooth(.4, -1.2, z / R);
+        return .075 + ring * (.42 + .55 * fbm(Math.cos(a) * 2.2 + 5, Math.sin(a) * 2.2 + 5)) * (.9 + .2 * fbm(x * 2, z * 2)); },
+      water: '#b9d0de', stops: [[0, '#e5e8de'], [.35, '#d4dac8'], [.52, '#b3b8ab'], [.62, '#e9ebe7'], [1, '#ffffff']], fig: [0, .25], yaw: .3, pose: 'sitwave', cam: [.3, .42, 24] }
+  ];
+  const NS = SC.length;
+
+  /* ----- precompute heights + palettes ----- */
+  const geo = new THREE.PlaneGeometry(SIZE, SIZE, N, N); geo.rotateX(-Math.PI / 2);
+  const pos = geo.attributes.position, VC = pos.count;
+  const H = SC.map((sc, si) => { const a = new Float32Array(VC); for (let i = 0; i < VC; i++) a[i] = FH(si, pos.getX(i), pos.getZ(i)); return a; });
+  const aA = new THREE.BufferAttribute(H[0].slice(), 1), aB = new THREE.BufferAttribute(H[0].slice(), 1);
+  geo.setAttribute('aA', aA); geo.setAttribute('aB', aB);
+  const palTex = SC.map(sc => {
+    const d = new Uint8Array(LEVELS * 4);
+    for (let L = 0; L < LEVELS; L++) {
+      let c;
+      if (L === 0) c = hex(sc.water);
+      else { const t = (L - 1) / (LEVELS - 2); let k = 0; while (k < sc.stops.length - 2 && t > sc.stops[k + 1][0]) k++;
+        const [t0, c0] = sc.stops[k], [t1, c1] = sc.stops[k + 1], u = clamp((t - t0) / (t1 - t0)), A = hex(c0), B = hex(c1); c = A.map((v, i) => v + (B[i] - v) * u); }
+      const alt = L % 2 ? .965 : 1;
+      d[L * 4] = c[0] * alt * 255; d[L * 4 + 1] = c[1] * alt * 255; d[L * 4 + 2] = c[2] * alt * 255; d[L * 4 + 3] = 255;
+    }
+    const t = new THREE.DataTexture(d, LEVELS, 1, THREE.RGBAFormat); t.magFilter = t.minFilter = THREE.NearestFilter; t.needsUpdate = true; return t;
+  });
+
+  const terrainMat = new THREE.ShaderMaterial({
+    extensions: { derivatives: true },
+    uniforms: { uMix: { value: 0 }, uGrow: { value: reduce ? 1 : 0 }, uPalA: { value: palTex[0] }, uPalB: { value: palTex[0] },
+      uInk: { value: new THREE.Vector3(...INK) }, uTint: { value: new THREE.Vector3(1, 1, 1) }, uSun: { value: new THREE.Vector3(-.45, .8, .45).normalize() } },
+    vertexShader: `
+      attribute float aA; attribute float aB;
+      uniform float uMix, uGrow;
+      varying vec3 vW; varying float vR;
+      void main(){
+        float h = mix(aA, aB, uMix) * uGrow;
+        float q = floor(h * ${LEVELS}.0 + 0.001) / ${LEVELS}.0;
+        vec3 p = position; p.y = q * ${HSCALE.toFixed(2)};
+        vR = length(p.xz);
+        vec4 w = modelMatrix * vec4(p, 1.0); vW = w.xyz;
+        gl_Position = projectionMatrix * viewMatrix * w;
+      }`,
+    fragmentShader: `
+      uniform sampler2D uPalA, uPalB; uniform float uMix; uniform vec3 uInk, uTint, uSun;
+      varying vec3 vW; varying float vR;
+      float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+      void main(){
+        if (vR > ${R.toFixed(1)}) discard;
+        vec3 n = normalize(cross(dFdx(vW), dFdy(vW))); if (n.y < 0.0) n = -n;
+        float L = floor(vW.y / ${HSCALE.toFixed(2)} * ${LEVELS}.0 + 0.5);
+        float u = (L + 0.5) / ${LEVELS}.0;
+        vec3 col = mix(texture2D(uPalA, vec2(u, .5)).rgb, texture2D(uPalB, vec2(u, .5)).rgb, uMix);
+        float top = smoothstep(.72, .9, n.y);
+        float d = max(dot(n, uSun), 0.0);
+        vec3 topC = col * mix(.86, 1.0, smoothstep(.3, .75, d));
+        vec3 sideC = col * (.72 + .16 * d);
+        float lip = smoothstep(.5, .9, fract(vW.y / ${(HSCALE / LEVELS).toFixed(5)}));
+        sideC = mix(sideC, uInk, lip * .8);
+        col = mix(sideC, topC, top);
+        col += (hash(floor(vW.xz * 90.0)) - .5) * .025;
+        float edge = smoothstep(${(R - .03).toFixed(2)}, ${R.toFixed(1)}, vR);
+        col = mix(col, uInk, edge * .8);
+        gl_FragColor = vec4(col * uTint, 1.0);
+      }`
+  });
+  const terrain = new THREE.Mesh(geo, terrainMat); scene.add(terrain);
+
+  // paper strata on the side
+  const side = new THREE.Mesh(new THREE.CylinderGeometry(R, R, .55, 160, 1, true), new THREE.ShaderMaterial({
+    uniforms: { uTint: terrainMat.uniforms.uTint },
+    vertexShader: `varying float vY; varying vec3 vN; void main(){ vY = position.y; vN = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+    fragmentShader: `uniform vec3 uTint; varying float vY; varying vec3 vN;
+      void main(){ float k = floor((0.275 - vY) / 0.055); vec3 a = vec3(.93,.94,.9), b = vec3(.86,.88,.83);
+        vec3 c = mod(k, 2.0) < 1.0 ? a : b; float line = smoothstep(.006, 0., abs(fract((0.275 - vY) / 0.055) - 0.)) ;
+        c = mix(c, vec3(.09,.13,.17), max(line * .35, smoothstep(.25, .27, vY) * .9));
+        c *= .82 + .18 * clamp(vN.x * .5 + .5, 0., 1.); gl_FragColor = vec4(c * uTint, 1.); }`
+  }));
+  side.position.y = HSCALE / LEVELS - .275; scene.add(side);
+  // soft shadow on the page
+  const sh = document.createElement('canvas'); sh.width = sh.height = 128; const sx = sh.getContext('2d');
+  const gr = sx.createRadialGradient(64, 64, 20, 64, 64, 64); gr.addColorStop(0, 'rgba(23,34,42,.32)'); gr.addColorStop(1, 'rgba(23,34,42,0)'); sx.fillStyle = gr; sx.fillRect(0, 0, 128, 128);
+  const shTex = new THREE.CanvasTexture(sh);
+  const pageShadow = new THREE.Mesh(new THREE.PlaneGeometry(13, 13), new THREE.MeshBasicMaterial({ map: shTex, transparent: true, depthWrite: false }));
+  pageShadow.rotation.x = -Math.PI / 2; pageShadow.position.y = -.6; scene.add(pageShadow);
+  const blob = new THREE.Mesh(new THREE.PlaneGeometry(.9, .9), new THREE.MeshBasicMaterial({ map: shTex, transparent: true, depthWrite: false, opacity: .9 }));
+  blob.rotation.x = -Math.PI / 2; scene.add(blob);
+
+  /* ----- toon + ink outline helpers ----- */
+  const grad = new THREE.DataTexture(new Uint8Array([120, 120, 120, 255, 195, 195, 195, 255, 255, 255, 255, 255]), 3, 1, THREE.RGBAFormat);
+  grad.magFilter = grad.minFilter = THREE.NearestFilter; grad.needsUpdate = true;
+  const mats = {}; const M = c => mats[c] || (mats[c] = new THREE.MeshToonMaterial({ color: c, gradientMap: grad }));
+  const outline = t => { const m = new THREE.MeshBasicMaterial({ color: 0x17222a, side: THREE.BackSide });
+    m.onBeforeCompile = s => { s.vertexShader = s.vertexShader.replace('#include <begin_vertex>', `vec3 transformed = position + normal * ${t.toFixed(3)};`); }; return m; };
+  const OL = outline(.032), OLs = outline(.022);
+  const pickables = [];
+  function mk(geo, color, x = 0, y = 0, z = 0, parent, ol = OL, pick) {
+    const m = new THREE.Mesh(geo, typeof color === 'string' ? M(color) : color); m.position.set(x, y, z);
+    if (ol) m.add(new THREE.Mesh(geo, ol));
+    parent.add(m); if (pick) pickables.push(m); return m;
+  }
+  const cap = (r, l) => new THREE.CapsuleGeometry(r, l, 4, 10);
+
+  /* ----- little Gabriel ----- */
+  const C = { skin: '#e8b996', shirt: '#2d64a8', pants: '#2a3540', hair: '#5b3e2b', shoe: '#f2f2ee', ink: '#17222a' };
+  const root = new THREE.Group(); root.rotation.order = 'YXZ'; scene.add(root);
+  const body = new THREE.Group(); body.scale.setScalar(.72); root.add(body);
+  const hips = new THREE.Group(); body.add(hips);
+  const torso = new THREE.Group(); hips.add(torso);
+  mk(cap(.2, .34), C.shirt, 0, .34, 0, torso, OL, 1);
+  const headG = new THREE.Group(); headG.position.y = .76; torso.add(headG);
+  mk(new THREE.SphereGeometry(.17, 18, 12), C.skin, 0, .1, 0, headG, OL, 1);
+  const hair = mk(new THREE.SphereGeometry(.18, 18, 10, 0, Math.PI * 2, 0, Math.PI * .5), C.hair, 0, .13, -.015, headG, null, 1); hair.rotation.x = -.3;
+  const quiff = mk(new THREE.SphereGeometry(.09, 10, 8), C.hair, .02, .27, .07, headG, null); quiff.scale.set(1.5, .7, 1);
+  const beard = mk(new THREE.SphereGeometry(.168, 16, 8, 0, Math.PI * 2, Math.PI * .56, Math.PI * .32), C.hair, 0, .1, .006, headG, null);
+  const glasses = new THREE.Group(); headG.add(glasses);
+  [-.065, .065].forEach(x => { const r = new THREE.Mesh(new THREE.TorusGeometry(.047, .012, 6, 18), M('#4a2c25')); r.position.set(x, .13, .165); glasses.add(r); });
+  const br = new THREE.Mesh(new THREE.BoxGeometry(.04, .012, .012), M('#4a2c25')); br.position.set(0, .14, .17); glasses.add(br);
+  const helmet = new THREE.Group(); headG.add(helmet);
+  mk(new THREE.SphereGeometry(.195, 16, 10, 0, Math.PI * 2, 0, Math.PI * .56), '#cfd84a', 0, .11, -.01, helmet, OLs);
+  mk(new THREE.BoxGeometry(.3, .075, .06), '#4b63d6', 0, .13, .15, helmet, OLs);
+  function limb(parent, x, y, upper, r1, r2) {
+    const j = new THREE.Group(); j.position.set(x, y, 0); parent.add(j);
+    mk(cap(r1, .2), upper, 0, -.16, 0, j, OL, 1);
+    const k = new THREE.Group(); k.position.y = -.33; j.add(k);
+    mk(cap(r2, .2), C.skin, 0, -.15, 0, k, OL, 1);
+    const end = new THREE.Group(); end.position.y = -.31; k.add(end);
+    mk(new THREE.SphereGeometry(.066, 10, 8), C.skin, 0, 0, 0, end, OLs);
+    return [j, k, end];
+  }
+  const [lS, lE, lHand] = limb(torso, .27, .58, C.shirt, .07, .058);
+  const [rS, rE, rHand] = limb(torso, -.27, .58, C.shirt, .07, .058);
+  function leg(x) {
+    const j = new THREE.Group(); j.position.set(x, 0, 0); hips.add(j);
+    mk(cap(.09, .26), C.pants, 0, -.21, 0, j, OL, 1);
+    const k = new THREE.Group(); k.position.y = -.45; j.add(k);
+    mk(cap(.075, .28), C.pants, 0, -.2, 0, k, OL, 1);
+    mk(new THREE.BoxGeometry(.13, .08, .26), C.shoe, 0, -.44, .05, k, OLs);
+    return [j, k];
+  }
+  const [lH, lK] = leg(.11), [rH, rK] = leg(-.11);
+  // carried things
+  const phone = new THREE.Group(); lHand.add(phone); mk(new THREE.BoxGeometry(.08, .15, .02), C.ink, 0, -.04, .05, phone, null);
+  const kettle = new THREE.Group(); rHand.add(kettle); kettle.position.set(.13, -.12, .02);
+  mk(new THREE.SphereGeometry(.15, 12, 10), '#2b3036', 0, -.1, 0, kettle, OLs); mk(new THREE.TorusGeometry(.085, .025, 6, 14), '#2b3036', 0, .06, 0, kettle, null);
+  const pack = new THREE.Group(); torso.add(pack); mk(new THREE.BoxGeometry(.32, .38, .17), '#c4693c', 0, .38, -.25, pack, OLs); mk(new THREE.BoxGeometry(.24, .14, .06), '#a8572f', 0, .28, -.35, pack, null);
+  const guitar = new THREE.Group(); torso.add(guitar); guitar.position.set(.03, .2, .28); guitar.rotation.set(0, 0, .5);
+  [[.2, -.1], [.15, .13]].forEach(([r, y]) => { const c = mk(new THREE.CylinderGeometry(r, r, .08, 18), '#e3b35c', -.04, y, 0, guitar, OLs); c.rotation.x = Math.PI / 2; });
+  const guard = mk(new THREE.CylinderGeometry(.1, .1, .085, 14), '#1b1b1b', .03, -.04, .002, guitar, null); guard.rotation.x = Math.PI / 2;
+  mk(new THREE.BoxGeometry(.06, .64, .04), '#e8c98f', -.04, .55, 0, guitar, OLs);
+  mk(new THREE.BoxGeometry(.09, .14, .03), '#e8c98f', -.06, .92, 0, guitar, OLs);
+
+  /* ----- props per scene ----- */
+  const groups = SC.map(() => { const g = new THREE.Group(); scene.add(g); return g; });
+  const qH = (i, x, z) => Math.floor(FH(i, x, z) * LEVELS + .001) / LEVELS * HSCALE;
+  const at = (i, g, x, z, yaw = 0) => { g.position.set(x, qH(i, x, z), z); g.rotation.y = yaw; groups[i].add(g); return g; };
+  // desk scene (shared by hero + final)
+  function deskSet() {
+    const g = new THREE.Group();
+    mk(new THREE.BoxGeometry(.42, .05, .4), '#b98552', 0, .33, -.05, g, OLs);
+    mk(new THREE.BoxGeometry(.42, .38, .05), '#b98552', 0, .54, -.26, g, OLs);
+    [[-.18, -.22], [.18, -.22], [-.18, .12], [.18, .12]].forEach(([x, z]) => mk(new THREE.BoxGeometry(.04, .32, .04), '#8a5f3a', x, .16, z, g, null));
+    mk(new THREE.BoxGeometry(1.15, .05, .55), '#c99a66', 0, .52, .52, g, OLs);
+    [[-.52, .3], [.52, .3], [-.52, .74], [.52, .74]].forEach(([x, z]) => mk(new THREE.BoxGeometry(.05, .5, .05), '#8a5f3a', x, .25, z, g, null));
+    mk(new THREE.BoxGeometry(.38, .02, .26), '#9aa3ad', .08, .555, .5, g, OLs);
+    const lid = mk(new THREE.BoxGeometry(.38, .26, .02), '#9aa3ad', .08, .69, .62, g, OLs); lid.rotation.x = .28;
+    const flag = new THREE.Mesh(new THREE.PlaneGeometry(.09, .06), M('#2f9a4d')); flag.position.set(.02, .01, .012); lid.add(flag);
+    const dia = new THREE.Mesh(new THREE.PlaneGeometry(.045, .045), M('#f2cf3a')); dia.rotation.z = Math.PI / 4; dia.position.set(.02, .01, .013); lid.add(dia);
+    const pad = mk(new THREE.BoxGeometry(.24, .17, .015), '#1f262d', -.33, .64, .6, g, OLs); pad.rotation.x = .35;
+    const gourd = new THREE.Group(); gourd.position.set(.44, .55, .4); g.add(gourd);
+    mk(new THREE.CylinderGeometry(.055, .04, .11, 12), '#8a5a33', 0, .055, 0, gourd, OLs);
+    mk(new THREE.CylinderGeometry(.05, .05, .01, 12), '#6f9a3c', 0, .11, 0, gourd, null);
+    const straw = mk(new THREE.CylinderGeometry(.008, .008, .16, 6), '#c9ccd0', .015, .16, 0, gourd, null); straw.rotation.z = -.25;
+    return g;
+  }
+  const desk0 = at(0, deskSet(), SC[0].fig[0], SC[0].fig[1], SC[0].yaw);
+  const desk8 = at(8, deskSet(), SC[8].fig[0], SC[8].fig[1], SC[8].yaw);
+  // summit cairn
+  { const g = new THREE.Group(); [.15, .12, .09, .06].reduce((y, r) => { mk(new THREE.DodecahedronGeometry(r), '#9a9c95', 0, y + r, 0, g, OLs); return y + r * 1.6; }, 0); at(1, g, 1.15, -.35); }
+  // snow: board + trees
+  const snowboard = new THREE.Group(); { mk(new THREE.BoxGeometry(.95, .03, .22), '#e9e4d6', 0, .02, 0, snowboard, OLs); mk(new THREE.BoxGeometry(.6, .032, .1), '#d4532f', 0, .021, 0, snowboard, null); groups[2].add(snowboard); }
+  [[-1.8, -.6, 1], [-1.2, 1.4, .8], [1.8, -.2, 1.1], [2.2, 1.2, .8], [-.6, -1.9, .9], [1.1, -1.6, .8], [-2.4, .9, .7]].forEach(([x, z, s]) => {
+    const g = new THREE.Group(); mk(new THREE.CylinderGeometry(.05 * s, .07 * s, .25 * s, 6), '#6b4b33', 0, .12 * s, 0, g, null);
+    mk(new THREE.ConeGeometry(.32 * s, .55 * s, 7), '#3e6150', 0, .45 * s, 0, g, OLs); mk(new THREE.ConeGeometry(.22 * s, .4 * s, 7), '#4a705c', 0, .72 * s, 0, g, OLs); at(2, g, x, z); });
+  // train: mat
+  { const g = new THREE.Group(); mk(new THREE.BoxGeometry(.7, .025, 1.2), '#3b4652', 0, .012, 0, g, OLs); at(3, g, SC[3].fig[0], SC[3].fig[1], SC[3].yaw); }
+  // guitar: stump + campfire
+  { const g = new THREE.Group(); mk(new THREE.CylinderGeometry(.17, .19, .34, 12), '#7a5638', 0, .17, -.02, g, OLs); at(4, g, SC[4].fig[0], SC[4].fig[1], SC[4].yaw); }
+  const flames = [];
+  { const g = new THREE.Group();
+    for (let i = 0; i < 5; i++) { const l = mk(new THREE.CylinderGeometry(.04, .04, .4, 6), '#6b4a2e', Math.cos(i * 1.26) * .1, .05, Math.sin(i * 1.26) * .1, g, null); l.rotation.set(Math.PI / 2.6, i * 1.26, 0); }
+    [['#ff7a2f', .15, .42], ['#ffb02e', .1, .3], ['#ffe08a', .055, .2]].forEach(([c, r, h]) => { const f = new THREE.Mesh(new THREE.ConeGeometry(r, h, 6), new THREE.MeshBasicMaterial({ color: c })); f.position.y = .06 + h / 2; g.add(f); flames.push(f); });
+    at(4, g, .95, 1.05); }
+  // surf: board
+  const surfboard = new THREE.Group(); { const b = mk(new THREE.SphereGeometry(1, 20, 10), '#fbfaf5', 0, 0, 0, surfboard, OLs); b.scale.set(.6, .03, .16);
+    mk(new THREE.BoxGeometry(1.0, .012, .03), '#d4532f', 0, .03, 0, surfboard, null); groups[5].add(surfboard); }
+  // andes: tent
+  { const g = new THREE.Group(); const t = mk(new THREE.ConeGeometry(.42, .46, 4), '#e0703a', 0, .23, 0, g, OLs); t.rotation.y = Math.PI / 4; t.scale.set(1, 1, 1.4); at(6, g, .55, .35, .4); }
+  // terraces: huts + llama
+  [[.1, -.3], [.75, -.55], [-.25, .45], [.95, .25], [-.6, -.5]].forEach(([x, z], i) => {
+    const g = new THREE.Group(); mk(new THREE.BoxGeometry(.32, .2, .26), '#a19d91', 0, .1, 0, g, OLs);
+    const r = mk(new THREE.ConeGeometry(.27, .2, 4), '#b8995c', 0, .3, 0, g, OLs); r.rotation.y = Math.PI / 4; at(7, g, x, z, i * .5); });
+  { const g = new THREE.Group(); const w = '#f0ebdf';
+    const b = mk(cap(.09, .22), w, 0, .3, 0, g, OLs); b.rotation.z = Math.PI / 2;
+    mk(cap(.05, .2), w, .17, .47, 0, g, OLs); mk(new THREE.SphereGeometry(.065, 10, 8), w, .2, .62, 0, g, OLs);
+    mk(new THREE.ConeGeometry(.02, .07, 5), w, .19, .7, .03, g, null); mk(new THREE.ConeGeometry(.02, .07, 5), w, .19, .7, -.03, g, null);
+    [[-.12, .05], [-.12, -.05], [.12, .05], [.12, -.05]].forEach(([x, z]) => mk(new THREE.CylinderGeometry(.025, .025, .25, 6), w, x, .12, z, g, null));
+    at(7, g, 1.95, .7, -2.2); }
+  // final: little peak flag? (alps provide the drama)
+
+  /* ----- poses ----- */
+  const BASE = { lift: 0, pitch: 0, roll: 0, torsoX: 0, headX: 0, headY: 0, lSx: 0, lSz: .1, lEx: 0, rSx: 0, rSz: -.1, rEx: 0, lHx: 0, lHz: 0, lKx: 0, rHx: 0, rHz: 0, rKx: 0 };
+  const sit = t => ({ lift: -.42, lHx: -1.5, rHx: -1.5, lKx: 1.5, rKx: 1.5, torsoX: .06 });
+  const POSES = {
+    type: t => Object.assign(sit(t), { headX: .16 + Math.sin(t * 1.1) * .03, lSx: -.5, rSx: -.5, lSz: .06, rSz: -.06, lEx: -1.0 + Math.sin(t * 17) * .08, rEx: -1.0 + Math.cos(t * 15) * .08 }),
+    sitwave: t => Object.assign(sit(t), { headX: -.05, lSx: -.45, lEx: -1.0, rSz: -2.6 + Math.sin(t * 6) * .25, rEx: -.35 }),
+    summit: t => ({ rSx: -2.9, rSz: -.15 + Math.sin(t * 2) * .05, rEx: -.1, lSz: .3, lEx: -.2, torsoX: -.06, headX: -.18, lHz: .08, rHz: -.08 }),
+    ride: t => ({ lift: -.14, lHx: -.25, rHx: -.25, lHz: .32, rHz: -.32, lKx: .6, rKx: .6, torsoX: .14, lSz: .95 + Math.sin(t * 1.4) * .08, rSz: -.95 + Math.sin(t * 1.4) * .08, headY: .95, roll: Math.sin(t * 1.4) * .05 }),
+    swing: t => { const k = (Math.sin(t * 3.2) + 1) / 2, d = 1 - k;
+      return { lSx: -.15 - 1.45 * k, rSx: -.15 - 1.45 * k, lSz: -.3, rSz: .3, torsoX: .5 * d, lHx: -.25 - .45 * d, rHx: -.25 - .45 * d, lKx: .35 + .1 * d, rKx: .35 + .1 * d, lHz: .15, rHz: -.15, lift: -.06 - .06 * d }; },
+    strum: t => Object.assign(sit(t), { torsoX: .1, headX: .28, headY: -.2, rSx: -.55, rSz: -.15, rEx: -1.2 + Math.sin(t * 9) * .18, lSx: -1.0, lSz: .55, lEx: -.9 }),
+    surf: t => ({ lift: -.16 + Math.sin(t * 1.3) * .03, lHx: -.3, rHx: -.3, lHz: .3, rHz: -.3, lKx: .65, rKx: .65, torsoX: .22, roll: Math.sin(t * 1.3) * .08, lSz: 1.25 + Math.sin(t * 1.3) * .1, rSz: -1.25 + Math.sin(t * 1.3) * .1, lSx: -.15, rSx: .1, headY: -.5 }),
+    hips: t => ({ lSz: .62, rSz: -.62, lSx: .35, rSx: .35, lEx: -1.25, rEx: -1.25, headY: .25 + Math.sin(t * .6) * .25, headX: -.08 }),
+    sweep: t => ({ rSx: -.2, rSz: -1.45 + Math.sin(t * 1.2) * .06, rEx: -.12, lSx: -1.35, lSz: .22, lEx: -1.3, headX: -.04, headY: .15 }),
+    wave: t => ({ rSz: -2.6 + Math.sin(t * 6) * .25, rEx: -.35, lSz: .12, headX: -.05 }),
+    fly: () => ({ lSx: -.3, rSx: -.3, lSz: 2.4, rSz: -2.4, lHx: -.5, rHx: -.1, lKx: .7, rKx: .3, torsoX: -.1 })
+  };
+  const pose = (k, t) => Object.assign({}, BASE, POSES[k](t));
+  const mix = (a, b, w) => { const o = {}; for (const k in BASE) o[k] = a[k] + (b[k] - a[k]) * w; return o; };
+  function applyPose(p, breathe) {
+    hips.position.y = .95 + p.lift + breathe; torso.rotation.x = p.torsoX; headG.rotation.x = p.headX; headG.rotation.y = p.headY;
+    lS.rotation.set(p.lSx, 0, p.lSz); rS.rotation.set(p.rSx, 0, p.rSz); lE.rotation.x = p.lEx; rE.rotation.x = p.rEx;
+    lH.rotation.set(p.lHx, 0, p.lHz); rH.rotation.set(p.rHx, 0, p.rHz); lK.rotation.x = p.lKx; rK.rotation.x = p.rKx;
+    root.rotation.x = p.pitch; root.rotation.z = p.roll;
+  }
+
+  /* ----- sizing ----- */
+  let W = 0, Hh = 0, phoneLayout = false;
+  function resize() {
+    W = innerWidth; Hh = innerHeight; phoneLayout = W < 760;
+    renderer.setSize(W, Hh, false); camera.aspect = W / Hh;
+    camera.fov = phoneLayout ? 34 : 28;
+    if (phoneLayout) camera.setViewOffset(W, Hh, 0, Hh * .25, W, Hh);
+    else camera.setViewOffset(W, Hh, -W * (W > 1100 ? .19 : .16), 0, W, Hh);
+    camera.updateProjectionMatrix();
+  }
+  resize(); addEventListener('resize', resize);
+
+  /* ----- interaction: tap to say hi ----- */
+  const GREET = [['Olá!', 'PT'], ['Hello!', 'EN'], ['¡Hola!', 'ES'], ['Bonjour !', 'FR'], ['Hallo!', 'DE · learning'], ['Ciao!', 'IT · soon']];
+  let gi = 0, waveUntil = 0, bubbleUntil = 0, hovering = false;
+  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  function hitFigure(cx, cy) {
+    const r = canvas.getBoundingClientRect(); ndc.set((cx - r.left) / r.width * 2 - 1, -((cy - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, camera); return ray.intersectObjects(pickables, false).length > 0;
+  }
+  const blocked = el => el.closest('a,button,input,textarea,label,.card,.def,.facts,form');
+  document.addEventListener('pointermove', e => {
+    mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5;
+    if (!state.on) return; const h = !blocked(e.target) && hitFigure(e.clientX, e.clientY);
+    if (h !== hovering) { hovering = h; document.body.style.cursor = h ? 'pointer' : ''; }
+  }, { passive: true });
+  document.addEventListener('click', e => {
+    if (!state.on || blocked(e.target) || !hitFigure(e.clientX, e.clientY)) return;
+    const [g, l] = GREET[gi++ % GREET.length]; bubble.innerHTML = `${g}<small>${l}</small>`;
+    waveUntil = clock.elapsedTime + 1.8; bubbleUntil = clock.elapsedTime + 1.8; tapped = true;
+  });
+  let mx = 0, my = 0, pmx = 0, pmy = 0, tapped = false;
+
+  /* ----- loop ----- */
+  const clock = new THREE.Clock(); let grow = reduce ? 1 : 0, cur = -1, curA = -1, curB = -1, pCur = 0;
+  const tmp = new THREE.Vector3(), look = new THREE.Vector3(), headW = new THREE.Vector3();
+  const lerpAng = (a, b, w) => a + (((b - a + Math.PI) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2) - Math.PI) * w;
+  const state = { on: false, p: 0, heroShift: 0 };
+  function frame() {
+    requestAnimationFrame(frame);
+    const dt = Math.min(clock.getDelta(), .05), t = reduce ? 1 : clock.elapsedTime;
+    if (!state.on && grow >= 1) return;
+    if (grow < 1) grow = Math.min(1, grow + dt / 1.6);
+    const ge = 1 - Math.pow(1 - grow, 3);
+    terrainMat.uniforms.uGrow.value = ge;
+    pCur = state.snap || reduce ? state.p : pCur + (state.p - pCur) * Math.min(1, dt * 4);
+    state.snap = false;
+    const i = Math.min(NS - 2, Math.floor(pCur)), f = clamp(pCur - i), e = smooth(.6, .97, f);
+    if (i !== curA) { curA = i; aA.array.set(H[i]); aA.needsUpdate = true; aB.array.set(H[i + 1]); aB.needsUpdate = true;
+      terrainMat.uniforms.uPalA.value = palTex[i]; terrainMat.uniforms.uPalB.value = palTex[i + 1]; }
+    terrainMat.uniforms.uMix.value = e;
+    const A = SC[i], B = SC[i + 1], near = e < .5 ? i : i + 1;
+    // props
+    groups.forEach((g, k) => { const pe = i + e, w = clamp(1 - Math.abs(pe - k) * 2.4);
+      g.visible = w > .01; const sc = Math.max(.001, smooth(0, 1, w)) * (k === 0 ? smooth(.5, 1, ge) : 1); g.children.forEach(c => c.scale.setScalar(sc)); });
+    // figure
+    const ax = A.fig[0], az = A.fig[1], bx = B.fig[0], bz = B.fig[1];
+    const x = ax + (bx - ax) * e, z = az + (bz - az) * e;
+    const hm = Math.floor((FH(i, x, z) * (1 - e) + FH(i + 1, x, z) * e) * LEVELS * ge + .001) / LEVELS * HSCALE;
+    const arc = Math.sin(Math.PI * e) * (1.2 + Math.hypot(bx - ax, bz - az) * .25);
+    let y = hm + arc;
+    if (near === 5) y += .06 + Math.sin(t * 1.3) * .02;
+    if (near === 2) y += .04;
+    root.position.set(x, y, z); root.rotation.y = lerpAng(A.yaw, B.yaw, e);
+    const fly = Math.sin(Math.PI * e);
+    let P0 = mix(mix(pose(A.pose, t), pose(B.pose, t), e), pose('fly', t), fly * .85);
+    if (t < waveUntil) { const wv = clamp((waveUntil - t) * 2) * clamp(1 - (waveUntil - t - 1.3) * 2); const sitting = ['type', 'strum', 'sitwave'].includes(SC[near].pose);
+      P0 = mix(P0, sitting ? pose('sitwave', t) : pose('wave', t), wv); }
+    applyPose(P0, Math.sin(t * 2) * .008);
+    root.visible = ge > .6; root.scale.setScalar(smooth(.6, 1, ge));
+    blob.position.set(x, hm + .012, z); blob.material.opacity = .8 * (1 - fly) * smooth(.6, 1, ge);
+    // accessories
+    helmet.visible = near === 2; glasses.visible = near !== 2 && near !== 5; quiff.visible = near !== 2;
+    phone.visible = near === 7; kettle.visible = near === 3; pack.visible = near === 6; guitar.visible = near === 4;
+    surfboard.position.set(SC[5].fig[0], qH(5, SC[5].fig[0], SC[5].fig[1]) + .05 + Math.sin(t * 1.3) * .02, SC[5].fig[1]); surfboard.rotation.set(0, 0, Math.sin(t * 1.3) * .06);
+    snowboard.position.set(SC[2].fig[0], qH(2, SC[2].fig[0], SC[2].fig[1]) + .02, SC[2].fig[1]); snowboard.rotation.y = SC[2].yaw;
+    // light
+    const dusk = (A.dusk || 0) * (1 - e) + (B.dusk || 0) * e;
+    terrainMat.uniforms.uTint.value.set(1 - .08 * dusk, 1 - .13 * dusk, 1 - .18 * dusk);
+    hemi.intensity = .55 - .2 * dusk; sun.intensity = .72 - .3 * dusk; sun.color.setRGB(1, 1 - .15 * dusk, 1 - .3 * dusk);
+    const fl = .85 + Math.sin(t * 13) * .08 + Math.sin(t * 7.3) * .07; fire.intensity = 1.6 * dusk * fl;
+    fire.position.set(.95, qH(4, .95, 1.05) + .4, 1.05); flames.forEach((fm, k) => { fm.scale.set(1, fl + k * .05, 1); fm.rotation.y = t * (1 + k); });
+    // camera
+    pmx += (mx - pmx) * .05; pmy += (my - pmy) * .05;
+    const azm = lerpAng(A.cam[0], B.cam[0], e) + pmx * .25, el = A.cam[1] + (B.cam[1] - A.cam[1]) * e + pmy * .06 + fly * .08;
+    const dist = (A.cam[2] + (B.cam[2] - A.cam[2]) * e) * (phoneLayout ? 1.12 : 1) * (1 + fly * .06);
+    look.set(x * .3, .7 + hm * .3, z * .3);
+    camera.position.set(look.x + dist * Math.sin(azm) * Math.cos(el), look.y + dist * Math.sin(el), look.z + dist * Math.cos(azm) * Math.cos(el));
+    camera.lookAt(look);
+    renderer.render(scene, camera);
+    // bubble + tap note
+    headG.getWorldPosition(headW); headW.y += .32; headW.project(camera);
+    const r = canvas.getBoundingClientRect(), bx2 = r.left + (headW.x + 1) / 2 * r.width, by2 = r.top + (1 - headW.y) / 2 * r.height;
+    bubble.style.left = bx2 + 'px'; bubble.style.top = by2 + 'px'; bubble.classList.toggle('on', t < bubbleUntil && state.on);
+    const showTap = state.on && state.inHero && !tapped && ge > .99;
+    tapnote.classList.toggle('on', showTap);
+    if (showTap) { tapnote.style.left = Math.max(12, bx2 - (phoneLayout ? 20 : 70) - tapnote.offsetWidth) + 'px'; tapnote.style.top = (by2 + (phoneLayout ? 30 : 60)) + 'px'; }
+    tickInset();
+  }
+  requestAnimationFrame(frame);
+  return { state };
+}
+
+/* ---------- scroll → scene ---------- */
+const insetBox = document.querySelector('.inset');
+function onScroll() {
+  const vh = innerHeight, hr = hero.getBoundingClientRect();
+  const inHero = hr.bottom > vh * .3;
+  const c0 = chapterEls[0].getBoundingClientRect(), cN = chapterEls[chapterEls.length - 1].getBoundingClientRect();
+  const inRoute = c0.top < vh * .7 && cN.bottom > vh * .45;
+  let p = 0, active = 1;
+  if (!inHero) {
+    const anchor = vh * .5; p = 1;
+    for (let k = 0; k < chapterEls.length; k++) {
+      const r = chapterEls[k].getBoundingClientRect(), s = +chapterEls[k].dataset.scene;
+      if (anchor >= r.top) { p = s + clamp((anchor - r.top) / r.height); active = s; }
+    }
+    p = Math.min(p, 8);
+  }
+  insetBox.classList.toggle('on', inRoute);
+  if (!inHero) tapnote.classList.remove('on');
+  if (active !== currentChapter) moveInset(active);
+  if (gl) {
+    const st = gl.state, was = st.on; st.on = inHero || inRoute; st.inHero = inHero;
+    if (!was && st.on) st.snap = true;
+    st.p = p;
+    canvas.classList.toggle('on', st.on);
+    canvas.style.transform = inHero ? `translateY(${-Math.min(scrollY, vh)}px)` : 'none';
+  }
+}
+addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll); onScroll();
+})();
+</script>
