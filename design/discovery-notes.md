@@ -103,3 +103,14 @@ Photos are saved in design/photos/ (permission given).
 - Handwriting sheet received (vector export used: clean ink layer).
   Font "Gabriel Hand" built from it: design/handwriting/font/ (102 glyphs, no "&" or "¡").
   Phrase crops in design/prototype/assets/hand/g/.
+
+## Round 4
+- Feedback: keep the Design lab for comparing. Map labels pixelate on zoom. Character always carried
+  guitar + kettlebell. Split the site into pages (like sabrinacarlier.fr) so an automation lead lands on
+  a focused page. Handwritten nav looked childish. Languages page: loved.
+- Built: design/site/ (multi-page; edit src/ then run build.py).
+  Pages: Home (index), Studio (automation, no personal content), Work, Journey (3D atlas), About (story,
+  parents, languages), Contact (form; #studio/#brand/#hire/#collab/#hi preselect the topic).
+- Map is now vector (world-atlas 50m) with DOM labels: crisp at any zoom.
+- Studio uses the real testimonials from the current site (Zach Hodder / Harpia, Elisa Curtelin).
+- Open: 3D character from AI (see options in chat), Lantern Clinic details.

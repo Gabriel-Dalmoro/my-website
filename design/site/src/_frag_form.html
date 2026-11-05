@@ -1,0 +1,20 @@
+<form id="helloForm" novalidate>
+        <fieldset>
+          <legend class="mono">I'm here to</legend>
+          <div class="chips">
+            <label><input type="radio" name="why" id="why-work" value="work" checked><span>Work together</span></label>
+            <label><input type="radio" name="why" id="why-collab" value="collab"><span>Collaborate</span></label>
+            <label><input type="radio" name="why" id="why-hire" value="hire"><span>Hire you</span></label>
+            <label><input type="radio" name="why" id="why-brand" value="brand"><span>Brand partnership</span></label>
+            <label><input type="radio" name="why" id="why-hi" value="hi"><span>Just say hi</span></label>
+          </div>
+        </fieldset>
+        <div class="two">
+          <div class="field"><label class="mono" for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label class="mono" for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        </div>
+        <div class="field"><label class="mono" for="f-msg">Message</label><textarea id="f-msg" name="msg" rows="4"></textarea></div>
+        <div><button class="btn" type="submit">Send
+          <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button></div>
+        <p class="sent" id="sent" role="status">This is a prototype, so nothing was sent. On the real site, this goes straight to me.</p>
+      </form>
