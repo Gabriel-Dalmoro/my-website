@@ -96,9 +96,8 @@ then for businesses.
 
 ## 6. What stays private
 
-Romantic and relationship details, substances, family conflict and money
-figures from the journal stay off the site. The journal shaped the tone
-and structure only.
+Personal journal content stays off the site unless Gabriel picks it.
+The journal shaped the tone and structure only.
 
 ## 7. Open questions
 

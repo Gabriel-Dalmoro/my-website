@@ -72,7 +72,7 @@ Photos are saved in design/photos/ (permission given).
 - 260-day route: Calgary → Colombia → Ecuador → Peru → Bolivia → Chile → Brazil → Annecy.
 - Career thesis (Dec 2024): tech + people/communication + money.
 - Learned salsa and Spanish on the road (handwritten grammar notes).
-- Private content (relationships, substances, family conflict, money) stays off the site.
+- Private journal content stays off the site. The journal shapes tone and structure only.
 
 ## Still open
 See design/brief.md, section 7.
