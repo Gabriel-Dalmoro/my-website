@@ -762,7 +762,8 @@ function initWorld() {
   }
 
   /* ---------- chapters ---------- */
-  const A = { fr: W3(P.france), br: W3(P.br), ca: W3(P.ca), chicama: W3(P.chicama), huayhuash: W3(P.huayhuash), machu: W3(P.machu) };
+  // one fixed stage: every scene builds in the same spot; the route lives in the corner mini-map
+  const O0 = new THREE.Vector3(); const A = { fr: O0, br: O0, ca: O0, chicama: O0, huayhuash: O0, machu: O0 };
   const CH = {
     0: { si: 0, a: 'fr', d: D.france, pose: 'type' }, 2: { si: 1, a: 'br', d: 0 }, 3: { si: 2, a: 'ca', d: D.ca }, 4: { si: 3, a: 'ca', d: D.ca }, 5: { si: 4, a: 'ca', d: D.ca },
     6: { si: 5, a: 'chicama', d: D.chicama }, 7: { si: 6, a: 'huayhuash', d: D.huayhuash }, 8: { si: 7, a: 'machu', d: D.machu }, 9: { si: 0, a: 'fr', d: D.france, pose: 'sitwave', cam: [.3, .46, 27] }
@@ -830,7 +831,7 @@ function initWorld() {
     if (intro < 1) intro = reduce ? 1 : Math.min(1, t / 2.2);
     pCur = state.snap || reduce ? state.p : pCur + (state.p - pCur) * Math.min(1, dt * 5);
     const route = state.mode === 'route';
-    mapOp += ((route ? 1 : 0) - mapOp) * Math.min(1, dt * 3); if (state.snap) mapOp = route ? 1 : 0;
+    mapOp = 0;
     fadeU.uOp.value = mapOp; ribbon.uniforms.uOp.value = mapOp; mapGroup.visible = mapOp > .01; dotMat.opacity = ringMat.opacity = mapOp;
     Object.values(DIOS).forEach(D0 => D0.root.visible = false);
 
@@ -843,24 +844,22 @@ function initWorld() {
       const k = clamp(Math.floor(pCur), 1, 9), f = pCur - k;
       // builds
       for (let kk = 2; kk <= 9; kk++) {
-        const rise = smooth(kk - 1 + .8, kk - .02, pCur), sink = kk < 9 ? smooth(kk + .58, kk + .7, pCur) : 0, b = rise * (1 - sink);
+        const rise = smooth(kk - 1 + .6, kk - 1 + .92, pCur), sink = kk < 9 ? smooth(kk + .6, kk + .78, pCur) : 0, b = rise * (1 - sink);
         if (b > .001) { const D0 = dio(CH[kk].si); D0.root.position.copy(A[CH[kk].a]); setBuild(D0, b); }
       }
       if (k === 1) {
-        const w = smooth(.55, 1, f), ov = camOverview(); ov.d = overviewDist();
-        camC = blendCam(ov, camFor(2), w);
-        const hp = holdPos(2), drop = smooth(.78, 1, f); figPos.copy(hp); figPos.y = lerp(hp.y + 14, hp.y, drop * drop); figScale = drop > 0 ? 1 : 0;
-        figYaw = SC[1].yaw; P0 = drop < 1 ? pose('fly', t) : pose('strum', t); outfit = 'brazil'; prog = 0;
+        camC = camFor(2); figPos.copy(holdPos(2)); figScale = pCur > 1.93 ? 1 : 0;
+        figYaw = SC[1].yaw; P0 = pose('strum', t); outfit = 'brazil'; prog = 0;
       } else if (k === 9 || f < .58) {
         const c = CH[k], sc = SC[c.si]; figPos.copy(holdPos(k)); figYaw = sc.yaw; P0 = pose(c.pose || sc.pose, t); outfit = sc.outfit; prog = c.d; camC = camFor(k);
         if (sc.key === 'surf') figPos.y += .08 + Math.sin(t * 1.3) * .03;
         if (sc.key === 'snow') figPos.y += .05;
       } else {
-        const c0 = CH[k], c1 = CH[k + 1], tt = clamp((f - .58) / .42), same = c0.a === c1.a;
+        const c0 = CH[k], c1 = CH[k + 1], tt = clamp((f - .58) / .42), same = true;
         const h0 = holdPos(k), h1 = holdPos(k + 1), cm0 = camFor(k), cm1 = camFor(k + 1);
         if (same) {
-          const w = smooth(.3, .95, tt); figPos.copy(h0).lerp(h1, w); figPos.y += Math.sin(Math.PI * w) * 3.2 + (tt < .3 ? Math.sin(Math.PI * tt / .3) * .6 : 0);
-          figYaw = lerpAng(SC[c0.si].yaw, SC[c1.si].yaw, w); P0 = mixP(pose(SC[c0.si].pose, t), pose('fly', t), Math.min(1, Math.sin(Math.PI * w) * 2)); outfit = w < .5 ? SC[c0.si].outfit : SC[c1.si].outfit;
+          const w = smooth(.2, .8, tt); figPos.copy(h0).lerp(h1, w);
+          figYaw = lerpAng(SC[c0.si].yaw, SC[c1.si].yaw, w); P0 = w < .5 ? pose(c0.pose || SC[c0.si].pose, t) : pose(c1.pose || SC[c1.si].pose, t); outfit = w < .5 ? SC[c0.si].outfit : SC[c1.si].outfit;
           prog = c0.d; camC = blendCam(cm0, cm1, smooth(.2, .9, tt));
         } else {
           const d = lerp(c0.d, c1.d, smooth(.1, .9, tt)), ra = routeAt(d); prog = d;
@@ -922,6 +921,37 @@ function initWorld() {
   return { state };
 }
 
+
+/* ---------- subtle mini-map: where in the journey are we ---------- */
+const miniMap = (() => {
+  if (!document.querySelector('.chapters') || !window.d3 || !window.topojson) return null;
+  const box = document.createElement('figure'); box.className = 'minimap'; box.setAttribute('aria-hidden', 'true');
+  box.innerHTML = '<svg viewBox="0 0 240 200"></svg><figcaption class="mono"><b></b><span></span></figcaption>'; document.body.appendChild(box);
+  const svg = box.querySelector('svg'), cap = box.querySelector('b'), sub = box.querySelector('figcaption span');
+  const LL = { br: [-49.4, -28.2], ca: [-114.07, 51.05], bog: [-74.07, 4.71], mon: [-80.75, -1.83], chi: [-79.44, -7.7], hua: [-76.9, -10.27], lim: [-77.04, -12.05], cus: [-71.97, -13.53], mac: [-72.54, -13.16], lpz: [-68.15, -16.5], uyu: [-66.83, -20.13], ata: [-68.2, -22.91], san: [-70.65, -33.45], bai: [-58.38, -34.6], rio: [-43.17, -22.9], flo: [-48.55, -27.6], fr: [5.2, 45.4] };
+  const ROUTE = ['br', 'ca', 'bog', 'mon', 'chi', 'hua', 'lim', 'cus', 'mac', 'lpz', 'uyu', 'ata', 'san', 'bai', 'rio', 'flo', 'fr'];
+  const AT = { 1: 0, 2: 0, 3: 1, 4: 1, 5: 1, 6: 4, 7: 5, 8: 8, 9: 16 };
+  const NAME = { 1: ['Brasil', 'Born and raised'], 2: ['Brasil', 'Born and raised'], 3: ['Calgary', 'Canada · 13 years'], 4: ['Rockies', 'Canada · winter'], 5: ['Calgary', 'Canada · training'], 6: ['Chicama', 'Peru'], 7: ['Huayhuash', 'Peru'], 8: ['Machu Picchu', 'Peru'], 9: ['France', 'Now'] };
+  const proj = d3.geoNaturalEarth1().rotate([55, 0]).fitExtent([[6, 6], [234, 194]], { type: 'MultiPoint', coordinates: [[-122, 56], [12, 56], [-122, -40], [12, -40]] });
+  const line = d3.line().curve(d3.curveCatmullRom.alpha(.6));
+  const pts = ROUTE.map(k => proj(LL[k]));
+  let done = null, dot = null, cur = -1;
+  fetch('assets/data/countries-110m.json').then(r => r.json()).then(t => {
+    const path = d3.geoPath(proj);
+    svg.innerHTML = `<path class="mm-land" d="${path(topojson.feature(t, t.objects.countries))}"/>
+      <path class="mm-all" d="${line(pts)}"/><path class="mm-done" d=""/>
+      ${pts.map(p => `<circle class="mm-stop" cx="${p[0]}" cy="${p[1]}" r="1.6"/>`).join('')}<circle class="mm-dot" r="4"/>`;
+    done = svg.querySelector('.mm-done'); dot = svg.querySelector('.mm-dot'); const k = cur; cur = -1; set(k);
+  });
+  function set(step) {
+    if (step === cur) return; cur = step; if (!NAME[step]) return;
+    cap.textContent = NAME[step][0]; sub.textContent = NAME[step][1];
+    if (!done) return; const i = AT[step];
+    done.setAttribute('d', i > 0 ? line(pts.slice(0, i + 1)) : ''); dot.setAttribute('cx', pts[i][0]); dot.setAttribute('cy', pts[i][1]);
+  }
+  return { el: box, set };
+})();
+
 /* ---------- scroll → world ---------- */
 function onScroll() {
   const vh = innerHeight;
@@ -934,6 +964,7 @@ function onScroll() {
     for (const el of chapterEls) { const r = el.getBoundingClientRect(), s = +el.dataset.step; if (anchor >= r.top) { p = s + clamp((anchor - r.top) / r.height); active = s; } }
     p = clamp(p, 1, 9.0);
   }
+  if (miniMap) { miniMap.el.classList.toggle('on', inRoute); miniMap.set(active); }
   if (legsEl) { legsEl.classList.toggle('on', inRoute);
     [...legsEl.children].forEach((li, i) => { const k = +li.dataset.k, next = LEGS[i + 1] ? LEGS[i + 1][1] : 99; li.classList.toggle('on', active >= k && active < next); li.classList.toggle('done', active >= next); }); }
   if (!inHero && tapnote) tapnote.classList.remove('on');

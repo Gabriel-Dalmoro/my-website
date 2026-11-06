@@ -528,3 +528,18 @@ footer { background: var(--paper-2); padding-block: 64px 30px; }
 .rot-langs b.on { color: var(--ink); border-color: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .rot span { transition: none; } }
 @media (min-width: 761px) { .hero h1.name { font-size: min(calc(clamp(74px, 10.6vw, 168px) * var(--name-scale)), 8.4vw); } }
+
+/* round 6: subtle mini-map */
+.minimap { position: fixed; z-index: 14; right: max(20px, env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); width: 240px; margin: 0; padding: 10px 12px 10px;
+  background: color-mix(in srgb, var(--sheet) 88%, transparent); border: 1px solid var(--rule); opacity: 0; transform: translateY(8px); transition: opacity .5s, transform .5s; pointer-events: none; }
+.minimap.on { opacity: 1; transform: none; }
+.minimap svg { display: block; width: 100%; height: auto; }
+.minimap .mm-land { fill: var(--paper-3); stroke: color-mix(in srgb, var(--ink) 25%, transparent); stroke-width: .4; }
+.minimap .mm-all { fill: none; stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; opacity: .7; }
+.minimap .mm-done { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+.minimap .mm-stop { fill: var(--ink-3); }
+.minimap .mm-dot { fill: var(--accent); stroke: var(--sheet); stroke-width: 1.5; transition: cx .6s ease, cy .6s ease; }
+.minimap figcaption { display: flex; justify-content: space-between; gap: 8px; margin-top: 6px; color: var(--ink-3); }
+.minimap figcaption b { color: var(--ink); font-weight: 500; }
+.legs { display: none !important; }
+@media (max-width: 760px) { .minimap { width: auto; top: calc(74px + env(safe-area-inset-top, 0px)); bottom: auto; right: max(12px, env(safe-area-inset-right, 0px)); padding: 6px 10px; } .minimap svg, .minimap figcaption span { display: none; } .minimap figcaption { margin: 0; } }
