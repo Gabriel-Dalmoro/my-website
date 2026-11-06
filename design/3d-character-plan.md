@@ -7,7 +7,7 @@ every scene, made by AI, with no 3D skills and no hired artist.
 
 | Step | Who | Tool | Time |
 |---|---|---|---|
-| 1. Character design sheet | Gabriel | ChatGPT image generation (paste the prompt below + 3–4 photos) | ~10 min |
+| 1. Character design sheet | Gabriel | Gemini image generation, Nano Banana (paste the prompt below + 3–4 photos) | ~10 min |
 | 2. Image → rigged 3D model | Gabriel | **Tripo** (first choice) or **Meshy** | ~10 min |
 | 3. Animation clips | Gabriel | **Mixamo** (free, Adobe ID) | ~10 min |
 | 4. Clean-up, style, retarget, bake, compress | Claude | Blender 5.2 running headless in this environment (`bpy`), gltf-transform | — |
@@ -38,7 +38,11 @@ Keep the code-built contour dioramas. They are light, match the paper/map style,
 with the Design lab palette. AI-generated scenes would be heavy and clash. Props (surfboard,
 guitar, tent, llama, desk) can be AI-generated in Tripo/Meshy later and restyled by Claude.
 
-## Step 1: prompt for ChatGPT
+## Step 1: prompt for Gemini (Nano Banana)
+
+Gemini is the pick: Gabriel has a paid plan, and Nano Banana is built for keeping the same
+person consistent across images from reference photos. Crop off the small visible Gemini
+watermark (corner sparkle) before uploading anywhere. If the face drifts, refine in the same chat.
 
 Attach 3–4 clear photos (face front, face three-quarter, full body). Then paste:
 
