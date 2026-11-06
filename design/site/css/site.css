@@ -514,3 +514,17 @@ footer { background: var(--paper-2); padding-block: 64px 30px; }
 .foot-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; }
 .foot-nav a { text-decoration: none; font: 400 22px/1.2 var(--f-display); }
 .foot-nav a:hover { color: var(--accent); }
+
+/* round 5: simpler hero, rotating footer quote */
+.hero .wrap { grid-template-rows: 1fr; }
+.hero-text { gap: 30px; }
+.sitenote { font: italic 400 clamp(18px, 1.6vw, 21px)/1.5 var(--f-text); color: var(--ink-2); max-width: 52ch; border-left: 2px solid var(--accent); padding-left: 16px; }
+.bless { gap: 14px; }
+.rot { margin: 0; display: grid; justify-items: center; text-align: center; min-height: 1.2em; font: 400 clamp(30px, 4vw, 56px)/1.15 var(--f-hand); color: var(--ink); }
+.rot span { grid-area: 1 / 1; opacity: 0; transform: translateY(10px); transition: opacity .7s ease, transform .7s ease; }
+.rot span.on { opacity: 1; transform: none; }
+.rot-langs { display: flex; gap: 12px; color: var(--ink-3); }
+.rot-langs b { font-weight: 500; padding-bottom: 3px; border-bottom: 1.5px solid transparent; transition: color .4s, border-color .4s; }
+.rot-langs b.on { color: var(--ink); border-color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .rot span { transition: none; } }
+@media (min-width: 761px) { .hero h1.name { font-size: min(calc(clamp(74px, 10.6vw, 168px) * var(--name-scale)), 8.4vw); } }

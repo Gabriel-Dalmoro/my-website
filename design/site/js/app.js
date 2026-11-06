@@ -55,17 +55,16 @@ const PALETTES = [
 ];
 const PAPERS = [{ id: 'contours', name: 'Contours' }, { id: 'ruled', name: 'Ruled' }, { id: 'grid', name: 'Grid' }, { id: 'plain', name: 'Plain' }];
 const PRESETS = [
-  ['Field Notes', 'fieldnotes', 'topo', 'contours'], ["Explorer's Journal", 'atlas', 'kraft', 'ruled'], ['Alpine Luxe', 'didone', 'alpine', 'plain'],
-  ['Trailhead', 'trail', 'forest', 'contours'], ['Modern Explorer', 'modern', 'journal', 'grid'], ['Night Chart', 'fieldnotes', 'night', 'contours'], ['Resort Poster', 'poster', 'alpine', 'grid']
+  ['Trailhead', 'trail', 'forest', 'contours'], ['Field Notes', 'fieldnotes', 'topo', 'contours'], ["Explorer's Journal", 'atlas', 'kraft', 'ruled'], ['Alpine Luxe', 'didone', 'alpine', 'plain'], ['Modern Explorer', 'modern', 'journal', 'grid'], ['Night Chart', 'fieldnotes', 'night', 'contours'], ['Resort Poster', 'poster', 'alpine', 'grid']
 ];
-const design = { type: 'fieldnotes', palette: 'topo', paper: 'contours' };
-try { const saved = JSON.parse(store.get('gd-design') || 'null'); if (saved) Object.assign(design, saved); } catch (e) {}
+const design = { type: 'trail', palette: 'forest', paper: 'contours' };
+try { const saved = JSON.parse(store.get('gd-design-v2') || 'null'); if (saved) Object.assign(design, saved); } catch (e) {}
 const themeListeners = [];
 function applyDesign(save = true) {
   const r = document.documentElement;
   r.dataset.type = design.type; r.dataset.palette = design.palette; r.dataset.paper = design.paper;
   const t = TYPES.find(x => x.id === design.type); t.fonts.forEach(loadFont);
-  if (save) store.set('gd-design', JSON.stringify(design));
+  if (save) store.set('gd-design-v2', JSON.stringify(design));
   renderLab();
   const done = () => themeListeners.forEach(f => f());
   done(); if (document.fonts) document.fonts.ready.then(() => setTimeout(done, 60));
@@ -144,6 +143,11 @@ addEventListener('resize', debounce(drawPaper, 200));
 
 /* ---------- small page behaviours ---------- */
 const bar = document.getElementById('bar');
+(function rotateQuote() {
+  const q = document.querySelectorAll('#bless .rot span'), tags = document.querySelectorAll('#bless .rot-langs b');
+  if (!q.length || reduce) return; let i = 0;
+  setInterval(() => { q[i].classList.remove('on'); tags[i].classList.remove('on'); i = (i + 1) % q.length; q[i].classList.add('on'); tags[i].classList.add('on'); }, 4200);
+})();
 const menuBtn = document.getElementById('menuBtn'), mnav = document.getElementById('mnav');
 if (menuBtn && mnav) menuBtn.addEventListener('click', () => { const open = mnav.hidden; mnav.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.textContent = open ? 'Close' : 'Menu'; });
 addEventListener('scroll', () => bar.classList.toggle('scrolled', scrollY > 10), { passive: true });
@@ -820,7 +824,7 @@ function initWorld() {
     bubble.style.left = bx + 'px'; bubble.style.top = by + 'px'; bubble.classList.toggle('on', t < bubbleUntil && state.on);
     const showTap = state.on && state.inHero && !tapped && intro > .99;
     tapnote.classList.toggle('on', showTap);
-    if (showTap) { tapnote.style.left = Math.max(12, bx - (phoneLayout ? 20 : 70) - tapnote.offsetWidth) + 'px'; tapnote.style.top = (by + (phoneLayout ? 30 : 70)) + 'px'; }
+    if (showTap) { tapnote.style.left = Math.min(innerWidth - tapnote.offsetWidth - 12, Math.max(12, bx - (phoneLayout ? 20 : 70) - tapnote.offsetWidth)) + 'px'; tapnote.style.top = (by + (phoneLayout ? 30 : 70)) + 'px'; }
   }
   requestAnimationFrame(frame);
   theme3D();
