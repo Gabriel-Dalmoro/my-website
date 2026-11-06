@@ -572,6 +572,36 @@ function initWorld() {
   const pm = c => new THREE.MeshToonMaterial({ color: c, gradientMap: grad });
   const MT = { torso: pm('#e6dcc6'), uarm: pm('#e6dcc6'), larm: pm(SKIN), thigh: pm('#2a3540'), shin: pm('#2a3540') };
   const fig = new THREE.Group(); fig.rotation.order = 'YXZ'; scene.add(fig);
+  /* real character (AI-made, Mixamo-rigged); the primitive figure stays as fallback */
+  const CLIP = { type: 'Typing', sitwave: 'Sitting_Idle', strum: 'Guitar_Playing', summit: 'Looking_Around', sweep: 'Waving', ride: 'Skateboarding',
+    swing: 'Jumping', surf: 'Skateboarding', hips: 'Idle', wave: 'Waving', fly: 'Jumping', ride_plane: 'Sitting_Idle', walk: 'Walking_1' };
+  const real = { model: null, mixer: null, actions: {}, cur: null };
+  if (THREE.GLTFLoader) {
+    const ld = new THREE.GLTFLoader(); if (window.MeshoptDecoder) ld.setMeshoptDecoder(MeshoptDecoder);
+    ld.load('assets/models/gabriel.glb', g => {
+      const m = new THREE.Group(); m.add(g.scene);
+      m.traverse(o => { if (o.isMesh) { o.frustumCulled = false; if (o.material && o.material.map) { const mp = o.material.map; mp.encoding = THREE.sRGBEncoding; o.material = new THREE.MeshToonMaterial({ map: mp, gradientMap: grad, color: 0xffffff }); } pickables.push(o); } });
+      real.mixer = new THREE.AnimationMixer(m);
+      g.animations.forEach(c => {
+        // keep him on the spot: drop horizontal root travel, the page moves him instead
+        c.tracks.forEach(tr => { if (/Hips\.position$/.test(tr.name)) { const v = tr.values, x0 = v[0], z0 = v[2]; for (let i = 0; i < v.length; i += 3) { v[i] = x0; v[i + 2] = z0; } } });
+        const a = real.mixer.clipAction(c); a.enabled = true; real.actions[c.name] = a;
+      });
+      // measure from the skeleton (skinned bounds are unreliable): head-top to toes
+      const idle = real.actions.Idle; if (idle) { idle.play(); real.mixer.update(0); real.cur = idle; }
+      m.updateMatrixWorld(true);
+      const bone = n => { let b = null; g.scene.traverse(o => { if (!b && o.isBone && o.name.replace(/[^A-Za-z]/g, '').toLowerCase().endsWith(n)) b = o; }); return b; };
+      const top = bone('headtopend'), toe = bone('lefttoeend') || bone('leftfoot');
+      if (top && toe) { const a2 = top.getWorldPosition(new THREE.Vector3()), b2 = toe.getWorldPosition(new THREE.Vector3());
+        const h = a2.distanceTo(b2) || 1, k = 1.42 / h; m.scale.setScalar(k); m.updateMatrixWorld(true);
+        const f = toe.getWorldPosition(new THREE.Vector3()); m.position.y = -f.y + .02; window.__gd = { h, a2, b2 }; }
+      fig.add(m); real.model = m; body.visible = false;
+    }, undefined, e => console.warn('character', e));
+  }
+  function playClip(key) {
+    if (!real.mixer) return; const n = CLIP[key] || 'Idle', a = real.actions[n]; if (!a || real.cur === a) return;
+    a.reset().setEffectiveWeight(1).fadeIn(.35).play(); if (real.cur) real.cur.fadeOut(.35); real.cur = a;
+  }
   const body = new THREE.Group(); body.scale.setScalar(.75); fig.add(body);
   const hips = new THREE.Group(); body.add(hips);
   const torso = new THREE.Group(); hips.add(torso);
@@ -662,8 +692,8 @@ function initWorld() {
     walk: (t, ph) => { const s = Math.sin(ph), c = Math.cos(ph);
       return { lHx: s * .6, rHx: -s * .6, lKx: Math.max(0, -s) * .9 + .1, rKx: Math.max(0, s) * .9 + .1, lSx: -s * .55, rSx: s * .55, lEx: -.35, rEx: -.35, lSz: .12, rSz: -.12, lift: -Math.abs(c) * .05, torsoX: .08, torsoY: s * .08 }; }
   };
-  const pose = (k, t, ph) => Object.assign({}, BASE, POSES[k](t, ph));
-  const mixP = (a, b, w) => { const o = {}; for (const k in BASE) o[k] = a[k] + (b[k] - a[k]) * w; return o; };
+  const pose = (k, t, ph) => Object.assign({ __k: k }, BASE, POSES[k](t, ph));
+  const mixP = (a, b, w) => { const o = { __k: w > .5 ? b.__k : a.__k }; for (const k in BASE) o[k] = a[k] + (b[k] - a[k]) * w; return o; };
   function applyPose(p, extraHeadY, blink) {
     hips.position.y = .95 + p.lift; torso.rotation.set(p.torsoX, p.torsoY, 0); headG.rotation.set(p.headX, p.headY + extraHeadY, 0);
     lS.rotation.set(p.lSx, 0, p.lSz); rS.rotation.set(p.rSx, 0, p.rSz); lE.rotation.x = p.lEx; rE.rotation.x = p.rEx;
@@ -806,6 +836,7 @@ function initWorld() {
     if (t > blinkAt + .13) blinkAt = t + 2 + Math.random() * 3;
     pmx += (mx - pmx) * .05; pmy += (my - pmy) * .05;
     applyPose(P0, pmx * .6, t > blinkAt && t < blinkAt + .13);
+    if (real.model) { playClip(t < waveUntil ? (P0.lift < -.3 ? 'sitwave' : 'wave') : P0.__k); real.mixer.update(dt); real.model.rotation.set(-fig.rotation.x, 0, -fig.rotation.z); }
     if (boards.surf) { boards.surf.rotation.z = Math.sin(t * 1.3) * .08; }
     // camera
     const hold = Object.assign({}, camC); hold.az += pmx * .18; hold.el += pmy * .05;

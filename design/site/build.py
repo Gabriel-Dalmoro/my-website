@@ -12,7 +12,9 @@ ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / 'src'
 FONTS = ('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600'
          '&family=Hanken+Grotesk:wght@400;500;600&family=Martian+Mono:wdth,wght@75..100,400..500&display=swap')
-LIBS = ('<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>\n'
+LIBS = ('<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>\n'
+        '<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/GLTFLoader.js"></script>\n'
+        '<script src="https://cdn.jsdelivr.net/npm/meshoptimizer@0.18.1/meshopt_decoder.js"></script>\n'
         '<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>\n'
         '<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>\n')
 
