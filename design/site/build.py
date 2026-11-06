@@ -14,7 +14,6 @@ FONTS = ('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6
          '&family=Hanken+Grotesk:wght@400;500;600&family=Martian+Mono:wdth,wght@75..100,400..500&display=swap')
 LIBS = ('<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>\n'
         '<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/GLTFLoader.js"></script>\n'
-        '<script src="https://cdn.jsdelivr.net/npm/meshoptimizer@0.18.1/meshopt_decoder.js"></script>\n'
         '<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>\n'
         '<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>\n')
 
@@ -59,7 +58,7 @@ def page(src):
                frag('_header.html') + '\n<main id="top">\n' + body + '\n</main>\n' + frag('_footer.html') +
                '\n<button class="lab-btn" id="labBtn" type="button" aria-expanded="false" aria-controls="lab"><b>A</b>Design lab</button>\n'
                '<div class="lab" id="lab" hidden role="dialog" aria-label="Design lab"></div>\n' +
-               (LIBS if world else '') + '<script src="js/app.js"></script>\n')
+               (LIBS if world else '') + '<script src="js/app.js?v=6"></script>\n')
     content = expand(content)
     full = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'

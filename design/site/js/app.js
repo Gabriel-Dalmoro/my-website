@@ -602,7 +602,7 @@ function initWorld() {
     if (!real.mixer) return; const n = CLIP[key] || 'Idle', a = real.actions[n]; if (!a || real.cur === a) return;
     a.reset().setEffectiveWeight(1).fadeIn(.35).play(); if (real.cur) real.cur.fadeOut(.35); real.cur = a;
   }
-  const body = new THREE.Group(); body.scale.setScalar(.75); fig.add(body);
+  const body = new THREE.Group(); body.scale.setScalar(.75); body.visible = false; fig.add(body);
   const hips = new THREE.Group(); body.add(hips);
   const torso = new THREE.Group(); hips.add(torso);
   mk(cap(.2, .34), MT.torso, 0, .34, 0, torso, OL, 1);
