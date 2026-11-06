@@ -578,7 +578,7 @@ function initWorld() {
   const real = { model: null, mixer: null, actions: {}, cur: null };
   if (THREE.GLTFLoader) {
     const ld = new THREE.GLTFLoader(); if (window.MeshoptDecoder) ld.setMeshoptDecoder(MeshoptDecoder);
-    ld.load('assets/models/gabriel.glb', g => {
+    ld.load('assets/models/gabriel.gltf.json', g => {
       const m = new THREE.Group(); m.add(g.scene);
       m.traverse(o => { if (o.isMesh) { o.frustumCulled = false; if (o.material && o.material.map) { const mp = o.material.map; mp.encoding = THREE.sRGBEncoding; o.material = new THREE.MeshToonMaterial({ map: mp, gradientMap: grad, color: 0xffffff }); } pickables.push(o); } });
       real.mixer = new THREE.AnimationMixer(m);
