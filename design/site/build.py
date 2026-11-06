@@ -70,6 +70,30 @@ def page(src):
     return name
 
 
+def export_preview(dest):
+    """Full static copy for the Vercel preview: every page with a document skeleton, plus assets.
+    Served from public/preview/ so it lives beside (not instead of) the live site."""
+    import shutil
+    dest = pathlib.Path(dest)
+    if dest.exists():
+        shutil.rmtree(dest)
+    dest.mkdir(parents=True)
+    for p in sorted((SRC / 'pages').glob('*.html')):
+        page(p)
+        name = p.name
+        html = (ROOT / ('_local-index.html' if name == 'index.html' else name)).read_text()
+        html = html.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta name="robots" content="noindex, nofollow">', 1)
+        (dest / name).write_text(html)
+    for d in ('css', 'js', 'fonts'):
+        shutil.copytree(ROOT / d, dest / d)
+    shutil.copytree(ROOT / 'assets', dest / 'assets', ignore=shutil.ignore_patterns('*.gltf.json'))
+    print('preview exported to', dest)
+
+
 if __name__ == '__main__':
+    import sys
     for p in sorted((SRC / 'pages').glob('*.html')):
         print('built', page(p))
+    if len(sys.argv) > 1 and sys.argv[1] == 'preview':
+        export_preview(ROOT.parent.parent / 'public' / 'preview')
+
