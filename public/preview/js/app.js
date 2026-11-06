@@ -430,6 +430,7 @@ function initWorld() {
   const flat = (x, z, seed) => { const nz = seed ? fbm2 : fbm;
     let h = .075 + .34 * Math.max(0, nz(x * .32 + 1, z * .32 + 2) - .42) + .36 * g2(x, z, -1.8, -1.5, 2.2) + .2 * g2(x, z, 2.1, -1.3, 1.3);
     h -= .065 * g2(x, z, 1.7, 1.4, .55); const k = smooth(.9, 1.7, Math.hypot(x, z - .3)); return .08 * (1 - k) + h * k; };
+  const BOARD_YAW = +(new URLSearchParams(location.search).get('by') || 0) * Math.PI / 2;
   const surfZ = x => -.45 + .55 * Math.sin(x * .45);
   const SC = [
     { key: 'desk', h: (x, z) => { const r = Math.hypot(x, z), a = Math.atan2(z, x), ring = smooth(1.9, 3.0, r) * smooth(.35, -1.2, z / R);
@@ -445,7 +446,7 @@ function initWorld() {
     { key: 'train', h: (x, z) => flat(x, z, 1),
       water: '#c4d6e3', stops: [[0, '#e3e3d6'], [.5, '#d2d0bc'], [1, '#c4bfa6']], fig: [0, .55], yaw: .85, pose: 'swing', outfit: 'train', cam: [.85, .45, 27] },
     { key: 'surf', rim: .03, h: (x, z) => { const d = z - surfZ(x), prof = d > 0 ? Math.exp(-d * d / .08) : Math.exp(-d * d / .55);
-        return .03 + .72 * prof * smooth(-4.3, 1.9, x) * (1 + .1 * fbm(x * 1.4, z)) + .03 * fbm(x * 1.6, z * 1.6 + 5); },
+        return .03 + .85 * prof * smooth(-4.3, 1.9, x) * (1 + .1 * fbm(x * 1.4, z)) + .03 * fbm(x * 1.6, z * 1.6 + 5); },
       water: '#2f8e9b', stops: [[0, '#4aa8b0'], [.25, '#66bdbe'], [.5, '#a6ddd6'], [.66, '#e7f6f2'], [1, '#ffffff']], fig: [.55, surfZ(.55) + .36], yaw: 0, pose: 'surf', outfit: 'surf', cam: [.12, .34, 27] },
     { key: 'andes', h: (x, z) => { let h = .08 + .05 * fbm(x, z);
         [[-1.3, -1.4, .92, 1.1], [.7, -1.9, .8, .9], [1.9, -.5, .66, .8], [-2.2, .3, .55, .7]].forEach(([cx, cz, a, s]) => { h = Math.max(h, a * g2(x, z, cx, cz, s) * (.85 + .3 * fbm(x * 2, z * 2))); });
@@ -535,17 +536,56 @@ function initWorld() {
     for (let k = 0; k < 6; k++) { const lf = mk(new THREE.ConeGeometry(.08 * s, .62 * s, 4), '#4f8f4a', x, y, 0, g, OLs); lf.scale.z = .25; lf.rotation.set(0, k * Math.PI / 3, Math.PI / 2 + .45); lf.position.set(x + Math.cos(k * Math.PI / 3) * .26 * s, y - .06 * s, -Math.sin(k * Math.PI / 3) * .26 * s); lf.lookAt(x + Math.cos(k * Math.PI / 3) * 2, y - .9, -Math.sin(k * Math.PI / 3) * 2); lf.rotateX(Math.PI / 2); }
     return g; };
   const boards = {};
+
+  function boardShape(len, wid, nose) { const s = new THREE.Shape(), hl = len / 2, hw = wid / 2, r = hw;
+    if (nose) { s.moveTo(-hl + r, -hw); s.lineTo(hl * .55, -hw); s.quadraticCurveTo(hl, -hw * .6, hl, 0); s.quadraticCurveTo(hl, hw * .6, hl * .55, hw); s.lineTo(-hl + r, hw); s.absarc(-hl + r, 0, hw, Math.PI / 2, Math.PI * 1.5, false); }
+    else { s.moveTo(-hl + r, -hw); s.lineTo(hl - r, -hw); s.absarc(hl - r, 0, hw, -Math.PI / 2, Math.PI / 2, false); s.lineTo(-hl + r, hw); s.absarc(-hl + r, 0, hw, Math.PI / 2, Math.PI * 1.5, false); }
+    const g = new THREE.ExtrudeGeometry(s, { depth: .03, bevelEnabled: true, bevelThickness: .008, bevelSize: .008, bevelSegments: 2, curveSegments: 16 }); g.rotateX(-Math.PI / 2); return g; }
+  function snowboard() { const b = new THREE.Group();
+    mk(boardShape(1.25, .3, false), '#1f3a5f', 0, 0, 0, b, OLs);
+    const top = mk(boardShape(1.05, .2, false), '#f2c230', 0, .022, 0, b, null); top.scale.y = .2;
+    [-.27, .27].forEach(x => { mk(new THREE.BoxGeometry(.13, .05, .22), '#16181b', x, .06, 0, b, OLs); mk(new THREE.BoxGeometry(.03, .12, .2), '#16181b', x - .06, .1, 0, b, null); });
+    return b; }
+  function surfboard() { const b = new THREE.Group();
+    mk(boardShape(1.55, .42, true), '#fbfaf5', 0, 0, 0, b, OLs);
+    mk(new THREE.BoxGeometry(1.3, .012, .025), '#d4532f', -.05, .042, 0, b, null);
+    const fin = mk(new THREE.ConeGeometry(.05, .14, 3), '#d4532f', -.62, -.05, 0, b, null); fin.rotation.x = Math.PI;
+    return b; }
+  function waveLip(si) {
+    // the curl: a crescent cross-section swept along the crest, biggest in the middle, peeling off at the ends
+    const g = new THREE.BufferGeometry(), pos = [], col = [], idx = [], NX = 48, NA = 18;
+    const teal = new THREE.Color('#5fb9bb'), foam = new THREE.Color('#ffffff');
+    for (let i = 0; i <= NX; i++) {
+      const x = -3.2 + i / NX * 4.9, z0 = surfZ(x), amp = Math.sin(Math.PI * i / NX) * smooth(0, .25, i / NX);
+      const R = .12 + .42 * amp, th = .06 + .1 * amp, cy = BASE_T + FH(si, x, z0) * LEVELS * STEP - R * .55, cz = z0 + .05;
+      for (let o = 0; o < 2; o++) for (let a = 0; a <= NA; a++) {
+        const phi = a / NA * Math.PI * 1.15 * (.35 + .65 * amp), rr = o ? R - th : R;
+        pos.push(x, cy + rr * Math.cos(phi), cz + rr * Math.sin(phi));
+        const c = teal.clone().lerp(foam, smooth(.4, 1, a / NA) * .9 + (o ? 0 : .05)); col.push(c.r, c.g, c.b);
+      }
+    }
+    const ring = 2 * (NA + 1);
+    for (let i = 0; i < NX; i++) for (let o = 0; o < 2; o++) for (let a = 0; a < NA; a++) {
+      const A = i * ring + o * (NA + 1) + a, B = A + ring; idx.push(A, B, A + 1, B, B + 1, A + 1); }
+    for (let i = 0; i < NX; i++) { const A = i * ring + NA, B = A + ring, C = A + NA + 1, D = B + NA + 1; idx.push(A, B, C, B, D, C); }
+    g.setIndex(idx); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); g.computeVertexNormals();
+    const m = new THREE.Mesh(g, new THREE.MeshToonMaterial({ vertexColors: true, gradientMap: grad, side: THREE.DoubleSide }));
+    m.add(new THREE.Mesh(g, OLs)); return m;
+  }
+  function foamPile(n, seed) { const g = new THREE.Group(); let s0 = seed;
+    const r = () => ((s0 = (s0 * 16807) % 2147483647) / 2147483647);
+    for (let i = 0; i < n; i++) { const d = mk(new THREE.DodecahedronGeometry(.08 + r() * .12), '#ffffff', (r() - .5) * 1.2, r() * .1, (r() - .5) * .4, g, OLs); d.scale.y = .6; }
+    return g; }
   function buildProps(si, P0) {
     const sc = SC[si], [fx, fz] = sc.fig;
     if (sc.key === 'desk') place(si, deskSet(), P0, fx, fz, sc.yaw);
     if (sc.key === 'brazil') {
-      { const g = new THREE.Group(); mk(new THREE.CylinderGeometry(.17, .19, .34, 12), '#7a5638', 0, .17, -.02, g, OLs); place(si, g, P0, fx, fz, sc.yaw); }
       [[-1.1, -.7, 1.1, .9], [.5, -1.3, .9, -.7], [-1.9, .2, 1, .5], [-.4, -1.9, .8, .3]].forEach(([x, z, s, l]) => place(si, palm(s, l), P0, x, z, x * 2));
       { const g = new THREE.Group(); const b = mk(new THREE.SphereGeometry(1, 16, 8), '#f7e7c4', 0, .4, 0, g, OLs); b.scale.set(.13, .42, .03); place(si, g, P0, .45, -.75, .4); }
     }
     if (sc.key === 'summit') { const g = new THREE.Group(); [.15, .12, .09, .06].reduce((y, r) => { mk(new THREE.DodecahedronGeometry(r), '#9a9c95', 0, y + r, 0, g, OLs); return y + r * 1.6; }, 0); place(si, g, P0, 1.15, -.35); }
     if (sc.key === 'snow') {
-      const b = new THREE.Group(); mk(new THREE.BoxGeometry(.95, .03, .22), '#e9e4d6', 0, .02, 0, b, OLs); mk(new THREE.BoxGeometry(.6, .032, .1), '#d4532f', 0, .021, 0, b, null); place(si, b, P0, fx, fz, sc.yaw); boards.snow = b;
+      const b = snowboard(); place(si, b, P0, fx, fz, sc.yaw + BOARD_YAW); b.position.y += .02; boards.snow = b;
       [[-1.8, -.6, 1], [-1.2, 1.4, .8], [1.8, -.2, 1.1], [2.2, 1.2, .8], [-.6, -1.9, .9], [1.1, -1.6, .8], [-2.4, .9, .7]].forEach(([x, z, s]) => place(si, tree(s), P0, x, z));
     }
     if (sc.key === 'train') {
@@ -555,7 +595,8 @@ function initWorld() {
       place(si, city, P0, 0, -2.1);
       [[-2.2, 1.2, .8], [2.3, .9, .7]].forEach(([x, z, s]) => place(si, tree(s), P0, x, z));
     }
-    if (sc.key === 'surf') { const b = new THREE.Group(); const m = mk(new THREE.SphereGeometry(1, 20, 10), '#fbfaf5', 0, 0, 0, b, OLs); m.scale.set(.6, .03, .16); mk(new THREE.BoxGeometry(1.0, .012, .03), '#d4532f', 0, .03, 0, b, null); place(si, b, P0, fx, fz, 0); b.position.y += .05; boards.surf = b; }
+    if (sc.key === 'surf') { const b = surfboard(); place(si, b, P0, fx, fz, sc.yaw + BOARD_YAW); b.position.y += .05; boards.surf = b; P0.add(waveLip(si));
+      [[-2.6, .5, 11], [-1.9, .8, 7], [1.5, .35, 5]].forEach(([x, dz, sd]) => { const f = foamPile(9, sd); f.position.set(x, topY(si, x, surfZ(x) + dz), surfZ(x) + dz); P0.add(f); }); }
     if (sc.key === 'andes') { [[.6, .3, .4, '#e0703a'], [.15, .05, -.3, '#3d7fb8']].forEach(([x, z, yaw, c]) => { const g = new THREE.Group(); const t = mk(new THREE.ConeGeometry(.42, .46, 4), c, 0, .23, 0, g, OLs); t.rotation.y = Math.PI / 4; t.scale.set(1, 1, 1.4); place(si, g, P0, x, z, yaw); }); }
     if (sc.key === 'terraces') {
       [[.1, -.3], [.75, -.55], [-.25, .45], [.95, .25], [-.6, -.5]].forEach(([x, z], i) => { const g = new THREE.Group(); mk(new THREE.BoxGeometry(.32, .2, .26), '#a19d91', 0, .1, 0, g, OLs);
@@ -573,14 +614,14 @@ function initWorld() {
   const MT = { torso: pm('#e6dcc6'), uarm: pm('#e6dcc6'), larm: pm(SKIN), thigh: pm('#2a3540'), shin: pm('#2a3540') };
   const fig = new THREE.Group(); fig.rotation.order = 'YXZ'; scene.add(fig);
   /* real character (AI-made, Mixamo-rigged); the primitive figure stays as fallback */
-  const CLIP = { type: 'Typing', sitwave: 'Sitting_Idle', strum: 'Guitar_Playing', summit: 'Looking_Around', sweep: 'Waving', ride: 'Skateboarding',
-    swing: 'Jumping', surf: 'Skateboarding', hips: 'Idle', wave: 'Waving', fly: 'Jumping', ride_plane: 'Sitting_Idle', walk: 'Walking_1' };
-  const real = { model: null, mixer: null, actions: {}, cur: null };
+  const CLIP = { type: 'Typing', sitwave: 'Sitting_Thumbs_Up', strum: 'Guitar_Playing', summit: 'Looking_Around', sweep: 'Waving', ride: 'Skateboarding',
+    swing: 'Burpee', surf: 'Skateboarding', hips: 'Idle', wave: 'Waving', fly: 'Jumping', ride_plane: 'Sitting_Idle', walk: 'Walking_1' };
+  const real = { model: null, mixer: null, actions: {}, cur: null, bones: {} };
   if (THREE.GLTFLoader) {
     const ld = new THREE.GLTFLoader(); if (window.MeshoptDecoder) ld.setMeshoptDecoder(MeshoptDecoder);
-    ld.load(location.hostname.endsWith('claude.ai') || location.hostname.includes('artifact') ? 'assets/models/gabriel.gltf.json' : 'assets/models/gabriel.glb', g => {
+    ld.load('assets/models/gabriel.glb', g => {
       const m = new THREE.Group(); m.add(g.scene);
-      m.traverse(o => { if (o.isMesh) { o.frustumCulled = false; if (o.material && o.material.map) { const mp = o.material.map; mp.encoding = THREE.sRGBEncoding; o.material = new THREE.MeshToonMaterial({ map: mp, gradientMap: grad, color: 0xffffff }); } pickables.push(o); } });
+      m.traverse(o => { if (o.isMesh) { o.frustumCulled = false; if (o.material && o.material.map) { const mp = o.material.map; mp.encoding = THREE.sRGBEncoding; o.material = new THREE.MeshToonMaterial({ map: mp, gradientMap: grad, color: 0xffffff, side: THREE.DoubleSide }); } pickables.push(o); } });
       real.mixer = new THREE.AnimationMixer(m);
       g.animations.forEach(c => {
         // keep him on the spot: drop horizontal root travel, the page moves him instead
@@ -595,8 +636,27 @@ function initWorld() {
       if (top && toe) { const a2 = top.getWorldPosition(new THREE.Vector3()), b2 = toe.getWorldPosition(new THREE.Vector3());
         const h = a2.distanceTo(b2) || 1, k = 1.42 / h; m.scale.setScalar(k); m.updateMatrixWorld(true);
         const f = toe.getWorldPosition(new THREE.Vector3()); m.position.y = -f.y + .02; window.__gd = { h, a2, b2 }; }
+      real.bones = { lh: bone('lefthand'), rh: bone('righthand'), sp: bone('spine') || bone('hips') };
       fig.add(m); real.model = m; body.visible = false;
     }, undefined, e => console.warn('character', e));
+  }
+
+  const gtr = new THREE.Group(); scene.add(gtr); gtr.visible = false;
+  { const gw = '#c98a4b', gd = '#5a3a22';
+    [[.17, -.12], [.13, .1]].forEach(([r, y]) => { const c = mk(new THREE.CylinderGeometry(r, r, .09, 24), gw, 0, y, 0, gtr, OLs); c.rotation.x = Math.PI / 2; });
+    const hole = mk(new THREE.CylinderGeometry(.045, .045, .095, 16), '#1b120c', 0, .0, .002, gtr, null); hole.rotation.x = Math.PI / 2;
+    mk(new THREE.BoxGeometry(.05, .5, .035), gd, 0, .45, 0, gtr, OLs); mk(new THREE.BoxGeometry(.075, .12, .03), gd, 0, .74, 0, gtr, OLs);
+    mk(new THREE.BoxGeometry(.08, .02, .02), '#1b120c', 0, -.2, .05, gtr, null); }
+  const _a = new THREE.Vector3(), _b = new THREE.Vector3(), _c = new THREE.Vector3(), _y = new THREE.Vector3(), _z = new THREE.Vector3(), _x = new THREE.Vector3(), _m = new THREE.Matrix4();
+  function placeGuitar() {
+    const on = real.model && real.cur === real.actions.Guitar_Playing && real.cur.getEffectiveWeight() > .5 && real.bones.lh && real.bones.rh;
+    gtr.visible = !!on && fig.visible; if (!gtr.visible) return;
+    real.bones.rh.getWorldPosition(_a); real.bones.lh.getWorldPosition(_b); real.bones.sp.getWorldPosition(_c);
+    const s = fig.scale.x, yaw = fig.rotation.y; _z.set(Math.sin(yaw), 0, Math.cos(yaw));
+    // body sits at the strumming hand, pulled toward the belly; neck points at the fretting hand
+    _a.lerp(_c, .25).addScaledVector(_z, .05 * s); _a.y -= .02 * s;
+    _y.copy(_b).sub(_a).normalize(); _z.addScaledVector(_y, -_z.dot(_y)).normalize(); _x.crossVectors(_y, _z);
+    _m.makeBasis(_x, _y, _z); gtr.quaternion.setFromRotationMatrix(_m); gtr.position.copy(_a); gtr.scale.setScalar(s * .92);
   }
   function playClip(key) {
     if (!real.mixer) return; const n = CLIP[key] || 'Idle', a = real.actions[n]; if (!a || real.cur === a) return;
@@ -836,7 +896,7 @@ function initWorld() {
     if (t > blinkAt + .13) blinkAt = t + 2 + Math.random() * 3;
     pmx += (mx - pmx) * .05; pmy += (my - pmy) * .05;
     applyPose(P0, pmx * .6, t > blinkAt && t < blinkAt + .13);
-    if (real.model) { playClip(t < waveUntil ? (P0.lift < -.3 ? 'sitwave' : 'wave') : P0.__k); real.mixer.update(dt); real.model.rotation.set(-fig.rotation.x, 0, -fig.rotation.z); }
+    if (real.model) { playClip(t < waveUntil ? (P0.lift < -.3 ? 'sitwave' : 'wave') : P0.__k); real.mixer.update(dt); real.model.rotation.set(-fig.rotation.x, 0, -fig.rotation.z); fig.updateMatrixWorld(true); placeGuitar(); }
     if (boards.surf) { boards.surf.rotation.z = Math.sin(t * 1.3) * .08; }
     // camera
     const hold = Object.assign({}, camC); hold.az += pmx * .18; hold.el += pmy * .05;
