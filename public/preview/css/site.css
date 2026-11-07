@@ -543,3 +543,5 @@ footer { background: var(--paper-2); padding-block: 64px 30px; }
 .minimap figcaption b { color: var(--ink); font-weight: 500; }
 .legs { display: none !important; }
 @media (max-width: 760px) { .minimap { width: auto; top: calc(74px + env(safe-area-inset-top, 0px)); bottom: auto; right: max(12px, env(safe-area-inset-right, 0px)); padding: 6px 10px; } .minimap svg, .minimap figcaption span { display: none; } .minimap figcaption { margin: 0; } }
+
+@media (max-width: 760px) { .tapnote { display: none !important; } }

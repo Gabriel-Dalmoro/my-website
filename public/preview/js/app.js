@@ -637,6 +637,8 @@ function initWorld() {
         const h = a2.distanceTo(b2) || 1, k = 1.42 / h; m.scale.setScalar(k); m.updateMatrixWorld(true);
         const f = toe.getWorldPosition(new THREE.Vector3()); m.position.y = -f.y + .02; window.__gd = { h, a2, b2 }; }
       real.bones = { lh: bone('lefthand'), rh: bone('righthand'), sp: bone('spine') || bone('hips') };
+      real.baseY = m.position.y; real.floorBones = [];
+      g.scene.traverse(o => { if (o.isBone && /(foot|toe|hand|knee|leg|head|hips|spine|arm)/i.test(o.name)) real.floorBones.push(o); });
       fig.add(m); real.model = m; body.visible = false;
     }, undefined, e => console.warn('character', e));
   }
@@ -780,7 +782,7 @@ function initWorld() {
   function resize() {
     W = innerWidth; Hh = innerHeight; phoneLayout = W < 760;
     renderer.setSize(W, Hh, false); camera.aspect = W / Hh; camera.fov = phoneLayout ? 36 : 30;
-    if (phoneLayout) camera.setViewOffset(W, Hh, 0, Hh * .24, W, Hh); else camera.setViewOffset(W, Hh, -W * (W > 1100 ? .17 : .14), 0, W, Hh);
+    if (phoneLayout) camera.setViewOffset(W, Hh, 0, Hh * .2, W, Hh); else camera.setViewOffset(W, Hh, -W * (W > 1100 ? .17 : .14), 0, W, Hh);
     camera.updateProjectionMatrix();
   }
   resize(); addEventListener('resize', resize);
@@ -895,11 +897,19 @@ function initWorld() {
     if (t > blinkAt + .13) blinkAt = t + 2 + Math.random() * 3;
     pmx += (mx - pmx) * .05; pmy += (my - pmy) * .05;
     applyPose(P0, pmx * .6, t > blinkAt && t < blinkAt + .13);
-    if (real.model) { playClip(t < waveUntil ? (P0.lift < -.3 ? 'sitwave' : 'wave') : P0.__k); real.mixer.update(dt); real.model.rotation.set(-fig.rotation.x, 0, -fig.rotation.z); fig.updateMatrixWorld(true); placeGuitar(); }
+    if (real.model) { playClip(t < waveUntil ? (P0.lift < -.3 ? 'sitwave' : 'wave') : P0.__k); real.mixer.update(dt); real.model.rotation.set(-fig.rotation.x, 0, -fig.rotation.z);
+      // keep every part of him above the floor (burpees, sitting): lift the model if any bone dips under
+      real.model.position.y = real.baseY; fig.updateMatrixWorld(true);
+      let lo = Infinity; for (const b of real.floorBones) { b.getWorldPosition(_a); if (_a.y < lo) lo = _a.y; }
+      const floorY = fig.position.y + .035 * fig.scale.y; if (lo < floorY) { real.model.position.y += (floorY - lo) / fig.scale.y; fig.updateMatrixWorld(true); } placeGuitar(); }
     if (boards.surf) { boards.surf.rotation.z = Math.sin(t * 1.3) * .08; }
     // camera
     const hold = Object.assign({}, camC); hold.az += pmx * .18; hold.el += pmy * .05;
-    if (!route) hold.d *= phoneLayout ? 1.08 : 1; else if (camC.d < 40) hold.d *= phoneLayout ? 1.12 : 1;
+    if (phoneLayout) {
+      // phone: frame little me, not the whole island
+      hold.t = hold.t.clone().lerp(new THREE.Vector3(figPos.x, figPos.y + .75 * figScale, figPos.z), .85);
+      hold.d *= .36; hold.el = Math.max(.18, hold.el - .12);
+    }
     camFrom(hold, desP); desT.copy(hold.t);
     const k2 = state.snap ? 1 : 1 - Math.exp(-dt * 5); camPos.lerp(desP, k2); camT.lerp(desT, k2);
     camera.position.copy(camPos); camera.lookAt(camT);
