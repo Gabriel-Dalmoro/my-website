@@ -87,3 +87,37 @@ Same toy style as the figure. Claude does the cleanup and placement.
 3. Years for each chapter (moved to Canada at what age; full-stack years; when you moved to France).
 4. Any photo from Canada that shows the business / university side (graduation, a team, a stall)?
 5. Are you OK naming the skills directly ("business", "engineering", "adaptability"), or should they be shown only through the story?
+
+---
+
+## v2.1 — "The pieces" concept (Gabriel's idea, agreed direction)
+
+**Opening:** little Gabriel floats in the middle of the page. Around him, a slow, loose orbit of
+everything he's picked up: guitar, laptop, chimarrão, backpack, surfboard, snowboard,
+kettlebell, a diploma, and language/country markers. Headline options:
+"What I'm made of." · "Many pieces. One person." · "Everything it took."
+
+**Scroll:** each chapter pulls its pieces out of the orbit. They fly down and settle onto the
+pedestal (timed ~1 s, not scroll-scrubbed), the language joins the base, and his pose
+changes. The orbit thins out as the pedestal fills up.
+
+**End (Now):** the orbit is empty. Everything sits together in one composed scene around his
+desk: the integrated version. CTA underneath.
+
+**Keeping it professional:**
+- 10–12 objects max, all the same matte toy style. Slow, calm motion (one orbit ≈ 40 s),
+  slight tilt and depth, no spinning chaos.
+- Flags as **enamel pins / small stamps** set into the pedestal rim (matches the passport
+  stamps on About), not waving flags.
+- The text carries the professional message; the 3D only illustrates it.
+- Phones: smaller orbit, fewer pieces, camera close; the same settle-and-collect moments.
+- Reduced motion: no orbit, pieces shown already placed.
+
+**Chapter → pieces that settle:**
+| Chapter | Settles on the pedestal | Language pin | Pose |
+|---|---|---|---|
+| Brasil | guitar, chimarrão | PT | playing guitar |
+| Canada | diploma, laptop, kettlebell | EN | explaining |
+| South America | backpack, surfboard | ES | walking (in place) |
+| Europe / Alps | snowboard | FR, DE (half-filled = learning) | snowboard stance → stands |
+| Now | desk; everything arranges around it | IT (empty = next) | typing → thumbs up |
