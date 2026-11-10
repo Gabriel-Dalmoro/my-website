@@ -228,7 +228,7 @@ if (legsEl) legsEl.addEventListener('click', e => { const li = e.target.closest(
 
 let world = null;
 const GD = document.querySelector('meta[name="gd-page"]'); const WORLD_MODE = (GD && GD.dataset.world) || '';
-try { if (window.THREE && canvas && WORLD_MODE) world = initWorld(); } catch (e) { console.warn('3D disabled', e); }
+try { if (window.THREE && canvas && WORLD_MODE && WORLD_MODE !== 'story') world = initWorld(); } catch (e) { console.warn('3D disabled', e); }
 
 function initWorld() {
   const THREE = window.THREE;

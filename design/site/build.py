@@ -58,7 +58,8 @@ def page(src):
                frag('_header.html') + '\n<main id="top">\n' + body + '\n</main>\n' + frag('_footer.html') +
                '\n<button class="lab-btn" id="labBtn" type="button" aria-expanded="false" aria-controls="lab"><b>A</b>Design lab</button>\n'
                '<div class="lab" id="lab" hidden role="dialog" aria-label="Design lab"></div>\n' +
-               (LIBS if world else '') + '<script src="js/app.js?v=6"></script>\n')
+               (LIBS if world else '') + '<script src="js/app.js?v=7"></script>\n' +
+               ('<script src="js/story.js?v=1"></script>\n' if world == 'story' else ''))
     content = expand(content)
     full = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
